@@ -1,0 +1,32 @@
+.navtop{
+    overflow: hidden; 
+    background-color:blue
+}
+.options{
+    display: table; 
+    border-collapse: separate; 
+    box-sizing: border-box; 
+    text-indent: initial; 
+    border-spacing: 2px; 
+    border-color: grey;
+}
+tbody{
+    display: table-row-group; 
+    vertical-align: middle; 
+    border-color: inherit;
+}
+tr{
+    display: table-row; 
+    vertical-align: inherit; 
+    border-color: inherit;
+}
+th{
+    background: #006ffa; 
+    color: #fff; 
+    padding: 10px;
+}
+th{
+    width: 10%;
+    font-weight: normal;
+    text-align: center;
+}
