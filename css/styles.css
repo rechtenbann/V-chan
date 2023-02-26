@@ -1,6 +1,7 @@
 .navtop{
     overflow: hidden; 
-    background-color:blue
+    background-color:blue;
+    align-self:center;
 }
 .options{
     display: table; 
@@ -29,4 +30,11 @@ th{
     width: 10%;
     font-weight: normal;
     text-align: center;
+}
+.image{
+    align-self:center;
+}
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
 }

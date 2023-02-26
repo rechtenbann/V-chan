@@ -1,5 +1,5 @@
 <div class="footer">
 <h1>
-    About
+    Footer
 </h1>
 </div>

@@ -2,7 +2,7 @@
 require_once "includes/config.php";
 ?>
 <div align="center">
-<h1 style="font-size: 50px;"><b><u>Codex dispono</u></b></h1>
+<h1 style="font-size: 50px;"><b><u>Title here</u></b></h1>
 <br>
 <a href="posts.php"><b>All posts</b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="crear.php">Forum</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="crear.php">Wiki</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="options.php">Settings</a>
 <br>

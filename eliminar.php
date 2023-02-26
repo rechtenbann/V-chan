@@ -10,3 +10,6 @@ if(isset($_GET['id'])){
         header("Location: lista.php");
     }
 }
+$section = "delete";
+$title = "Delete";
+require_once "views/layout.php";
