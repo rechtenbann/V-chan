@@ -38,3 +38,9 @@ th{
     display: flex;
     flex-wrap: wrap;
 }
+.tags{
+    float: left;
+}
+.gallery{
+    float: right;
+}

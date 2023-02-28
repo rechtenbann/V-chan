@@ -7,11 +7,16 @@
         </tr>
         <tr>
             <td>
+                <a href="logout.php">Logout</a>
             </td>
         </tr>
         <tr>
             <td>
-                <a href="#">Signup</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="signup.php">Signup</a>
             </td>
         </tr>
         <tr>

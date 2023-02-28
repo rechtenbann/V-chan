@@ -2,7 +2,8 @@
 require_once "includes/config.php";
 session_start();
 if (isset($_POST['nombre']) && isset($_POST['contra'])) {
-    $sql = "SELECT * FROM usuarios WHERE usu_clave = '" . $_POST['contra'] . "' AND usu_nombre = '" . $_POST['nombre'] . "'";
+    $pass=md5($_POST['contra']);
+    $sql = "SELECT * FROM usuarios WHERE usu_clave = '" . $pass . "' AND usu_nombre = '" . $usr=$_POST['nombre'] . "'";
 
     $query = mysqli_query($link, $sql);
 
@@ -11,9 +12,9 @@ if (isset($_POST['nombre']) && isset($_POST['contra'])) {
     }
     if (mysqli_num_rows($query) == 1) {
         $_SESSION['usuario']['usu_nombre'] = $_POST['nombre'];
-        header("Location: login.php?exito=si");
+        header("Location: settings.php");
     } else {
-        header("Location: login.php?exito=no");
+        header("Location: login.php?li=f");
     }
 }
 $section = "login";

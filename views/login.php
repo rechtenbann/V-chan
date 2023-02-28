@@ -5,14 +5,14 @@
     <br>
     <br>
     <label>Contraseña</label>
-    <input type="text" name="contra" required>
+    <input type="password" name="contra" required>
     <br>
     <br>
     <input type="submit" value="Log in">
 </form>
 <br>
-<?php if(isset($_GET['exito']) && $_GET['exito'] == "si"){ ?>
+<?php if(isset($_GET['li']) && $_GET['li'] == "t"){ ?>
     <p>¡Se ha registrado con exito usuario <?php echo $_SESSION['usuario']['usu_nombre']; ?>!</p>    
-<?php } else if(isset($_GET['exito']) && $_GET['exito'] == "no"){ ?>
+<?php } else if(isset($_GET['li']) && $_GET['li'] == "f"){ ?>
     <p>La contraseña o nombre de usuario es incorrecta</p>    
 <?php } ?>
