@@ -1,6 +1,6 @@
 <?php
 require_once "includes/config.php";
-$query = "SELECT post_id,post_nombre,image FROM posts";
+$query = "SELECT id,image FROM posts";
 $posts = mysqli_query($link, $query);
 $query = "SELECT vid_id,vid_nombre,video FROM Videos";
 $videos = mysqli_query($link, $query);

@@ -12,7 +12,7 @@ if (!isset($section)) {
     <link rel="icon" href="img/org_3.png" height=32px weight=32px>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="img/favicon.ico" rel="icon">
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
 </head>
 
 <body>
@@ -25,7 +25,8 @@ if (!isset($section)) {
             require_once "views/navtop.php";
         }
         ?>
-        <?php
+    </header>
+    <?php
     if ($section != 'home') {
         require_once "views/navsub.php";
     }
@@ -35,7 +36,6 @@ if (!isset($section)) {
         require_once "views/navsrh.php";
     }
     ?>
-    </header>
      <?php
      require_once $section . ".php";
         if ($section == 'posts') {

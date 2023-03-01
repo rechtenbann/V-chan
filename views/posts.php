@@ -14,7 +14,7 @@
     //echo $ppp;
     ?>
 </Section>
-<Section class="tags">
+<Section class="tags" style="float: left;">
     <a href="#">? + - Tag</a><br>
     <a href="#">? + - Tag</a><br>
     <a href="#">? + - Tag</a><br>
@@ -29,7 +29,7 @@
 </Section>
 
 <main>
-        <div class="gallery" style="float: center;">
+        <div class="tbody" style="text-align: center;">
             <?php foreach ($posts as $post) { ?>
                 <?php
                 $sql = "SELECT * FROM posts WHERE fecha_baja IS NULL";
@@ -37,7 +37,7 @@
                 if (!$query) {
                     echo "";
                 } else { ?>
-                    <a href="post.php?id=<?php echo $post['post_id'] ?>"><img src="img/posts/<?php echo $posts[$cont]['image']; ?>" height=200 width=150 style="object-fit: contain;"></a>
+                    <a href="post.php?id=<?php echo $post['id'] ?>"><img src="img/posts/<?php echo $posts[$cont]['image']; ?>" height=200 width=150 style="object-fit: contain;"></a>
                 <?php } ?>
             <?php
                 $cont = $cont + 1;

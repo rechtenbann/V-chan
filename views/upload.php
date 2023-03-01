@@ -1,6 +1,13 @@
 images
 <form action="upload.php" method="POST" enctype="multipart/form-data">
-<input type="file" name="image" accept="image/*,video/*" />
+<label>
+<input type="file" name="image" accept="image/*,video/*">
+</label>
+<br>
+<label>
+    tags
+    <input type="textarea" name="tags">
+</label>
     <input type="submit" name="submit" value="Upload file">
 </form>
 <?php

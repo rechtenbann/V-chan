@@ -3,6 +3,37 @@
     background-color:blue;
     align-self:center;
 }
+.navtop .navelement{
+    float: left; 
+    display: block; 
+    color: #ffffff; 
+    text-align: center; 
+    padding: 20px 16px 23px 16px; 
+    text-decoration: none;
+}
+.navsub{
+    grid-column: 1 / 3; 
+    grid-row: 2; 
+    margin: 0px;
+}
+.subnavitems{
+    background: #444444;
+     color: #fff;
+      padding: 10px 15px;
+}
+.navsrh{
+    grid-column: 1 / 3;
+    grid-row: 3; 
+    margin: 10px 10px; 
+    height: 32px;
+}
+.paginador{
+    padding: 0;
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+    clear: both;
+}
 .options{
     display: table; 
     border-collapse: separate; 
@@ -16,31 +47,9 @@ tbody{
     vertical-align: middle; 
     border-color: inherit;
 }
-tr{
-    display: table-row; 
-    vertical-align: inherit; 
-    border-color: inherit;
-}
-th{
-    background: #006ffa; 
-    color: #fff; 
-    padding: 10px;
-}
-th{
-    width: 10%;
-    font-weight: normal;
-    text-align: center;
-}
 .image{
     align-self:center;
 }
-.gallery{
-    display: flex;
-    flex-wrap: wrap;
-}
 .tags{
     float: left;
-}
-.gallery{
-    float: right;
 }

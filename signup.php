@@ -1,4 +1,6 @@
 <?php
+if (isset($_SESSION['usuario'])) {
+}
 require_once "includes/config.php";
 if (isset($_POST['nombre']) && isset($_POST['email']) && isset($_POST['contra'])) {
     $pass=md5($_POST['contra']);
