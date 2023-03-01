@@ -7,7 +7,7 @@
        if (isset($result["tags"])) {
         foreach ($result['tags'] as $tag) {?>
         <td>
-<a href="#"><?php echo $tag[0]; ?></a>
+<a href="posts.php?tag=<?php echo $tag[0] ?>"><?php echo $tag[0]; ?></a>
         </td>
         <?php }
         } ?>

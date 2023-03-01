@@ -8,6 +8,7 @@ images
     tags
     <input type="textarea" name="tags">
 </label>
+<br>
     <input type="submit" name="submit" value="Upload file">
 </form>
 <?php

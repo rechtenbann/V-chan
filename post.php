@@ -10,7 +10,7 @@ $post=mysqli_fetch_row($query);
 $sql="SELECT fecha_alta FROM posts WHERE posts.id='".$_GET['id']."'";
 $query=mysqli_query($link,$sql);
 $date=mysqli_fetch_row($query);
-$sql="SELECT tag_id FROM tag_post AS tp
+$sql="SELECT tag FROM tag_post AS tp
 INNER JOIN tags AS t
 ON tp.tag_id=t.id
 WHERE tp.post_id=". $_GET['id'] ." AND

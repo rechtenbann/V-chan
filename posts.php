@@ -49,8 +49,9 @@ if (isset($_GET['pag'])) {
 
     $posts = mysqli_fetch_all($query, MYSQLI_ASSOC);
 }
-
-
+$sql="SELECT tag FROM tags";
+$query=mysqli_query($link, $sql);
+$res['tags']=mysqli_fetch_all($query);
 $cont = 0;
 $section = "posts";
 $title = "Posts";

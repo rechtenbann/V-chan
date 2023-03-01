@@ -21,7 +21,7 @@ if (!isset($section)) {
     ?>
     <header>
         <?php
-        if ($section != 'home') {
+        if ($section != 'home' || $section == 'home') {
             require_once "views/navtop.php";
         }
         ?>

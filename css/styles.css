@@ -48,7 +48,9 @@ tbody{
     border-color: inherit;
 }
 .image{
-    align-self:center;
+    display: table-row-group; 
+    vertical-align: middle; 
+    border-color: inherit;
 }
 .tags{
     float: left;

@@ -15,17 +15,15 @@
     ?>
 </Section>
 <Section class="tags" style="float: left;">
-    <a href="#">? + - Tag</a><br>
-    <a href="#">? + - Tag</a><br>
-    <a href="#">? + - Tag</a><br>
-    <a href="#">? + - Tag</a><br>
-    <a href="#">? + - Tag</a><br>
-    <a href="#">? + - Tag</a><br>
-    <a href="#">? + - Tag</a><br>
-    <a href="#">? + - Tag</a><br>
-    <a href="#">? + - Tag</a><br>
-    <a href="#">? + - Tag</a><br>
-    <a href="#">? + - Tag</a><br>
+    <table>
+    <?php foreach ($res['tags'] as $tag) { ?>
+        <tr>
+            <td>
+            <a href="#">? + - <?php echo $tag[0] ?></a>
+            </td>
+        </tr>
+    <?php } ?>
+</table>
 </Section>
 
 <main>
