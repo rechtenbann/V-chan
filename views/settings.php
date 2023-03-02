@@ -2,7 +2,13 @@
     <tbody>
         <tr>
             <td>
-                <a href="login.php">Login</a>
+            <?php if (!isset($_SESSION['usuario'])) { ?>
+            <a href="log_in.php" class="nav-item">
+            <a href="login.php">Login</a>
+            </a>
+          <?php }else{
+            echo "welcome, ". $_COOKIE['username'];
+          } ?>
             </td>
         </tr>
         <tr>

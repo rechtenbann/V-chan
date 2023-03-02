@@ -39,12 +39,13 @@ if (!isset($_GET['tag'])) {
         $posts = mysqli_fetch_all($query, MYSQLI_ASSOC);
     }
 } else {
-    $sql="SELECT post_id FROM tag_post AS tp
-    INNER JOIN posts AS p
-    ON tp.post_id=p.id
-    WHERE tp.tag_id=". $_GET['tag'] ."";
-    $query=mysqli_query($link,$sql);
-    $sql = "SELECT COUNT(*) AS c FROM posts";
+    $sql = "SELECT COUNT(*) FROM posts AS p
+    INNER JOIN tag_post AS tp
+    ON p.id = tp.post_id
+    INNER JOIN tags AS t
+    ON tp.tag_id = t.id
+    WHERE p.fecha_baja IS NULL AND
+    t.tag = '" . $_GET['tag'] . "'";
 
     $query = mysqli_query($link, $sql);
 
