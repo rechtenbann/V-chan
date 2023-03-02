@@ -1,5 +1,5 @@
 <Section class="actions">
-    <a href="upload.php">Upload</a><br>
+    <a href="upload.php" style="font-family: verdana, sans-serif, helvetica;">Upload</a><br>
     <!-- <Form method="post">
         <label for="ppp">Posr per page</label>
         <select name="ppp" id="ppp">
@@ -19,13 +19,13 @@
     <?php foreach ($res['tags'] as $tag) { ?>
         <tr>
             <td>
-            <a href="#">? + - <?php echo $tag[0] ?></a>
+            <a href="posts.php?tag=<?php echo $tag[0]; ?>">? + - <?php echo $tag[1] ?></a>
             </td>
         </tr>
     <?php } ?>
 </table>
 </Section>
-
+<?php if(!isset($_GET['tag'])){ ?>
 <main>
         <div class="tbody" style="text-align: center;">
             <?php foreach ($posts as $post) { ?>
@@ -42,3 +42,25 @@
             } ?>
         </div>
 </main>
+<?php } else{ ?>
+    <main>
+        <div class="tbody" style="text-align: center;">
+            <?php foreach ($posts as $post) { ?>
+                <?php
+                $sql="SELECT post_id FROM tag_post AS tp
+                INNER JOIN posts AS p
+                ON tp.post_id=p.id
+                WHERE tp.tag_id=". $_GET['tag'] ."";
+                $query=mysqli_query($link,$sql);
+                if (!$query) {
+                    echo "";
+                } else { ?>
+                    <a href="post.php?id=<?php echo $post['id'] ?>"><img src="img/posts/<?php echo $posts[$cont]['image']; ?>" height=200 width=150 style="object-fit: contain;"></a>
+
+                <?php } ?>
+            <?php
+                $cont = $cont + 1;
+            } ?>
+        </div>
+</main>
+<?php } ?>

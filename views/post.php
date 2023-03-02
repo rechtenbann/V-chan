@@ -1,21 +1,20 @@
-<div class="image">
-<img src="img/posts/<?php echo $post[1]?>" height="500"><br>
+<picture>
+    <img src="img/posts/<?php echo $post[1] ?>" class="image"><br>
+</picture>
+
 <a>Tags:</a>
-<table>
-    <tr>
-       <?php
-       if (isset($result["tags"])) {
-        foreach ($result['tags'] as $tag) {?>
-        <td>
-<a href="posts.php?tag=<?php echo $tag[0] ?>"><?php echo $tag[0]; ?></a>
-        </td>
-        <?php }
+<br>
+        <?php
+        if (isset($result["tags"])) {
+            foreach ($result['tags'] as $tag) { ?>
+
+                    <a href="posts.php?tag=<?php echo $tag[0] ?>"><?php echo $tag[1]; ?></a>
+                <br>
+            <?php }
         } ?>
-    </tr>
-</table>
 
 
-    
 
+
+<br>
 <?php echo "uploaded on $date[0] by $post[0]" ?>
-</div>
