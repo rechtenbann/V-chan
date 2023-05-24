@@ -1,22 +1,33 @@
-<h1>Registrarse</h1>
-<form method="POST">
-    <label>Nombre de usuario</label>
-    <input type="text" name="nombre" required>
-    <br>
-    <br>
-    <label>Correo electrónico</label>
-    <input type="email" name="email" required>
-    <br>
-    <br>
-    <label>Contraseña</label>
-    <input type="password" name="contra" required>
-    <br>
-    <br>
-    <input type="submit" value="Signup">
-</form>
-<br>
-<?php if(isset($_GET['r']) && $_GET['r'] == "t"){ ?>
-    <p>¡Se ha registrado con exito usuario!</p>    
-<?php } else if(isset($_GET['r']) && $_GET['r'] == "f"){ ?>
-    <p>Error al registrarse</p>    
-<?php } ?>
+
+    <div >
+        <form method="POST" >
+            <div>
+                <label for="login__username">
+                    <span class="hidden">Username</span>
+                </label>
+                <input autocomplete="username" id="login__username" type="text" name="nombre" class="form__input" placeholder="Nombre de usuario" required>
+            </div>
+            <div >
+                <label for="login__username">
+                    <span class="hidden">E-mail</span>
+                </label>
+                <input autocomplete="username" id="login__username" type="text" name="email" class="form__input" placeholder="Nombre de usuario" required>
+            </div>
+            <div >
+                <label for="login__password">
+                    <span class="hidden">Password</span>
+                </label>
+                <input id="login__password" type="password" name="contra" class="form__input" placeholder="Contraseña" required>
+            </div>
+            <div >
+                <input type="submit" value="Iniciar Sesion">
+            </div>
+        </form>
+        <p class="text--center">No tienes cuenta? <a href="register.php">Registrate</a>
+            <svg class="icon">
+                <use xlink:href="#icon-arrow-right"></use>
+            </svg>
+        </p>
+    </div>
+    </div>
+    

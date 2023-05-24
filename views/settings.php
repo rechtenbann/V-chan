@@ -1,30 +1,28 @@
 <table>
     <tbody>
-        <tr>
-            <td>
-            <?php if (!isset($_SESSION['usuario'])) { ?>
-            <a href="log_in.php" class="nav-item">
-            <a href="login.php">Login</a>
+
+
+        <?php if (!isset($_SESSION['usuario'])) { ?>
+            <tr>
+                <td>
+                    <a href="login.php">Login</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="signup.php">Signup</a>
+                    
+                </td>
+            </tr>
             </a>
-          <?php }else{
-            echo "welcome, ". $_COOKIE['username'];
-          } ?>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a href="logout.php">Logout</a>
-            </td>
-        </tr>
+        <?php } else if (isset($_SESSION['usuario'])) {
+            ?><a href="logout.php">Logout</a>
+        <?php } ?>
         <tr>
             <td>
             </td>
         </tr>
-        <tr>
-            <td>
-                <a href="signup.php">Signup</a>
-            </td>
-        </tr>
+
         <tr>
             <td>
                 <label>

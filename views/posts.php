@@ -25,7 +25,7 @@
     <?php } ?>
 </table>
 </Section>
-<?php if(!isset($_GET['tag'])){ ?>
+<?php if(!isset($_GET['tag'])||(isset($_GET['tag'])&&$_GET['tag']=="1")){ ?>
 <main>
         <div class="tbody" style="text-align: center;">
             <?php foreach ($posts as $post) { ?>
@@ -42,15 +42,18 @@
             } ?>
         </div>
 </main>
-<?php } else{ ?>
+<?php } else if(isset($_GET['tag'])&&$_GET['tag']!="1"){ ?>
     <main>
         <div class="tbody" style="text-align: center;">
             <?php foreach ($posts as $post) { ?>
                 <?php
-                $sql="SELECT post_id FROM tag_post AS tp
-                INNER JOIN posts AS p
-                ON tp.post_id=p.id
-                WHERE tp.tag_id=". $_GET['tag'] ."";
+                $sql = "SELECT * FROM posts
+                INNER JOIN tag_post
+                ON tag_post.post_id = posts.id
+                INNER JOIN tags
+                ON tag_post.tag_id = tags.id
+                WHERE posts.fecha_baja IS NULL AND
+                tag_post.tag_id = '" . $_GET['tag'] . "'";
                 $query=mysqli_query($link,$sql);
                 if (!$query) {
                     echo "";

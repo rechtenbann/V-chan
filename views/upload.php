@@ -5,8 +5,12 @@ images
 </label>
 <br>
 <label>
-    tags
-    <input type="textarea" name="tags">
+    tags: <br>
+    <!--<input type="textarea" name="tags" style="height:100px;width:175px;">-->
+    <input type="checkbox" name="checkbox" value="2"> anime
+    <input type="checkbox" name="checkbox" value="3"> games
+    <input type="checkbox" name="checkbox" value="4"> brands
+    <input type="checkbox" name="checkbox" value="5"> animated_gif
 </label>
 <br>
     <input type="submit" name="submit" value="Upload file">

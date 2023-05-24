@@ -8,7 +8,7 @@ if (!isset($section)) {
 
 <head>
     <meta charset="utf-8">
-    <title>Placeholder</title>
+    <title>V-Chan</title>
     <link rel="icon" href="img/org_3.png" height=32px weight=32px>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="img/favicon.ico" rel="icon">

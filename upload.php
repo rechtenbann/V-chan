@@ -1,7 +1,7 @@
 <?php
 require_once "includes/config.php";
 $confirm = 0;
-if (isset($_FILES['image']) && isset($_POST['tags'])) {
+if (isset($_FILES['image']) && isset($_POST['checkbox'])) {
     $move = move_uploaded_file($_FILES['image']['tmp_name'], "img/posts/" . $_FILES['image']['name']);
     if ($move) {
         $sql = "INSERT INTO posts (usuario_id,image, fecha_alta) VALUES (1,'" . $_FILES['image']['name'] . "', NOW())";
@@ -11,8 +11,11 @@ if (isset($_FILES['image']) && isset($_POST['tags'])) {
         } else {
             $confirm = 1;
         }
-        $sql = "INSERT IF NOT EXISTS INTO tags (id,tag) VALUES (NULL,'" . $_POST['tags'] . "', NOW())";
-        $query = mysqli_query($link, $sql);
+
+        //$sql="INSERT INTO tag_post VALUES (null,'".$_POST['checkbox']."','".$_FILES['image']['id']."',NOW(),null)";
+        //$query=mysqli_query($link,$sql);
+        //$sql = "INSERT IF NOT EXISTS INTO tags (id,tag) VALUES (NULL,'" . $_POST['tags'] . "', NOW())";
+        //$query = mysqli_query($link, $sql);
 /*
         if (isset($_POST['tags'])) {
             if (strpos($_POST['tags'], "\n")) {
