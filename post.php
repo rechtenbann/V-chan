@@ -16,7 +16,7 @@ ON tp.tag_id=t.id
 WHERE tp.post_id=". $_GET['id'] ." AND
 fecha_baja IS NULL";
 $query=mysqli_query($link,$sql);
-$result['tags']=mysqli_fetch_all($query);
+$tags=mysqli_fetch_all($query);
 $section = "post";
 $title = "Post";
 require_once "views/layout.php";

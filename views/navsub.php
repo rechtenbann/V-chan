@@ -1,6 +1,7 @@
 <?php
 if (!isset($section)) {
   header("Location: ../index.php");
+  $total_posts=mysqli_num_rows($mysqliquery);
 }
 ?>
 <nav class="navsub">

@@ -7,7 +7,7 @@ if(!$link){
 
 $select="SELECT id FROM posts";
 $mysqliquery=mysqli_query($link,$select);
-$total_posts=mysqli_num_rows($mysqliquery);
+
 function consulta($query, $link, $option = false)
 {
     $execute = mysqli_query($link, $query);

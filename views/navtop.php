@@ -2,7 +2,7 @@
 if (!isset($section)) {
   header("Location: ../index.php");
 }
-?>
+if(session_status() !== PHP_SESSION_ACTIVE)session_start();?>
 <div class="navtop">
   <div class="navitems">
     <div class="navlink navbrand">
@@ -15,15 +15,19 @@ if (!isset($section)) {
     </div>
     <div class="navlink">
       <a href="posts.php?pag=1"
-        style="float: left; display: block; color: #ffffff; text-align: center; padding: 20px 16px 23px 16px; text-decoration: none;"><b>Post site</b></a>
+        style="float: left; display: block; color: #ffffff; text-align: center; padding: 20px 16px 23px 16px; text-decoration: none;"><b>Posts</b></a>
     </div>
     <div class="navlink">
       <a href="#"
-        style="float: left; display: block; color: #ffffff; text-align: center; padding: 20px 16px 23px 16px; text-decoration: none;"><b>Forum</b></a>
+        style="float: left; display: block; color: #ffffff; text-align: center; padding: 20px 16px 23px 16px; text-decoration: none;"><b>Online Chat</b></a>
     </div>
     <div class="navlink">
       <a href="3"
         style="float: left; display: block; color: #ffffff; text-align: center; padding: 20px 16px 23px 16px; text-decoration: none;"><b>Home</b></a>
+    </div>
+    <div class="navlink">
+    <a 
+        style="float: left; display: block; color: #ffffff; text-align: center; padding: 20px 16px 23px 16px; text-decoration: none;" href="profile.php"><b><?php if(isset($_SESSION['usuario'])){echo($_SESSION['usuario']['usu_nombre']);} ?></b></a>
     </div>
   </div>
 </div>
