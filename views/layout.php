@@ -27,7 +27,7 @@ if (!isset($section)) {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 </head>
 
-<body style="background-color: rgb(255, 255, 255);">
+<body style="background-color: rgb(230, 182, 250);">
     <?php
     $section = (isset($section)) ? $section : 'home';
     ?>

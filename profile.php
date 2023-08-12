@@ -34,6 +34,7 @@ $sql = "SELECT * FROM usuarios";
         exit();
     }
     $_SESSION['usuario']['foto_perfil'] = $img;
+
  }else if(isset($_POST['default2'])){
     $img = $_POST['default2'];
     $sql = "UPDATE usuarios SET foto_perfil = '".$img."' WHERE ID = '".$_SESSION['usuario']['id']."'";
@@ -43,6 +44,7 @@ $sql = "SELECT * FROM usuarios";
         exit();
     }
     $_SESSION['usuario']['foto_perfil'] = $img;
+
  }else if(isset($_POST['default3'])){
     $img = $_POST['default3'];
     $sql = "UPDATE usuarios SET foto_perfil = '".$img."' WHERE ID = '".$_SESSION['usuario']['id']."'";
@@ -52,6 +54,36 @@ $sql = "SELECT * FROM usuarios";
         exit();
     }
     $_SESSION['usuario']['foto_perfil'] = $img;
+    
+ }else if(isset($_POST['default4'])){
+    $img = $_POST['default4'];
+    $sql = "UPDATE usuarios SET foto_perfil = '".$img."' WHERE ID = '".$_SESSION['usuario']['id']."'";
+    $query = mysqli_query($link,$sql);
+    if (!$query) {
+        echo "Fallo consulta: " . mysqli_error($link);
+        exit();
+    }
+    $_SESSION['usuario']['foto_perfil'] = $img;
+ }else if(isset($_POST['default5'])){
+    $img = $_POST['default5'];
+    $sql = "UPDATE usuarios SET foto_perfil = '".$img."' WHERE ID = '".$_SESSION['usuario']['id']."'";
+    $query = mysqli_query($link,$sql);
+    if (!$query) {
+        echo "Fallo consulta: " . mysqli_error($link);
+        exit();
+    }
+    $_SESSION['usuario']['foto_perfil'] = $img;
+ }else if(isset($_POST['default6'])){
+    $img = $_POST['default6'];
+    $sql = "UPDATE usuarios SET foto_perfil = '".$img."' WHERE ID = '".$_SESSION['usuario']['id']."'";
+    $query = mysqli_query($link,$sql);
+    if (!$query) {
+        echo "Fallo consulta: " . mysqli_error($link);
+        exit();
+    }
+    $_SESSION['usuario']['foto_perfil'] = $img;
+ }else if(isset($_POST['upload'])&&isset($_FILES['upload'])){
+   
  }
 $section = "profile";
 $title = "Profile";
