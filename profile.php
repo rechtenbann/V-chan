@@ -82,9 +82,24 @@ $sql = "SELECT * FROM usuarios";
         exit();
     }
     $_SESSION['usuario']['foto_perfil'] = $img;
- }else if(isset($_POST['upload'])&&isset($_FILES['upload'])){
-   
- }
+ }else if (isset($_FILES['upload'])) {
+    $nombre = $_SESSION['usuario']['id'];
+    mkdir("img/users/" . $nombre . "");
+    if ($_SESSION['usuario']['foto_perfil'] != "../../default1.png" && $_SESSION['usuario']['foto_perfil'] != "../../default2.png"&&$_SESSION['usuario']['foto_perfil'] != "../../default3.png" && $_SESSION['usuario']['foto_perfil'] != "../../default4.png" && $_SESSION['usuario']['foto_perfil'] != "../../default5.png"&&$_SESSION['usuario']['foto_perfil'] != "../../default6.png") {
+        unlink("img/users/" . $_SESSION['usuario']['id'] . "/" . $_SESSION['usuario']['foto_perfil']);
+    }
+    $ruta = "img/users/" . $nombre . "/" . $_FILES['upload']['name'];
+    $nombre_imagen = $_FILES['upload']['name'];
+    $ruta2 = $nombre_imagen;
+    if (move_uploaded_file($_FILES['upload']['tmp_name'], $ruta)) {
+        $query = "UPDATE usuarios SET foto_perfil = '" . $ruta2 . "' WHERE id = '" . $nombre . "';";
+        consulta($query, $link, 4);
+        $_SESSION['usuario']['foto_perfil'] = $ruta2;
+        header("Location: profile.php");
+    } else {
+        echo "No se pudo subir la imagen";
+    }
+}
 $section = "profile";
 $title = "Profile";
 require_once "views/layout.php";

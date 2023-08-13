@@ -91,3 +91,8 @@ tbody {
         font-family: verdana, sans-serif, helvetica;
     }
 }
+.option-photo:hover {
+    border:1px solid #333;
+    filter: brightness(40%);
+    background-color: rgba(33, 33, 33, 0);
+  }
