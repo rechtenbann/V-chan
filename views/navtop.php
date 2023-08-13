@@ -18,7 +18,7 @@ if(session_status() !== PHP_SESSION_ACTIVE)session_start();?>
         style="float: left; display: block; color: #ffffff; text-align: center; padding: 20px 16px 23px 16px; text-decoration: none;"><b>Posts</b></a>
     </div>
     <div class="navlink">
-      <a href="#"
+      <a href="chat.php"
         style="float: left; display: block; color: #ffffff; text-align: center; padding: 20px 16px 23px 16px; text-decoration: none;"><b>Online Chat</b></a>
     </div>
     <div class="navlink">

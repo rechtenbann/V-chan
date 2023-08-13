@@ -82,6 +82,15 @@ $sql = "SELECT * FROM usuarios";
         exit();
     }
     $_SESSION['usuario']['foto_perfil'] = $img;
+ }else if(isset($_POST['default-secret'])){
+    $img = $_POST['default-secret'];
+    $sql = "UPDATE usuarios SET foto_perfil = '".$img."' WHERE ID = '".$_SESSION['usuario']['id']."'";
+    $query = mysqli_query($link,$sql);
+    if (!$query) {
+        echo "Fallo consulta: " . mysqli_error($link);
+        exit();
+    }
+    $_SESSION['usuario']['foto_perfil'] = $img;
  }else if (isset($_FILES['upload'])) {
     $nombre = $_SESSION['usuario']['id'];
     mkdir("img/users/" . $nombre . "");
