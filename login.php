@@ -15,6 +15,15 @@ if (isset($_POST['nombre']) && isset($_POST['contra'])) {
     }
     if (mysqli_num_rows($result) == 1) {
         $_SESSION['usuario'] = mysqli_fetch_assoc($result);
+        $query = "SELECT r.rango FROM rango_usuario AS ru
+			INNER JOIN rangos AS r
+			ON ru.rango_id = r.id
+			WHERE ru.usu_id = " . $_SESSION['usuario']['id'] . " AND
+			fecha_baja IS NULL";
+		$rec = consulta($query, $link);
+		if (count($rec) > 0) {
+			$_SESSION['usuario']['rango'] = $rec;
+		}
         header('Location: index.php');
     }
 }
