@@ -99,7 +99,8 @@ if (isset($_POST['default1'])) {
         exit();
     }
     $_SESSION['usuario']['foto_perfil'] = $img;
-} else if (isset($_FILES['upload'])) {
+}
+if (isset($_POST['upload']) && isset($_FILES['upload'])) {
     $nombre = $_SESSION['usuario']['id'];
     mkdir("img/users/" . $nombre . "");
     if ($_SESSION['usuario']['foto_perfil'] != "../../default1.png" && $_SESSION['usuario']['foto_perfil'] != "../../default2.png" && $_SESSION['usuario']['foto_perfil'] != "../../default3.png" && $_SESSION['usuario']['foto_perfil'] != "../../default4.png" && $_SESSION['usuario']['foto_perfil'] != "../../default5.png" && $_SESSION['usuario']['foto_perfil'] != "../../default6.png") {
@@ -110,26 +111,25 @@ if (isset($_POST['default1'])) {
     $ruta2 = $nombre_imagen;
     if (move_uploaded_file($_FILES['upload']['tmp_name'], $ruta)) {
         $query = "UPDATE usuarios SET foto_perfil = '" . $ruta2 . "' WHERE id = '" . $nombre . "';";
-        consulta($query, $link, 4);
+        mysqli_query($$link, $query, 4);
         $_SESSION['usuario']['foto_perfil'] = $ruta2;
         header("Location: profile.php");
     } else {
         echo "No se pudo subir la imagen";
     }
 }
-$admin = false;
-$vip = false;
-$usr = false;
-foreach ($_SESSION['usuario']['rango'] as $ran) {
-    if ($ran['rango'] == "administrador") {
-        $admin = true;
-    }
-    if ($ran['rango'] == "premium") {
-        $vip = true;
-    }
-    if ($ran['rango'] == "usuario") {
-        $usr = true;
-    }
+if (isset($_GET['usr'])) {
+    $sql = "SELECT * FROM usuarios WHERE id = '" . $_GET['usr'] . "'";
+    $query = mysqli_query($link, $sql);
+    $user = mysqli_fetch_assoc($query);
+
+    $sql = "SELECT r.rango FROM rango_usuario AS ru
+INNER JOIN rangos AS r
+ON ru.rango_id = r.id
+WHERE ru.usu_id = " . $_GET['usr'] . " AND
+fecha_baja IS NULL";
+    $rec = mysqli_query($link, $sql);
+    $userrank = mysqli_fetch_assoc($rec);
 }
 $section = "profile";
 $title = "Profile";

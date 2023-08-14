@@ -1,18 +1,5 @@
 <Section class="actions">
     <a href="upload.php" style="font-family: verdana, sans-serif, helvetica;">Upload</a><br>
-    <!-- <Form method="post">
-        <label for="ppp">Posr per page</label>
-        <select name="ppp" id="ppp">
-            <option value="2">2</option>
-            <option value="8">8</option>
-            <option value="10">10</option>
-            <option value="20">20</option>
-        <input type="submit" value="Confirm">
-        </select>
-    </Form>-->
-    <?php
-    //echo $ppp;
-    ?>
 </Section>
 <Section class="tags" style="float: left;">
     <table>
@@ -25,10 +12,13 @@
     <?php } ?>
 </table>
 </Section>
+
+
 <?php if(!isset($_GET['tag'])||(isset($_GET['tag'])&&$_GET['tag']=="1")){ ?>
 <main>
         <div class="tbody" style="text-align: center;">
-            <?php foreach ($posts as $post) { ?>
+            <?php $posts = array_reverse($posts);
+            foreach ($posts as $post) { ?>
                 <?php
                 $sql = "SELECT * FROM posts WHERE fecha_baja IS NULL";
                 $query = mysqli_query($link, $sql);
@@ -42,10 +32,13 @@
             } ?>
         </div>
 </main>
+
+
 <?php } else if(isset($_GET['tag'])&&$_GET['tag']!="1"){ ?>
     <main>
         <div class="tbody" style="text-align: center;">
-            <?php foreach ($posts as $post) { ?>
+            <?php
+             foreach ($posts as $post) { ?>
                 <?php
                 $sql = "SELECT * FROM posts
                 INNER JOIN tag_post

@@ -8,7 +8,7 @@ if (isset($_POST['nombre']) && isset($_POST['contra'])) {
             WHERE usu_nombre = '" . $nombre . "'
             AND usu_clave = '" . $pass . "'";
     $result = mysqli_query($link, $sql);
-    
+
     if (!$result) {
         echo "Fallo consulta: " . mysqli_error($link);
         exit();
@@ -20,10 +20,16 @@ if (isset($_POST['nombre']) && isset($_POST['contra'])) {
 			ON ru.rango_id = r.id
 			WHERE ru.usu_id = " . $_SESSION['usuario']['id'] . " AND
 			fecha_baja IS NULL";
-		$rec = consulta($query, $link);
-		if (count($rec) > 0) {
-			$_SESSION['usuario']['rango'] = $rec;
-		}
+        $rec = consulta($query, $link);
+        if (count($rec) > 0) {
+            $_SESSION['usuario']['rango'] = $rec;
+        }
+        $admin = false;
+        $vip = false;
+        $usr = false;
+        foreach ($_SESSION['usuario']['rango'] as $ran) {
+            $_SESSION['usuario']['rango'] = $ran['rango'];
+        }
         header('Location: index.php');
     }
 }

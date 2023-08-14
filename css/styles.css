@@ -1,3 +1,6 @@
+body{
+    font-family: verdana, sans-serif, helvetica;
+}
 .navtop {
     overflow: hidden;
     background-color: rgb(141, 22, 189);
@@ -5,13 +8,11 @@
     font-family: verdana, sans-serif, helvetica;
 }
 .icon{
+    position: relative;
     float:left; 
     margin: 7px 15px 1px 25px;
     padding: 0 0 0 0;
 }
-/*.icon:hover{
-    filter: brightness(1000%);
-}*/
 .section{
     text-decoration: none;
     float: left; 
@@ -131,19 +132,25 @@ tbody {
     width:0px;
 }
 .option-photo{
+    margin: 0, 0, 0, 0;
     width: 8rem;
     height:8rem; 
     object-fit: cover;
+    transition:  filter 0.2s, margin-bottom 0.2s ease-in-out;
 }
-.option-photo:hover {
+.option-form:hover .option-photo {
     border:2px solid #333;
     filter: brightness(40%);
     background-color: rgba(33, 33, 33, 0);
+    margin-bottom: 10px;
+  }
+  .profile{
+    transition: 0.3s filter ease-in-out;
   }
   .profile:hover {
     border:0px solid #333;
-    filter: brightness(40%);
     background-color: rgba(33, 33, 33, 0);
+    filter: brightness(40%);
   }
 
   .box {

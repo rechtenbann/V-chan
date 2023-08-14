@@ -15,13 +15,16 @@ if(session_status() !== PHP_SESSION_ACTIVE)session_start();?>
       <a href="posts.php?pag=1" class="section"><b>Posts</b></a>
     </div>
     <div class="navlink">
-      <a href="chat.php" class="section"><b>Online Chat</b></a>
+      <a href="chat.php?pag=1" class="section"><b>Global Chat</b></a>
     </div>
     <div class="navlink">
-      <a href="3" class="section"><b>Home</b></a>
+      <a href="sites.php" class="section"><b>Sites</b></a>
     </div>
     <div class="navlink">
-    <a class="section" href="profile.php"><b><?php if(isset($_SESSION['usuario'])){echo($_SESSION['usuario']['usu_nombre']);} ?></b></a>
+    <?php if(isset($_SESSION['usuario']) && $_SESSION['usuario']['rango']=="administrador"){?><a class="section" href="admin.php"><b>Administrar</b></a><?php } ?>
+    </div>
+    <div class="navlink">
+    <?php if(isset($_SESSION['usuario'])){?><a class="section" href="profile.php"><b><?php echo($_SESSION['usuario']['usu_nombre']);?></b></a><?php } ?>
     </div>
   </div>
 </div>
