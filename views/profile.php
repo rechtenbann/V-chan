@@ -204,7 +204,7 @@
 
             </div>
         </div>
-        <a>Nombre de usuario:<?php  $user['usu_nombre']; ?>
+        <a>Nombre de usuario:<?php  echo $user['usu_nombre']; ?>
         </a>
         <br>
         <a>Rango:

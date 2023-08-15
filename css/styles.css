@@ -1,5 +1,7 @@
+
 body{
     font-family: verdana, sans-serif, helvetica;
+    
 }
 .navtop {
     overflow: hidden;
@@ -88,15 +90,17 @@ tbody {
     font-size: 12px;
     text-decoration: none;
 }
-
 .footer{
+    margin-top: auto;
     text-align: center;
     color: #fff;
     background-color: rgb(141, 22, 189);
-    padding-bottom: 125px;
     font-family: verdana, sans-serif, helvetica;
+    margin: 0;
+    padding: 1rem
 }
 
+/* 
 @media only screen and (max-width: 850px) {
     .tags {
         grid-area: aside;
@@ -111,7 +115,7 @@ tbody {
         padding: 20px;
         font-family: verdana, sans-serif, helvetica;
     }
-}
+} */
 .option-form{
     width: 8rem;
     display: inline-block;

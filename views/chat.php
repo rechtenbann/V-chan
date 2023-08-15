@@ -8,7 +8,7 @@
         echo "";
     } else { ?>
         <div style="margin: auto; width: 80%; border: 3px solid black; padding: 10px; background-color:white;">
-            <div style="display: inline-block;"><a href="profile.php?usr=<?php echo $usudata['id'] ?>"><img src="img/users/<?php echo $usudata['foto_perfil']; ?>" alt="" class="note-img" width="50rem" height="50rem" style="vertical-align: middle;"></a></div>
+            <div style="display: inline-block;" class="profile"><a href="profile.php?usr=<?php echo $usudata['id'] ?>"><img src="img/users/<?php echo $usudata['foto_perfil']; ?>" alt="" class="note-img" width="50rem" height="50rem" style="vertical-align: middle;"></a></div>
             <div style="display: inline-block;"><a href="profile.php?usr=<?php echo $usudata['id'] ?>"><b><?php echo $usudata['usu_nombre']; ?></b></a> <?php echo "Publicado en: " . $note['fecha_alta'] ?></div>
             <br><br>
             <p><?php echo $note['content'] ?></p>
