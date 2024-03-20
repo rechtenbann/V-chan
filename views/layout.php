@@ -1,6 +1,7 @@
 <?php
 if (!isset($section)) {
     header("Location: ../index.php");}
+    if(session_status() !== PHP_SESSION_ACTIVE)session_start();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -26,7 +27,7 @@ if (!isset($section)) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 </head>
 
-<body style="background-color: rgb(230, 182, 250);">
+<body style="<?php if((isset($_SESSION['usuario']) && $_SESSION['usuario']['dark_mode']==0)||!isset($_SESSION['usuario'])){echo "background-color: rgb(230, 182, 250);";} else { echo "background-color: rgb(60, 40, 60);";}?>">
     <?php
     $section = (isset($section)) ? $section : 'home';
     ?>

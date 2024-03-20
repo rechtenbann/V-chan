@@ -14,9 +14,9 @@ if (!$query) {
 $cant = mysqli_fetch_assoc($query);
 if (isset($_GET['pag'])) {
     $pag = intval($_GET['pag']);
-    if ($pag <= ceil(intval($cant["n"]) / 4)) {
-        $in = ($pag * 4) - 4;
-        $sql = "SELECT * FROM online_chat ORDER BY fecha_alta DESC LIMIT $in,4";
+    if ($pag <= ceil(intval($cant["n"]) / 10)) {
+        $in = ($pag * 10) - 10;
+        $sql = "SELECT * FROM online_chat ORDER BY fecha_alta DESC LIMIT $in,10";
 
         $query = mysqli_query($link, $sql);
 
@@ -27,7 +27,7 @@ if (isset($_GET['pag'])) {
         $notes = mysqli_fetch_all($query, MYSQLI_ASSOC);
     }
 } else {
-    $sql = "SELECT * FROM online_chat ORDER BY fecha_alta DESC LIMIT 0,4";
+    $sql = "SELECT * FROM online_chat ORDER BY fecha_alta DESC LIMIT 0,10";
 
     $query = mysqli_query($link, $sql);
 

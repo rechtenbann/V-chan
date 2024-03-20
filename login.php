@@ -5,7 +5,7 @@ if (isset($_POST['nombre']) && isset($_POST['contra'])) {
     $nombre = $_POST['nombre'];
     $pass = md5($_POST['contra']);
     $sql = "SELECT * FROM usuarios 
-            WHERE usu_nombre = '" . $nombre . "'
+            WHERE (usu_nombre = '" . $nombre . "' OR usu_email = '" . $nombre . "')
             AND usu_clave = '" . $pass . "'";
     $result = mysqli_query($link, $sql);
 
