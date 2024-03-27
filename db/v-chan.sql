@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-08-2023 a las 01:17:10
+-- Tiempo de generación: 27-03-2024 a las 22:15:17
 -- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.1.12
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -49,7 +49,43 @@ INSERT INTO `online_chat` (`id`, `content`, `usuario_id`, `fecha_alta`, `fecha_b
 (7, 0x41534446, 1, '2023-08-14 15:52:21', NULL),
 (8, 0x717765727177657271776572, 4, '2023-08-14 18:25:55', NULL),
 (9, 0x7a786376, 1, '2023-08-14 19:52:48', NULL),
-(10, 0x48656c6c6f212121202a285ee280bf5e292f2a, 2, '2023-08-14 19:56:51', NULL);
+(10, 0x48656c6c6f212121202a285ee280bf5e292f2a, 2, '2023-08-14 19:56:51', NULL),
+(11, 0x686f6c61, 1, '2024-03-20 17:50:25', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `online_chat_ans`
+--
+
+CREATE TABLE `online_chat_ans` (
+  `id` int(11) NOT NULL,
+  `content` blob NOT NULL,
+  `comment_id` int(11) NOT NULL,
+  `usuario_id` int(11) NOT NULL,
+  `fecha_alta` datetime NOT NULL,
+  `fecha_baja` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `online_chat_ans`
+--
+
+INSERT INTO `online_chat_ans` (`id`, `content`, `comment_id`, `usuario_id`, `fecha_alta`, `fecha_baja`) VALUES
+(12, 0x416e737765722074657374, 12, 1, '2024-03-19 16:46:03', NULL),
+(13, 0x416e73776572207465737432, 12, 1, '2024-03-19 16:46:29', NULL),
+(14, 0x416e73776572207465737433, 12, 1, '2024-03-19 16:47:20', NULL),
+(15, 0x68656c6c6f, 12, 1, '2024-03-19 17:42:49', NULL),
+(16, 0x4869212121, 12, 1, '2024-03-19 17:47:02', NULL),
+(17, 0x3a76, 12, 1, '2024-03-19 17:47:16', NULL),
+(18, 0x6869, 11, 1, '2024-03-19 17:51:59', NULL),
+(19, 0x576861743f, 2, 1, '2024-03-19 17:55:32', NULL),
+(20, 0x51574552, 7, 1, '2024-03-19 17:57:53', NULL),
+(21, 0x5844, 12, 1, '2024-03-19 18:05:13', NULL),
+(22, 0x68656c6c6f, 9, 1, '2024-03-20 17:26:11', NULL),
+(23, 0x3a76, 10, 1, '2024-03-20 17:41:45', NULL),
+(24, 0x6c6c6c6c, 10, 1, '2024-03-20 17:42:06', NULL),
+(25, 0x617364617364, 10, 1, '2024-03-20 17:50:29', NULL);
 
 -- --------------------------------------------------------
 
@@ -202,6 +238,8 @@ CREATE TABLE `usuarios` (
   `usu_clave` varchar(33) NOT NULL,
   `usu_email` varchar(255) NOT NULL,
   `foto_perfil` varchar(255) NOT NULL,
+  `nsfw_allow` tinyint(1) NOT NULL,
+  `dark_mode` tinyint(1) NOT NULL,
   `fecha_alta` datetime DEFAULT NULL,
   `fecha_baja` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -210,13 +248,13 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `usu_nombre`, `usu_clave`, `usu_email`, `foto_perfil`, `fecha_alta`, `fecha_baja`) VALUES
-(1, 'reichsacht', '5eb3c70fb1c47a19a7b6674092c19fc0', 'hratzeld@gmail.com', 'default1.png', '2023-02-26 15:37:31', NULL),
-(2, 'test', '202cb962ac59075b964b07152d234b70', 'sdmatayoshi@gmail.com', 'default4.png', '2023-02-27 12:40:10', NULL),
-(3, 'sdmatayoshi', '41f5d469289efa58df6a726273313439', 'sdmatayoshi@gmail.com', '', '2023-02-28 19:19:21', '2023-08-13 20:19:26'),
-(4, 'anon', '202cb962ac59075b964b07152d234b70', 'mail@gmail.com', 'default5.png', '2023-05-24 20:32:43', NULL),
-(6, 'elmatas', '5eb3c70fb1c47a19a7b6674092c19fc0', 'sdmatayoshi@gmail.com', '', '2023-05-24 20:40:54', NULL),
-(7, 'racht', 'e10adc3949ba59abbe56e057f20f883e', 'hratzeld@gmail.com', '', '2023-08-09 20:25:20', NULL);
+INSERT INTO `usuarios` (`id`, `usu_nombre`, `usu_clave`, `usu_email`, `foto_perfil`, `nsfw_allow`, `dark_mode`, `fecha_alta`, `fecha_baja`) VALUES
+(1, 'reichsacht', '5eb3c70fb1c47a19a7b6674092c19fc0', 'hratzeld@gmail.com', 'default-secret.png', 0, 1, '2023-02-26 15:37:31', NULL),
+(2, 'test', '202cb962ac59075b964b07152d234b70', 'sdmatayoshi@gmail.com', 'default4.png', 0, 0, '2023-02-27 12:40:10', NULL),
+(3, 'sdmatayoshi', '41f5d469289efa58df6a726273313439', 'sdmatayoshi@gmail.com', '', 0, 0, '2023-02-28 19:19:21', '2023-08-13 20:19:26'),
+(4, 'anon', '202cb962ac59075b964b07152d234b70', 'mail@gmail.com', 'default5.png', 0, 0, '2023-05-24 20:32:43', NULL),
+(6, 'elmatas', '5eb3c70fb1c47a19a7b6674092c19fc0', 'sdmatayoshi@gmail.com', 'default1.png', 0, 0, '2023-05-24 20:40:54', NULL),
+(7, 'racht', 'e10adc3949ba59abbe56e057f20f883e', 'hratzeld@gmail.com', '', 0, 0, '2023-08-09 20:25:20', NULL);
 
 -- --------------------------------------------------------
 
@@ -248,6 +286,12 @@ INSERT INTO `videos` (`vid_id`, `vid_nombre`, `video`, `fecha_alta`, `fecha_baja
 -- Indices de la tabla `online_chat`
 --
 ALTER TABLE `online_chat`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `online_chat_ans`
+--
+ALTER TABLE `online_chat_ans`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -300,7 +344,13 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT de la tabla `online_chat`
 --
 ALTER TABLE `online_chat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT de la tabla `online_chat_ans`
+--
+ALTER TABLE `online_chat_ans`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `posts`

@@ -1,7 +1,7 @@
 <?php
 if (!isset($section)) {
     header("Location: ../index.php");}
-    if(session_status() !== PHP_SESSION_ACTIVE)session_start();
+if(session_status() !== PHP_SESSION_ACTIVE)session_start();
 ?>
 <!DOCTYPE html>
 <html lang="es">
