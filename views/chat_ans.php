@@ -55,7 +55,6 @@
             echo "background-color:white; border-radius: 5px 5px 5px 5px; padding-left:1rem; margin-bottom: 1rem;";
         } ?>">
 
-            <?php if ($usudata['id'] == $_SESSION['usuario']['id']) { ?>
                 <div style="float:left">
                     
                         <div style="display: inline-block; padding-left: 1rem;padding-top: 1rem; "
@@ -64,26 +63,11 @@
                                     src="img/users/<?php echo $usudata['foto_perfil']; ?>" alt="" class="note-img" width="50rem"
                                     height="50rem" style="vertical-align: middle;"></a>
                         </div>
-                        <div style="display: inline-block;"><a href="profile.php?usr=<?php echo $usudata['id'] ?>"><b>You</b></a><a style="color: dimgrey;"> | OP</a>
+                        <div style="display: inline-block;"><a href="profile.php?usr=<?php echo $usudata['id'] ?>"><b><?php if ($usudata['id'] == $_SESSION['usuario']['id']) { echo "You";}else{echo $usudata['usu_nombre'];}?></b></a><a style="color: dimgrey;"><?php if($op['id']==$usudata['id']){echo " | OP";}else{ echo " | USER";}?></a>
                     </div>
                 </div>
                 <br>
-            <?php } else { ?>
-                <div style="float:left">
-                    <div style="display: inline-block; padding-left: 1rem;padding-top: 1rem; padding-right: 1rem;" class="profile">
-                        <a href="profile.php?usr=<?php echo $usudata['id'] ?>"><img
-                                src="img/users/<?php echo $usudata['foto_perfil']; ?>" alt="" class="note-img" width="50rem"
-                                height="50rem" style="vertical-align: middle;"></a>
-                    </div>
-                    <div style="display: inline-block;"><a href="profile.php?usr=<?php echo $usudata['id'] ?>"><b>
-                                <?php echo $usudata['usu_nombre']; ?>
-                            </b></a><a style="color: dimgrey;"> | USER</a>
-
-                    </div>
-                </div>
-                <br>
-            <?php } ?>
-
+            
             <br><br>
             <p style="padding-left: 2rem;padding-bottom: 1rem;">
                 <?php echo $ans['content'] ?>

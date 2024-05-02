@@ -1,3 +1,26 @@
+<?php if (isset($_SESSION['usuario'])) { ?>
+        <div
+            style="margin: auto; width: 80%; border: 0px solid black; padding: 10px;background-color:lightblue; border-radius: 50px 50px 1px 50px; float:right; padding-right:1rem; margin-bottom: 1rem;">
+
+            <div style="float:right">
+                <div style="display: inline-block;"><a href="profile.php?usr=<?php echo $_SESSION['usuario']['id'] ?>"><b>You</b></a>
+                    <div style="display: inline-block; padding-left: 1rem;padding-top: 1rem; padding-right: 1rem;"
+                        class="profile">
+                        <a href="profile.php?usr=<?php echo $_SESSION['usuario']['id'] ?>"><img
+                                src="img/users/<?php echo $_SESSION['usuario']['foto_perfil']; ?>" alt="" class="note-img" width="50rem"
+                                height="50rem" style="vertical-align: middle;"></a>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br><br>
+                <form method="post">
+                    <textarea type="text" placeholder="Write about something..." name="note" style="font-size: 20px;width: 100%;height:200px;border:0px;background-color:lightblue;outline: none; resize: none;"></textarea>
+                    <input type="submit" value="publish" style="width: 25%; float:right; border:none">
+                </form>
+        </div>
+        <br><br>
+    <?php } ?>
 <?php
 if (session_status() !== PHP_SESSION_ACTIVE)
     session_start();
@@ -6,7 +29,10 @@ foreach ($notes as $note) {
     $query = mysqli_query($link, $query);
     $usudata = mysqli_fetch_assoc($query);
     $sql = "SELECT * FROM online_chat WHERE fecha_baja IS NULL";
-    $query = mysqli_query($link, $sql);
+    $query = mysqli_query($link, $sql); ?>
+
+    
+    <?php
     if (!$query) {
         echo "";
     } else { ?>
@@ -43,7 +69,6 @@ foreach ($notes as $note) {
                 </div>
                 <br>
             <?php } ?>
-
             <br><br>
             <p style="padding-left: 2rem;padding-bottom: 1rem;">
                 <?php echo $note['content'] ?>
@@ -70,11 +95,3 @@ foreach ($notes as $note) {
         <?php } ?>
     </p>
 </div>
-<?php if (isset($_SESSION['usuario'])) { ?>
-    <div style="position: fixed; bottom: 0; right: 0; width: 300px; border: 3px solid #73AD21;">
-        <form method="post">
-            <input type="text" name="note" style="width: 75%;">
-            <input type="submit" value="publish" style="float: right; width:22%">
-        </form>
-    </div>
-<?php } ?>

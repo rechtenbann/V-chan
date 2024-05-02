@@ -1,6 +1,11 @@
 <?php
 require_once "includes/config.php";
 if (session_status() !== PHP_SESSION_ACTIVE) session_start();
+if (isset ($_SESSION['usuario']) && $_SESSION['usuario']['nsfw_allow'] == 1) {
+    $r18 = 1;
+} else {
+    $r18 = 0;
+}
 $msgid=$_GET['comment'];
 $sql="SELECT * FROM online_chat WHERE id = '".$msgid."'";
 $query = mysqli_query($link, $sql);

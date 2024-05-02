@@ -1,7 +1,11 @@
 <?php
 require_once "includes/config.php";
 if (session_status() !== PHP_SESSION_ACTIVE) session_start();
-
+if (isset ($_SESSION['usuario']) && $_SESSION['usuario']['nsfw_allow'] == 1) {
+    $r18 = 1;
+} else {
+    $r18 = 0;
+}
 
 $sql = "SELECT COUNT(*) AS n FROM online_chat";
 
@@ -43,8 +47,10 @@ $cont = 0;
 $query = "SELECT * FROM usuarios LEFT JOIN online_chat ON online_chat.usuario_id = usuarios.id;";
 $query = mysqli_query($link, $query);
 $usudata = mysqli_fetch_assoc($query);
-
-if(isset($_POST['note'])){
+// (preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/',$_POST['note'])==true)
+if(isset($_POST['note'])&&$_POST['note']!=null){
+    // if(strpos($_POST['note'], '@') !== false){
+    // }
 $sql="INSERT INTO online_chat (id, content, usuario_id, fecha_alta, fecha_baja) VALUES (NULL,'".$_POST['note']."','".$_SESSION['usuario']['id']."',NOW(),NULL)";
 $query=mysqli_query($link,$sql);
 if(!$query){
