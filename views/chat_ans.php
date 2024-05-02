@@ -28,7 +28,7 @@
 <?php if (isset($_SESSION['usuario'])) { ?>
     <div style="width: 100%; padding-left: 25%; height:100px">
         <form method="post">
-            <textarea  type="text" placeholder="Leave a comment" name="ans" style="width: 50%;height:90px"></textarea>
+            <textarea  type="text" placeholder="Leave a comment" name="ans" style="width: 50%;height:90px;outline: none; resize: none;"></textarea>
             <br><br>
             <input type="submit" value="publish" style="width: 50%;">
         </form>

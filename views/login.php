@@ -13,6 +13,7 @@
             </label>
             <input id="login__password" type="password" name="contra" class="form__input" placeholder="Contraseña" required>
         </div>
+        <input type="checkbox" name="cookie"> Mantener sesión iniciada
         <div>
             <input type="submit" value="Iniciar Sesion">
         </div>

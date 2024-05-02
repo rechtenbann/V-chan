@@ -4,7 +4,7 @@ if (!isset($section)) {
 }
 if (session_status() !== PHP_SESSION_ACTIVE)
   session_start(); ?>
-<div class="navtop" style="background-color: rgb(207, 0, 138);">
+<div class="navtop" style="<?php if($_COOKIE['dark_mode']=='false'){echo "background-color: rgb(207, 0, 138);";}else{ echo "background-color: rgb(107, 0, 38);";} ?>">
   <div class="navitems">
     <div class="navlink navbrand">
       <a href="index.php"><img class="icon" src="img/org_3.png" width="100" height="90"></a>

@@ -56,6 +56,7 @@ $query=mysqli_query($link,$sql);
 if(!$query){
     die("Error de consulta: " . mysqli_errno($link));
 }
+
 header("Location: chat.php?pag=1");
 }
 $section = "chat";
