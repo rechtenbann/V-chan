@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-03-2024 a las 22:15:17
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.2.0
+-- Tiempo de generación: 16-05-2024 a las 20:44:13
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -164,7 +164,13 @@ INSERT INTO `rango_usuario` (`id`, `rango_id`, `usu_id`, `fecha_alta`, `fecha_ba
 (1, 1, 1, '2023-08-11 19:42:55', NULL),
 (2, 2, 2, '2023-08-13 20:20:55', NULL),
 (3, 3, 3, NULL, NULL),
-(4, 3, 4, NULL, NULL);
+(4, 3, 4, NULL, NULL),
+(5, 3, 6, '2024-05-16 15:37:11', NULL),
+(6, 3, 7, '2024-05-16 15:37:11', NULL),
+(7, 3, 6, '2024-05-16 15:37:58', NULL),
+(8, 3, 7, '2024-05-16 15:37:58', NULL),
+(9, 3, 6, '2024-05-16 15:37:58', NULL),
+(10, 3, 7, '2024-05-16 15:37:58', NULL);
 
 -- --------------------------------------------------------
 
@@ -249,7 +255,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `usu_nombre`, `usu_clave`, `usu_email`, `foto_perfil`, `nsfw_allow`, `dark_mode`, `fecha_alta`, `fecha_baja`) VALUES
-(1, 'reichsacht', '5eb3c70fb1c47a19a7b6674092c19fc0', 'hratzeld@gmail.com', 'default-secret.png', 0, 1, '2023-02-26 15:37:31', NULL),
+(1, 'reichsacht', '5eb3c70fb1c47a19a7b6674092c19fc0', 'hratzeld@gmail.com', 'default3.png', 0, 1, '2023-02-26 15:37:31', NULL),
 (2, 'test', '202cb962ac59075b964b07152d234b70', 'sdmatayoshi@gmail.com', 'default4.png', 0, 0, '2023-02-27 12:40:10', NULL),
 (3, 'sdmatayoshi', '41f5d469289efa58df6a726273313439', 'sdmatayoshi@gmail.com', '', 0, 0, '2023-02-28 19:19:21', '2023-08-13 20:19:26'),
 (4, 'anon', '202cb962ac59075b964b07152d234b70', 'mail@gmail.com', 'default5.png', 0, 0, '2023-05-24 20:32:43', NULL),
@@ -368,7 +374,7 @@ ALTER TABLE `rangos`
 -- AUTO_INCREMENT de la tabla `rango_usuario`
 --
 ALTER TABLE `rango_usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `tags`

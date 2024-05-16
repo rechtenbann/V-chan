@@ -49,29 +49,35 @@
             <th style="border: 1px solid black;">
                 <?php echo $usuario['fecha_alta']; ?>
             </th>
-            <th style="border: 3px outset black;">
+            <th style="border: 3px outset black;width:30%;">
                 <form method="post" style="display: inline;">
                     <input type="hidden" name="Upgrade">
-                    <input type="submit" value="Dar premium ♛" style="background-color: gold; border: none; color: white;">
+                    <input type="submit" value="Give premium ♛" style="background-color: green; border: none; color: white; width:45%">
                 </form>
                 <form method="post" style="display: inline;">
                     <input type="hidden" name="Downgrade">
-                    <input type="submit" value="Quitar premium"
-                        style="background-color: brown; border: none; color: white;">
+                    <input type="submit" value="Remove premium"
+                        style="background-color: darkred; border: none; color: white; width:45%">
                 </form>
+                <br>
                 <form method="post" style="display: inline;">
                     <input type="hidden" name="Admin">
-                    <input type="submit" value="Dar permisos de administrador"
-                        style="background-color: darkolivegreen; border: none; color: white;">
+                    <input type="submit" value="Give admin"
+                        style="background-color: green; border: none; color: white; width:45%">
                 </form>
                 <form method="post" style="display: inline;">
                     <input type="hidden" name="NoAdmin">
-                    <input type="submit" value="Remover permisos de administrador"
-                        style="background-color: tomato; border: none; color: white;">
+                    <input type="submit" value="Remove admin"
+                        style="background-color: darkred; border: none; color: white; width:45%">
+                </form>
+                <br>
+                <form method="post" style="display: inline;">
+                    <input type="hidden" name="Unban">
+                    <input type="submit" value="Unban X" style="background-color: green; border: none; color: white; width:45%">
                 </form>
                 <form method="post" style="display: inline;">
                     <input type="hidden" name="Ban">
-                    <input type="submit" value="Ban X" style="background-color: darkred; border: none; color: white;">
+                    <input type="submit" value="Ban X" style="background-color: darkred; border: none; color: white; width:45%">
                 </form>
             </th>
         </tr>
