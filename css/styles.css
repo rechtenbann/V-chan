@@ -168,3 +168,10 @@ tbody {
     background-color: white;
     object-fit: cover;
   }
+
+a:link{
+    color:lightcoral;
+}
+a:visited{
+    color:lightcoral;
+}

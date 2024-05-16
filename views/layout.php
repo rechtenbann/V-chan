@@ -63,7 +63,7 @@ if(session_status() !== PHP_SESSION_ACTIVE)session_start();
     <footer>
         <?php
         require_once $section . ".php";
-        if ($section != 'home') {
+        if ($section != 'home'||$section == 'home') {
             require_once "views/footer.php";
         }
         ?>

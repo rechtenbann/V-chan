@@ -10,3 +10,4 @@ require_once "includes/config.php";
 <input type="text" placeholder="Browse:..." style="width:500px">&nbsp;<input type="submit" value="Search" style="width:100px">
 </form>
 </div>
+<?php for($i=0;$i<10;$i++){echo "<br>";}?>

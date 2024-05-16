@@ -28,10 +28,14 @@ if (session_status() !== PHP_SESSION_ACTIVE)
           href="admin.php"><b>Administrar</b></a><?php } ?>
     </div>
     <div class="navlink">
-      <?php if (isset($_SESSION['usuario']) && ($section != "profile" || isset($_GET['usr']))) { ?><a class="section"
-          href="profile.php?profile=my_profile" style="float: right;"><img class="profile"
+      <?php if (isset($_SESSION['usuario']) && ($section != "profile" || (isset($_GET['usr'])&&$_GET['usr']!=$_SESSION['usuario']['id']))) { ?><a class="section"
+          href="profile.php?profile=<?php echo $_SESSION['usuario']['id']?>" style="float: right;"><img class="profile"
             src="img/users/<?php echo ($_SESSION['usuario']['foto_perfil']); ?>" height="60" width="60"
-            style="border-radius: 100rem; background-color: rgb(255,255,255); object-fit: cover;"></a><?php } ?>
+            style="border-radius: 100rem; background-color: rgb(255,255,255); object-fit: cover;"></a><?php }else if 
+            (isset($_SESSION['usuario']) && ($section == "profile" || (isset($_GET['usr'])&&$_GET['usr']==$_SESSION['usuario']['id']))) { ?><a class="section"
+           style="float: right;"><img 
+            src="img/users/blank.png" height="60" width="60"
+            style="border-radius: 100rem;<?php if($_COOKIE['dark_mode']=='false'){echo "background-color: rgb(207, 0, 138);";}else{ echo "background-color: rgb(107, 0, 38);";} ?> object-fit: cover;"></a><?php } ?>
     </div>
   </div>
 </div>

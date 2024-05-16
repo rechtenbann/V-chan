@@ -2,19 +2,13 @@
     <div align="center">
         <div class="profile-img" style="margin:2rem">
             <div class="container" style="position:relative">
-
                 <div>
                     <a href="#ei" rel="modal:open" style="margin: auto; width: 50%;" id="image"><img src="img/users/<?php echo $_SESSION['usuario']['foto_perfil']; ?>" alt="" class="profile" style="height: 20rem;width: 20rem; border-radius: 50%; object-fit: cover; background-color: white;"></a>
-
-
                 </div>
                 <div id="text" style="position:absolute; width: 100%; top:50%"></div>
-
             </div>
 
             <div id="ei" class="modal" style="width:29rem;">
-
-
                 <a href="#secret" rel="modal:open" style="text-decoration: none; color: black; cursor: default;">
                     <h3>Default</h3>
                 </a>
@@ -121,8 +115,9 @@
             </div>
         </div>
         <a>Nombre de usuario:
-            <?php echo ($_SESSION['usuario']['usu_nombre']); ?>
+            <?php echo ($_SESSION['usuario']['usu_nombre']); if($_SESSION['usuario']['fecha_baja']!=null){echo " | BANNED";}?>
         </a>
+       
         <br>
         <a>Rango:
             <?php
@@ -204,7 +199,8 @@
 
             </div>
         </div>
-        <a>Nombre de usuario:<?php  echo $user['usu_nombre']; ?>
+        <a>Nombre de usuario:<?php  echo $user['usu_nombre']; if($user['fecha_baja']!=null){echo " | BANNED";}?>
+        
         </a>
         <br>
         <a>Rango:

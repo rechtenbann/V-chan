@@ -15,7 +15,7 @@
             <br>
             <br><br>
                 <form method="post">
-                    <textarea type="text" placeholder="Write about something..." name="note" style="padding-left:2%;<?php if ($_COOKIE['dark_mode']=="true") {echo "color:white;";}?>font-size: 20px;width: 96%;height:200px;border:0px;<?php if ($_COOKIE['dark_mode']=="false") {echo "background-color:lightblue;";}else{echo "background-color:lightslategray;";}?>outline: none; resize: none;"></textarea>
+                    <textarea type="text" placeholder="Write something..." name="note" style="padding-left:2%;<?php if ($_COOKIE['dark_mode']=="true") {echo "color:white;";}?>font-size: 18px;width: 96%;height:200px;border:0px;<?php if ($_COOKIE['dark_mode']=="false") {echo "background-color:lightblue;";}else{echo "background-color:lightslategray;";}?>outline: none; resize: none;"></textarea>
                     <input type="submit" value="publish" style="width: 25%; float:right; border:none;">
                 </form>
         </div>
@@ -53,6 +53,20 @@ foreach ($notes as $note) {
                     </div>
                 </div>
                 <br>
+
+                <?php 
+                $str = $note['content'];
+                $pattern = '/@/i';
+                echo preg_replace($pattern, '<a href ="profile.php?usr='.$usudata['id'].'">'.$usudata['usu_nombre'].'</a>', $str);
+                // if (strpos($note['content'],'@') !== false) { //first we check if the url contains the string 'en-us'
+                //     $note['content'] = str_replace('@', 'AT', $note['content']); //if yes, we simply replace it with en
+                // }
+                // echo $note['content'];
+                ?>
+
+
+
+                
             <?php } else { ?>
                 <div style="float:left">
                     <div style="display: inline-block; padding-left: 1rem;padding-top: 1rem; padding-right: 1rem;" class="profile">
