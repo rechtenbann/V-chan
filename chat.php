@@ -2,7 +2,7 @@
 require_once "includes/config.php";
 if (session_status() !== PHP_SESSION_ACTIVE) session_start();
 
-$sql = "SELECT id,usu_nombre FROM usuarios";
+$sql = "SELECT id,usu_nombre FROM usuarios WHERE fecha_baja IS NULL";
 $query = mysqli_query($link, $sql);
 $names = mysqli_fetch_all($query,MYSQLI_ASSOC);
 

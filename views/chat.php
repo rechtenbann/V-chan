@@ -36,7 +36,7 @@ foreach ($notes as $note) {
     $query = "SELECT usuarios.id,usuarios.usu_nombre,usuarios.foto_perfil FROM usuarios LEFT JOIN online_chat ON online_chat.usuario_id = usuarios.id WHERE online_chat.id = '" . $note['id'] . "'";
     $query = mysqli_query($link, $query);
     $usudata = mysqli_fetch_assoc($query);
-    $sql = "SELECT * FROM online_chat WHERE fecha_baja IS NULL";
+    $sql = "SELECT * FROM online_chat WHERE fecha_baja = NULL";
     $query = mysqli_query($link, $sql); ?>
     <?php
     if (strpos($note['content'], '@') !== false) {
