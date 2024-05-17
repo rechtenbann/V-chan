@@ -18,7 +18,7 @@
         <?php
         if (strpos($main['content'], '@') !== false) {
             $name = strstr($main['content'], '@');
-            $name = strtok($name, ' ');
+            //$name = strtok($name, ' ');
             // $name = preg_replace('/\s+/u', '', $name);
             // $name = preg_replace('/!+$/u', '', $name);
             // $name = preg_replace('/,+$/u', '', $name);
