@@ -43,4 +43,5 @@ $log=1;
     }
 }
 $section = "login";
+$title = "Login";
 require_once "views/layout.php";

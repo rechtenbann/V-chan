@@ -2,6 +2,11 @@
 require_once "includes/config.php";
 if (session_status() !== PHP_SESSION_ACTIVE) session_start();
 
+$sql = "SELECT id,usu_nombre FROM usuarios";
+$query = mysqli_query($link, $sql);
+$names = mysqli_fetch_all($query,MYSQLI_ASSOC);
+
+
 $sql = "SELECT COUNT(*) AS n FROM online_chat";
 
 $query = mysqli_query($link, $sql);
@@ -54,6 +59,7 @@ if(!$query){
 
 header("Location: chat.php?pag=1");
 }
+
 $section = "chat";
 $title = "Online Chat";
 require_once "views/layout.php";
