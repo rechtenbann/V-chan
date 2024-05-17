@@ -1,6 +1,6 @@
 <?php
 require_once "includes/config.php";
-if (!isset($_GET['tag'])) {
+if (!isset($_GET['tag'])||(isset($_GET['tag'])&&$_GET['tag']==1)) {
     $query = "SELECT * FROM posts ORDER BY fecha_alta DESC";
     $posts = mysqli_query($link, $query);
 

@@ -6,7 +6,7 @@
     <?php foreach ($res['tags'] as $tag) { ?>
         <tr>
             <td>
-            <a href="posts.php?tag=<?php echo $tag[0]; ?>">? + - <?php echo $tag[1] ?></a>
+            <a href="posts.php?pag=1&tag=<?php echo $tag[0]; ?>">? + - <?php echo $tag[1] ?></a>
             </td>
         </tr>
     <?php } ?>
