@@ -75,3 +75,4 @@ echo $pfa['fecha_alta'];
             <?php } ?>
         </p>
 </div>
+<?php for($i=0;$i<15;$i++){echo "<br>";}?>

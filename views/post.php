@@ -12,9 +12,12 @@
                 <br>
             <?php }
         } ?>
-
-
-
-
 <br>
 <?php echo "uploaded on $date[0] by $post[0]" ?>
+<br>
+<a>Edit:</a>
+<form method="POST">
+    <label for="tags">Tags:</label>
+<textarea type="text" name="tags" style="height:100px;width:25%;outline: none; resize: none;"></textarea>
+<input type="submit" value="submit">
+</form>

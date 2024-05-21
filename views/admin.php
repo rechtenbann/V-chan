@@ -1,4 +1,5 @@
-<table style="border: 1px solid  black;<?php if ((isset($_COOKIE['dark_mode'])&&$_COOKIE['dark_mode']=='false')) {echo "";} else { echo "color:white";}?>">
+<table style="border: 1px solid  black;margin-left: auto;
+  margin-right: auto;<?php if ((isset($_COOKIE['dark_mode'])&&$_COOKIE['dark_mode']=='false')) {echo "";} else { echo "color:white";}?>">
     <tr>
         <th style="border: 1px solid black;">
             ID
@@ -135,3 +136,4 @@
         </tr>
     <?php } ?>
 </table>
+<?php for($i=0;$i<8;$i++){echo "<br>";}?>

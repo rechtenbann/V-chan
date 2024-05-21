@@ -1,4 +1,4 @@
-<div class="footer">
+<div class="footer" style="">
 <h1>
     V-CHAN
 </h1>

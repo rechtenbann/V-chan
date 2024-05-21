@@ -32,4 +32,4 @@
         </tr>
     </tbody>
 </table>
-<?php for($i=0;$i<10;$i++){echo "<br>";}?>
+<?php for($i=0;$i<28;$i++){echo "<br>";}?>
