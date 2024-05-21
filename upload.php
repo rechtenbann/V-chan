@@ -6,11 +6,17 @@ if (isset($_FILES['image']) && isset($_POST['checkbox'])) {
     if ($move) {
         $sql = "INSERT INTO posts (usuario_id,image, fecha_alta) VALUES (1,'" . $_FILES['image']['name'] . "', NOW())";
         $query = mysqli_query($link, $sql);
+        $s="SELECT MAX(id) AS id FROM posts";
+        $queryb=mysqli_query($link,$s);
+        $fa=mysqli_fetch_assoc($queryb);
+        $sql = "INSERT INTO tag_post (post_id,tag_id, fecha_alta) VALUES ('".$fa['id']."','".$_POST['checkbox']."',now())";
+        $query2 = mysqli_query($link, $sql);
         if (!$query) {
             $confirm = 0;
         } else {
             $confirm = 1;
         }
+        
 
         //$sql="INSERT INTO tag_post VALUES (null,'".$_POST['checkbox']."','".$_FILES['image']['id']."',NOW(),null)";
         //$query=mysqli_query($link,$sql);

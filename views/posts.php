@@ -12,13 +12,20 @@
     <?php } ?>
 </table>
 </Section>
-
+<?php 
+$sql = "SELECT MAX(fecha_alta) AS fecha_alta FROM posts";
+        
+$p = mysqli_query($link, $sql);
+        
+$pfa=mysqli_fetch_assoc($p);
+        
+echo $pfa['fecha_alta'];
+?>
 
 <?php if(!isset($_GET['tag'])||(isset($_GET['tag'])&&$_GET['tag']=="1")){ ?>
 <main>
         <div class="tbody" style="text-align: center;">
-            <?php $posts = array_reverse($posts);
-            foreach ($posts as $post) { ?>
+            <?php foreach ($posts as $post) { ?>
                 <?php
                 $sql = "SELECT * FROM posts WHERE fecha_baja IS NULL";
                 $query = mysqli_query($link, $sql);
