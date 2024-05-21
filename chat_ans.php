@@ -23,7 +23,7 @@ if(isset($_POST['ans'])){
     header("Location: chat_ans.php?comment=".$msgid);
 }
 
-
+//paginador
 $sql = "SELECT COUNT(*) AS n FROM online_chat_ans WHERE comment_id = '".$msgid."'";
 $query = mysqli_query($link, $sql);
 if (!$query) {
@@ -32,9 +32,9 @@ if (!$query) {
 $cant = mysqli_fetch_assoc($query);
 if (isset($_GET['pag'])) {
     $pag = intval($_GET['pag']);
-    if ($pag <= ceil(intval($cant["n"]) / 2)) {
-        $in = ($pag * 2) - 2;
-        $sql = "SELECT * FROM online_chat_ans WHERE comment_id='".$msgid."' ORDER BY fecha_alta DESC LIMIT $in,2";
+    if ($pag <= ceil(intval($cant["n"]) / 5)) {
+        $in = ($pag * 5) - 5;
+        $sql = "SELECT * FROM online_chat_ans WHERE comment_id='".$msgid."' ORDER BY fecha_alta DESC LIMIT $in,5";
         $query = mysqli_query($link, $sql);
         if (!$query) {
             die("Error de consulta: " . mysqli_errno($link));
@@ -42,7 +42,7 @@ if (isset($_GET['pag'])) {
         $anss = mysqli_fetch_all($query, MYSQLI_ASSOC);
     }
 } else {
-    $sql = "SELECT * FROM online_chat_ans WHERE comment_id='".$msgid."' ORDER BY fecha_alta DESC LIMIT 0,2";
+    $sql = "SELECT * FROM online_chat_ans WHERE comment_id='".$msgid."' ORDER BY fecha_alta DESC LIMIT 0,5";
     $query = mysqli_query($link, $sql);
     if (!$query) {
         die("Error de consulta: " . mysqli_errno($link));

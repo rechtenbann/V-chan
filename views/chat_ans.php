@@ -14,7 +14,7 @@
             </b></a>
     </div>
     <br><br>
-    <p style="padding-left: 1rem;padding-bottom: 1rem; padding-right: 1rem;">
+    <p style="padding-left: 1rem;padding-bottom: 1rem; padding-right: 1rem;word-wrap: break-word;">
         <?php
         if (strpos($main['content'], '@') !== false) {
             $name = strstr($main['content'], '@');
@@ -36,7 +36,13 @@
             }
         }
         ?>
-        <?php echo $main['content'] ?>
+        <?php //echo wordwrap($main['content'], 155, "<br>", true); ?>
+        <?php echo $main['content']; ?>
+        <!-- <textarea type="text" style="Width:100%; height:100px; font-size:18px;outline: none; resize: none; border:none; <?php if ($op['id'] == $_SESSION['usuario']['id']) {
+                                                                                    echo "background-color:lightblue; border-radius: 5px 5px 5px 5px";
+                                                                                } else {
+                                                                                    echo "background-color:white; border-radius: 5px 5px 5px 5px";
+                                                                                } ?>" readonly><?php echo $main['content'] ?></textarea>  -->
     </p>
     <a style="color: gray; float: right; padding-right: 2rem;">
         <?php echo $main['fecha_alta'] ?>
@@ -115,7 +121,7 @@
                 <br>
 
                 <br><br>
-                <p style="padding-left: 2rem;padding-bottom: 1rem;">
+                <p style="padding-left: 1rem;padding-bottom: 1rem;word-wrap: break-word;">
                     <?php echo $ans['content'] ?>
                 </p>
                 <a style="color: gray; float: right; padding-left: 2rem;">
@@ -135,7 +141,7 @@
 
 <div class="paginador" style="text-align: center;">
     <p>
-        <?php for ($i = 1; $i <= ceil(intval($cant["n"]) / 2); $i++) { ?>
+        <?php for ($i = 1; $i <= ceil(intval($cant["n"]) / 5); $i++) { ?>
             <a href="chat_ans.php?comment=<?php echo $msgid ?>&pag=<?php echo $i; ?>"><button>
                     <?php echo $i; ?>
                 </button></a>

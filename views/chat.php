@@ -101,10 +101,24 @@ foreach ($notes as $note) {
             <?php } ?>
             <br><br>
             <div>
-                <p style="padding-left: 2rem;padding-bottom: 1rem;<?php if ($_COOKIE['dark_mode'] == "true") {
+                <p style="padding-left: 2rem;padding-bottom: 1rem;word-wrap: break-word;<?php if ($_COOKIE['dark_mode'] == "true") {
                                                                         echo "color:white;";
                                                                     } ?> width:96%">
-                    <?php echo wordwrap($note['content'], 146, "<br>", true) ?>
+                    <?php echo $note['content'];//wordwrap($note['content'], 150, "<br>", true) ?>
+                    <!-- <textarea type="text" style="Width:100%; height:100px; font-size:18px;outline: none; resize: none; border:none; <?php if (isset($_SESSION['usuario']) && $usudata['id'] == $_SESSION['usuario']['id']) {
+                                                                                            if ($_COOKIE['dark_mode'] == "false") {
+                                                                                                echo "background-color:lightblue;";
+                                                                                            } else {
+                                                                                                echo "background-color:lightslategray;";
+                                                                                            }
+                                                                                        } else {
+                                                                                            if ($_COOKIE['dark_mode'] == "false") {
+                                                                                                echo "background-color:white;";
+                                                                                            } else {
+                                                                                                echo "background-color:dimgrey;";
+                                                                                            }
+                                                                                        } ?>" readonly><?php echo $note['content'] ?></textarea>  -->
+                    
                 </p>
             </div>
             <a style="text-decoration: none; <?php if ($_COOKIE['dark_mode'] == "false") {
