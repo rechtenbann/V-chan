@@ -6,7 +6,7 @@
     <?php foreach ($res['tags'] as $tag) { ?>
         <tr>
             <td>
-            <a href="posts.php?pag=1&tag=<?php echo $tag[0]; ?>">? + - <?php echo $tag[1] ?></a>
+            <a href="posts.php?pag=1&tag=<?php echo $tag[0]; ?>"><?php echo $tag[1] ?></a>
             </td>
         </tr>
     <?php } ?>
@@ -60,3 +60,11 @@
         </div>
 </main>
 <?php } ?>
+
+    <div class="paginador" style="text-align: center;">
+        <p>
+            <?php for ($i = 1; $i <= ceil(intval($cant["c"]) / 4); $i++) { ?>
+                <a href="posts.php?pag=<?php echo $i; ?>&tag=<?php echo $_GET['tag'] ?>"><button><?php echo $i; ?></button></a>
+            <?php } ?>
+        </p>
+</div>

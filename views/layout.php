@@ -50,9 +50,9 @@ if(session_status() !== PHP_SESSION_ACTIVE)session_start();
     ?>
     <?php
     require_once $section . ".php";
-    if ($section == 'posts') {
-        require_once "views/paginator.php";
-    }
+    // if ($section == 'posts') {
+    //     require_once "views/paginator.php";
+    // }
     ?>
     <script>
         <?php
