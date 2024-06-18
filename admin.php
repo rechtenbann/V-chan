@@ -1,7 +1,7 @@
 <?php
 require_once "includes/config.php";
 if (session_status() !== PHP_SESSION_ACTIVE) session_start();
-
+$db="v-chan";
 $sql = "SELECT * FROM usuarios";
 $query = mysqli_query($link, $sql);
 $usuarios = mysqli_fetch_all($query, MYSQLI_ASSOC);
@@ -48,7 +48,11 @@ if (isset($_POST['Ban'])) {
     $sql = mysqli_query($link, $query);
     header("Location: admin.php");
 }
-
+if (isset($_POST['SDB'])) {
+    $db="test-db";
+}else{
+    $db="v-chan";
+}
 $section = "admin";
 $title = "Administration";
 require_once "views/layout.php";
