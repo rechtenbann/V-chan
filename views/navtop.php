@@ -21,6 +21,9 @@ if (session_status() !== PHP_SESSION_ACTIVE)
       } ?>><b>Community</b></a>
     </div>
     <div class="navlink">
+      <a href="cards.php" class="section"><b>Cards</b></a>
+    </div>
+    <div class="navlink">
       <a href="sites.php" class="section"><b>Sites</b></a>
     </div>
     <div class="navlink">

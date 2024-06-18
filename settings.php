@@ -1,4 +1,4 @@
 <?php
 $section = "settings";
-$title = "Settings";
+$title = "Options / Settings";
 require_once "views/layout.php";
