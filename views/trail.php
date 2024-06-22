@@ -1,40 +1,44 @@
-<div style="text-align:center">
-        <div class="cov atvImg">
-            <div class="atvImg-layer" data-img="img/cards/bg.png" data-img-width="50px"></div>
-            <div class="atvImg-layer" data-img="img/cards/v-chan.png" data-img-width="50px"></div>
-        </div>
-    <a href="#">
-        <div class="cov atvImg">
-            <div class="atvImg-layer" data-img="img/cards/bg.png" data-img-width="50px"></div>
-            <div class="atvImg-layer" data-img="img/cards/v-kun.png" data-img-width="50px"></div>
-        </div>
-    </a>
-    <a href="#">
-        <div class="cov atvImg">
-            <div class="atvImg-layer" data-img="img/cards/bg.png" data-img-width="50px"></div>
-            <div class="atvImg-layer" data-img="img/cards/d-chan.png" data-img-width="50px"></div>
-        </div>
-    </a>
+<style>
+#div1, #div2 {
+  float: left;
+  width: 300px;
+  height: 400px;
+  margin: 10px;
+  border: 1px solid black;
+  align-items: center;
+  align-content: center;
+}
+</style>
+<script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
 
-    <a href="#">
-        <div class="cov atvImg">
-            <div class="atvImg-layer" data-img="img/cards/bg.png" data-img-width="50px"></div>
-            <div class="atvImg-layer" data-img="img/cards/p-chan.png" data-img-width="50px"></div>
-        </div>
-    </a>
-    <a href="#">
-        <div class="cov atvImg">
-            <div class="atvImg-layer" data-img="img/cards/bg.png" data-img-width="50px"></div>
-            <div class="atvImg-layer" data-img="img/cards/m-chan.png" data-img-width="50px"></div>
-        </div>
-    </a>
-    <a href="#">
-        <div class="cov atvImg">
-            <div class="atvImg-layer" data-img="img/cards/bg.png" data-img-width="50px"></div>
-            <div class="atvImg-layer" data-img="img/cards/s-chan.png" data-img-width="50px"></div>
-        </div>
-    </a>
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+</script>
+
+
+<div style="text-align:center; align-content:center;">
+<div id="div1" class="cov atvImg" ondrop="drop(event)" ondragover="allowDrop(event)">
+<img src="img/org_2.png" class="atvImg" style="object-fit: cover;" draggable="true" ondragstart="drag(event)" id="drag1" width="300" height="400">
 </div>
+<div id="div2" class="cov atvImg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div2" class="cov atvImg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div2" class="cov atvImg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div2" class="cov atvImg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div2" class="cov atvImg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div2" class="cov atvImg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+</div>
+
+
 <script>
     function atvImg() {
         var d = document,
