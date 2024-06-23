@@ -4,9 +4,10 @@ $link = mysqli_connect("localhost","root","","v-chan");
 if(!$link){
     die("No se pudo conectar a la base de datos: ".mysqli_connect_errno());
 }
+
 $select="SELECT id FROM posts";
 $mysqliquery=mysqli_query($link,$select);
-
+$total_posts=mysqli_num_rows($mysqliquery);
 function consulta($query, $link, $option = false)
 {
     $execute = mysqli_query($link, $query);

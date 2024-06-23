@@ -1,19 +1,51 @@
-<div>
+<main style="grid-column: 2; grid-row: 5; margin-bottom: 20px;">
     <form method="POST">
-        <input type="hidden" name="Options">
-        
-        
-        <div>
-            <input type="checkbox" name="DM" value="DARK MODE" <?php if ($_COOKIE['dark_mode'] == 'true') {
-                echo "checked";
-            } else if ($_COOKIE['dark_mode'] == 'false' || !isset($_COOKIE['dark_mode'])){
-                echo "";
-            } ?>> <a style="<?php  if ($_COOKIE['dark_mode']=="true") {echo "color:white";}else{echo "";} ?>">Dark Mode<?php if ($_COOKIE['dark_mode']=="true") {echo "⚉";}else if ($_COOKIE['dark_mode'] == 'false' || !isset($_COOKIE['dark_mode'])){echo "⚇";}?></a>
-        </div>
-        <br>
-        <div>
-            <input type="submit" value="Guardar Cambios">
-        </div>
+        <table class="options">
+            <tbody>
+                <tr>
+                    <th width="15%">
+                        <label class="ot">option 1</label>
+                        <p>Lorem ipsum dolor sit amet,
+                            consectetur adipiscing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </th>
+                    <td width="65%" style="padding: 5px; border: 1px solid #f0f0f0;">
+                        <input type="checkbox">
+                    </td>
+                </tr>
+                <tr style="display: table-row; vertical-align: inherit; border-color: inherit;">
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr style="display: table-row; vertical-align: inherit; border-color: inherit;">
+                    <th>
+                        <label>option 2</label>
+                        <p>Lorem ipsum dolor sit amet,
+                            consectetur adipiscing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </th>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                </tr>
+                <tr style="display: table-row; vertical-align: inherit; border-color: inherit;">
+                    <th>
+                        <label>Posts per page</label>
+                        <p></p>
+                    </th>
+                    <td>
+                        <label>
+                            <input type="text" name="ppp">(default is 8)
+                            <span class="select"></span>
+                        </label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <input type="submit" value="Confirm">
     </form>
-</div>
-<?php for($i=0;$i<27;$i++){echo "<br>";}?>
+</main>
+<?php
+echo $ppp;
+?>
