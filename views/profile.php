@@ -1,13 +1,12 @@
 <?php if (!isset($_GET['usr']) || $_GET['usr'] == $_SESSION['usuario']['id']) { ?>
     <div align="center">
         <div class="profile-img" style="margin:2rem">
-            <div class="container" style="position:relative">
+            <div class="container" style="position:relative;">
                 <div>
                     <a href="#ei" rel="modal:open" style="margin: auto; width: 50%;" id="image"><img src="img/users/<?php echo $_SESSION['usuario']['foto_perfil']; ?>" alt="" class="profile" style="height: 20rem;width: 20rem; border-radius: 50%; object-fit: cover; background-color: white;"></a>
                 </div>
                 <div id="text" style="position:absolute; width: 100%; top:50%"></div>
             </div>
-
             <div id="ei" class="modal" style="width:29rem;">
                 <a href="#secret" rel="modal:open" style="text-decoration: none; color: black; cursor: default;">
                     <h3>Default</h3>
@@ -75,7 +74,7 @@
                                 <label style="display: block; text-align: center;">P-chan</label>
                             </form>
                         </div>
-                        <div style="display: inline-block;" class="cont">
+                        <div style="display: inline-block;">
                             <form method="post" class="option-form">
                                 <input type="hidden" name="default5" value="default5.png" class="Height">
                                 <input title="Set K-Chan as profile photo" type="image" id="default5" class="option-photo" name="default5" value="default5.png" alt="Login" src="img/users/default5.png">

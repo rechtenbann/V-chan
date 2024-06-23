@@ -64,7 +64,7 @@
                 layersHTML = d.createElement('div'),
                 layers = [];
             thisImg.id = 'atvImg__' + l;
-            containerHTML.className = 'atvImg-container';
+            containerHTML.className = 'atvImg-cont';
             shineHTML.className = 'atvImg-shine';
             shadowHTML.className = 'atvImg-shadow';
             layersHTML.className = 'atvImg-layers';
