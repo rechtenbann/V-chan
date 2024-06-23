@@ -1,8 +1,30 @@
+body{
+    font-family: verdana, sans-serif, helvetica;
+    
+}
 .navtop {
     overflow: hidden;
-    background-color: blue;
+    background-color: rgb(141, 22, 189);
     align-self: center;
     font-family: verdana, sans-serif, helvetica;
+}
+.icon{
+    position: relative;
+    float:left; 
+    margin: 7px 15px 1px 25px;
+    padding: 0 0 0 0;
+}
+.section{
+    text-decoration: none;
+    float: left; 
+    display: block; 
+    color: #ffffff; 
+    text-align: center; 
+    margin: 20px 16px 23px 16px;
+    padding: 0 0 0 0;
+}
+.section:hover{
+    text-decoration:underline;
 }
 
 .navsub {
@@ -67,15 +89,18 @@ tbody {
     font-size: 12px;
     text-decoration: none;
 }
-
 .footer{
+    margin-top: auto;
     text-align: center;
     color: #fff;
-    background-color: blue;
-    padding-bottom: 125px;
+    background-color: rgb(141, 22, 189);
     font-family: verdana, sans-serif, helvetica;
+    margin: 0;
+    padding: 1rem;
+    
 }
 
+/* 
 @media only screen and (max-width: 850px) {
     .tags {
         grid-area: aside;
@@ -90,4 +115,64 @@ tbody {
         padding: 20px;
         font-family: verdana, sans-serif, helvetica;
     }
+} */
+.option-form{
+    width: 8rem;
+    display: inline-block;
+}
+.lbl{
+    display: block; 
+    text-align: center; 
+    filter:opacity(0);
+}
+.void{
+    width: 0px; 
+    height:8rem; 
+    object-fit: cover; 
+    filter:opacity(0);
+}
+.Height{
+    display: inline-block; 
+    width:0px;
+}
+.option-photo{
+    margin: 0, 0, 0, 0;
+    width: 8rem;
+    height:8rem; 
+    object-fit: cover;
+    transition:  filter 0.2s, margin-bottom 0.2s ease-in-out;
+}
+.option-form:hover .option-photo {
+    position:absolute;
+    border:2px solid #333;
+    filter: brightness(40%);
+    background-color: rgba(33, 33, 33, 0);
+    margin-bottom: 10px;
+  }
+  .profile{
+    transition: 0.3s filter ease-in-out;
+  }
+  .profile:hover {
+    border:0px solid #333;
+    background-color: rgba(33, 33, 33, 0);
+    filter: brightness(40%);
+  }
+
+  .box {
+    height: 10rem;
+    width: 20rem;
+    border-radius: 0 0 10rem 10rem;
+    background-color: #333;
+  }
+  .note-img {
+    border-radius: 100%;
+    background-color: white;
+    object-fit: cover;
+  }
+
+a:link{
+    color:lightcoral;
+}
+a:visited{
+    color:lightcoral;
 }
