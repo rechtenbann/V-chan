@@ -10,5 +10,5 @@ if (isset($_POST['Options'])&& isset($_POST['DM'])) {
  }
 
 $section = "options";
-$title = "Options";
+$title = "<a href='settings.php'>Settings</a> / Options";
 require_once "views/layout.php";

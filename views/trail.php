@@ -13,19 +13,15 @@
 function allowDrop(ev) {
   ev.preventDefault();
 }
-
 function drag(ev) {
   ev.dataTransfer.setData("text", ev.target.id);
 }
-
 function drop(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
   ev.target.appendChild(document.getElementById(data));
 }
 </script>
-
-
 <div style="text-align:center; align-content:center;">
 <div id="div1" class="cov atvImg" ondrop="drop(event)" ondragover="allowDrop(event)">
 <img src="img/org_2.png" class="atvImg" style="object-fit: cover;" draggable="true" ondragstart="drag(event)" id="drag1" width="300" height="400">
@@ -37,8 +33,6 @@ function drop(ev) {
 <div id="div2" class="cov atvImg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 <div id="div2" class="cov atvImg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 </div>
-
-
 <script>
     function atvImg() {
         var d = document,
@@ -120,7 +114,6 @@ function drop(ev) {
                 })(thisImg, layers, totalLayerElems, shineHTML);
             }
         }
-
         function processMovement(e, touchEnabled, elem, layers, totalLayers, shine) {
             var bdst = bd.scrollTop || htm.scrollTop,
                 bdsl = bd.scrollLeft,
@@ -154,11 +147,9 @@ function drop(ev) {
                 revNum--;
             }
         }
-
         function processEnter(e, elem) {
             elem.firstChild.className += ' over';
         }
-
         function processExit(e, elem, layers, totalLayers, shine) {
             var container = elem.firstChild;
             container.className = container.className.replace(' over', '');

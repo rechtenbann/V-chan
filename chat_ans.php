@@ -52,5 +52,5 @@ if (isset($_GET['pag'])) {
 $cont = 0;
 
 $section = "chat_ans";
-$title = "Online Chat";
+$title = "<a href='chat.php'>Online Chat</a> / Answers";
 require_once "views/layout.php";

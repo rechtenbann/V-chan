@@ -18,6 +18,26 @@ fecha_baja IS NULL";
 $query = mysqli_query($link, $sql);
 $tags = mysqli_fetch_all($query);
 
+function createRandomPassword() { 
+
+    $chars = "abcdefghijkmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"; $i = 0; $token = '';
+    srand((double)microtime()*1000000); 
+    $i = 0; 
+    $pass = '' ; 
+    while ($i <= 7) { 
+        $num = rand() % 33; 
+        $tmp = substr($chars, $num, 1); 
+        $pass = $pass . $tmp; 
+        $i++; 
+    }  
+    // while ($i <= 7) { 
+    //     $num = \random_int(0, 33); 
+    //     $token .= $chars{$num}; $i++; 
+    // }
+
+    return $pass; 
+
+} 
 
 if (isset($_POST['tags'])) {
     $sql = "SELECT * FROM tags";
