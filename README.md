@@ -6,6 +6,6 @@
 <h3>Download Files:</h3>
 ㅤㅤ◈ <b>Complete repository:</b>ㅤㅤv-chan.zip <a href="https://github.com/sdmatayoshi/V-chan/archive/refs/heads/v-chan.zip"><!--<img src="https://github.com/sdmatayoshi/V-chan/assets/106670145/ce129379-faeb-48fa-98a5-0769f39e12db" style="width:1rem;margin-top:5px">--><u>⇩</u></a>
 
-<svg role="img" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style="display:inline-block;user-select:none;vertical-align:text-bottom;overflow:visible"><path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z"></path><path d="M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.969a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.749.749 0 0 1-1.06 0L4.22 6.78a.749.749 0 1 1 1.06-1.06l1.97 1.969Z"></path></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 24 30" enable-background="new 0 0 24 24" xml:space="preserve"><g><polygon fill="#000000" points="19,14 19,18 5,18 5,14 2,14 2,18 2,22 5,22 19,22 22,22 22,18 22,14  "/><polygon fill="#000000" points="15,9.9 15,2 9,2 9,9.9 5.8,9.9 12,16.1 18.2,9.9  "/></g></svg>
 <!--Here's a sentence with a footnote. [^1]
 [^1]: This is the footnote.-->
