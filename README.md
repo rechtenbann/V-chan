@@ -4,8 +4,6 @@
 
 # DOWNLOADS
 <h3>Download Files:</h3>
-ㅤㅤ◈ <b>Complete repository:</b>ㅤㅤv-chan.zip <a href="https://github.com/sdmatayoshi/V-chan/archive/refs/heads/v-chan.zip"><!--<img src="https://github.com/sdmatayoshi/V-chan/assets/106670145/ce129379-faeb-48fa-98a5-0769f39e12db" style="width:1rem;margin-top:5px">--><u>⇩</u></a>
-
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 24 30" enable-background="new 0 0 24 24" xml:space="preserve"><g><polygon fill="#000000" points="19,14 19,18 5,18 5,14 2,14 2,18 2,22 5,22 19,22 22,22 22,18 22,14  "/><polygon fill="#000000" points="15,9.9 15,2 9,2 9,9.9 5.8,9.9 12,16.1 18.2,9.9  "/></g></svg>
+ㅤㅤ◈ <b>Complete repository:</b>ㅤㅤv-chan.zip <a href="https://github.com/sdmatayoshi/V-chan/archive/refs/heads/v-chan.zip"><!--<img src="https://github.com/sdmatayoshi/V-chan/assets/106670145/ce129379-faeb-48fa-98a5-0769f39e12db" style="width:1rem;margin-top:5px">--><u>[⇩](## "Code preview syntax was generated using gh-linguist-preview")</u></a>
 <!--Here's a sentence with a footnote. [^1]
 [^1]: This is the footnote.-->
