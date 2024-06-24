@@ -4,6 +4,6 @@
 
 # DOWNLOADS
 <h3>Download Files:</h3>
-ㅤㅤ◈ <b>Complete repository:</b>ㅤㅤv-chan.zip [<a href="https://github.com/sdmatayoshi/V-chan/archive/refs/heads/v-chan.zip"><!--<img src="https://github.com/sdmatayoshi/V-chan/assets/106670145/ce129379-faeb-48fa-98a5-0769f39e12db" style="width:1rem;margin-top:5px">--><u>⇩</u></a>](## "Code preview syntax was generated using gh-linguist-preview")
+ㅤㅤ◈ <b>Complete repository:</b>ㅤㅤv-chan.zip <a href="https://github.com/sdmatayoshi/V-chan/archive/refs/heads/v-chan.zip">[<img src="https://github.com/sdmatayoshi/V-chan/assets/106670145/ce129379-faeb-48fa-98a5-0769f39e12db" style="width:1rem;margin-top:5px">](## "Code preview syntax was generated using gh-linguist-preview")<u>⇩</u></a>
 <!--Here's a sentence with a footnote. [^1]
 [^1]: This is the footnote.-->
