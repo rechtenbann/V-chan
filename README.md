@@ -4,6 +4,6 @@
 
 # DOWNLOADS
 <h3>Download Files:</h3>
-ㅤㅤ◈ <u>All files</u>: v-chan.zip <a href="https://github.com/sdmatayoshi/V-chan/archive/refs/heads/v-chan.zip"><img src="https://github.com/sdmatayoshi/V-chan/assets/106670145/ce129379-faeb-48fa-98a5-0769f39e12db" style="width:1rem;margin-top:5px"><u>⇩</u></a>
+<a>ㅤㅤ◈ <u>All files</u>:</a> v-chan.zip <a href="https://github.com/sdmatayoshi/V-chan/archive/refs/heads/v-chan.zip"><img src="https://github.com/sdmatayoshi/V-chan/assets/106670145/ce129379-faeb-48fa-98a5-0769f39e12db" style="width:1rem;margin-top:5px"><u>⇩</u></a>
 <!--Here's a sentence with a footnote. [^1]
 [^1]: This is the footnote.-->
