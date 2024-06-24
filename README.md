@@ -30,7 +30,7 @@
   </tr>
   <tr>
     <th>
-      ㅤ◈ㅤ <b>Version beta 0.0.3:</b>
+      ㅤ◈ <b>Version beta 0.0.3:</b>
     </th>
     <th>
       old.zip
