@@ -21,7 +21,7 @@
     </th>
   </tr>
   <tr>
-    <th>
+    <th style="border-left:0px">
       ㅤ◈
     </th>
     <th>
