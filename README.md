@@ -11,6 +11,9 @@
       ㅤ
     </th>
     <th>
+      ㅤ
+    </th>
+    <th>
       File Name
     </th>
     <th>
@@ -19,7 +22,10 @@
   </tr>
   <tr>
     <th>
-      ㅤ◈ <b>Complete repository:</b>
+      ㅤ◈
+    </th>
+    <th>
+      ㅤ<b>Complete repository:</b>
     </th>
     <th>
       v-chan.zip
@@ -30,7 +36,10 @@
   </tr>
   <tr>
     <th>
-      ㅤ◈ <b>Version beta 0.0.3:</b>
+      ㅤ◈
+    </th>
+    <th>
+      ㅤ<b>Version beta 0.0.3:</b>
     </th>
     <th>
       old.zip
