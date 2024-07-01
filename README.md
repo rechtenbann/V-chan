@@ -5,9 +5,9 @@
 # DOWNLOADS
 <h3>Download Files:</h3>
 
-<table>
+<table style="border:0px">
   <tr>
-    <th style="border-right-width:0">
+    <th>
       ㅤ
     </th>
     <th>
