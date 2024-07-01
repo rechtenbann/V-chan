@@ -7,7 +7,7 @@
 
 <table>
   <tr>
-    <th>
+    <th style="border-right-width:0">
       ㅤ
     </th>
     <th>
