@@ -20,9 +20,9 @@ if (session_status() !== PHP_SESSION_ACTIVE)
         echo 'style="pointer-events:none; color:grey"';
       } ?>><b>Community</b></a>
     </div>
-    <div class="navlink">
+    <!-- <div class="navlink">
       <a href="cards.php" class="section"><b>Cards</b></a>
-    </div>
+    </div> -->
     <div class="navlink">
       <a href="sites.php" class="section"><b>Sites</b></a>
     </div>
