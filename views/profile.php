@@ -9,9 +9,15 @@
             </div>
 
             <div id="ei" class="modal" style="width:29rem;">
-                <a href="#secret" rel="modal:open" style="text-decoration: none; color: black; cursor: default;">
+                <?php if($_SESSION['usuario']['rango']=="administrador"){ ?>
+                    <a href="#secret" rel="modal:open" style="text-decoration: none; color: black; cursor: default;">
                     <h3>Default</h3>
                 </a>
+                    <?php }else{ ?>
+                        <a style="text-decoration: none; color: black; cursor: default;">
+                    <h3>Default</h3>
+                </a>
+                        <?php } ?>
                 <div id="secret" class="modal" style="width:13rem; height:13rem; align-items: center;">
                     <div class="Height">
                         <form method="post" style="width:9rem;display: inline-block; user-select:none">

@@ -4,7 +4,7 @@
                                                                                 } else {
                                                                                     echo "background-color:white; border-radius: 5px 5px 5px 5px";
                                                                                 } ?>">
-    <div style="display: inline-block; padding-left: 1rem;padding-top: 1rem; padding-right: 1rem;" class="profile"><a href="profile.php?usr=<?php echo $op['id'] ?>"><img src="img/users/<?php echo $op['foto_perfil']; ?>" alt="" class="note-img" width="50rem" height="50rem" style="vertical-align: middle;"></a></div>
+    <div style="display: inline-block;"><a href="profile.php?usr=<?php echo $op['id'] ?>"><img src="img/users/<?php echo $op['foto_perfil']; ?>" alt="" class="profile-small" style="vertical-align: middle;"></a></div>
     <div style="display: inline-block;"><a href="profile.php?usr=<?php echo $op['id'] ?>"><b>
                 <?php if ($op['usu_nombre'] == $_SESSION['usuario']['usu_nombre']) {
                     echo "You";
@@ -104,8 +104,8 @@
 
                 <div style="float:left">
 
-                    <div style="display: inline-block; padding-left: 1rem;padding-top: 1rem; " class="profile">
-                        <a href="profile.php?usr=<?php echo $usudata['id'] ?>"><img src="img/users/<?php echo $usudata['foto_perfil']; ?>" alt="" class="note-img" width="50rem" height="50rem" style="vertical-align: middle;"></a>
+                    <div style="display: inline-block;">
+                        <a href="profile.php?usr=<?php echo $usudata['id'] ?>"><img src="img/users/<?php echo $usudata['foto_perfil']; ?>" alt="" class="profile-small" style="vertical-align: middle;"></a>
                     </div>
                     <div style="display: inline-block;"><a href="profile.php?usr=<?php echo $usudata['id'] ?>"><b><?php if ($usudata['id'] == $_SESSION['usuario']['id']) {
                                                                                                                         echo "You";
