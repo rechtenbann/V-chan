@@ -157,6 +157,25 @@
             </div>
 
             <!--Fin edit nombre-->
+            <!--Edit mail-->
+            <p><a href="#em" rel="modal:open">Cambiar email</a></p>
+            <div id="em" class="modal" style="width:15rem">
+                <div style="margin: top 0;padding: top 0;border-bottom: 1px solid cadetblue;">
+                    <h4 style="vertical-align: top;">Editar mail</h4>
+                </div>
+                <br>
+                <div>
+                    <form method="post">
+                        <input type="password" name="actpass" id="actpass" placeholder="Contraseña actual" required>
+                        <br><br>
+                        <input type="password" name="newpass" id="newpass" placeholder="Contraseña nueva" required>
+                        <br><br>
+                        <input type="submit" value="Confirmar ✓" style="float: left;">
+                        <button style="float: right;"> <a href="#ep" rel="modal:open" style="text-decoration:none; color:black">Cancelar ✗</a></button>
+                    </form>
+                </div>
+            </div>
+            <!--Fin edit mail-->
             <!--Edit contra-->
             <p><a href="#ec" rel="modal:open">Cambiar contraseña</a></p>
             <div id="ec" class="modal" style="width:15rem">

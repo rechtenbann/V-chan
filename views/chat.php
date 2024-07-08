@@ -47,10 +47,15 @@ foreach ($notes as $note) {
     if (strpos($note['content'], '@') !== false) {
         $name = strstr($note['content'], '@');
         $name = strtok($name, ' ');
+        $name = strtok($name, ',');
+        $name = strtok($name, '.');
+        $name = strtok($name, '!');
+        $name = strtok($name, '?');
         $name = rtrim($name, ' ');
         $name = rtrim($name, '!');
         $name = rtrim($name, '.');
         $name = rtrim($name, ',');
+        $name = rtrim($name, '?');
         foreach ($names as $n) {
             if ('@' . $n['usu_nombre'] == $name) {
                 $note['content'] = str_replace(preg_quote($name), '<a href ="profile.php?usr=' . $n['id'] . '">' . $name . '</a>', $note['content']);
