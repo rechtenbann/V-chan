@@ -141,20 +141,56 @@ tbody {
     width: 8rem;
     height:8rem; 
     object-fit: cover;
+    /* background-color: white; */
     transition:  filter 0.2s, margin-bottom 0.2s ease-in-out;
 }
 .option-form:hover .option-photo {
-    border:2px solid #333;
+    border:0px solid #333;
     filter: brightness(40%);
-    background-color: rgba(33, 33, 33, 0);
+    /* background-color: rgba(33, 33, 33, 0); */
+    /* background-color: white; */
     margin-bottom: 10px;
   }
+  .profile-nav{
+    height: 60px;
+    width: 60px;
+    border-radius: 100rem;
+    background-color: white; 
+    object-fit: cover;
+    transition: 0.3s filter ease-in-out;
+  }
+  .profile-nav:hover {
+    border:0px solid #333;
+    /*background-color: rgba(33, 33, 33, 0);*/
+    background-color: white;
+    filter: brightness(40%);
+  }
+  .profile-small{
+    height: 50px;
+    width: 50px;
+    border-radius: 100rem;
+    background-color: white; 
+    object-fit: cover;
+    transition: 0.3s filter ease-in-out;
+  }
+  .profile-small:hover {
+    border:0px solid #333;
+    /*background-color: rgba(33, 33, 33, 0);*/
+    background-color: white;
+    filter: brightness(40%);
+  }
   .profile{
+    height: 20rem;
+    width: 20rem;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: white;
     transition: 0.3s filter ease-in-out;
   }
   .profile:hover {
     border:0px solid #333;
-    background-color: rgba(33, 33, 33, 0);
+    /*background-color: rgba(33, 33, 33, 0);*/
+    background-color: white;
     filter: brightness(40%);
   }
 

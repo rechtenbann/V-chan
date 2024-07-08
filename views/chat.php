@@ -1,29 +1,34 @@
 <?php if (isset($_SESSION['usuario'])) { ?>
-    <div style="margin: auto; width: 80%; border: 0px solid black; padding: 10px; <?php if ($_COOKIE['dark_mode'] == "false") {
-                                                                                        echo "background-color:lightblue;";
-                                                                                    } else {
-                                                                                        echo "background-color:lightslategray;";
-                                                                                    } ?> border-radius: 50px 50px 1px 50px; float:right; padding-right:1rem; margin-bottom: 1rem;">
+    <div
+        style="margin: auto; width: 80%; border: 0px solid black; padding: 10px; <?php if ($_COOKIE['dark_mode'] == "false") {
+            echo "background-color:lightblue;";
+        } else {
+            echo "background-color:lightslategray;";
+        } ?> border-radius: 50px 1px 50px 50px; float:right; padding-right:1rem; margin-bottom: 1rem;">
 
         <div style="float:right">
-            <div style="display: inline-block;"><a href="profile.php?usr=<?php echo $_SESSION['usuario']['id'] ?>" style="<?php if ($_COOKIE['dark_mode'] == "true") {
-                                                                                                                                echo "color:lightskyblue;";
-                                                                                                                            } ?>"><b>You</b></a>
-                <div style="display: inline-block; padding-left: 1rem;padding-top: 1rem; padding-right: 1rem;" class="profile">
-                    <a href="profile.php?usr=<?php echo $_SESSION['usuario']['id'] ?>"><img src="img/users/<?php echo $_SESSION['usuario']['foto_perfil']; ?>" alt="" class="note-img" width="50rem" height="50rem" style="vertical-align: middle;"></a>
+            <div style="display: inline-block;"><a href="profile.php?usr=<?php echo $_SESSION['usuario']['id'] ?>"
+                    style="<?php if ($_COOKIE['dark_mode'] == "true") {
+                        echo "color:lightskyblue;";
+                    } ?>"><b>You</b></a>
+                <div style="display: inline-block;">
+                    <a href="profile.php?usr=<?php echo $_SESSION['usuario']['id'] ?>"><img
+                            src="img/users/<?php echo $_SESSION['usuario']['foto_perfil']; ?>" alt="" class="profile-small"
+                            style="vertical-align: middle;"></a>
                 </div>
             </div>
         </div>
         <br>
         <br><br>
         <form method="post">
-            <textarea type="text" placeholder="Write something..." name="note" style="padding-left:2%;<?php if ($_COOKIE['dark_mode'] == "true") {
-                                                                                                            echo "color:white;";
-                                                                                                        } ?>font-size: 18px;width: 96%;height:200px;border:0px;<?php if ($_COOKIE['dark_mode'] == "false") {
-                                                                                                                                                                    echo "background-color:lightblue;";
-                                                                                                                                                                } else {
-                                                                                                                                                                    echo "background-color:lightslategray;";
-                                                                                                                                                                } ?>outline: none; resize: none;"></textarea>
+            <textarea type="text" placeholder="Write something..." name="note"
+                style="padding-left:2%;<?php if ($_COOKIE['dark_mode'] == "true") {
+                    echo "color:white;";
+                } ?>font-size: 18px;width: 96%;height:200px;border:0px;<?php if ($_COOKIE['dark_mode'] == "false") {
+                     echo "background-color:lightblue;";
+                 } else {
+                     echo "background-color:lightslategray;";
+                 } ?>outline: none; resize: none;"></textarea>
             <input type="submit" value="publish" style="width: 25%; float:right; border:none;">
         </form>
     </div>
@@ -58,40 +63,46 @@ foreach ($notes as $note) {
         echo "";
     } else { ?>
         <div style="margin: auto; width: 80%; border: 0px solid black; padding: 10px; <?php if (isset($_SESSION['usuario']) && $usudata['id'] == $_SESSION['usuario']['id']) {
-                                                                                            if ($_COOKIE['dark_mode'] == "false") {
-                                                                                                echo "background-color:lightblue;";
-                                                                                            } else {
-                                                                                                echo "background-color:lightslategray;";
-                                                                                            };
-                                                                                            echo "border-radius: 50px 50px 1px 50px; float:right; padding-right:1rem; margin-bottom: 1rem;";
-                                                                                        } else {
-                                                                                            if ($_COOKIE['dark_mode'] == "false") {
-                                                                                                echo "background-color:white;";
-                                                                                            } else {
-                                                                                                echo "background-color:dimgrey;";
-                                                                                            }
-                                                                                            echo "border-radius: 50px 50px 50px 1px; float:left; padding-left:1rem; margin-bottom: 1rem;";
-                                                                                        } ?>">
+            if ($_COOKIE['dark_mode'] == "false") {
+                echo "background-color:lightblue;";
+            } else {
+                echo "background-color:lightslategray;";
+            }
+            ;
+            echo "border-radius: 50px 1px 50px 50px; float:right; padding-right:1rem; margin-bottom: 1rem;";
+        } else {
+            if ($_COOKIE['dark_mode'] == "false") {
+                echo "background-color:white;";
+            } else {
+                echo "background-color:dimgrey;";
+            }
+            echo "border-radius: 1px 50px 50px 50px; float:left; padding-left:1rem; margin-bottom: 1rem;";
+        } ?>">
 
             <?php if (isset($_SESSION['usuario']) && $usudata['id'] == $_SESSION['usuario']['id']) { ?>
                 <div style="float:right">
-                    <div style="display: inline-block;"><a href="profile.php?usr=<?php echo $usudata['id'] ?>" style="<?php if ($_COOKIE['dark_mode'] == "true") {
-                                                                                                                            echo "color:lightskyblue;";
-                                                                                                                        } ?>"><b>You</b></a>
-                        <div style="display: inline-block; padding-left: 1rem;padding-top: 1rem; padding-right: 1rem;" class="profile">
-                            <a href="profile.php?usr=<?php echo $usudata['id'] ?>"><img src="img/users/<?php echo $usudata['foto_perfil']; ?>" alt="" class="note-img" width="50rem" height="50rem" style="vertical-align: middle;"></a>
+                    <div style="display: inline-block; <?php if ($_COOKIE['dark_mode'] == "true") {
+                                echo "color:lightskyblue;";
+                            } ?>"><a href="profile.php?usr=<?php echo $usudata['id'] ?>"><b>You</b></a>
+                        <div style="display: inline-block;">
+                            <a href="profile.php?usr=<?php echo $usudata['id'] ?>"><img
+                                    src="img/users/<?php echo $usudata['foto_perfil']; ?>" alt="" class="profile-small"
+                                    style="vertical-align: middle;"></a>
                         </div>
                     </div>
                 </div>
                 <br>
             <?php } else { ?>
                 <div style="float:left">
-                    <div style="display: inline-block; padding-left: 1rem;padding-top: 1rem; padding-right: 1rem;" class="profile">
-                        <a href="profile.php?usr=<?php echo $usudata['id'] ?>"><img src="img/users/<?php echo $usudata['foto_perfil']; ?>" alt="" class="note-img" width="50rem" height="50rem" style="vertical-align: middle;"></a>
+                    <div style="display: inline-block;">
+                        <a href="profile.php?usr=<?php echo $usudata['id'] ?>"><img
+                                src="img/users/<?php echo $usudata['foto_perfil']; ?>" alt="" class="profile-small"
+                                style="vertical-align: middle;"></a>
                     </div>
-                    <div style="display: inline-block;"><a href="profile.php?usr=<?php echo $usudata['id'] ?>" style="<?php if ($_COOKIE['dark_mode'] == "true") {
-                                                                                                                            echo "color:lightskyblue;";
-                                                                                                                        } ?>"><b>
+                    <div style="display: inline-block;"><a href="profile.php?usr=<?php echo $usudata['id'] ?>"
+                            style="<?php if ($_COOKIE['dark_mode'] == "true") {
+                                echo "color:lightskyblue;";
+                            } ?>"><b>
                                 <?php echo $usudata['usu_nombre']; ?>
                             </b></a>
 
@@ -102,43 +113,44 @@ foreach ($notes as $note) {
             <br><br>
             <div>
                 <p style="padding-left: 2rem;padding-bottom: 1rem;word-wrap: break-word;<?php if ($_COOKIE['dark_mode'] == "true") {
-                                                                        echo "color:white;";
-                                                                    } ?> width:96%">
+                    echo "color:white;";
+                } ?> width:96%">
                     <?php echo $note['content'];//wordwrap($note['content'], 150, "<br>", true) ?>
                     <!-- <textarea type="text" style="Width:100%; height:100px; font-size:18px;outline: none; resize: none; border:none; <?php if (isset($_SESSION['usuario']) && $usudata['id'] == $_SESSION['usuario']['id']) {
-                                                                                            if ($_COOKIE['dark_mode'] == "false") {
-                                                                                                echo "background-color:lightblue;";
-                                                                                            } else {
-                                                                                                echo "background-color:lightslategray;";
-                                                                                            }
-                                                                                        } else {
-                                                                                            if ($_COOKIE['dark_mode'] == "false") {
-                                                                                                echo "background-color:white;";
-                                                                                            } else {
-                                                                                                echo "background-color:dimgrey;";
-                                                                                            }
-                                                                                        } ?>" readonly><?php echo $note['content'] ?></textarea>  -->
-                    
+                        if ($_COOKIE['dark_mode'] == "false") {
+                            echo "background-color:lightblue;";
+                        } else {
+                            echo "background-color:lightslategray;";
+                        }
+                    } else {
+                        if ($_COOKIE['dark_mode'] == "false") {
+                            echo "background-color:white;";
+                        } else {
+                            echo "background-color:dimgrey;";
+                        }
+                    } ?>" readonly><?php echo $note['content'] ?></textarea>  -->
+
                 </p>
             </div>
             <a style="text-decoration: none; <?php if ($_COOKIE['dark_mode'] == "false") {
-                                                    echo "color:crimson;";
-                                                } else {
-                                                    echo "color:lightpink;";
-                                                } ?> float:right; padding-right: 2rem; padding-bottom: 1rem;" href="chat_ans.php?comment=<?php echo $note['id'] ?>&pag=1">
+                echo "color:crimson;";
+            } else {
+                echo "color:lightpink;";
+            } ?> float:right; padding-right: 2rem; padding-bottom: 1rem;"
+                href="chat_ans.php?comment=<?php echo $note['id'] ?>&pag=1">
                 &nbsp&nbsp&nbsp<b>Comments</b>
             </a>
             <a style="<?php if ($_COOKIE['dark_mode'] == "false") {
-                            echo "color:gray;";
-                        } else {
-                            echo "color:white;";
-                        } ?> float: right; padding-left: 2rem;">
+                echo "color:gray;";
+            } else {
+                echo "color:white;";
+            } ?> float: right; padding-left: 2rem;">
                 <?php echo $note['fecha_alta'] ?>
             </a>
         </div>
         <br><br>
     <?php } ?>
-<?php
+    <?php
     $cont = $cont + 1;
 } ?>
 <div class="paginador" style="text-align: center;">

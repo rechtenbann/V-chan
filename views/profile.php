@@ -1,9 +1,9 @@
 <?php if (!isset($_GET['usr']) || $_GET['usr'] == $_SESSION['usuario']['id']) { ?>
     <div align="center">
         <div class="profile-img" style="margin:2rem">
-            <div class="container" style="position:relative">
+            <div style="position:relative">
                 <div>
-                    <a href="#ei" rel="modal:open" style="margin: auto; width: 50%;" id="image"><img src="img/users/<?php echo $_SESSION['usuario']['foto_perfil']; ?>" alt="" class="profile" style="height: 20rem;width: 20rem; border-radius: 50%; object-fit: cover; background-color: white;"></a>
+                    <a href="#ei" rel="modal:open" style="margin: auto; width: 50%;" id="image"><img src="img/users/<?php echo $_SESSION['usuario']['foto_perfil']; ?>" alt="" class="profile"></a>
                 </div>
                 <div id="text" style="position:absolute; width: 100%; top:50%"></div>
             </div>
@@ -114,32 +114,22 @@
                 <label style="display: block; text-align: center;">Local</label>
             </div>
         </div>
-        <a>Nombre de usuario:
+        <a style='font-size: larger'>
             <?php echo ($_SESSION['usuario']['usu_nombre']); if($_SESSION['usuario']['fecha_baja']!=null){echo " | BANNED";}?>
         </a>
        
+        <!-- <br>
+        <a>
+            <?php echo $_SESSION['usuario']['rango']; ?>
+        </a> -->
         <br>
-        <a>Rango:
-            <?php
-            // if ($admin) {
-            //     echo "Administrador";
-            // } else if ($vip) {
-            //     echo "Premium";
-            // } else {
-            //     echo "Usuario";
-            // }
-            echo $_SESSION['usuario']['rango'];
-
-            ?>
-        </a>
-        <br>
-        <a>Correo:
+        <a style="color: gray; font-size: small;">
             <?php echo ($_SESSION['usuario']['usu_email']); ?>
         </a>
-        <br>
+        <!-- <br>
         <a>La cuenta fue creada:
             <?php echo ($_SESSION['usuario']['fecha_alta']); ?>
-        </a>
+        </a> -->
 
         <p><a href="#ep" rel="modal:open">Editar perfil</a></p>
         <div id="ep" class="modal">
@@ -199,22 +189,22 @@
 
             </div>
         </div>
-        <a>Nombre de usuario:<?php  echo $user['usu_nombre']; if($user['fecha_baja']!=null){echo " | BANNED";}?>
+        <a style='font-size: larger'><?php  echo $user['usu_nombre']; if($user['fecha_baja']!=null){echo " | BANNED";}?>
         
         </a>
-        <br>
+        <!-- <br>
         <a>Rango:
             <?php
             echo $userrank['rango'];
             ?>
-        </a>
+        </a> -->
         <br>
-        <a>Correo:
+        <a style="color: gray; font-size: small;">
             <?php echo ($user['usu_email']); ?>
         </a>
-        <br>
+        <!-- <br>
         <a>La cuenta fue creada:
             <?php echo ($user['fecha_alta']); ?>
-        </a>
+        </a> -->
     </div>
 <?php } ?>

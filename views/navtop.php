@@ -33,9 +33,10 @@ if (session_status() !== PHP_SESSION_ACTIVE)
     <div class="navlink">
       <?php try{
        if (isset($_SESSION['usuario']) && ($section != "profile" || (isset($_GET['usr'])&&$_GET['usr']!=$_SESSION['usuario']['id']))) { ?><a class="section"
-          href="profile.php?profile=<?php echo $_SESSION['usuario']['id']?>" style="float: right;"><img class="profile"
+          href="profile.php?profile=<?php echo $_SESSION['usuario']['id']?>" style="float: right;">
+          <img class="profile-nav"
             src="img/users/<?php echo ($_SESSION['usuario']['foto_perfil']); ?>" height="60" width="60"
-            style="border-radius: 100rem; background-color: rgb(255,255,255); object-fit: cover;"></a><?php }else if 
+            style=""></a><?php }else if 
             (isset($_SESSION['usuario']) && ($section == "profile" || (isset($_GET['usr'])&&$_GET['usr']==$_SESSION['usuario']['id']))) { ?><a class="section"
            style="float: right;"><img 
             src="img/users/blank.png" height="60" width="60"
