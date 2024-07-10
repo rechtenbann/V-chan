@@ -18,19 +18,19 @@
                     <h3>Default</h3>
                 </a>
                         <?php } ?>
-                <div id="secret" class="modal" style="width:13rem; height:13rem; align-items: center;">
+                <div id="secret" class="modal" style="width:25rem; height:25rem; text-align: center; background-color: hotpink;">
                     <div class="Height">
-                        <form method="post" style="width:9rem;display: inline-block; user-select:none">
+                        <form method="post">
                             <br>
-                            <input type="image" src="img/users/default1.png" class="void" disabled>
+                            <input type="image" src="img/users/default1.png" class="void-secret" disabled>
                             <label class="lbl">Useless</label>
                         </form>
                     </div>
                     <div style="display: inline-block;">
-                        <form method="post" class="option-form">
+                        <form method="post" class="option-form-secret">
                             <input type="hidden" name="default-secret" value="default-secret.png" class="Height">
-                            <input title="Set H-Chan as profile photo" type="image" id="default-secret" class="option-photo" name="default-secret" value="default-secret.png" alt="Login" src="img/users/default-secret.png">
-                            <label style="display: block; text-align: center;">H-Chan</label>
+                            <input title="Set H-Chan as profile photo" type="image" id="default-secret" class="option-photo-secret" name="default-secret" value="default-secret.png" alt="Login" src="img/users/default-secret_full2.png">
+                            <label >H-Chan</label>
                         </form>
                     </div>
                 </div>

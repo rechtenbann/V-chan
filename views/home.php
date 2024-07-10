@@ -10,8 +10,10 @@ require_once "includes/config.php";
     <div
             style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);  width: 100%;">
     <h1 style="font-size: 50px;<?php if (isset($_COOKIE['dark_mode']) && $_COOKIE['dark_mode'] == 'true') {
-        echo "color: white;";
-    } ?>">
+        echo "color: white; text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+        1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;";
+    }// else{ echo "text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+    //     1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;";} ?>">
         <b><u>V-Chan</u></b>
     </h1>
     <br>

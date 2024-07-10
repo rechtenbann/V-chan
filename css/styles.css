@@ -1,31 +1,34 @@
-
-body{
+body {
     font-family: verdana, sans-serif, helvetica;
-    
+
 }
+
 .navtop {
     overflow: hidden;
     background-color: rgb(141, 22, 189);
     align-self: center;
     font-family: verdana, sans-serif, helvetica;
 }
-.icon{
+
+.icon {
     position: relative;
-    float:left; 
+    float: left;
     margin: 7px 15px 1px 25px;
     padding: 0 0 0 0;
 }
-.section{
+
+.section {
     text-decoration: none;
-    float: left; 
-    display: block; 
-    color: #ffffff; 
-    text-align: center; 
+    float: left;
+    display: block;
+    color: #ffffff;
+    text-align: center;
     margin: 20px 16px 23px 16px;
     padding: 0 0 0 0;
 }
-.section:hover{
-    text-decoration:underline;
+
+.section:hover {
+    text-decoration: underline;
 }
 
 .navsub {
@@ -90,7 +93,8 @@ tbody {
     font-size: 12px;
     text-decoration: none;
 }
-.footer{
+
+.footer {
     margin-top: auto;
     text-align: center;
     color: #fff;
@@ -98,7 +102,7 @@ tbody {
     font-family: verdana, sans-serif, helvetica;
     margin: 0;
     padding: 1rem;
-    
+
 }
 
 /* 
@@ -117,98 +121,149 @@ tbody {
         font-family: verdana, sans-serif, helvetica;
     }
 } */
-.option-form{
+.option-form {
     width: 8rem;
     display: inline-block;
 }
-.lbl{
-    display: block; 
-    text-align: center; 
-    filter:opacity(0);
+
+.lbl {
+    display: block;
+    text-align: center;
+    filter: opacity(0);
 }
-.void{
-    width: 0px; 
-    height:8rem; 
-    object-fit: cover; 
-    filter:opacity(0);
+
+.void {
+    width: 0px;
+    height: 8rem;
+    object-fit: cover;
+    filter: opacity(0);
 }
-.Height{
-    display: inline-block; 
-    width:0px;
+
+.Height {
+    display: inline-block;
+    width: 0px;
 }
-.option-photo{
+
+.option-photo {
     margin: 0, 0, 0, 0;
     width: 8rem;
-    height:8rem; 
+    height: 8rem;
     object-fit: cover;
     /* background-color: white; */
-    transition:  filter 0.2s, margin-bottom 0.2s ease-in-out;
+    transition: filter 0.2s, margin-bottom 0.2s ease-in-out;
 }
+
 .option-form:hover .option-photo {
-    border:0px solid #333;
+    border: 0px solid #333;
     filter: brightness(40%);
     /* background-color: rgba(33, 33, 33, 0); */
     /* background-color: white; */
     margin-bottom: 10px;
-  }
-  .profile-nav{
+}
+
+
+
+.option-form-secret {
+    width: 20rem;
+    display: inline-block;
+}
+
+.option-photo-secret {
+    margin: 0, 0, 0, 0;
+    width: 20rem;
+    height: 20rem;
+    object-fit: cover;
+    /* background-color: white; */
+    transition: filter 0.2s, margin-bottom 0.2s ease-in-out;
+}
+
+/* .option-form-secret:hover .option-photo-secret {
+    border: 0px solid #333;
+    filter: brightness(40%);
+    margin-bottom: 10px;
+} */
+.option-photo-secret:hover {
+    border: 0px solid #333;
+    filter: brightness(40%);
+    /* background-color: rgba(33, 33, 33, 0); */
+    /* background-color: white; */
+    margin-bottom: 10px;
+}
+.void-secret {
+    width: 0px;
+    height: 20rem;
+    object-fit: cover;
+    filter: opacity(0);
+}
+
+
+
+
+.profile-nav {
     height: 60px;
     width: 60px;
     border-radius: 100rem;
-    background-color: white; 
+    background-color: white;
     object-fit: cover;
     transition: 0.3s filter ease-in-out;
-  }
-  .profile-nav:hover {
-    border:0px solid #333;
+}
+
+.profile-nav:hover {
+    border: 0px solid #333;
     /*background-color: rgba(33, 33, 33, 0);*/
     background-color: white;
     filter: brightness(40%);
-  }
-  .profile-small{
+}
+
+.profile-small {
     height: 50px;
     width: 50px;
     border-radius: 100rem;
-    background-color: white; 
+    background-color: white;
     object-fit: cover;
     transition: 0.3s filter ease-in-out;
-  }
-  .profile-small:hover {
-    border:0px solid #333;
+}
+
+.profile-small:hover {
+    border: 0px solid #333;
     /*background-color: rgba(33, 33, 33, 0);*/
     background-color: white;
     filter: brightness(40%);
-  }
-  .profile{
+}
+
+.profile {
     height: 20rem;
     width: 20rem;
     border-radius: 50%;
     object-fit: cover;
     background-color: white;
     transition: 0.3s filter ease-in-out;
-  }
-  .profile:hover {
-    border:0px solid #333;
+}
+
+.profile:hover {
+    border: 0px solid #333;
     /*background-color: rgba(33, 33, 33, 0);*/
     background-color: white;
     filter: brightness(40%);
-  }
+}
 
-  .box {
+.box {
     height: 10rem;
     width: 20rem;
     border-radius: 0 0 10rem 10rem;
     background-color: #333;
-  }
-  .note-img {
+}
+
+.note-img {
     border-radius: 100%;
     background-color: white;
     object-fit: cover;
-  }
-
-a:link{
-    color:lightcoral;
 }
-a:visited{
-    color:lightcoral;
+
+a:link {
+    color: lightcoral;
+}
+
+a:visited {
+    color: lightcoral;
 }
