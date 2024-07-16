@@ -32,4 +32,3 @@
         </tr>
     </tbody>
 </table>
-<?php for($i=0;$i<28;$i++){echo "<br>";}?>

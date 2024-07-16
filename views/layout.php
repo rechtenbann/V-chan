@@ -25,6 +25,7 @@ if(session_status() !== PHP_SESSION_ACTIVE)session_start();
 </head>
 
 <body style="<?php if ((isset($_COOKIE['dark_mode'])&&$_COOKIE['dark_mode']=='false')) {echo "background-color: rgb(230, 182, 250);";} else { echo "background-color: rgb(60, 40, 60);";}?>">
+<div class="content flex-grow-1">
     <?php
     $section = (isset($section)) ? $section : 'home';
     ?>
@@ -51,20 +52,14 @@ if(session_status() !== PHP_SESSION_ACTIVE)session_start();
     //     require_once "views/paginator.php";
     // }
     ?>
+</div>
+<?php require_once "views/footer.php"; ?>
     <script>
         <?php
         if ($section == 'profile') {
             require_once "js/modal.js";
         } ?>
     </script>
-    <footer>
-        <?php
-        require_once $section . ".php";
-        if ($section != 'home'||$section == 'home') {
-            require_once "views/footer.php";
-        }
-        ?>
-    </footer>
 </body>
 
 </html>

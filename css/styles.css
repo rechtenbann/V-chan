@@ -1,5 +1,7 @@
 body{
     font-family: verdana, sans-serif, helvetica;
+    display: flex;
+    flex-direction: column;
     
 }
 .navtop {
@@ -89,16 +91,6 @@ tbody {
     font-size: 12px;
     text-decoration: none;
 }
-.footer{
-    margin-top: auto;
-    text-align: center;
-    color: #fff;
-    background-color: rgb(141, 22, 189);
-    font-family: verdana, sans-serif, helvetica;
-    margin: 0;
-    padding: 1rem;
-    
-}
 
 /* 
 @media only screen and (max-width: 850px) {
@@ -175,4 +167,37 @@ a:link{
 }
 a:visited{
     color:lightcoral;
+}
+/* diseño del footer */
+.footer {
+    margin-top: 0;
+    text-align: center;
+    color: #fff;
+    background-color: rgb(141, 22, 189);
+    padding: 1rem;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.min-vh-100 {
+    min-height: 100vh;
+}
+
+.flex-grow-1 {
+    flex-grow: 1;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
 }
