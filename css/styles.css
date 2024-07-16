@@ -70,14 +70,48 @@ body{
     border-color: grey;
     font-family: verdana, sans-serif, helvetica;
 }
-
-.image {
-    max-width: 100%;
-    height: auto !important;
-    vertical-align: middle;
-    float: right;
+/* diseño post */
+.image-container {
+    width: 50%; /* Ajusta el ancho deseado para la imagen */
 }
 
+.image {
+    max-width: 400px;
+    max-height: 400px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.content-container {
+    width: 50%; 
+    padding: 20px; 
+    box-sizing: border-box; 
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; 
+    padding: 20px;
+}
+
+.form-container {
+    width: 100%;
+}
+
+.tags a {
+    display: block;
+    margin-bottom: 5px;
+}
+
+textarea {
+    height: 100px;
+    width: 100%;
+    outline: none;
+    resize: none;
+}
+
+/* diseño poost */
 tbody {
     display: table-row-group;
     vertical-align: middle;

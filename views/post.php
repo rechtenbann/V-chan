@@ -1,23 +1,30 @@
-<picture>
-    <img src="img/posts/<?php echo $post[1] ?>" class="image"><br>
-</picture>
+<div class="container" style="background-color: #aaa;">
+    <div class="image-container">
+        <picture>
+            <img src="img/posts/<?php echo $post[1]; ?>" class="image" alt="Post Image">
+        </picture>
+    </div>
 
-<a>Tags:</a>
-<br>
-        <?php
-        if (isset($tags["tags"])) {
-            foreach ($tags['tags'] as $tag) { ?>
-
+    <div class="content-container">
+        <a>Tags:</a>
+        <br>
+        <div class="tags">
+            <?php
+            if (isset($tags["tags"])) {
+                foreach ($tags['tags'] as $tag) { ?>
                     <a href="posts.php?tag=<?php echo $tag[0] ?>"><?php echo $tag[1]; ?></a>
-                <br>
-            <?php }
-        } ?>
+                <?php }
+            } ?>
+        </div>
+        <br>
+        <?php echo "uploaded on $date[0] by $post[0]" ?>
+        <br>
+        <a>Edit:</a>
+        <form method="POST" class="form-container">
+            <label for="tags">Tags:</label>
+            <textarea name="tags"></textarea>
+            <input type="submit" value="submit">
+        </form>
+    </div>
+</div>
 <br>
-<?php echo "uploaded on $date[0] by $post[0]" ?>
-<br>
-<a>Edit:</a>
-<form method="POST">
-    <label for="tags">Tags:</label>
-<textarea type="text" name="tags" style="height:100px;width:25%;outline: none; resize: none;"></textarea>
-<input type="submit" value="submit">
-</form>
