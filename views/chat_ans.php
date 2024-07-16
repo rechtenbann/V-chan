@@ -1,10 +1,13 @@
-<?php if (session_status() !== PHP_SESSION_ACTIVE) session_start(); ?>
+<?php if (session_status() !== PHP_SESSION_ACTIVE)
+    session_start(); ?>
 <div style="margin: auto; width: 80%; border: 0px solid black; padding: 10px; <?php if ($op['id'] == $_SESSION['usuario']['id']) {
-                                                                                    echo "background-color:lightblue; border-radius: 5px 5px 5px 5px";
-                                                                                } else {
-                                                                                    echo "background-color:white; border-radius: 5px 5px 5px 5px";
-                                                                                } ?>">
-    <div style="display: inline-block;"><a href="profile.php?usr=<?php echo $op['id'] ?>"><img src="img/users/<?php echo $op['foto_perfil']; ?>" alt="" class="profile-small" style="vertical-align: middle;"></a></div>
+    echo "background-color:lightblue; border-radius: 5px 5px 5px 5px";
+} else {
+    echo "background-color:white; border-radius: 5px 5px 5px 5px";
+} ?>">
+    <div style="display: inline-block;"><a href="profile.php?usr=<?php echo $op['id'] ?>"><img
+                src="img/users/<?php echo $op['foto_perfil']; ?>" alt="" class="profile-small"
+                style="vertical-align: middle;"></a></div>
     <div style="display: inline-block;"><a href="profile.php?usr=<?php echo $op['id'] ?>"><b>
                 <?php if ($op['usu_nombre'] == $_SESSION['usuario']['usu_nombre']) {
                     echo "You";
@@ -23,7 +26,7 @@
             // $name = preg_replace('/!+$/u', '', $name);
             // $name = preg_replace('/,+$/u', '', $name);
             // $name = rtrim($name, '.');
-
+        
             $name = strtok($name, ' ');
             $name = rtrim($name, ' ');
             $name = rtrim($name, '!');
@@ -39,10 +42,10 @@
         <?php //echo wordwrap($main['content'], 155, "<br>", true); ?>
         <?php echo $main['content']; ?>
         <!-- <textarea type="text" style="Width:100%; height:100px; font-size:18px;outline: none; resize: none; border:none; <?php if ($op['id'] == $_SESSION['usuario']['id']) {
-                                                                                    echo "background-color:lightblue; border-radius: 5px 5px 5px 5px";
-                                                                                } else {
-                                                                                    echo "background-color:white; border-radius: 5px 5px 5px 5px";
-                                                                                } ?>" readonly><?php echo $main['content'] ?></textarea>  -->
+            echo "background-color:lightblue; border-radius: 5px 5px 5px 5px";
+        } else {
+            echo "background-color:white; border-radius: 5px 5px 5px 5px";
+        } ?>" readonly><?php echo $main['content'] ?></textarea>  -->
     </p>
     <a style="color: gray; float: right; padding-right: 2rem;">
         <?php echo $main['fecha_alta'] ?>
@@ -53,7 +56,8 @@
 <?php if (isset($_SESSION['usuario'])) { ?>
     <div style="width: 100%; padding-left: 25%; height:100px">
         <form method="post">
-            <textarea type="text" placeholder="Leave a comment" name="ans" style="width: 50%;height:90px;outline: none; resize: none;"></textarea>
+            <textarea type="text" placeholder="Leave a comment" name="ans"
+                style="width: 50%;height:90px;outline: none; resize: none;"></textarea>
             <br><br>
             <input type="submit" value="publish" style="width: 50%;">
         </form>
@@ -71,16 +75,17 @@
         if (strpos($ans['content'], '@') !== false) {
             $name = strstr($ans['content'], '@');
             $name = strtok($name, ' ');
-            // $name = preg_replace('/\s+/u', '', $name);
-            // $name = preg_replace('/!+$/u', '', $name);
-            // $name = preg_replace('/,+$/u', '', $name);
-            // $name = rtrim($name, '.');
-
-            $name = strtok($name, ' ');
+            $name = strtok($name, ',');
+            $name = strtok($name, '.');
+            $name = strtok($name, '!');
+            $name = strtok($name, '?');
+            $name = strtok($name, "\r\n");
             $name = rtrim($name, ' ');
             $name = rtrim($name, '!');
             $name = rtrim($name, '.');
             $name = rtrim($name, ',');
+            $name = rtrim($name, '?');
+            $name = rtrim($name, "\r\n");
             foreach ($names as $n) {
                 if ('@' . $n['usu_nombre'] == $name) {
                     $ans['content'] = str_replace(preg_quote($name), '<a href ="profile.php?usr=' . $n['id'] . '">' . $name . '</a>', $ans['content']);
@@ -97,25 +102,29 @@
             echo "";
         } else { ?>
             <div style="margin: auto; width: 50%; border: 0px solid black; padding: 10px; <?php if ($usudata['id'] == $_SESSION['usuario']['id']) {
-                                                                                                echo "background-color:lightblue; border-radius: 5px 5px 5px 5px; padding-right:1rem; margin-bottom: 1rem; ";
-                                                                                            } else {
-                                                                                                echo "background-color:white; border-radius: 5px 5px 5px 5px; padding-left:1rem; margin-bottom: 1rem;";
-                                                                                            } ?>">
+                echo "background-color:lightblue; border-radius: 5px 5px 5px 5px; padding-right:1rem; margin-bottom: 1rem; ";
+            } else {
+                echo "background-color:white; border-radius: 5px 5px 5px 5px; padding-left:1rem; margin-bottom: 1rem;";
+            } ?>">
 
                 <div style="float:left">
 
                     <div style="display: inline-block;">
-                        <a href="profile.php?usr=<?php echo $usudata['id'] ?>"><img src="img/users/<?php echo $usudata['foto_perfil']; ?>" alt="" class="profile-small" style="vertical-align: middle;"></a>
+                        <a href="profile.php?usr=<?php echo $usudata['id'] ?>"><img
+                                src="img/users/<?php echo $usudata['foto_perfil']; ?>" alt="" class="profile-small"
+                                style="vertical-align: middle;"></a>
                     </div>
-                    <div style="display: inline-block;"><a href="profile.php?usr=<?php echo $usudata['id'] ?>"><b><?php if ($usudata['id'] == $_SESSION['usuario']['id']) {
-                                                                                                                        echo "You";
-                                                                                                                    } else {
-                                                                                                                        echo $usudata['usu_nombre'];
-                                                                                                                    } ?></b></a><a style="color: dimgrey;"><?php if ($op['id'] == $usudata['id']) {
-                                                                                                                                                                echo " | OP";
-                                                                                                                                                            } else {
-                                                                                                                                                                echo " | USER";
-                                                                                                                                                            } ?></a>
+                    <div style="display: inline-block;"><a
+                            href="profile.php?usr=<?php echo $usudata['id'] ?>"><b><?php if ($usudata['id'] == $_SESSION['usuario']['id']) {
+                                   echo "You";
+                               } else {
+                                   echo $usudata['usu_nombre'];
+                               } ?></b></a><a
+                            style="color: dimgrey;"><?php if ($op['id'] == $usudata['id']) {
+                                echo " | OP";
+                            } else {
+                                echo " | USER";
+                            } ?></a>
                     </div>
                 </div>
                 <br>
@@ -130,7 +139,7 @@
                 <br>
             </div>
             <br><br>
-    <?php }
+        <?php }
     }
 } else { ?>
     <div>
