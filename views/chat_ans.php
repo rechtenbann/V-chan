@@ -21,17 +21,18 @@
         <?php
         if (strpos($main['content'], '@') !== false) {
             $name = strstr($main['content'], '@');
-            //$name = strtok($name, ' ');
-            // $name = preg_replace('/\s+/u', '', $name);
-            // $name = preg_replace('/!+$/u', '', $name);
-            // $name = preg_replace('/,+$/u', '', $name);
-            // $name = rtrim($name, '.');
-        
             $name = strtok($name, ' ');
+            $name = strtok($name, ',');
+            $name = strtok($name, '.');
+            $name = strtok($name, '!');
+            $name = strtok($name, '?');
+            $name = strtok($name, "\r\n");
             $name = rtrim($name, ' ');
             $name = rtrim($name, '!');
             $name = rtrim($name, '.');
             $name = rtrim($name, ',');
+            $name = rtrim($name, '?');
+            $name = rtrim($name, "\r\n");
             foreach ($names as $n) {
                 if ('@' . $n['usu_nombre'] == $name) {
                     $main['content'] = str_replace(preg_quote($name), '<a href ="profile.php?usr=' . $n['id'] . '">' . $name . '</a>', $main['content']);
