@@ -16,6 +16,9 @@ if (session_status() !== PHP_SESSION_ACTIVE)
       <a href="posts.php?pag=1&tag=1" class="section"><b>Posts</b></a>
     </div>
     <div class="navlink">
+      <a href="Forum.php?pag=1" class="section"><b>Forum</b></a>
+    </div>
+    <div class="navlink">
       <a href="chat.php?pag=1" class="section" <?php if (!isset($_SESSION['usuario'])) {
         echo 'style="pointer-events:none; color:grey"';
       } ?>><b>Community</b></a>

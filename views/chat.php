@@ -29,7 +29,8 @@
                  } else {
                      echo "background-color:lightslategray;";
                  } ?>outline: none; resize: none;"></textarea>
-            <input type="submit" value="Publish" style="width: 25%; float:right; border:none; border-radius: 1rem; margin-right: 2rem; background-color: lightpink; color: darkcyan; font-weight: bold;">
+            <input type="submit" value="Publish" style="width: 25%; float:right; border:none; border-radius: 1rem; margin-right: 2rem; font-weight: bold;">
+            <!-- background-color: lightpink; color: lightblue; -->
         </form>
     </div>
     <br><br>
