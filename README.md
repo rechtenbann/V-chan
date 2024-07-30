@@ -25,7 +25,7 @@
       v-chan.zip
     </th>
     <th>
-      <a href="https://github.com/sdmatayoshi/V-chan/archive/refs/heads/v-chan.zip"><img src="https://github.com/sdmatayoshi/V-chan/assets/106670145/ce129379-faeb-48fa-98a5-0769f39e12db" style="width:1rem;margin-top:5px"><u>⇩</u></a>
+      <a href="https://github.com/sdmatayoshi/V-chan/archive/refs/heads/V-chan.zip"><img src="https://github.com/sdmatayoshi/V-chan/assets/106670145/ce129379-faeb-48fa-98a5-0769f39e12db" style="width:1rem;margin-top:5px"><u>⇩</u></a>
     </th>
   </tr>
   <tr>
@@ -37,6 +37,17 @@
     </th>
     <th>
       <a href="https://github.com/sdmatayoshi/V-chan/archive/refs/heads/old.zip"><img src="https://github.com/sdmatayoshi/V-chan/assets/106670145/ce129379-faeb-48fa-98a5-0769f39e12db" style="width:1rem;margin-top:5px"><u>⇩</u></a>
+    </th>
+  </tr>
+   <tr>
+    <th>
+      ㅤ◈ <b>Stable Version 1.0.0:</b>
+    </th>
+    <th>
+      old.zip
+    </th>
+    <th>
+      <a href="https://github.com/sdmatayoshi/V-chan/archive/refs/heads/ft1.zip"><img src="https://github.com/sdmatayoshi/V-chan/assets/106670145/ce129379-faeb-48fa-98a5-0769f39e12db" style="width:1rem;margin-top:5px"><u>⇩</u></a>
     </th>
   </tr>
 </table>
