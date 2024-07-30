@@ -22,9 +22,6 @@
       ㅤ◈ <b>Complete repository:</b>
     </th>
     <th>
-      ㅤ◈ <b>Complete repository:</b>
-    </th>
-    <th>
       v-chan.zip
     </th>
     <th>
