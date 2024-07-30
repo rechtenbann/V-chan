@@ -1,3 +1,4 @@
+</style>
 <?php if (!isset($_GET['usr']) || $_GET['usr'] == $_SESSION['usuario']['id']) { ?>
     <div align="center">
         <div class="profile-img" style="margin:2rem">
@@ -9,16 +10,16 @@
             </div>
 
             <div id="ei" class="modal" style="width:29rem;">
-                <?php if($_SESSION['usuario']['rango']=="administrador"){ ?>
+                <?php if ($_SESSION['usuario']['rango'] == "administrador") { ?>
                     <a href="#secret" rel="modal:open" style="text-decoration: none; color: black; cursor: default;">
-                    <h3>Default</h3>
-                </a>
-                    <?php }else{ ?>
-                        <a style="text-decoration: none; color: black; cursor: default;">
-                    <h3>Default</h3>
-                </a>
-                        <?php } ?>
-                <div id="secret" class="modal" style="width:25rem; height:25rem; text-align: center; background-color: hotpink;">
+                        <h3>Default</h3>
+                    </a>
+                <?php } else { ?>
+                    <a style="text-decoration: none; color: black; cursor: default;">
+                        <h3>Default</h3>
+                    </a>
+                <?php } ?>
+                <div id="secret" class="modal" style="width:25rem; height:25rem; text-align: center; background-color:#ffd6fa;">
                     <div class="Height">
                         <form method="post">
                             <br>
@@ -30,7 +31,8 @@
                         <form method="post" class="option-form-secret">
                             <input type="hidden" name="default-secret" value="default-secret.png" class="Height">
                             <input title="Set H-Chan as profile photo" type="image" id="default-secret" class="option-photo-secret" name="default-secret" value="default-secret.png" alt="Login" src="img/users/default-secret_full2.png">
-                            <label >H-Chan</label>
+
+                            <label>H-Chan</label>
                         </form>
                     </div>
                 </div>
@@ -97,33 +99,106 @@
                         </div>
                     </div>
                 </div>
-                <h3>Custom</h3>
-                <div style="height: 30%; width: 100%; border-radius: 1rem; background-color: gray; background-image:url(img/users/upload.png); background-size:contain; background-repeat:no-repeat; background-position:center">
-                    <form method="post" style="width: 8rem;display: inline-block">
-                        <input type="hidden" name="default6" value="default6.png" style="width: 8rem;">
-                        <input type="hidden" style="width: 8rem;">
-                    </form>
-                    <a href="#uf" rel="modal:open"><img src="img/users/blank.png" alt="" style="height: 3rem;width: 100%; border-radius: 50%; object-fit: cover; "></a>
-
-                    <div id="uf" class="modal" style="width:29rem">
-                        <!-- <form method="post" style="width: 29rem;display: inline-block">
-                        <input type="file" name="upload" id="upload">
-                        <input type="submit" value="Upload">
-                    </form> -->
-                        Work in progress
+                <h3>Colors</h3>
+                <div>
+                    <div class="Height">
+                        <form method="post" class="option-form" style="user-select:none">
+                            <br>
+                            <input type="image" src="img/users/default1.png" class="void" disabled>
+                            <label class="lbl">Useless</label>
+                        </form>
                     </div>
-                    <form method="post" style="width: 8rem;display: inline-block">
-                        <input type="hidden" name="default6" value="default6.png" style="width: 8rem;">
-                        <input type="hidden" style="width: 8rem;">
-                    </form>
+                    <div style="display: inline-block;">
+                        <form method="post" class="option-form">
+                            <input type="hidden" name="blank" value="blank.png" class="Height">
+                            <input type="image" id="blank" class="option-photo" name="blank" value="blank.png" alt="Login" src="img/users/noneB.png">
+                            <label style="display: block; text-align: center;">None</label>
+                        </form>
+                    </div>
+                    <div style="display: inline-block;">
+                        <form method="post" class="option-form">
+                            <input type="hidden" name="blank1" value="blank.png" class="Height">
+                            <input type="image" id="blank1" class="option-photo" name="blank1" value="blank.png" alt="Login" src="img/users/blank.png" style="background-color:white">
+                            <label style="display: block; text-align: center;">White</label>
+                        </form>
+                    </div>
+                    <div style="display: inline-block;">
+                        <form method="post" class="option-form">
+                            <input type="hidden" name="blank2" value="blank.png" class="Height">
+                            <input type="image" id="blank2" class="option-photo" name="blank2" value="blank.png" alt="Login" src="img/users/blank.png" style="background-color:black">
+                            <label style="display: block; text-align: center;">Black</label>
+                        </form>
+                    </div>
                 </div>
-                <label style="display: block; text-align: center;">Local</label>
+                <!--<div>
+                    <div class="Height">
+                        <form method="post" class="option-form" style="user-select:none">
+                            <br>
+                            <input type="image" src="img/users/default1.png" class="void" disabled>
+                            <label class="lbl">Useless</label>
+                        </form>
+                    </div>
+                    <div style="display: inline-block;">
+                        <form method="post" class="option-form">
+                            <input type="hidden" name="blank3" value="blank.png" class="Height">
+                            <input type="image" id="blank3" class="option-photo" name="blank3" value="blank.png" alt="Login" src="img/users/blank.png" style="background-color:lightgray">
+                            <label style="display: block; text-align: center;">Gray (Light)</label>
+                        </form>
+                    </div>
+                    <div style="display: inline-block;">
+                        <form method="post" class="option-form">
+                            <input type="hidden" name="blank4" value="blank.png" class="Height">
+                            <input type="image" id="blank4" class="option-photo" name="blank4" value="blank.png" alt="Login" src="img/users/blank.png" style="background-color:grey">
+                            <label style="display: block; text-align: center;">Gray (Medium)</label>
+                        </form>
+                    </div>
+                    <div style="display: inline-block;">
+                        <form method="post" class="option-form">
+                            <input type="hidden" name="blank5" value="blank.png" class="Height">
+                            <input type="image" id="blank5" class="option-photo" name="blank5" value="blank.png" alt="Login" src="img/users/blank.png" style="background-color:dimgray">
+                            <label style="display: block; text-align: center;">Gray (Dark)</label>
+                        </form>
+                    </div>
+                </div>
+                <div>
+                    <div class="Height">
+                        <form method="post" class="option-form" style="user-select:none">
+                            <br>
+                            <input type="image" src="img/users/default1.png" class="void" disabled>
+                            <label class="lbl">Useless</label>
+                        </form>
+                    </div>
+                    <div style="display: inline-block;">
+                        <form method="post" class="option-form">
+                            <input type="hidden" name="blank6" value="blank.png" class="Height">
+                            <input type="image" id="blank6" class="option-photo" name="blank6" value="blank.png" alt="Login" src="img/users/blank.png" style="background-color:Red">
+                            <label style="display: block; text-align: center;">Red</label>
+                        </form>
+                    </div>
+                    <div style="display: inline-block;">
+                        <form method="post" class="option-form">
+                            <input type="hidden" name="blank7" value="blank.png" class="Height">
+                            <input type="image" id="blank7" class="option-photo" name="blank7" value="blank.png" alt="Login" src="img/users/blank.png" style="background-color:Green">
+                            <label style="display: block; text-align: center;">Green</label>
+                        </form>
+                    </div>
+                    <div style="display: inline-block;">
+                        <form method="post" class="option-form">
+                            <input type="hidden" name="blank8" value="blank.png" class="Height">
+                            <input type="image" id="blank8" class="option-photo" name="blank8" value="blank.png" alt="Login" src="img/users/blank.png" style="background-color:Blue">
+                            <label style="display: block; text-align: center;">Blue</label>
+                        </form>
+                    </div>
+                </div> -->
             </div>
         </div>
         <a style='font-size: larger'>
-            <?php echo ($_SESSION['usuario']['usu_nombre']); if($_SESSION['usuario']['fecha_baja']!=null){echo " | BANNED";}?>
+            <?php echo ($_SESSION['usuario']['usu_nombre']);
+            if ($_SESSION['usuario']['fecha_baja'] != null) {
+                echo " | BANNED";
+            } ?>
         </a>
-       
+
         <!-- <br>
         <a>
             <?php echo $_SESSION['usuario']['rango']; ?>
@@ -214,8 +289,11 @@
 
             </div>
         </div>
-        <a style='font-size: larger'><?php  echo $user['usu_nombre']; if($user['fecha_baja']!=null){echo " | BANNED";}?>
-        
+        <a style='font-size: larger'><?php echo $user['usu_nombre'];
+                                        if ($user['fecha_baja'] != null) {
+                                            echo " | BANNED";
+                                        } ?>
+
         </a>
         <!-- <br>
         <a>Rango:

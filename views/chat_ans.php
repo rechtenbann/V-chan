@@ -139,7 +139,6 @@
                 </a>
                 <br>
             </div>
-            <br><br>
         <?php }
     }
 } else { ?>
