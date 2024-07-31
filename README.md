@@ -1,8 +1,13 @@
 
 # V-CHAN PROJECT<img src="https://github.com/sdmatayoshi/V-chan/assets/106670145/4ffc0592-1370-4077-bb2b-4bced78ea58f" style="width:5rem;">
-<h3>What is V-chan?</h3>
+<h3><u>What is V-chan?</u></h3>
 <p>
   V-chan is a free public testing webpage. The main purpose is to use the elements implemented and transform to your own convenience, or even try to improve the content by adding new elements, functions, styles, etc.
+</p>
+
+<h3><u>How V-chan started?</u></h3>
+<p>
+ The V-chan project started as a HTML-PHP-SQL programming test and hobbie. The elements and functions improved with time ut even if isn't perfect is nice to share the proress to other people
 </p>
 
 # DOWNLOADS
