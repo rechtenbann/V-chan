@@ -1,6 +1,8 @@
 
 # V-CHAN PROJECT<img src="https://github.com/sdmatayoshi/V-chan/assets/106670145/4ffc0592-1370-4077-bb2b-4bced78ea58f" style="width:5rem;">
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>
+  V-chan is a free public testing webpage. The main purpose is to use the elements implemented and transform to your own convenience, or even try to improve the content by adding new elements, functions, styles, etc.
+</p>
 
 # DOWNLOADS
 <h3>Download Files:</h3>
