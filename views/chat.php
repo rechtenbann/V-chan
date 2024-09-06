@@ -163,10 +163,22 @@ foreach ($notes as $note) {
 } ?>
 <div class="paginador" style="text-align: center;">
     <p>
-        <?php for ($i = 1; $i <= ceil(intval($cant["n"]) / 10); $i++) { ?>
-            <a href="chat.php?pag=<?php echo $i; ?>"><button style="border: none; background-color:azure;border-radius:3px;<?php if($_GET['pag']==$i){echo "color:lightpink;text-decoration:underline;font-weight:bold;background-color:lightcyan;";}?>">
-                    <?php echo $i;?>
+        <?php if ($_GET['pag'] > 1) {
+            $pag = $_GET['pag'] - 1; ?>
+            <a href="chat.php?pag=<?php echo $pag; ?>"><button class="kioshima" style="font-size:large;width:50px; background-color:azure;border-radius:3px;">
+                    <?php echo "<"; ?>
                 </button></a>
         <?php } ?>
+        <?php for ($i = 1; $i <= ceil(intval($cant["n"]) / 10); $i++) { ?>
+            <a href="chat.php?pag=<?php echo $i; ?>"><button class="kioshima" style="font-size:large;width:50px; background-color:azure;border-radius:3px;<?php if($_GET['pag']==$i){echo "color:lightpink;text-decoration:underline;font-weight:bold;background-color:lightcyan;";}?>">
+                    <?php echo $i; ?>
+                </button></a>
+        <?php } ?>
+        <?php  if ($_GET['pag'] < ceil(intval($cant["n"]) / 10)) {
+            $pag = $_GET['pag']?>
+            <a href="chat.php?pag=<?php echo $pag; ?>"><button class="kioshima" style="font-size:large;width:50px; background-color:azure;border-radius:3px;">
+                    <?php echo ">"; ?>
+                </button></a>
+        <?php }?>
     </p>
 </div>
