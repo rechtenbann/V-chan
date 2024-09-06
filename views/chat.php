@@ -164,8 +164,8 @@ foreach ($notes as $note) {
 <div class="paginador" style="text-align: center;">
     <p>
         <?php for ($i = 1; $i <= ceil(intval($cant["n"]) / 10); $i++) { ?>
-            <a href="chat.php?pag=<?php echo $i; ?>"><button>
-                    <?php echo $i; ?>
+            <a href="chat.php?pag=<?php echo $i; ?>"><button style="border: none; background-color:azure;border-radius:3px;<?php if($_GET['pag']==$i){echo "color:lightpink;text-decoration:underline;font-weight:bold;background-color:lightcyan;";}?>">
+                    <?php echo $i;?>
                 </button></a>
         <?php } ?>
     </p>

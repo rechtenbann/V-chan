@@ -73,7 +73,8 @@ body {
 }
 
 .image-container {
-  width: 50%; /* Ajusta el ancho deseado para la imagen */
+  width: 50%;
+  /* Ajusta el ancho deseado para la imagen */
 }
 
 .image {
@@ -219,6 +220,7 @@ tbody {
   /* background-color: white; */
   margin-bottom: 10px;
 }
+
 .void-secret {
   width: 0px;
   height: 20rem;
@@ -297,10 +299,65 @@ a:visited {
 
 @media only screen and (max-width: 640px) {
 
-    .image {
-        max-width: 100%;
-        vertical-align: middle;
-        display: inline-block;
-      }
+  .image {
+    max-width: 100%;
+    vertical-align: middle;
+    display: inline-block;
+  }
 
+}
+
+/* @font-face {
+  font-family: anime-eyes;
+  src: url(AnimeEyes.ttf);
+} */
+@font-face {
+  font-family: manga;
+  src: url('../fonts/manga/Manga.ttf');}
+@font-face {
+  font-family: manga-bold;
+  src: url('../fonts/manga/MangaBold.ttf');}
+@font-face {
+  font-family: manga-italic;
+  src: url('../fonts/manga/MangaItalic.ttf');}
+@font-face {
+  font-family: manga-bold-italic;
+  src: url('../fonts/manga/MangaBoldItalic.ttf');}
+@font-face {
+  font-family: manga-hollow;
+  src: url('../fonts/manga/MangaHollow.ttf');}
+@font-face {
+  font-family: manga-hollow-italic;
+  src: url('../fonts/manga/MangaHollowItalic.ttf');}
+@font-face {
+  font-family: eyes;
+  src: url('../fonts/animeEyes/AnimeEyes.ttf');}
+  @font-face {
+    font-family: kio;
+    src: url('../fonts/kioshima/Kioshima.ttf');}
+
+.manga {
+  font-family: manga;
+}
+.mangaB {
+  font-family: manga-bold;
+}
+.mangaI {
+  font-family: manga-italic;
+}
+.mangaBI {
+  font-family: manga-bold-italic;
+}
+.mangaH {
+  font-family: manga-hollow;
+}
+.mangaHI {
+  font-family: manga-hollow-italic;
+}
+.eyes {
+  font-family: eyes;
+  font-size: 100px;
+}
+.kioshima {
+  font-family: kio;
 }
