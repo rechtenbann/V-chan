@@ -10,7 +10,7 @@ if (session_status() !== PHP_SESSION_ACTIVE)
       <a href="index.php"><img class="icon" src="img/org_3.png" width="100" height="90"></a>
     </div>
     <div class="navlink">
-      <a href="settings.php" class="section"><b>Settings</b></a>
+      <a href="settings.php" class="section"><b class="kioshima">S </b><b>Settings</b></a>
     </div>
     <div class="navlink">
       <a href="posts.php?pag=1&tag=1" class="section"><b>Posts</b></a>

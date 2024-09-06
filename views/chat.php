@@ -182,3 +182,4 @@ foreach ($notes as $note) {
         <?php }?>
     </p>
 </div>
+<p class="gui">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890</p>

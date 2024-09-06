@@ -332,9 +332,12 @@ a:visited {
 @font-face {
   font-family: eyes;
   src: url('../fonts/animeEyes/AnimeEyes.ttf');}
-  @font-face {
-    font-family: kio;
-    src: url('../fonts/kioshima/Kioshima.ttf');}
+@font-face {
+  font-family: kio;
+  src: url('../fonts/kioshima/Kioshima.ttf');}
+@font-face {
+  font-family: gui;
+  src: url('../fonts/GUIFX/GuifxV2.ttf');}
 
 .manga {
   font-family: manga;
@@ -360,4 +363,7 @@ a:visited {
 }
 .kioshima {
   font-family: kio;
+}
+.gui {
+  font-family: gui;
 }
