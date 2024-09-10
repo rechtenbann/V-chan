@@ -182,4 +182,14 @@ foreach ($notes as $note) {
         <?php }?>
     </p>
 </div>
-<p class="gui">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890</p>
+        <!--
+        manga
+        mangaB
+        mangaI
+        mangaIB
+        mangaH
+        mangaHI
+        eyes
+        kio
+        gui-->
+<!-- <p class="ico">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!"#$%&/()=?¡,.-;:_'¿´+{}[]¨*\~^`¬°</p> -->

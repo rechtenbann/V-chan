@@ -10,28 +10,28 @@ if (session_status() !== PHP_SESSION_ACTIVE)
       <a href="index.php"><img class="icon" src="img/org_3.png" width="100" height="90"></a>
     </div>
     <div class="navlink">
-      <a href="settings.php" class="section"><b class="kioshima">S </b><b>Settings</b></a>
+      <a href="settings.php" class="section"><u class="ico" style="text-decoration:none;font-size: 20px;">~ </u><b>Settings</b></a>
     </div>
     <div class="navlink">
-      <a href="posts.php?pag=1&tag=1" class="section"><b>Posts</b></a>
+      <a href="posts.php?pag=1&tag=1" class="section"><u class="ico" style="text-decoration:none;font-size: 20px;">R </u><b>Posts</b></a>
     </div>
     <div class="navlink">
-      <a href="Forum.php?pag=1" class="section"><b>Forum</b></a>
+      <a href="Forum.php?pag=1" class="section"><u class="ico" style="text-decoration:none;font-size: 20px;">6 </u><b>Forum</b></a>
     </div>
     <div class="navlink">
       <a href="chat.php?pag=1" class="section" <?php if (!isset($_SESSION['usuario'])) {
         echo 'style="pointer-events:none; color:grey"';
-      } ?>><b>Community</b></a>
+      } ?>><u class="ico" style="text-decoration:none;font-size: 20px;">} </u><b>Community</b></a>
     </div>
     <!-- <div class="navlink">
       <a href="cards.php" class="section"><b>Cards</b></a>
     </div> -->
     <div class="navlink">
-      <a href="sites.php" class="section"><b>Sites</b></a>
+      <a href="sites.php" class="section"><u class="ico" style="text-decoration:none;font-size: 20px;">0 </u><b>Sites</b></a>
     </div>
     <div class="navlink">
       <?php if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rango'] == "administrador") { ?><a class="section"
-          href="admin.php"><b>Administrar</b></a><?php } ?>
+          href="admin.php"><u class="ico" style="text-decoration:none;font-size: 20px;">g </u><b>Administrar</b></a><?php } ?>
     </div>
     <div class="navlink">
       <?php try{
