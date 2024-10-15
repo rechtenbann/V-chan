@@ -1,0 +1,170 @@
+@font-face {
+    font-family: manga;
+    src: url('../fonts/manga/Manga.ttf');
+  }
+  
+  @font-face {
+    font-family: manga-bold;
+    src: url('../fonts/manga/MangaBold.ttf');
+  }
+  
+  @font-face {
+    font-family: manga-italic;
+    src: url('../fonts/manga/MangaItalic.ttf');
+  }
+  
+  @font-face {
+    font-family: manga-bold-italic;
+    src: url('../fonts/manga/MangaBoldItalic.ttf');
+  }
+  
+  @font-face {
+    font-family: manga-hollow;
+    src: url('../fonts/manga/MangaHollow.ttf');
+  }
+  
+  @font-face {
+    font-family: manga-hollow-italic;
+    src: url('../fonts/manga/MangaHollowItalic.ttf');
+  }
+  
+  @font-face {
+    font-family: eyes;
+    src: url('../fonts/AnimeEyes.ttf');
+  }
+  
+  @font-face {
+    font-family: kio;
+    src: url('../fonts/kioshima/Kioshima.ttf');
+  }
+  
+  @font-face {
+    font-family: gui;
+    src: url('../fonts/GuifxV2.ttf');
+  }
+  
+  @font-face {
+    font-family: icons;
+    src: url('../fonts/dripicons-2/webfont/fonts/dripicons-v2.ttf');
+  }
+  
+  @font-face {
+    font-family: cubic;
+    src: url('../fonts/cubic.ttf');
+  }
+  
+  @font-face {
+    font-family: TECHNOH;
+    src: url('../fonts/techno_hideo/techno_hideo.ttf');
+  }
+  
+  @font-face {
+    font-family: cube;
+    src: url('../fonts/Cube.ttf')
+  }
+  
+  @font-face {
+    font-family: hexagon;
+    src: url('../fonts/HEXAGON_.TTF')
+  }
+  
+  @font-face {
+    font-family: simple;
+    src: url('../fonts/Simpletype.ttf')
+  }
+  
+  @font-face {
+    font-family: over;
+    src: url('../fonts/oversteer.otf')
+  }
+  
+  @font-face {
+    font-family: heydings;
+    src: url('../fonts/HeydingsIcons-BYp3.ttf')
+  }
+  
+  @font-face {
+    font-family: mine1;
+    src: url('../fonts/minecrafter/Minecrafter.Reg.ttf')
+  }
+  
+  @font-face {
+    font-family: mine2;
+    src: url('../fonts/minecrafter/Minecrafter.Alt.ttf')
+  }
+  
+  .manga {
+    font-family: manga;
+  }
+  
+  .mangaB {
+    font-family: manga-bold;
+  }
+  
+  .mangaI {
+    font-family: manga-italic;
+  }
+  
+  .mangaBI {
+    font-family: manga-bold-italic;
+  }
+  
+  .mangaH {
+    font-family: manga-hollow;
+  }
+  
+  .mangaHI {
+    font-family: manga-hollow-italic;
+  }
+  
+  .eyes {
+    font-family: eyes;
+    font-size: 100px;
+  }
+  
+  .kioshima {
+    font-family: kio;
+  }
+  
+  .gui {
+    font-family: gui;
+  }
+  
+  .ico {
+    font-family: icons;
+  }
+  
+  .cubic {
+    font-family: cubic;
+  }
+  
+  .TECHNOH {
+    font-family: TECHNOH;
+  }
+  
+  .cube {
+    font-family: cube;
+  }
+  
+  .hexagon {
+    font-family: hexagon;
+  }
+  
+  .simple {
+    font-family: simple;
+  }
+  
+  .over {
+    font-family: over;
+  }
+  
+  .heydings {
+    font-family: heydings;
+  }
+  
+  .mine1 {
+    font-family: mine1;
+  }
+  .mine2 {
+    font-family: mine2;
+  }

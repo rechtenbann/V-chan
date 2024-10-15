@@ -13,6 +13,7 @@ if(session_status() !== PHP_SESSION_ACTIVE)session_start();
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="img/favicon.ico" rel="icon">
     <link href="css/styles.css" rel="stylesheet">
+    <link href="css/fonts.css" rel="stylesheet">
     <!-- <link href="css/cards.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="js/photo.js"></script>

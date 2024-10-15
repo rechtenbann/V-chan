@@ -130,73 +130,15 @@
                         </form>
                     </div>
                 </div>
-                <!--<div>
-                    <div class="Height">
-                        <form method="post" class="option-form" style="user-select:none">
-                            <br>
-                            <input type="image" src="img/users/default1.png" class="void" disabled>
-                            <label class="lbl">Useless</label>
-                        </form>
-                    </div>
-                    <div style="display: inline-block;">
-                        <form method="post" class="option-form">
-                            <input type="hidden" name="blank3" value="blank.png" class="Height">
-                            <input type="image" id="blank3" class="option-photo" name="blank3" value="blank.png" alt="Login" src="img/users/blank.png" style="background-color:lightgray">
-                            <label style="display: block; text-align: center;">Gray (Light)</label>
-                        </form>
-                    </div>
-                    <div style="display: inline-block;">
-                        <form method="post" class="option-form">
-                            <input type="hidden" name="blank4" value="blank.png" class="Height">
-                            <input type="image" id="blank4" class="option-photo" name="blank4" value="blank.png" alt="Login" src="img/users/blank.png" style="background-color:grey">
-                            <label style="display: block; text-align: center;">Gray (Medium)</label>
-                        </form>
-                    </div>
-                    <div style="display: inline-block;">
-                        <form method="post" class="option-form">
-                            <input type="hidden" name="blank5" value="blank.png" class="Height">
-                            <input type="image" id="blank5" class="option-photo" name="blank5" value="blank.png" alt="Login" src="img/users/blank.png" style="background-color:dimgray">
-                            <label style="display: block; text-align: center;">Gray (Dark)</label>
-                        </form>
-                    </div>
-                </div>
-                <div>
-                    <div class="Height">
-                        <form method="post" class="option-form" style="user-select:none">
-                            <br>
-                            <input type="image" src="img/users/default1.png" class="void" disabled>
-                            <label class="lbl">Useless</label>
-                        </form>
-                    </div>
-                    <div style="display: inline-block;">
-                        <form method="post" class="option-form">
-                            <input type="hidden" name="blank6" value="blank.png" class="Height">
-                            <input type="image" id="blank6" class="option-photo" name="blank6" value="blank.png" alt="Login" src="img/users/blank.png" style="background-color:Red">
-                            <label style="display: block; text-align: center;">Red</label>
-                        </form>
-                    </div>
-                    <div style="display: inline-block;">
-                        <form method="post" class="option-form">
-                            <input type="hidden" name="blank7" value="blank.png" class="Height">
-                            <input type="image" id="blank7" class="option-photo" name="blank7" value="blank.png" alt="Login" src="img/users/blank.png" style="background-color:Green">
-                            <label style="display: block; text-align: center;">Green</label>
-                        </form>
-                    </div>
-                    <div style="display: inline-block;">
-                        <form method="post" class="option-form">
-                            <input type="hidden" name="blank8" value="blank.png" class="Height">
-                            <input type="image" id="blank8" class="option-photo" name="blank8" value="blank.png" alt="Login" src="img/users/blank.png" style="background-color:Blue">
-                            <label style="display: block; text-align: center;">Blue</label>
-                        </form>
-                    </div>
-                </div> -->
             </div>
         </div>
         <a style='font-size: larger'>
             <?php echo ($_SESSION['usuario']['usu_nombre']);
             if ($_SESSION['usuario']['fecha_baja'] != null) {
                 echo " | BANNED";
-            } ?>
+            } 
+            if($_SESSION['usuario']['usu_nombre']=="reichsacht"){echo "<a class='ico'> f</a>";}
+            ?>
         </a>
 
         <!-- <br>

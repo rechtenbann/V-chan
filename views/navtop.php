@@ -21,13 +21,17 @@ if (session_status() !== PHP_SESSION_ACTIVE)
     <div class="navlink">
       <a href="chat.php?pag=1" class="section" <?php if (!isset($_SESSION['usuario'])) {
         echo 'style="pointer-events:none; color:grey"';
-      } ?>><u class="ico" style="text-decoration:none;font-size: 20px;">} </u><b>Community</b></a>
+      } ?>><u class="heydings" style="text-decoration:none;font-size: 20px;">b </u><b>Community</b></a>
     </div>
     <!-- <div class="navlink">
       <a href="cards.php" class="section"><b>Cards</b></a>
     </div> -->
     <div class="navlink">
       <a href="sites.php" class="section"><u class="ico" style="text-decoration:none;font-size: 20px;">0 </u><b>Sites</b></a>
+    </div>
+    <div class="navlink">
+      <?php if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rango'] == "administrador") { ?><a class="section"
+          href="test.php"><u class="ico" style="text-decoration:none;font-size: 20px;">} </u><b>Test Zone</b></a><?php } ?>
     </div>
     <div class="navlink">
       <?php if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rango'] == "administrador") { ?><a class="section"
