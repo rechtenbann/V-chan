@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-05-2024 a las 20:44:13
+-- Tiempo de generación: 15-10-2024 a las 20:32:04
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.0.30
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,48 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `v-chan`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `forum`
+--
+
+CREATE TABLE `forum` (
+  `id` int(11) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `description` text NOT NULL,
+  `uid` int(11) NOT NULL,
+  `fecha_alta` datetime NOT NULL,
+  `fecha_baja` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `forum_ans`
+--
+
+CREATE TABLE `forum_ans` (
+  `id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `qid` int(11) NOT NULL,
+  `answer` int(11) NOT NULL,
+  `accepted` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `forum_img`
+--
+
+CREATE TABLE `forum_img` (
+  `id` int(11) NOT NULL,
+  `img` varchar(255) NOT NULL,
+  `qid` int(11) NOT NULL,
+  `uid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -50,7 +92,12 @@ INSERT INTO `online_chat` (`id`, `content`, `usuario_id`, `fecha_alta`, `fecha_b
 (8, 0x717765727177657271776572, 4, '2023-08-14 18:25:55', NULL),
 (9, 0x7a786376, 1, '2023-08-14 19:52:48', NULL),
 (10, 0x48656c6c6f212121202a285ee280bf5e292f2a, 2, '2023-08-14 19:56:51', NULL),
-(11, 0x686f6c61, 1, '2024-03-20 17:50:25', NULL);
+(11, 0x686f6c61, 1, '2024-03-20 17:50:25', NULL),
+(12, 0x7564666768617369756467696c666e68696c7565670d0a, 1, '2024-09-30 20:51:04', NULL),
+(13, 0x6173646661736466, 2, '2024-10-01 16:05:33', NULL),
+(14, 0x61736466, 2, '2024-10-01 16:05:35', NULL),
+(15, 0x610d0a, 1, '2024-10-01 16:05:49', NULL),
+(16, 0x61646661736466, 1, '2024-10-01 16:29:32', NULL);
 
 -- --------------------------------------------------------
 
@@ -85,7 +132,10 @@ INSERT INTO `online_chat_ans` (`id`, `content`, `comment_id`, `usuario_id`, `fec
 (22, 0x68656c6c6f, 9, 1, '2024-03-20 17:26:11', NULL),
 (23, 0x3a76, 10, 1, '2024-03-20 17:41:45', NULL),
 (24, 0x6c6c6c6c, 10, 1, '2024-03-20 17:42:06', NULL),
-(25, 0x617364617364, 10, 1, '2024-03-20 17:50:29', NULL);
+(25, 0x617364617364, 10, 1, '2024-03-20 17:50:29', NULL),
+(26, 0x73646667736466677364666773646667736466677364666773646667736466677364666773646667, 12, 1, '2024-09-30 20:51:36', NULL),
+(27, 0x61736466617364666173646673616466, 12, 2, '2024-09-30 20:52:00', NULL),
+(28, 0x6173646661736466, 16, 1, '2024-10-01 16:29:35', NULL);
 
 -- --------------------------------------------------------
 
@@ -239,9 +289,9 @@ INSERT INTO `tag_post` (`id`, `tag_id`, `post_id`, `fecha_alta`, `fecha_baja`) V
 --
 
 CREATE TABLE `usuarios` (
-  `id` int(255) NOT NULL,
-  `usu_nombre` varchar(20) NOT NULL,
-  `usu_clave` varchar(33) NOT NULL,
+  `id` bigint(20) NOT NULL,
+  `usu_nombre` varchar(255) DEFAULT NULL,
+  `usu_clave` varchar(255) DEFAULT NULL,
   `usu_email` varchar(255) NOT NULL,
   `foto_perfil` varchar(255) NOT NULL,
   `nsfw_allow` tinyint(1) NOT NULL,
@@ -257,7 +307,7 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`id`, `usu_nombre`, `usu_clave`, `usu_email`, `foto_perfil`, `nsfw_allow`, `dark_mode`, `fecha_alta`, `fecha_baja`) VALUES
 (1, 'reichsacht', '5eb3c70fb1c47a19a7b6674092c19fc0', 'hratzeld@gmail.com', 'default3.png', 0, 1, '2023-02-26 15:37:31', NULL),
 (2, 'test', '202cb962ac59075b964b07152d234b70', 'sdmatayoshi@gmail.com', 'default4.png', 0, 0, '2023-02-27 12:40:10', NULL),
-(3, 'sdmatayoshi', '41f5d469289efa58df6a726273313439', 'sdmatayoshi@gmail.com', '', 0, 0, '2023-02-28 19:19:21', '2023-08-13 20:19:26'),
+(3, 'sdmatayoshi', '41f5d469289efa58df6a726273313439', 'sdmatayoshi@gmail.com', '', 0, 0, '2023-02-28 19:19:21', '2024-09-23 19:26:21'),
 (4, 'anon', '202cb962ac59075b964b07152d234b70', 'mail@gmail.com', 'default5.png', 0, 0, '2023-05-24 20:32:43', NULL),
 (6, 'elmatas', '5eb3c70fb1c47a19a7b6674092c19fc0', 'sdmatayoshi@gmail.com', 'default1.png', 0, 0, '2023-05-24 20:40:54', NULL),
 (7, 'racht', 'e10adc3949ba59abbe56e057f20f883e', 'hratzeld@gmail.com', '', 0, 0, '2023-08-09 20:25:20', NULL);
@@ -287,6 +337,24 @@ INSERT INTO `videos` (`vid_id`, `vid_nombre`, `video`, `fecha_alta`, `fecha_baja
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `forum`
+--
+ALTER TABLE `forum`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `forum_ans`
+--
+ALTER TABLE `forum_ans`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `forum_img`
+--
+ALTER TABLE `forum_img`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `online_chat`
@@ -347,16 +415,34 @@ ALTER TABLE `videos`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `forum`
+--
+ALTER TABLE `forum`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `forum_ans`
+--
+ALTER TABLE `forum_ans`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `forum_img`
+--
+ALTER TABLE `forum_img`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `online_chat`
 --
 ALTER TABLE `online_chat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `online_chat_ans`
 --
 ALTER TABLE `online_chat_ans`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `posts`
@@ -392,7 +478,7 @@ ALTER TABLE `tag_post`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `videos`

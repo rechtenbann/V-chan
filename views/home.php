@@ -11,10 +11,8 @@ require_once "includes/config.php";
             style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);  width: 100%;">
     <h1 style="font-size: 50px;<?php if (isset($_COOKIE['dark_mode']) && $_COOKIE['dark_mode'] == 'true') {
         echo "color: white; text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
-        1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;";
-    }// else{ echo "text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
-    //     1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;";} ?>">
-        <b><u>V-Chan</u></b>
+        1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;";}?>">
+        <b class="ace" style="font-size: 5rem;">{</b><b class="HWNAT26" style="font-size: 10rem;"><u>V-Chan</u></b><b class="ace" style="font-size: 5rem;">}</b>
     </h1>
     <br>
     <a href="posts.php?pag=1&tag=1"><b>All posts</b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a

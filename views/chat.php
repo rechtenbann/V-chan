@@ -123,21 +123,7 @@ foreach ($notes as $note) {
                 <p style="padding-left: 2rem;padding-bottom: 1rem;word-wrap: break-word;<?php if ($_COOKIE['dark_mode'] == "true") {
                     echo "color:white;";
                 } ?> width:96%">
-                    <?php echo $note['content'];//wordwrap($note['content'], 150, "<br>", true) ?>
-                    <!-- <textarea type="text" style="Width:100%; height:100px; font-size:18px;outline: none; resize: none; border:none; <?php if (isset($_SESSION['usuario']) && $usudata['id'] == $_SESSION['usuario']['id']) {
-                        if ($_COOKIE['dark_mode'] == "false") {
-                            echo "background-color:lightblue;";
-                        } else {
-                            echo "background-color:lightslategray;";
-                        }
-                    } else {
-                        if ($_COOKIE['dark_mode'] == "false") {
-                            echo "background-color:white;";
-                        } else {
-                            echo "background-color:dimgrey;";
-                        }
-                    } ?>" readonly><?php echo $note['content'] ?></textarea>  -->
-
+                    <?php echo $note['content'];?>
                 </p>
             </div>
             <a style="text-decoration: none; <?php if ($_COOKIE['dark_mode'] == "false") {
@@ -182,14 +168,3 @@ foreach ($notes as $note) {
         <?php }?>
     </p>
 </div>
-        <!--
-        manga
-        mangaB
-        mangaI
-        mangaIB
-        mangaH
-        mangaHI
-        eyes
-        kio
-        gui-->
-<!-- <p class="ico">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!"#$%&/()=?¡,.-;:_'¿´+{}[]¨*\~^`¬°</p> -->

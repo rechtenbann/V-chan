@@ -24,3 +24,13 @@
 <a class="mine1">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>1234567890</a><br>
 <h3 class="">Eyes</h3>
 <a class="eyes">ABCDEFGHIJKLMNOPQ<br>RSTUVWXYZ1234567890</a><br>
+<h3 class="">AnimeSymbols</h3>
+<a class="AS" style="font-size: 5rem;">ABCDEFGHIJKLMNÑOPQRSTUVWXYZ<br>abcdefghijklmnñopqrstuvwxyz<br>|1234567890'¿!"#$%&/()=?¡´+{}¨*[],.-;:_\~^`</a><br>
+<h3 class="acei">AnimeAce</h3>
+<a class="ace">ABCDEFGHIJKLMNÑOPQRSTUVWXYZ<br>abcdefghijklmnñopqrstuvwxyz<br>|1234567890'¿!"#$%&/()=?¡´+{}¨*[],.-;:_\~`</a><br>
+<h3 class="HW">Handwrite</h3>
+<a class="HW" style="font-size: 2rem;">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>|1234567890'¿!"#$%&/()=?¡´+{}¨*[],.-;:_\~^`</a><br>
+<h3 class="HWNAT26">Handwritten_NAT26</h3>
+<a class="HWNAT26" style="font-size: 2rem;">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>|1234567890'¿!"#$%&/()=?¡´+{}¨*[],.-;:_\~^`</a><br>
+<h3 class="HW">GumiFont</h3>
+<a class="gumi" style="font-size: 2rem;">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>|1234567890'¿!"#$%&/()=?¡´+{}¨*[],.-;:_\~^`</a><br>

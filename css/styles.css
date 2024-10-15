@@ -25,6 +25,15 @@ body {
   margin: 20px 16px 23px 16px;
   padding: 0 0 0 0;
 }
+.section2 {
+  text-decoration: none;
+  float: left;
+  display: block;
+  color: #ffffff;
+  text-align: center;
+  margin: 20px 16px 23px 16px;
+  padding: 0 0 0 0;
+}
 
 .section:hover {
   text-decoration: underline;
@@ -138,22 +147,6 @@ tbody {
   padding: 1rem;
 }
 
-/* 
-@media only screen and (max-width: 850px) {
-    .tags {
-        grid-area: aside;
-        margin: 10px 0px 20px 0px;
-        font-size: 1.3em;
-        font-family: verdana, sans-serif, helvetica;
-    }
-    .footer {
-        grid-area: footer;
-        margin: 0px 0px;
-        text-align: center;
-        padding: 20px;
-        font-family: verdana, sans-serif, helvetica;
-    }
-} */
 .option-form {
   width: 8rem;
   display: inline-block;
@@ -182,15 +175,12 @@ tbody {
   width: 8rem;
   height: 8rem;
   object-fit: cover;
-  /* background-color: white; */
   transition: filter 0.2s, margin-bottom 0.2s ease-in-out;
 }
 
 .option-form:hover .option-photo {
   border: 0px solid #333;
   filter: brightness(40%);
-  /* background-color: rgba(33, 33, 33, 0); */
-  /* background-color: white; */
   margin-bottom: 10px;
 }
 
@@ -204,20 +194,12 @@ tbody {
   width: 20rem;
   height: 20rem;
   object-fit: cover;
-  /* background-color: white; */
   transition: filter 0.2s, margin-bottom 0.2s ease-in-out;
 }
 
-/* .option-form-secret:hover .option-photo-secret {
-    border: 0px solid #333;
-    filter: brightness(40%);
-    margin-bottom: 10px;
-} */
 .option-photo-secret:hover {
   border: 0px solid #333;
   filter: brightness(40%);
-  /* background-color: rgba(33, 33, 33, 0); */
-  /* background-color: white; */
   margin-bottom: 10px;
 }
 
@@ -239,7 +221,6 @@ tbody {
 
 .profile-nav:hover {
   border: 0px solid #333;
-  /*background-color: rgba(33, 33, 33, 0);*/
   background-color: white;
   filter: brightness(40%);
 }
@@ -255,7 +236,6 @@ tbody {
 
 .profile-small:hover {
   border: 0px solid #333;
-  /*background-color: rgba(33, 33, 33, 0);*/
   background-color: white;
   filter: brightness(40%);
 }
@@ -271,7 +251,6 @@ tbody {
 
 .profile:hover {
   border: 0px solid #333;
-  /*background-color: rgba(33, 33, 33, 0);*/
   background-color: white;
   filter: brightness(40%);
 }
@@ -305,4 +284,62 @@ a:visited {
     display: inline-block;
   }
 
+}
+
+.underline{
+  display: inline-block;
+  text-decoration: none;
+  background-image: linear-gradient(to right, #F16A70, #F16A70);
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size .2s ease;
+}
+.underline:hover {
+  background-size: 100% 2px;
+}
+.underline2{
+  display: inline-block;
+  text-decoration: none;
+  background-image: linear-gradient(to right, #F16A70, #F16A70);
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: 1000% 2px;
+}
+
+.upload{
+  background-color:transparent;
+  width:4rem;
+  height: 2rem;
+  border: none;
+  float: right;
+  font-size: 2rem;
+  margin-right: 4rem;
+  cursor: pointer;
+}
+.upload:hover a{
+  background-color:black;
+  color: white;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }

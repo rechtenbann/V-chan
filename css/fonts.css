@@ -92,6 +92,35 @@
     font-family: mine2;
     src: url('../fonts/minecrafter/Minecrafter.Alt.ttf')
   }
+
+  @font-face {
+    font-family: AnimeAce;
+    src: url('../fonts/Anime_Ace/animeace.ttf')
+  }
+  @font-face {
+    font-family: AnimeAceB;
+    src: url('../fonts/Anime_Ace/animeace_b.ttf')
+  }
+  @font-face {
+    font-family: AnimeAceI;
+    src: url('../fonts/Anime_Ace/animeace_i.ttf')
+  }
+  @font-face {
+    font-family: AnimeSymbols;
+    src: url('../fonts/Anime_Symbols/Anime_Symbol_Font_by_PokeSensei.ttf')
+  }
+  @font-face {
+    font-family: Handwrite;
+    src: url('../fonts/Handwrite_01/Handwrite1.ttf')
+  }
+  @font-face {
+    font-family: Handwritten_nat29;
+    src: url('../fonts/Handwritten_Nat29_Font.ttf')
+  }
+  @font-face {
+    font-family: GumiFont;
+    src: url('../fonts/GumiFontSymbols.ttf')
+  }
   
   .manga {
     font-family: manga;
@@ -167,4 +196,26 @@
   }
   .mine2 {
     font-family: mine2;
+  }
+
+  .ace {
+    font-family: AnimeAce;
+  }
+  .aceb {
+    font-family: AnimeAceB;
+  }
+  .acei {
+    font-family: AnimeAceI;
+  }
+  .AS {
+    font-family: AnimeSymbols;
+  }
+  .HW {
+    font-family: Handwrite;
+  }
+  .HWNAT26 {
+    font-family: Handwritten_nat29;
+  }
+  .gumi {
+    font-family: GumiFont;
   }

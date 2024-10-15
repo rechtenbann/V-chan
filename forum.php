@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
     $stmt->close();
     $link->close();
     }
-    
+    header("Location:forum.php");
 }
 $section = "forum";
 $title = "Forum";

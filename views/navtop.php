@@ -9,35 +9,32 @@ if (session_status() !== PHP_SESSION_ACTIVE)
     <div class="navlink navbrand">
       <a href="index.php"><img class="icon" src="img/org_3.png" width="100" height="90"></a>
     </div>
-    <div class="navlink">
-      <a href="settings.php" class="section"><u class="ico" style="text-decoration:none;font-size: 20px;">~ </u><b>Settings</b></a>
+    <div class="navlink ace">
+      <a href="settings.php" class="section2"><u class="gumi" style="text-decoration:none;font-size: 20px;">D </u><b class="underline<?php if($section=="settings"){echo '2';}?>">Settings</b></a>
     </div>
-    <div class="navlink">
-      <a href="posts.php?pag=1&tag=1" class="section"><u class="ico" style="text-decoration:none;font-size: 20px;">R </u><b>Posts</b></a>
+    <div class="navlink ace">
+      <a href="posts.php?pag=1&tag=1" class="section2"><u class="gumi" style="text-decoration:none;font-size: 20px;">c </u><b class="underline<?php if($section=="posts"){echo '2';}?>">Posts</b></a>
     </div>
-    <div class="navlink">
-      <a href="Forum.php?pag=1" class="section"><u class="ico" style="text-decoration:none;font-size: 20px;">6 </u><b>Forum</b></a>
+    <div class="navlink ace">
+      <a href="Forum.php?pag=1" class="section2"><u class="gumi" style="text-decoration:none;font-size: 20px;">4 </u><b class="underline<?php if($section=="forum"){echo '2';}?>">Forum</b></a>
     </div>
-    <div class="navlink">
-      <a href="chat.php?pag=1" class="section" <?php if (!isset($_SESSION['usuario'])) {
+    <div class="navlink ace">
+      <a href="chat.php?pag=1" class="section2" <?php if (!isset($_SESSION['usuario'])) {
         echo 'style="pointer-events:none; color:grey"';
-      } ?>><u class="heydings" style="text-decoration:none;font-size: 20px;">b </u><b>Community</b></a>
+      } ?>><u class="gumi" style="text-decoration:none;font-size: 20px;">5 </u><b class="underline<?php if($section=="chat"){echo '2';}?>">Community</b></a>
     </div>
-    <!-- <div class="navlink">
-      <a href="cards.php" class="section"><b>Cards</b></a>
-    </div> -->
-    <div class="navlink">
-      <a href="sites.php" class="section"><u class="ico" style="text-decoration:none;font-size: 20px;">0 </u><b>Sites</b></a>
+    <div class="navlink ace">
+      <a href="sites.php" class="section2"><u class="gumi" style="text-decoration:none;font-size: 20px;">i </u><b class="underline<?php if($section=="sites"){echo '2';}?>">Sites</b></a>
     </div>
-    <div class="navlink">
-      <?php if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rango'] == "administrador") { ?><a class="section"
-          href="test.php"><u class="ico" style="text-decoration:none;font-size: 20px;">} </u><b>Test Zone</b></a><?php } ?>
+    <div class="navlink ace">
+      <?php if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rango'] == "administrador") { ?><a class="section2"
+          href="test.php"><u class="gumi" style="text-decoration:none;font-size: 20px;">j </u><b class="underline<?php if($section=="test"){echo '2';}?>">Test Zone</b></a><?php } ?>
     </div>
-    <div class="navlink">
-      <?php if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rango'] == "administrador") { ?><a class="section"
-          href="admin.php"><u class="ico" style="text-decoration:none;font-size: 20px;">g </u><b>Administrar</b></a><?php } ?>
+    <div class="navlink ace">
+      <?php if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rango'] == "administrador") { ?><a class="section2"
+          href="admin.php"><u class="gumi" style="text-decoration:none;font-size: 20px;">E </u><b class="underline<?php if($section=="admin"){echo '2';}?>">Administrar</b></a><?php } ?>
     </div>
-    <div class="navlink">
+    <div class="navlink ace">
       <?php try{
        if (isset($_SESSION['usuario']) && ($section != "profile" || (isset($_GET['usr'])&&$_GET['usr']!=$_SESSION['usuario']['id']))) { ?><a class="section"
           href="profile.php?profile=<?php echo $_SESSION['usuario']['id']?>" style="float: right;">
