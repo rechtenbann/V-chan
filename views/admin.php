@@ -148,6 +148,3 @@
 <input type="hidden" name="RDB">
 <input type="submit" value="Reset Test Data Base">
 </form>
-<?php for ($i = 0; $i < 8; $i++) {
-    echo "<br>";
-} ?>

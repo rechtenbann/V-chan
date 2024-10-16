@@ -1,7 +1,17 @@
 body {
   font-family: verdana, sans-serif, helvetica;
 }
-
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.main{
+  display:unset;
+}
+footer{
+  margin-top: auto;
+}
 .navtop {
   overflow: hidden;
   background-color: rgb(141, 22, 189);
@@ -327,6 +337,7 @@ a:visited {
 
 .tooltip {
   position: relative;
+  text-align: center;
   display: inline-block;
 }
 
@@ -337,9 +348,10 @@ a:visited {
   text-align: center;
   border-radius: 6px;
   padding: 5px;
-
   /* Position the tooltip */
   position: absolute;
+  margin-top:7rem;
+  margin-right: 5rem;
   z-index: 1;
 }
 

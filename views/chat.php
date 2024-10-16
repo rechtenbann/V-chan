@@ -1,3 +1,4 @@
+<div class="main">
 <?php if (isset($_SESSION['usuario'])) { ?>
     <div
         style="margin: auto; width: 80%; border: 0px solid black; padding: 10px; <?php if ($_COOKIE['dark_mode'] == "false") {
@@ -167,4 +168,5 @@ foreach ($notes as $note) {
                 </button></a>
         <?php }?>
     </p>
+</div>
 </div>

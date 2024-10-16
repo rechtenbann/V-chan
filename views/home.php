@@ -24,7 +24,4 @@ require_once "includes/config.php";
             style="width:100px">
     </form>
 </div>
-<?php for ($i = 0; $i < 24; $i++) {
-    echo "<br>";
-} ?>
 </div>
