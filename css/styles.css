@@ -298,6 +298,9 @@ a:visited {
 .underline:hover {
   background-size: 100% 2px;
 }
+.navlink:hover .underline {
+  background-size: 100% 2px;
+}
 .underline2{
   display: inline-block;
   text-decoration: none;
