@@ -20,8 +20,12 @@ if (isset($_POST['submit'])) {
     $stmt->bind_param("ss", $imagePath, $qid);
     $uploadedImages = $_FILES['images'];
     $qid = $id['id'];
+    $dir=strval($qid);
+    if (!file_exists('forum/'.$dir)) {
+        mkdir('forum/'.$dir);
+    }
     foreach ($uploadedImages['name'] as $key => $value) {
-        $targetDir = "forum/";
+        $targetDir = "forum/".$dir."/";
         $fileName = basename($uploadedImages['name'][$key]);
         $targetFilePath = $targetDir . $fileName;
         
@@ -36,6 +40,7 @@ if (isset($_POST['submit'])) {
     $link->close();
     }
     header("Location:forum.php");
+    
 }
 $section = "forum";
 $title = "Forum";

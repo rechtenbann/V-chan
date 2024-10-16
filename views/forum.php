@@ -10,10 +10,11 @@ foreach ($questions as $question) {
 }
 ?>
 </div>
-
+<?php if(isset($_SESSION['usuario'])){?>
 <div style="background-color: white; width:7rem; height:7rem; text-align:center;float:right; border-radius: 50%; border: 2px solid black" class="tooltip">
 <span class="tooltiptext ace">Ask a question</span>
 <a href="#ei" rel="modal:open" id="image" class="gumi" style="font-size:5rem; text-decoration:none; color: black;">F</a>
+<?php }?>
 </div>
 <div id="ei" class="modal">
 <form action="forum.php" method="post" enctype="multipart/form-data">
