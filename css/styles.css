@@ -347,14 +347,12 @@ a:visited {
   color: #fff;
   text-align: center;
   border-radius: 6px;
-  padding: 5px;
   /* Position the tooltip */
   position: absolute;
-  margin-top:7rem;
-  margin-right: 5rem;
+  height:2rem;
+  width:4rem;
   z-index: 1;
 }
-
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }

@@ -1,10 +1,10 @@
 <div class="main">
 <?php if (isset($_SESSION['usuario'])) { ?>
     <div
-        style="margin: auto; width: 80%; border: 0px solid black; padding: 10px; <?php if ($_COOKIE['dark_mode'] == "false") {
-            echo "background-color:lightblue;";
+        style="margin: auto; width: 80%; border: 2px solid black; padding: 10px; <?php if ($_COOKIE['dark_mode'] == "false") {
+            /*echo "background-color:lightblue;";*/ echo "background-color:white;";
         } else {
-            echo "background-color:lightslategray;";
+            /*echo "background-color:lightslategray;";*/echo "background-color:lightgray;";
         } ?> border-radius: 50px 1px 50px 50px; float:right; padding-right:1rem; margin-bottom: 1rem;">
 
         <div style="float:right">
@@ -26,9 +26,10 @@
                 style="padding-left:2%;<?php if ($_COOKIE['dark_mode'] == "true") {
                     echo "color:white;";
                 } ?>font-size: 18px;width: 96%;height:200px;border:0px;<?php if ($_COOKIE['dark_mode'] == "false") {
-                     echo "background-color:lightblue;";
+                    /*echo "background-color:lightblue;";*/ echo "background-color:white;";
                  } else {
-                     echo "background-color:lightslategray;";
+                    /*echo "background-color:lightslategray;";*/echo "background-color:lightgray;";
+
                  } ?>outline: none; resize: none;"></textarea>
             <input type="submit" value="Publish" style="width: 25%; float:right; border:none; border-radius: 1rem; margin-right: 2rem; font-weight: bold;">
             <!-- background-color: lightpink; color: lightblue; -->
@@ -152,18 +153,18 @@ foreach ($notes as $note) {
     <p>
         <?php if ($_GET['pag'] > 1) {
             $pag = $_GET['pag'] - 1; ?>
-            <a href="chat.php?pag=<?php echo $pag; ?>"><button class="kioshima" style="font-size:large;width:50px; background-color:azure;border-radius:3px;">
+            <a href="chat.php?pag=<?php echo $pag; ?>"><button class="HWNAT29" style="font-size:large;width:50px; background-color:white;border-radius:3px;">
                     <?php echo "<"; ?>
                 </button></a>
         <?php } ?>
         <?php for ($i = 1; $i <= ceil(intval($cant["n"]) / 10); $i++) { ?>
-            <a href="chat.php?pag=<?php echo $i; ?>"><button class="kioshima" style="font-size:large;width:50px; background-color:azure;border-radius:3px;<?php if($_GET['pag']==$i){echo "color:lightpink;text-decoration:underline;font-weight:bold;background-color:lightcyan;";}?>">
+            <a href="chat.php?pag=<?php echo $i; ?>"><button class="HWNAT29" style="font-size:large;width:50px; background-color:white;border-radius:3px;<?php if($_GET['pag']==$i){echo "color:grey;text-decoration:none;font-weight:bold;background-color:white;height:4rem;";}?>">
                     <?php echo $i; ?>
                 </button></a>
         <?php } ?>
         <?php  if ($_GET['pag'] < ceil(intval($cant["n"]) / 10)) {
-            $pag = $_GET['pag']?>
-            <a href="chat.php?pag=<?php echo $pag; ?>"><button class="kioshima" style="font-size:large;width:50px; background-color:azure;border-radius:3px;">
+            $pag = $_GET['pag']+1?>
+            <a href="chat.php?pag=<?php echo $pag; ?>"><button class="HWNAT29" style="font-size:large;width:50px; background-color:white;border-radius:3px;">
                     <?php echo ">"; ?>
                 </button></a>
         <?php }?>

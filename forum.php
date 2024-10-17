@@ -40,7 +40,6 @@ if (isset($_POST['submit'])) {
     $link->close();
     }
     header("Location:forum.php");
-    
 }
 $section = "forum";
 $title = "Forum";
