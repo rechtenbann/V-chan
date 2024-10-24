@@ -1,81 +1,84 @@
-<style type="text/css">
-#log {
-	width:600px; 
-	height:300px; 
-	border:1px solid #7F9DB9; 
-	overflow:auto;
-}
-</style>
-<script type="text/javascript">
-var socket;
+<div>
+    <h1>Bienvenido, <?php echo $_SESSION['usuario']['usu_nombre']; ?></h1>
+    <div id="chat"></div>
+    <input type="text" id="message" placeholder="Escribe un mensaje..." disabled>
+    <button id="send" disabled>Enviar</button>
+    <button id="connect">Conectar</button>
+    <button id="disconnect" disabled>Desconectar</button>
+    <div id="chatMessages" style="border: 1px solid #ccc; height: 300px; overflow-y: scroll; padding: 10px;">
+    </div>
+    <script>
+        let socket;
+        const chatMessages = document.getElementById('chatMessages');
+        const messageInput = document.getElementById('message');
+        const sendButton = document.getElementById('send');
+        const connectButton = document.getElementById('connect');
+        const disconnectButton = document.getElementById('disconnect');
+        const username = '<?php echo $_SESSION["usuario"]["usu_nombre"]; ?>';
 
-function init() {
-	var host = "ws://127.0.0.1:9000/echobot"; // SET THIS TO YOUR SERVER
-	try {
-		socket = new WebSocket(host);
-		// log('WebSocket - status '+socket.readyState);
-        log('Connecting... ');
-		// socket.onopen    = function(msg) { 
-		// 					   log("Welcome - status "+this.readyState); 
-		// 				   };
-		// socket.onmessage = function(msg) { 
-		// 					   log("Received: "+msg.data); 
-		// 				   };
-		// socket.onclose   = function(msg) { 
-		// 					   log("Connected - status "+this.readyState); 
-		// 				   };
-        socket.onclose   = function(msg) { 
-							   log("<?php echo $_SESSION['usuario']['usu_nombre']?> joined the chat"); 
-						   };
-	}
-	catch(ex){ 
-		log(ex); 
-	}
-	$("msg").focus();
-}
+        connectButton.onclick = function() {
+            socket = new WebSocket('ws://localhost:8080');
 
-function send(){
-	var txt,msg,usr;
-	txt = $("msg");
-	msg = txt.value;
-	if(!msg) { 
-		alert("Message can not be empty"); 
-		return; 
-	}
-	txt.value="";
-	txt.focus();
-	try { 
-		socket.send(msg); 
-		log("<?php echo $_SESSION['usuario']['usu_nombre']?>: "+msg); 
-	} catch(ex) { 
-		log(ex); 
-	}
-}
-function quit(){
-	if (socket != null) {
-		log("<?php echo $_SESSION['usuario']['usu_nombre']?> left the chat");
-		socket.close();
-		socket=null;
-	}
-}
+            socket.onopen = function() {
+                console.log('Conectado al servidor WebSocket');
+                socket.send(JSON.stringify({ action: 'setUsername', username: username }));
+                messageInput.disabled = false;
+                sendButton.disabled = false;
+                connectButton.disabled = true;
+                disconnectButton.disabled = false;
+            };
 
-function reconnect() {
-	quit();
-	init();
-}
+            socket.onmessage = function(event) {
+                const data = JSON.parse(event.data);
 
-// Utilities
-function $(id){ return document.getElementById(id); }
-function log(msg){ $("log").innerHTML+="<br>"+msg; }
-function onkey(event){ if(event.keyCode==13){ send(); } }
-</script>
+                if (data.type === 'message') {
+                    const messageElement = document.createElement('div');
+                    messageElement.textContent = data.text;
+                    chatMessages.appendChild(messageElement);
+                } else if (data.type === 'status') {
+                    const statusElement = document.createElement('div');
+                    statusElement.textContent = data.text;
 
-</head>
-<body onload="init()">
-<div id="log" style="word-wrap: break-word;"></div>
-<textarea id="msg" type="textbox" onkeypress="onkey(event)" style="width: 50rem;"></textarea>
-<button onclick="send()" style="width: 7rem;">Send</button>
-<button onclick="quit()" style="width: 7rem;">Quit</button>
-<button onclick="reconnect()" style="width: 7rem;">Reconnect</button>
-</body>
-</html>
+                    const usersList = Object.keys(data.users).map(id => data.users[id]).join(', ');
+                    const usersElement = document.createElement('div');
+                    usersElement.textContent = 'Usuarios conectados: ' + usersList;
+
+                    chatMessages.appendChild(statusElement);
+                    chatMessages.appendChild(usersElement);
+                }
+
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            };
+
+            socket.onclose = function() {
+                console.log('Desconectado del servidor WebSocket');
+                messageInput.disabled = true;
+                sendButton.disabled = true;
+                connectButton.disabled = false;
+                disconnectButton.disabled = true;
+            };
+
+            socket.onerror = function(error) {
+                console.log('Error en el WebSocket: ', error);
+            };
+        };
+
+        sendButton.onclick = function() {
+            const message = messageInput.value.trim();
+            
+            if (message) {
+                console.log('Enviando mensaje:', message);
+                socket.send(JSON.stringify({ action: 'sendMessage', message: message }));
+                messageInput.value = ''; 
+            } else {
+                alert('No puedes enviar un mensaje vacío.');
+            }
+        };
+
+        disconnectButton.onclick = function() {
+            if (socket) {
+                socket.close();
+            }
+        };
+    </script>
+</div>

@@ -19,7 +19,7 @@ if (session_status() !== PHP_SESSION_ACTIVE)
       <a href="Forum.php?pag=1" class="section2"><u class="gumi" style="text-decoration:none;font-size: 20px;">4 </u><b class="underline<?php if($section=="forum"){echo '2';}?>">Forum</b></a>
     </div>
     <div class="navlink ace">
-      <a href="chat.php?pag=1" class="section2" <?php if (!isset($_SESSION['usuario'])) {
+      <a href="chat.php" class="section2" <?php if (!isset($_SESSION['usuario'])) {
         echo 'style="pointer-events:none; color:grey"';
       } ?>><u class="gumi" style="text-decoration:none;font-size: 20px;">5 </u><b class="underline<?php if($section=="chat"){echo '2';}?>">Community</b></a>
     </div>
