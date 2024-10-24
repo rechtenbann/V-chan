@@ -1,4 +1,3 @@
-<html><head><title>WebSocket</title>
 <style type="text/css">
 #log {
 	width:600px; 
@@ -14,15 +13,19 @@ function init() {
 	var host = "ws://127.0.0.1:9000/echobot"; // SET THIS TO YOUR SERVER
 	try {
 		socket = new WebSocket(host);
-		log('WebSocket - status '+socket.readyState);
-		socket.onopen    = function(msg) { 
-							   log("Welcome - status "+this.readyState); 
-						   };
-		socket.onmessage = function(msg) { 
-							   log("Received: "+msg.data); 
-						   };
-		socket.onclose   = function(msg) { 
-							   log("Disconnected - status "+this.readyState); 
+		// log('WebSocket - status '+socket.readyState);
+        log('Connecting... ');
+		// socket.onopen    = function(msg) { 
+		// 					   log("Welcome - status "+this.readyState); 
+		// 				   };
+		// socket.onmessage = function(msg) { 
+		// 					   log("Received: "+msg.data); 
+		// 				   };
+		// socket.onclose   = function(msg) { 
+		// 					   log("Connected - status "+this.readyState); 
+		// 				   };
+        socket.onclose   = function(msg) { 
+							   log("<?php echo $_SESSION['usuario']['usu_nombre']?> joined the chat"); 
 						   };
 	}
 	catch(ex){ 
@@ -35,7 +38,6 @@ function send(){
 	var txt,msg,usr;
 	txt = $("msg");
 	msg = txt.value;
-    usr="<?php $_SESSION['usuario']['usu_nombre']?>";
 	if(!msg) { 
 		alert("Message can not be empty"); 
 		return; 
@@ -51,7 +53,7 @@ function send(){
 }
 function quit(){
 	if (socket != null) {
-		log("Goodbye!");
+		log("<?php echo $_SESSION['usuario']['usu_nombre']?> left the chat");
 		socket.close();
 		socket=null;
 	}
@@ -70,11 +72,10 @@ function onkey(event){ if(event.keyCode==13){ send(); } }
 
 </head>
 <body onload="init()">
-<h3>WebSocket v2.00</h3>
 <div id="log" style="word-wrap: break-word;"></div>
-<input id="msg" type="textbox" onkeypress="onkey(event)"/>
-<button onclick="send()">Send</button>
-<button onclick="quit()">Quit</button>
-<button onclick="reconnect()">Reconnect</button>
+<textarea id="msg" type="textbox" onkeypress="onkey(event)" style="width: 50rem;"></textarea>
+<button onclick="send()" style="width: 7rem;">Send</button>
+<button onclick="quit()" style="width: 7rem;">Quit</button>
+<button onclick="reconnect()" style="width: 7rem;">Reconnect</button>
 </body>
 </html>
