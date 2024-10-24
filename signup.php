@@ -59,4 +59,6 @@ if (isset($_POST['nombre']) && isset($_POST['email']) && isset($_POST['contra'])
     }
 }
 $section = "signup";
+$title = "Signup";
+
 require_once "views/layout.php";
