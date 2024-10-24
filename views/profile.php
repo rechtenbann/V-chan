@@ -10,33 +10,9 @@
             </div>
 
             <div id="ei" class="modal" style="width:29rem;">
-                <?php if ($_SESSION['usuario']['rango'] == "administrador") { ?>
-                    <a href="#secret" rel="modal:open" style="text-decoration: none; color: black; cursor: default;">
-                        <h3>Default</h3>
-                    </a>
-                <?php } else { ?>
-                    <a style="text-decoration: none; color: black; cursor: default;">
-                        <h3>Default</h3>
-                    </a>
-                <?php } ?>
-                <div id="secret" class="modal" style="width:25rem; height:25rem; text-align: center; background-color:#ffd6fa;">
-                    <div class="Height">
-                        <form method="post">
-                            <br>
-                            <input type="image" src="img/users/default1.png" class="void-secret" disabled>
-                            <label class="lbl">Useless</label>
-                        </form>
-                    </div>
-                    <div style="display: inline-block;">
-                        <form method="post" class="option-form-secret">
-                            <input type="hidden" name="default-secret" value="default-secret.png" class="Height">
-                            <input title="Set H-Chan as profile photo" type="image" id="default-secret" class="option-photo-secret" name="default-secret" value="default-secret.png" alt="Login" src="img/users/default-secret_full2.png">
-
-                            <label>H-Chan</label>
-                        </form>
-                    </div>
-                </div>
-
+                <a style="text-decoration: none; color: black; cursor: default;">
+                    <h3>Default</h3>
+                </a>
                 <div style="border-bottom: 1px solid black;border-top: 1px solid black;">
                     <div>
                         <div class="Height">
@@ -136,8 +112,10 @@
             <?php echo ($_SESSION['usuario']['usu_nombre']);
             if ($_SESSION['usuario']['fecha_baja'] != null) {
                 echo " | BANNED";
-            } 
-            if($_SESSION['usuario']['usu_nombre']=="reichsacht"){echo "<a class='ico'> f</a>";}
+            }
+            if ($_SESSION['usuario']['usu_nombre'] == "reichsacht") {
+                echo "<a class='ico'> f</a>";
+            }
             ?>
         </a>
 
