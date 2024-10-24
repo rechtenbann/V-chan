@@ -1,10 +1,16 @@
 <html><head><title>WebSocket</title>
 <style type="text/css">
+html,body {
+	font:normal 0.9em arial,helvetica;
+}
 #log {
 	width:600px; 
 	height:300px; 
 	border:1px solid #7F9DB9; 
 	overflow:auto;
+}
+#msg {
+	width:400px;
 }
 </style>
 <script type="text/javascript">
@@ -32,10 +38,9 @@ function init() {
 }
 
 function send(){
-	var txt,msg,usr;
+	var txt,msg;
 	txt = $("msg");
 	msg = txt.value;
-    usr="<?php $_SESSION['usuario']['usu_nombre']?>";
 	if(!msg) { 
 		alert("Message can not be empty"); 
 		return; 
@@ -44,7 +49,7 @@ function send(){
 	txt.focus();
 	try { 
 		socket.send(msg); 
-		log("<?php echo $_SESSION['usuario']['usu_nombre']?>: "+msg); 
+		log('Sent: '+msg); 
 	} catch(ex) { 
 		log(ex); 
 	}
@@ -71,7 +76,7 @@ function onkey(event){ if(event.keyCode==13){ send(); } }
 </head>
 <body onload="init()">
 <h3>WebSocket v2.00</h3>
-<div id="log" style="word-wrap: break-word;"></div>
+<div id="log"></div>
 <input id="msg" type="textbox" onkeypress="onkey(event)"/>
 <button onclick="send()">Send</button>
 <button onclick="quit()">Quit</button>
