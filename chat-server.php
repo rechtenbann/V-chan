@@ -16,17 +16,15 @@ class Chat implements MessageComponentInterface {
     }
 
     public function onOpen(ConnectionInterface $conn) {
-        // Agregar nuevo cliente
         $this->clients->attach($conn);
         $this->broadcastUserStatus();
-        echo "Nuevo cliente conectado: {$conn->resourceId}\n"; // Debug
+        echo "Nuevo cliente conectado: {$conn->resourceId}\n"; 
     }
 
     public function onMessage(ConnectionInterface $from, $msg) {
         $data = json_decode($msg, true);
-        echo "Mensaje recibido: ", print_r($data, true); // Debug
+        echo "Mensaje recibido: ", print_r($data, true); 
 
-        // Manejar el mensaje del usuario
         if (isset($data['action'])) {
             if ($data['action'] === 'sendMessage') {
                 $this->broadcastMessage($from, $data['message']);
@@ -38,11 +36,10 @@ class Chat implements MessageComponentInterface {
     }
 
     public function onClose(ConnectionInterface $conn) {
-        // Eliminar el cliente
         $this->clients->detach($conn);
         unset($this->usernames[$conn->resourceId]);
         $this->broadcastUserStatus();
-        echo "Cliente desconectado: {$conn->resourceId}\n"; // Debug
+        echo "Cliente desconectado: {$conn->resourceId}\n"; 
     }
 
     public function onError(ConnectionInterface $conn, \Exception $e) {
