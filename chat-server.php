@@ -50,13 +50,13 @@ class Chat implements MessageComponentInterface {
     protected function broadcastMessage(ConnectionInterface $from, $message) {
         $username = $this->usernames[$from->resourceId] ?? 'Usuario';
         $fullMessage = "{$username}: {$message}";
-
+    
+        // Enviamos el mensaje a todos los clientes, incluyendo al emisor
         foreach ($this->clients as $client) {
-            if ($from !== $client) {
-                $client->send(json_encode(['type' => 'message', 'text' => $fullMessage]));
-            }
+            $client->send(json_encode(['type' => 'message', 'text' => $fullMessage]));
         }
     }
+    
 
     protected function broadcastUserStatus() {
         $onlineUsers = array_keys($this->usernames);
