@@ -7,58 +7,79 @@ use Ratchet\Http\HttpServer;
 use Ratchet\Server\IoServer;
 use Ratchet\WebSocket\WsServer;
 
-class Chat implements MessageComponentInterface {
+class Chat implements MessageComponentInterface
+{
     protected $clients;
     protected $usernames = [];
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->clients = new \SplObjectStorage;
     }
 
-    public function onOpen(ConnectionInterface $conn) {
-        $this->clients->attach($conn);
-        $this->broadcastUserStatus();
-        echo "Nuevo cliente conectado: {$conn->resourceId}\n"; 
-    }
+    public function onOpen(ConnectionInterface $conn)
+{
+    $this->clients->attach($conn);
+    echo "Nuevo cliente conectado: {$conn->resourceId}\n";
+}
 
-    public function onMessage(ConnectionInterface $from, $msg) {
-        $data = json_decode($msg, true);
-        echo "Mensaje recibido: ", print_r($data, true); 
+    public function onClose(ConnectionInterface $conn)
+{
+    $username = $this->usernames[$conn->resourceId] ?? "Usuario {$conn->resourceId}";
+    $this->clients->detach($conn);
+    unset($this->usernames[$conn->resourceId]);
+    $this->broadcastSystemMessage("{$username} se ha desconectado.");
+    $this->broadcastUserStatus();
+    echo "Cliente desconectado: {$conn->resourceId}\n";
+}
 
-        if (isset($data['action'])) {
-            if ($data['action'] === 'sendMessage') {
-                $this->broadcastMessage($from, $data['message']);
-            } elseif ($data['action'] === 'setUsername') {
-                $this->usernames[$from->resourceId] = $data['username'];
-                $this->broadcastUserStatus();
-            }
+    protected function broadcastSystemMessage($message)
+    {
+        foreach ($this->clients as $client) {
+            $client->send(json_encode([
+                'type' => 'statusMessage',
+                'text' => $message
+            ]));
         }
     }
+    public function onMessage(ConnectionInterface $from, $msg)
+{
+    $data = json_decode($msg, true);
+    echo "Mensaje recibido: ", print_r($data, true);
 
-    public function onClose(ConnectionInterface $conn) {
-        $this->clients->detach($conn);
-        unset($this->usernames[$conn->resourceId]);
+    if ($data['action'] === 'sendMessage') {
+        $this->broadcastMessage($from, $data['message']);
+    } elseif ($data['action'] === 'setUsername') {
+        $this->usernames[$from->resourceId] = $data['username'];
+        $this->broadcastSystemMessage("{$data['username']} se ha conectado.");
         $this->broadcastUserStatus();
-        echo "Cliente desconectado: {$conn->resourceId}\n"; 
     }
+}
 
-    public function onError(ConnectionInterface $conn, \Exception $e) {
+
+
+    public function onError(ConnectionInterface $conn, \Exception $e)
+    {
         echo "Ha ocurrido un error: {$e->getMessage()}\n";
         $conn->close();
     }
 
-    protected function broadcastMessage(ConnectionInterface $from, $message) {
-        $username = $this->usernames[$from->resourceId] ?? 'Usuario';
-        $fullMessage = "{$username}: {$message}";
-    
-        // Enviamos el mensaje a todos los clientes, incluyendo al emisor
-        foreach ($this->clients as $client) {
-            $client->send(json_encode(['type' => 'message', 'text' => $fullMessage]));
-        }
+    protected function broadcastMessage(ConnectionInterface $from, $message)
+{
+    $username = $this->usernames[$from->resourceId] ?? 'Usuario';
+    foreach ($this->clients as $client) {
+        $client->send(json_encode([
+            'type' => 'message',
+            'text' => $message,
+            'username' => $username
+        ]));
     }
-    
+}
 
-    protected function broadcastUserStatus() {
+
+
+    protected function broadcastUserStatus()
+    {
         $onlineUsers = array_keys($this->usernames);
         $userCount = count($onlineUsers);
         $statusMessage = "Usuarios en línea: $userCount";
