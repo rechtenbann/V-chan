@@ -1,0 +1,5 @@
+# Ignorar la carpeta vendor
+/vendor/
+
+# Ignorar el archivo composer.lock
+/composer.lock
