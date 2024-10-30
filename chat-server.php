@@ -12,95 +12,76 @@ class Chat implements MessageComponentInterface
     protected $clients;
     protected $usernames = [];
 
-    public function __construct()
-    {
+    public function __construct(){
         $this->clients = new \SplObjectStorage;
     }
-
-    public function onOpen(ConnectionInterface $conn)
-    {
+    ///metodo cuando se abre una conecion(del lado del servidor, osea la consola)
+    public function onOpen(ConnectionInterface $conn){
         $this->clients->attach($conn);
         echo "Nuevo cliente conectado: {$conn->resourceId}\n";
     }
-
-    public function onMessage(ConnectionInterface $from, $msg)
-{
-    $data = json_decode($msg, true);
-    echo "Mensaje recibido: ", print_r($data, true);
-
-    if ($data['action'] === 'setUsername') {
-        $this->usernames[$from->resourceId] = $data['username'];
-        $this->broadcastUserStatus();
-        $this->notifyAll("{$data['username']} se ha unido.");
-    } elseif ($data['action'] === 'sendMessage') {
-        $username = $this->usernames[$from->resourceId] ?? 'Usuario';
-    
-        // Obtener la hora actual en formato 'H:i'
-        $time = date('H:i');
-    
-        // Construir el mensaje para incluir el tipo, el texto y la hora
-        $messageData = [
-            'type' => 'message',
-            'text' => $data['message'],
-            'sender' => $username,
-            'time' => $time // Añadir la hora
-        ];
-    
-        // Enviar el mensaje a todos los clientes conectados
-        foreach ($this->clients as $client) {
-            $client->send(json_encode($messageData));
+    ///metodo para manejar el envio de los mensajes
+    public function onMessage(ConnectionInterface $from, $msg){
+        $data = json_decode($msg, true);
+        echo "Mensaje recibido: ", print_r($data, true);
+        if ($data['action'] === 'setUsername') {
+            $this->usernames[$from->resourceId] = $data['username'];
+            $this->broadcastUserStatus();
+            $this->notifyAll("{$data['username']} se ha unido.");
+        } elseif ($data['action'] === 'sendMessage') {
+            $username = $this->usernames[$from->resourceId] ?? 'Usuario';
+            $time = date('H:i');
+            $messageData = [
+                'type' => 'message',
+                'text' => $data['message'],
+                'sender' => $username,
+                'time' => $time 
+            ];
+            // Enviar el mensaje a todos los clientes conectados
+            foreach ($this->clients as $client) {
+                $client->send(json_encode($messageData));
+            }
         }
     }
-    
-}
-
-
-
-    public function onClose(ConnectionInterface $conn)
-    {
+    //metodo cuando se cierra una conecion(del lado del servidor, osea la consola)
+    public function onClose(ConnectionInterface $conn){
         $username = $this->usernames[$conn->resourceId] ?? "Usuario {$conn->resourceId}";
         $this->clients->detach($conn);
         unset($this->usernames[$conn->resourceId]);
-
         $this->broadcastUserStatus();
         $this->notifyAll("{$username} se ha desconectado.");
         echo "Cliente desconectado: {$conn->resourceId}\n";
     }
-
-    public function onError(ConnectionInterface $conn, \Exception $e)
-    {
+    ///MEtodo para recibir errores del lado de la consola
+    public function onError(ConnectionInterface $conn, \Exception $e){
         echo "Error: {$e->getMessage()}\n";
         $conn->close();
     }
-
-    protected function notifyAll($message)
-    {
-        foreach ($this->clients as $client) {
-            $client->send(json_encode(['type' => 'statusMessage', 'text' => $message]));
-        }
-    }
-
-    protected function broadcastMessage($message)
-    {
+    ///metodo de impresion de mensajes de los usuarios
+    protected function broadcastMessage($message){
         foreach ($this->clients as $client) {
             $client->send(json_encode(['type' => 'message', 'text' => $message]));
         }
     }
-
-    protected function broadcastUserStatus()
-    {
+    ///metoso para impresion mensajes del servidos
+    protected function broadcastUserStatus(){
         $userList = array_values($this->usernames);
-
         foreach ($this->clients as $client) {
             $client->send(json_encode([
                 'type' => 'status',
                 'text' => "Usuarios en línea: " . count($userList),
-                'users' => $userList  // Asegúrate de enviar esto como un array
+                'users' => $userList
             ]));
         }
     }
+     ////proximamente para notificaciones
+     protected function notifyAll($message){
+        foreach ($this->clients as $client) {
+            $client->send(json_encode(['type' => 'statusMessage', 'text' => $message]));
+        }
+    }
 }
-
+///para iniciar el servisor. NO LO TOQUEN
 $server = IoServer::factory(
     new HttpServer(new WsServer(new Chat())),
     8080
