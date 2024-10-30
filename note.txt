@@ -1,0 +1,4 @@
+Composer:
+cd C:/xampp/htdocs/V-chan
+composer require cbode/ratchet
+php chat-server.php
