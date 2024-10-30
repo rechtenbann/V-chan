@@ -43,20 +43,21 @@
                     username
                 }));
                 enableChat();
+
+                // Mover la asignación de onmessage aquí
+                socket.onmessage = function(event) {
+                    const data = JSON.parse(event.data);
+
+                    if (data.type === 'message') {
+                        addMessageToChat(data.text, data.sender, data.time); // Pasar el tiempo también
+                    } else if (data.type === 'statusMessage') {
+                        addMessageToChat(data.text, 'status');
+                    } else if (data.type === 'status') {
+                        updateOnlineUsers(data.users);
+                        onlineCount.textContent = Object.keys(data.users).length;
+                    }
+                };
             };
-
-            socket.onmessage = function(event) {
-    const data = JSON.parse(event.data);
-
-    if (data.type === 'message') {
-        addMessageToChat(data.text, 'message', data.sender);
-    } else if (data.type === 'statusMessage') {
-        addMessageToChat(data.text, 'status');
-    } else if (data.type === 'status') {
-        updateOnlineUsers(data.users);
-        onlineCount.textContent = Object.keys(data.users).length;
-    }
-};
 
             socket.onclose = () => {
                 console.log('Desconectado del servidor WebSocket');
@@ -103,17 +104,42 @@
             dropdownToggle.hidden = true;
         }
 
-        function addMessageToChat(text, type) {
-            const messageElement = document.createElement('div');
-            messageElement.textContent = text;
-            messageElement.style.margin = '5px';
-            messageElement.style.padding = '5px';
-            if (type === 'statusMessage') {
-                messageElement.style.color = 'gray';
+
+        socket.onmessage = function(event) {
+            const data = JSON.parse(event.data);
+
+            if (data.type === 'message') {
+                addMessageToChat(data.text, data.sender, data.time); // Pasar el tiempo también
+            } else if (data.type === 'statusMessage') {
+                addMessageToChat(data.text, 'status');
+            } else if (data.type === 'status') {
+                updateOnlineUsers(data.users);
+                onlineCount.textContent = Object.keys(data.users).length;
             }
+        };
+
+        function addMessageToChat(text, sender = '', time = '') {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('chat-message');
+
+            // Verificar si el mensaje es del usuario actual o de otro usuario
+            if (sender === username) {
+                // Mensaje enviado
+                messageElement.classList.add('sent-message');
+                messageElement.textContent = `${text} - ${time}`; // Texto y hora para mensajes enviados
+            } else if(sender=="status"){
+                messageElement.classList.add('sistem-message');
+                messageElement.textContent = `${sender} - ${text}`;
+            }else {
+                // Mensaje recibido
+                messageElement.classList.add('received-message');
+                messageElement.textContent = `${sender}: ${text} - ${time}`; // Texto y hora para mensajes recibidos
+            }
+
             chatMessages.appendChild(messageElement);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
+            chatMessages.scrollTop = chatMessages.scrollHeight; // Desplazar hacia el último mensaje
         }
+
 
         function updateOnlineUsers(users) {
             connectedUsersList.innerHTML = '';
@@ -129,26 +155,5 @@
                 console.error('El formato de usuarios no es válido:', users);
             }
         }
-        function addMessageToChat(text, type = 'message', sender = '') {
-    const messageElement = document.createElement('div');
-    messageElement.classList.add('chat-message');
-
-    // Verificar si el mensaje es del usuario actual o de otro usuario
-    if (sender === username) {
-        messageElement.classList.add('sent-message'); // Mensaje enviado
-    } else {
-        messageElement.classList.add('received-message'); // Mensaje recibido
-    }
-
-    messageElement.textContent = `${sender ? sender + ': ' : ''}${text}`;
-
-    if (type === 'status') {
-        messageElement.classList.add('status-message');
-    }
-
-    chatMessages.appendChild(messageElement);
-    chatMessages.scrollTop = chatMessages.scrollHeight; // Desplazar hacia el último mensaje
-}
-
     </script>
 </div>

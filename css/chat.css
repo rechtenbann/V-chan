@@ -1,11 +1,4 @@
-/* Estilo del contenedor del chat */
-.chat-messages {
-    border: 1px solid #ccc;
-    height: 300px;
-    overflow-y: scroll;
-    padding: 10px;
-    margin-bottom: 10px;
-}
+
 
 /* Estilo del dropdown */
 .dropdown-container {
@@ -47,25 +40,9 @@
     background-color: #ddd;
 }
 /* satatus del mensages */
-.chat-message {
-    padding: 10px;
-    margin: 5px;
-    border-radius: 8px;
-    max-width: 70%;
-    word-wrap: break-word;
-}
 
-.sent-message {
-    background-color: #d1ffd1; /* Verde claro */
-    align-self: flex-end;
-    text-align: right;
-}
 
-.received-message {
-    background-color: #f1f1f1; /* Gris claro */
-    align-self: flex-start;
-    text-align: left;
-}
+
 
 .status-message {
     color: gray;
@@ -82,4 +59,37 @@
     overflow-y: auto;
     padding: 10px;
 }
+.chat-message {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 8px;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+
+
+.sistem-message {
+    background-color: #d7d8f8; /* Color para mensajes sistema */
+    text-align: center; /* Alinear texto al centro */
+    display: flex; /* Usar flexbox para el centrado */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    align-self: center
+}
+
+.received-message {
+        background-color: #f8d7d7; /* Color para mensajes recibidos */
+    align-self: flex-start;
+    text-align: left;
+}
+
+.sent-message {
+    background-color: #d1e7dd; /* Color para mensajes enviados */
+    text-align: right; /* Alinear a la derecha */
+    margin-left: auto; /* Empujar el mensaje a la derecha */
+}
+
+
+
 

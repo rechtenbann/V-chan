@@ -29,26 +29,31 @@ class Chat implements MessageComponentInterface
     echo "Mensaje recibido: ", print_r($data, true);
 
     if ($data['action'] === 'setUsername') {
-        // Almacena el nombre de usuario asociado a la conexión
         $this->usernames[$from->resourceId] = $data['username'];
-        $this->broadcastUserStatus(); // Notifica el estado de los usuarios
+        $this->broadcastUserStatus();
         $this->notifyAll("{$data['username']} se ha unido.");
     } elseif ($data['action'] === 'sendMessage') {
         $username = $this->usernames[$from->resourceId] ?? 'Usuario';
-
-        // Construye el mensaje para incluir el tipo y el remitente
+    
+        // Obtener la hora actual en formato 'H:i'
+        $time = date('H:i');
+    
+        // Construir el mensaje para incluir el tipo, el texto y la hora
         $messageData = [
             'type' => 'message',
             'text' => $data['message'],
-            'sender' => $username
+            'sender' => $username,
+            'time' => $time // Añadir la hora
         ];
-
-        // Transmite el mensaje a todos los clientes conectados
+    
+        // Enviar el mensaje a todos los clientes conectados
         foreach ($this->clients as $client) {
-                $client->send(json_encode($messageData));
+            $client->send(json_encode($messageData));
         }
     }
+    
 }
+
 
 
     public function onClose(ConnectionInterface $conn)
