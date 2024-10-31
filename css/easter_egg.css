@@ -1,0 +1,50 @@
+.buttonn1 {
+    padding: 10px;
+    font-size: 18px;
+    background-color: #8bdfff;
+    color: white;
+    border: 3px solid white;
+    border-radius: 8px;
+    cursor: pointer;
+    max-width: 100px;
+}
+
+.buttonn1:hover {
+    background-color: white;
+    color:  #8bdfff;
+    border-color:  #8bdfff;
+}
+/**/
+.buttonn2 {
+    padding: 10px;
+    font-size: 18px;
+    background-color: #d58bff;
+    color: white;
+    border: 3px solid white;
+    border-radius: 8px;
+    cursor: pointer;
+    max-width: 100px;
+}
+
+.buttonn2:hover {
+    background-color: white;
+    color:  #d58bff;
+    border-color:  #d58bff;
+}
+/**/
+.buttonn3 {
+    padding: 10px;
+    font-size: 18px;
+    background-color: #beff8b;
+    color: white;
+    border: 3px solid white;
+    border-radius: 8px;
+    cursor: pointer;
+    max-width: 100px;
+}
+
+.buttonn3:hover {
+    background-color: white;
+    color:  #beff8b;
+    border-color:  #beff8b;
+}
