@@ -1,30 +1,122 @@
 <div class="contain">
     <div class="image-container">
         <picture>
-            <img src="img/posts/<?php echo $post[1]; ?>" class="image" alt="Post Image">
+            <img src="img/posts/<?php echo $post[1]; ?>" class="image" alt="Post Image" width="365px"height="365px">
         </picture>
     </div>
 
     <div class="content-container">
-        <a>Tags:</a>
-        <br>
-        <div class="tags">
-            <?php
-            if (isset($tags["tags"])) {
-                foreach ($tags['tags'] as $tag) { ?>
-                    <a href="posts.php?tag=<?php echo $tag[0] ?>"><?php echo $tag[1]; ?></a>
-                <?php }
-            } ?>
+        <strong>Tags:</strong>
+        <div >
+            <?php foreach ($tags as $tag) { ?>
+                <a href="posts.php?tag=<?php echo $tag['id']; ?>" ><?php echo htmlspecialchars($tag['tag']); ?></a>
+            <?php } ?>
         </div>
-        <br>
-        <?php echo "uploaded on $date[0] by $post[0]" ?>
-        <br>
-        <a>Edit:</a>
-        <form method="POST" class="form-container">
-            <label for="tags">Tags:</label>
-            <textarea name="tags"></textarea>
-            <input type="submit" value="submit">
+        
+        
+        <!-- Botón para mostrar el formulario -->
+        <button onclick="toggleForm()" class="show-form-btn">+Tag</button>
+        
+        <!-- Formulario de edición de tags, inicialmente oculto -->
+        <form method="POST" class="form-container" id="tagForm" style="display: none;">
+            <label for="tags">Add Tags (separate by commas):</label>
+            <textarea name="tags" placeholder="e.g., nature, travel, animals"></textarea>
+            <button type="submit" class="submit-btn">Submit</button>
         </form>
+        <p class="post-info"><?php echo "Uploaded on " . $date[0] . " by " . htmlspecialchars($post[0]); ?></p>
+
     </div>
 </div>
-<br>
+<script>
+function toggleForm() {
+    var form = document.getElementById("tagForm");
+    form.style.display = (form.style.display === "none") ? "block" : "none";
+}
+</script>
+
+<style>
+.contain {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+.image-container img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.content-container {
+    max-width: 400px;
+    font-family: Arial, sans-serif;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.tag {
+    background-color: #e1e1e1;
+    color: #555;
+    padding: 5px 12px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.tag:hover {
+    background-color: #d1d1d1;
+}
+
+.post-info {
+    font-size: 0.9rem;
+    color: #777;
+    margin: 10px 0;
+}
+
+.show-form-btn {
+    background-color: #008cba;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.show-form-btn:hover {
+    background-color: #007bb5;
+}
+
+.form-container {
+    margin-top: 15px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+textarea {
+    width: 100%;
+    height: 60px;
+    margin-top: 8px;
+    padding: 8px;
+    font-size: 0.9rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: none;
+}
+</style>
