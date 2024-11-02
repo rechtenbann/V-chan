@@ -4,7 +4,6 @@
     padding: 10px;
     position: sticky;
     top: 0;
-    z-index: 1000;
 }
 
 .navbar ul {
@@ -92,7 +91,7 @@
     margin-top: 1.5rem; /* Espaciado superior */
 }
 
-.btn-seguir, .btn-editar {
+.btn-seguir, .btn-editar, .btn-mensaje {
     background-color: #85929e ;
     border: none;
     color: white;
@@ -103,10 +102,6 @@
     cursor: pointer;
 }
 
-.btn-seguir:hover, .btn-editar:hover {
-    background-color: white;
-    color: #85929e;
-}
 
 .influencia-horizontal {
     display: flex;

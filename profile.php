@@ -131,6 +131,25 @@ fecha_baja IS NULL";
     $rec = mysqli_query($link, $sql);
     $userrank = mysqli_fetch_assoc($rec);
 }
+if (isset($_GET['profile']) && $_GET['profile'] != $_SESSION['usuario']['id']) {
+    // Carga el perfil del usuario seleccionado en la URL
+    $userId = intval($_GET['profile']); // Sanitiza el ID recibido
+    $sql = "SELECT * FROM usuarios WHERE id = '$userId'";
+    $query = mysqli_query($link, $sql);
+    $user = mysqli_fetch_assoc($query);
+
+    // Cargar el rango del usuario
+    $sqlRank = "SELECT r.rango FROM rango_usuario AS ru
+                INNER JOIN rangos AS r ON ru.rango_id = r.id
+                WHERE ru.usu_id = '$userId' AND fecha_baja IS NULL";
+    $rec = mysqli_query($link, $sqlRank);
+    $userrank = mysqli_fetch_assoc($rec);
+
+    $title = "User Profile";
+} else {
+    // Carga el perfil del usuario autenticado
+    $user = $_SESSION['usuario'];
+    $title = "My Profile";
+}
 $section = "profile";
-$title = "Profile";
 require_once "views/layout.php";

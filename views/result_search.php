@@ -15,15 +15,20 @@
 <?php if (!empty($resultados_users)) { ?>
     <h2>Usuarios Encontrados:</h2>
     <div class="users-container">
-        <?php foreach ($resultados_users as $user) { ?>
+        <?php foreach ($resultados_users as $user) { 
+            $isCurrentUser = ($user['id'] == $_SESSION['usuario']['id']); ?>
             <section class="carta">
                 <img src="img/blanco.jpg" alt="Fondo de la carta" class="fondoCarta">
-                <img src="img/users/<?php echo $user['foto_perfil']; ?>" alt="Foto de perfil" class="fotoPerfil">
-                <p><?php echo $user['usu_nombre']; ?></p>
-                <p><?php echo $user['rango']; ?></p>
-                <section class="boton_boton">
+                <a href="profile.php?profile=<?php echo $user['id']; ?>">
+                    <img src="img/users/<?php echo $user['foto_perfil']; ?>" alt="Foto de perfil" class="fotoPerfil">
+                </a>
+                <p><?php echo $isCurrentUser ? "Tu Perfil" : $user['usu_nombre']; ?></p>
+                <?php if (!$isCurrentUser) { ?>
+                    <p><?php echo $user['rango']; ?></p>
+                    <section class="boton_boton">
                     <button id="botonSeguir">Enviar Mensaje</button>
                 </section>
+                <?php } ?>
                 <section class="influencia">
                     <div class="seguidores">
                         <p class="numero">8,000</p>
@@ -34,13 +39,16 @@
                         <p class="label">Seguidos</p>
                     </div>
                 </section>
-                <section class="boton_boton">
+                <?php if (!$isCurrentUser) { ?>
+                    <section class="boton_boton">
                     <button id="botonSeguir">Seguir</button>
                 </section>
+                <?php } ?>
             </section>
         <?php } ?>
     </div>
 <?php } ?>
+
 
 <!-- Resultados para foros -->
 <?php if (!empty($resultados_postsForum)) { ?>
@@ -79,15 +87,20 @@
 <?php if (!empty($global_results['users'])) { ?>
     <h2>Usuarios Encontrados:</h2>
     <div class="users-container">
-        <?php foreach ($global_results['users'] as $user) { ?>
+        <?php foreach ($global_results['users'] as $user) { 
+            $isCurrentUser = ($user['id'] == $_SESSION['usuario']['id']); ?>
             <section class="carta">
-                <img src="img/fondo_example.jpg" alt="Fondo de la carta" class="fondoCarta">
-                <img src="img/users/<?php echo $user['foto_perfil']; ?>" alt="Foto de perfil" class="fotoPerfil">
-                <p><?php echo $user['usu_nombre']; ?></p>
-                <p>Cargo</p>
-                <section class="boton_boton">
+                <img src="img/blanco.jpg" alt="Fondo de la carta" class="fondoCarta">
+                <a href="profile.php?profile=<?php echo $user['id']; ?>">
+                    <img src="img/users/<?php echo $user['foto_perfil']; ?>" alt="Foto de perfil" class="fotoPerfil">
+                </a>
+                <p><?php echo $isCurrentUser ? "Tu Perfil" : $user['usu_nombre']; ?></p>
+                <?php if (!$isCurrentUser) { ?>
+                    <p><?php echo $user['rango']; ?></p>
+                    <section class="boton_boton">
                     <button id="botonSeguir">Enviar Mensaje</button>
                 </section>
+                <?php } ?>
                 <section class="influencia">
                     <div class="seguidores">
                         <p class="numero">8,000</p>
@@ -98,9 +111,11 @@
                         <p class="label">Seguidos</p>
                     </div>
                 </section>
-                <section class="boton_boton">
+                <?php if (!$isCurrentUser) { ?>
+                    <section class="boton_boton">
                     <button id="botonSeguir">Seguir</button>
                 </section>
+                <?php } ?>
             </section>
         <?php } ?>
     </div>

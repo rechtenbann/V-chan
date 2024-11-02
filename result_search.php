@@ -15,7 +15,7 @@ if (isset($_GET['query'])) {
         $resultados_tags = mysqli_fetch_all($query, MYSQLI_ASSOC);
     } elseif (strpos($input, '@') === 0) { // Búsqueda de usuario
         $username = substr($input, 1);
-        $sql = $username ? "SELECT * FROM usuarios INNER JOIN rango_usuario ON usuarios.id = rango_usuario.usu_id INNER JOIN rangos on rango_usuario.rango_id= rangos.id WHERE usu_nombre LIKE '%$username%'" : "SELECT * FROM usuarios INNER JOIN rango_usuario ON usuarios.id = rango_usuario.usu_id INNER JOIN rangos on rango_usuario.rango_id= rangos.id";
+        $sql = $username ? "SELECT usuarios.*,rangos.rango FROM usuarios INNER JOIN rango_usuario ON usuarios.id = rango_usuario.usu_id INNER JOIN rangos on rango_usuario.rango_id= rangos.id WHERE usu_nombre LIKE '%$username%'" : "SELECT usuarios.*,rangos.rango FROM usuarios INNER JOIN rango_usuario ON usuarios.id = rango_usuario.usu_id INNER JOIN rangos on rango_usuario.rango_id= rangos.id";
         $query = mysqli_query($link, $sql);
         $resultados_users = mysqli_fetch_all($query, MYSQLI_ASSOC);
     } elseif (strpos($input, '/') === 0) { // Búsqueda de foro
@@ -31,7 +31,7 @@ if (isset($_GET['query'])) {
         $global_results['tags'] = mysqli_fetch_all($query_tags, MYSQLI_ASSOC);
 
         // Consulta de usuarios
-        $sql_users = "SELECT * FROM usuarios INNER JOIN rango_usuario ON usuarios.id = rango_usuario.usu_id INNER JOIN rangos on rango_usuario.rango_id= rangos.id WHERE usu_nombre LIKE '%$input%'";
+        $sql_users = "SELECT usuarios.*,rangos.rango FROM usuarios INNER JOIN rango_usuario ON usuarios.id = rango_usuario.usu_id INNER JOIN rangos on rango_usuario.rango_id= rangos.id WHERE usu_nombre LIKE '%$input%'";
         $query_users = mysqli_query($link, $sql_users);
         $global_results['users'] = mysqli_fetch_all($query_users, MYSQLI_ASSOC);
 
