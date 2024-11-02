@@ -41,7 +41,7 @@ if(session_status() !== PHP_SESSION_ACTIVE)session_start();
     }
     ?>
     <?php
-    if ($section != 'home') {
+    if ($section != 'home' AND $section!='profile_other') {
         require_once "views/navsrh.php";
     }
     ?>
