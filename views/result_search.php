@@ -15,22 +15,25 @@
 <?php if (!empty($resultados_users)) { ?>
     <h2>Usuarios Encontrados:</h2>
     <div class="users-container">
-        <?php foreach ($resultados_users as $resultado) { ?>
-            <div class="card_user">
-                <img src="img/users/<?php echo $resultado['foto_perfil']; ?>" alt="Avatar" style="width:100%">
-                <div class="container_searchUsers">
-                    <h4><b><?php echo $resultado['usu_nombre']; ?></b></h4>
-                    <p><?php echo $resultado['usu_email']; ?></p>
-                    <div class="options-container">
-                        <button class="menu-button">⋮</button>
-                        <div class="dropdown-menu">
-                            <a href="#">Ver Perfil (Próximamente)</a>
-                            <a href="#">Seguir (Próximamente)</a>
-                            <a href="#">Chatear (Próximamente)</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <?php foreach ($resultados_users as $user) { ?>
+            <section class="carta">
+                <img src="img/blanco.jpg" alt="Fondo de la carta" class="fondoCarta">
+                <img src="img/users/<?php echo $user['foto_perfil']; ?>" alt="Foto de perfil" class="fotoPerfil">
+                <p><?php echo $user['usu_nombre']; ?></p>
+                <p>Cargo</p>
+                <section class="boton_boton">
+                    <button id="botonSeguir">Enviar Mensaje</button>
+                </section>
+                <section class="influencia">
+                    <div>8,000</div>
+                    <div>Seguidores</div>
+                    <div>1,000</div>
+                    <div>Seguidos</div>
+                </section>
+                <section class="boton_boton">
+                    <button id="botonSeguir">Seguir</button>
+                </section>
+            </section>
         <?php } ?>
     </div>
 <?php } ?>
@@ -45,10 +48,10 @@
                     <a href="question.php?id=<?php echo $question['id'] ?>" class="ace link_searchForum"><?php echo $question['title']; ?></a>
                 </div>
                 <div style="width:100%; padding-top:1rem;">
-                    <?php 
-                        $sql = "SELECT foto_perfil FROM usuarios WHERE id='" . $question['uid'] . "'";
-                        $query = mysqli_query($link, $sql);
-                        $img = mysqli_fetch_assoc($query); 
+                    <?php
+                    $sql = "SELECT foto_perfil FROM usuarios WHERE id='" . $question['uid'] . "'";
+                    $query = mysqli_query($link, $sql);
+                    $img = mysqli_fetch_assoc($query);
                     ?>
                     <img src="img/users/<?php echo $img['foto_perfil']; ?>" class="img_cardSearch">
                 </div>
@@ -73,21 +76,24 @@
     <h2>Usuarios Encontrados:</h2>
     <div class="users-container">
         <?php foreach ($global_results['users'] as $user) { ?>
-            <div class="card_user">
-                <img src="img/users/<?php echo $user['foto_perfil']; ?>" alt="Avatar" style="width:100%">
-                <div class="container_searchUsers">
-                    <h4><b><?php echo $user['usu_nombre']; ?></b></h4>
-                    <p><?php echo $user['usu_email']; ?></p>
-                    <div class="options-container">
-                        <button class="menu-button">⋮</button>
-                        <div class="dropdown-menu">
-                            <a href="#">Ver Perfil (Próximamente)</a>
-                            <a href="#">Seguir (Próximamente)</a>
-                            <a href="#">Chatear (Próximamente)</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <section class="carta">
+                <img src="img/fondo_example.jpg" alt="Fondo de la carta" class="fondoCarta">
+                <img src="img/users/<?php echo $user['foto_perfil']; ?>" alt="Foto de perfil" class="fotoPerfil">
+                <p><?php echo $user['usu_nombre']; ?></p>
+                <p>Cargo</p>
+                <section class="boton_boton">
+                    <button id="botonSeguir">Enviar Mensaje</button>
+                </section>
+                <section class="influencia">
+                    <div>8,000</div>
+                    <div>Seguidores</div>
+                    <div>1,000</div>
+                    <div>Seguidos</div>
+                </section>
+                <section class="boton_boton">
+                    <button id="botonSeguir">Seguir</button>
+                </section>
+            </section>
         <?php } ?>
     </div>
 <?php } ?>
@@ -102,10 +108,10 @@
                     <a href="question.php?id=<?php echo $forum['id'] ?>" class="ace link_searchForum"><?php echo $forum['title']; ?></a>
                 </div>
                 <div style="width:100%; padding-top:1rem;">
-                    <?php 
-                        $sql = "SELECT foto_perfil FROM usuarios WHERE id='" . $forum['uid'] . "'";
-                        $query = mysqli_query($link, $sql);
-                        $img = mysqli_fetch_assoc($query); 
+                    <?php
+                    $sql = "SELECT foto_perfil FROM usuarios WHERE id='" . $forum['uid'] . "'";
+                    $query = mysqli_query($link, $sql);
+                    $img = mysqli_fetch_assoc($query);
                     ?>
                     <img src="img/users/<?php echo $img['foto_perfil']; ?>" class="img_cardSearch">
                 </div>
@@ -116,8 +122,8 @@
 
 <?php
 // Si no hay resultados en ninguna de las categorías
-if (empty($global_results['tags']) && empty($global_results['users']) && empty($global_results['post_forum'])&&empty($resultados_tags)&&empty($resultados_postsForum)&&empty($resultados_users)) {
-    echo "<h2>No se encontraron resultados para \"".htmlspecialchars($input)."\".</h2>";
+if (empty($global_results['tags']) && empty($global_results['users']) && empty($global_results['post_forum']) && empty($resultados_tags) && empty($resultados_postsForum) && empty($resultados_users)) {
+    echo "<h2>No se encontraron resultados para \"" . htmlspecialchars($input) . "\".</h2>";
 }
 ?>
 <script src="js/search.js"></script>
