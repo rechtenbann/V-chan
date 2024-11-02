@@ -20,15 +20,19 @@
                 <img src="img/blanco.jpg" alt="Fondo de la carta" class="fondoCarta">
                 <img src="img/users/<?php echo $user['foto_perfil']; ?>" alt="Foto de perfil" class="fotoPerfil">
                 <p><?php echo $user['usu_nombre']; ?></p>
-                <p>Cargo</p>
+                <p><?php echo $user['rango']; ?></p>
                 <section class="boton_boton">
                     <button id="botonSeguir">Enviar Mensaje</button>
                 </section>
                 <section class="influencia">
-                    <div>8,000</div>
-                    <div>Seguidores</div>
-                    <div>1,000</div>
-                    <div>Seguidos</div>
+                    <div class="seguidores">
+                        <p class="numero">8,000</p>
+                        <p class="label">Seguidores</p>
+                    </div>
+                    <div class="seguidos">
+                        <p class="numero">1,000</p>
+                        <p class="label">Seguidos</p>
+                    </div>
                 </section>
                 <section class="boton_boton">
                     <button id="botonSeguir">Seguir</button>
@@ -85,10 +89,14 @@
                     <button id="botonSeguir">Enviar Mensaje</button>
                 </section>
                 <section class="influencia">
-                    <div>8,000</div>
-                    <div>Seguidores</div>
-                    <div>1,000</div>
-                    <div>Seguidos</div>
+                    <div class="seguidores">
+                        <p class="numero">8,000</p>
+                        <p class="label">Seguidores</p>
+                    </div>
+                    <div class="seguidos">
+                        <p class="numero">1,000</p>
+                        <p class="label">Seguidos</p>
+                    </div>
                 </section>
                 <section class="boton_boton">
                     <button id="botonSeguir">Seguir</button>
