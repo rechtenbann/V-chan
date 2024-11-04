@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-10-2024 a las 20:32:04
+-- Tiempo de generación: 03-11-2024 a las 16:55:08
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -24,6 +24,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `chat_requests`
+--
+
+CREATE TABLE `chat_requests` (
+  `id` int(255) NOT NULL,
+  `sender_id` int(255) NOT NULL,
+  `receiver_id` int(255) NOT NULL,
+  `status` enum('pending','accepted','rejected','') NOT NULL,
+  `timestamp` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `forum`
 --
 
@@ -35,6 +49,14 @@ CREATE TABLE `forum` (
   `fecha_alta` datetime NOT NULL,
   `fecha_baja` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `forum`
+--
+
+INSERT INTO `forum` (`id`, `title`, `description`, `uid`, `fecha_alta`, `fecha_baja`) VALUES
+(4, 'gatosssssssss', 'miauuuuuuuuu', 8, '2024-10-31 14:05:31', NULL),
+(5, 'asdsadasd', 'asdsadsad', 8, '2024-10-31 14:11:14', NULL);
 
 -- --------------------------------------------------------
 
@@ -50,6 +72,19 @@ CREATE TABLE `forum_ans` (
   `accepted` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `forum_ans`
+--
+
+INSERT INTO `forum_ans` (`id`, `uid`, `qid`, `answer`, `accepted`) VALUES
+(1, 8, 1, 0, 0),
+(2, 8, 1, 0, 0),
+(3, 8, 1, 0, 0),
+(4, 8, 2, 0, 0),
+(5, 8, 2, 0, 0),
+(6, 9, 2, 0, 0),
+(7, 9, 2, 0, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -62,6 +97,16 @@ CREATE TABLE `forum_img` (
   `qid` int(11) NOT NULL,
   `uid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `forum_img`
+--
+
+INSERT INTO `forum_img` (`id`, `img`, `qid`, `uid`) VALUES
+(1, 'forum/1/gif.gif', 1, 8),
+(2, 'forum/2/fondo.jpg', 2, 8),
+(3, 'forum/4/gif.gif', 4, 8),
+(4, 'forum/5/Madera-Tornillo (1).jpg', 5, 8);
 
 -- --------------------------------------------------------
 
@@ -188,9 +233,9 @@ CREATE TABLE `rangos` (
 --
 
 INSERT INTO `rangos` (`id`, `rango`) VALUES
-(1, 'administrador'),
-(2, 'premium'),
-(3, 'usuario');
+(1, 'Administrador'),
+(2, 'Premium'),
+(3, 'Usuario');
 
 -- --------------------------------------------------------
 
@@ -217,10 +262,10 @@ INSERT INTO `rango_usuario` (`id`, `rango_id`, `usu_id`, `fecha_alta`, `fecha_ba
 (4, 3, 4, NULL, NULL),
 (5, 3, 6, '2024-05-16 15:37:11', NULL),
 (6, 3, 7, '2024-05-16 15:37:11', NULL),
-(7, 3, 6, '2024-05-16 15:37:58', NULL),
 (8, 3, 7, '2024-05-16 15:37:58', NULL),
-(9, 3, 6, '2024-05-16 15:37:58', NULL),
-(10, 3, 7, '2024-05-16 15:37:58', NULL);
+(10, 3, 7, '2024-05-16 15:37:58', NULL),
+(11, 1, 8, '2024-10-30 11:58:26', NULL),
+(12, 1, 9, '2024-10-30 12:03:53', NULL);
 
 -- --------------------------------------------------------
 
@@ -307,10 +352,10 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`id`, `usu_nombre`, `usu_clave`, `usu_email`, `foto_perfil`, `nsfw_allow`, `dark_mode`, `fecha_alta`, `fecha_baja`) VALUES
 (1, 'reichsacht', '5eb3c70fb1c47a19a7b6674092c19fc0', 'hratzeld@gmail.com', 'default3.png', 0, 1, '2023-02-26 15:37:31', NULL),
 (2, 'test', '202cb962ac59075b964b07152d234b70', 'sdmatayoshi@gmail.com', 'default4.png', 0, 0, '2023-02-27 12:40:10', NULL),
-(3, 'sdmatayoshi', '41f5d469289efa58df6a726273313439', 'sdmatayoshi@gmail.com', '', 0, 0, '2023-02-28 19:19:21', '2024-09-23 19:26:21'),
 (4, 'anon', '202cb962ac59075b964b07152d234b70', 'mail@gmail.com', 'default5.png', 0, 0, '2023-05-24 20:32:43', NULL),
 (6, 'elmatas', '5eb3c70fb1c47a19a7b6674092c19fc0', 'sdmatayoshi@gmail.com', 'default1.png', 0, 0, '2023-05-24 20:40:54', NULL),
-(7, 'racht', 'e10adc3949ba59abbe56e057f20f883e', 'hratzeld@gmail.com', '', 0, 0, '2023-08-09 20:25:20', NULL);
+(8, 'Layfo', '202cb962ac59075b964b07152d234b70', 'sebastian.pardo.scp@gmail.com', 'default6.png', 0, 0, '2024-10-30 11:58:26', NULL),
+(9, 'Sebastian', '202cb962ac59075b964b07152d234b70', 'sebastianpardo583@gmail.com', 'default5.png', 0, 0, '2024-10-30 12:03:53', NULL);
 
 -- --------------------------------------------------------
 
@@ -337,6 +382,12 @@ INSERT INTO `videos` (`vid_id`, `vid_nombre`, `video`, `fecha_alta`, `fecha_baja
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `chat_requests`
+--
+ALTER TABLE `chat_requests`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `forum`
@@ -415,22 +466,28 @@ ALTER TABLE `videos`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `chat_requests`
+--
+ALTER TABLE `chat_requests`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `forum`
 --
 ALTER TABLE `forum`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `forum_ans`
 --
 ALTER TABLE `forum_ans`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `forum_img`
 --
 ALTER TABLE `forum_img`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `online_chat`
@@ -460,7 +517,7 @@ ALTER TABLE `rangos`
 -- AUTO_INCREMENT de la tabla `rango_usuario`
 --
 ALTER TABLE `rango_usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `tags`
@@ -478,7 +535,7 @@ ALTER TABLE `tag_post`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `videos`

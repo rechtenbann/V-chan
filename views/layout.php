@@ -2,6 +2,8 @@
 if (!isset($section)) {
     header("Location: ../index.php");}
 if(session_status() !== PHP_SESSION_ACTIVE)session_start();
+require_once "includes/config.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -22,6 +24,8 @@ if(session_status() !== PHP_SESSION_ACTIVE)session_start();
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 </head>
 <body style="<?php if ((isset($_COOKIE['dark_mode'])&&$_COOKIE['dark_mode']=='false')) {echo "background-color: rgb(230, 182, 250);";} else { echo "background-color: rgb(60, 40, 60);";}?>">
@@ -38,6 +42,11 @@ if(session_status() !== PHP_SESSION_ACTIVE)session_start();
     <?php
     if ($section != 'home') {
         require_once "views/navsub.php";
+    }
+    ?>
+     <?php
+    if ($section == 'profile') {
+        require_once "views/navprofile.php";
     }
     ?>
     <?php

@@ -12,7 +12,6 @@ if (isset($_POST['nombre']) && $_POST['nombre'] != $_SESSION['usuario']['usu_nom
     }
     $_SESSION['usuario']['nombre'] = $nombre;
 }
-
 if (isset($_POST['nombre']) && $_POST['nombre'] != $_SESSION['usuario']['usu_nombre']) {
     $nombre = $_POST['nombre'];
     $sql = "UPDATE usuarios SET usu_nombre = '" . $nombre . "' WHERE ID = '" . $_SESSION['usuario']['id'] . "'";
@@ -132,13 +131,10 @@ fecha_baja IS NULL";
     $userrank = mysqli_fetch_assoc($rec);
 }
 if (isset($_GET['profile']) && $_GET['profile'] != $_SESSION['usuario']['id']) {
-    // Carga el perfil del usuario seleccionado en la URL
     $userId = intval($_GET['profile']); // Sanitiza el ID recibido
     $sql = "SELECT * FROM usuarios WHERE id = '$userId'";
     $query = mysqli_query($link, $sql);
     $user = mysqli_fetch_assoc($query);
-
-    // Cargar el rango del usuario
     $sqlRank = "SELECT r.rango FROM rango_usuario AS ru
                 INNER JOIN rangos AS r ON ru.rango_id = r.id
                 WHERE ru.usu_id = '$userId' AND fecha_baja IS NULL";
@@ -147,9 +143,22 @@ if (isset($_GET['profile']) && $_GET['profile'] != $_SESSION['usuario']['id']) {
 
     $title = "User Profile";
 } else {
-    // Carga el perfil del usuario autenticado
     $user = $_SESSION['usuario'];
     $title = "My Profile";
 }
+$sender_id = $_SESSION['usuario']['id'];
+$receiver_id = $user['id']; // Asumiendo que `$user['id']` es el ID del usuario del perfil actual
+
+// Consulta para verificar el estado de la solicitud de chat
+$query = "SELECT status, sender_id, receiver_id FROM chat_requests 
+          WHERE (sender_id = ? AND receiver_id = ?) OR (sender_id = ? AND receiver_id = ?)";
+$stmt = $link->prepare($query);
+$stmt->bind_param("iiii", $sender_id, $receiver_id, $receiver_id, $sender_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$request = $result->fetch_assoc();
+
+$status = $request['status'] ?? null; // Puede ser 'pending', 'rejected', 'accepted' o null si no hay solicitud
+$is_sender = $request && $request['sender_id'] == $sender_id;
 $section = "profile";
 require_once "views/layout.php";
