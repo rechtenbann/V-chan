@@ -146,10 +146,9 @@ if (isset($_GET['profile']) && $_GET['profile'] != $_SESSION['usuario']['id']) {
     $user = $_SESSION['usuario'];
     $title = "My Profile";
 }
+////CAHTA
 $sender_id = $_SESSION['usuario']['id'];
 $receiver_id = $user['id']; // Asumiendo que `$user['id']` es el ID del usuario del perfil actual
-
-// Consulta para verificar el estado de la solicitud de chat
 $query = "SELECT status, sender_id, receiver_id FROM chat_requests 
           WHERE (sender_id = ? AND receiver_id = ?) OR (sender_id = ? AND receiver_id = ?)";
 $stmt = $link->prepare($query);
@@ -157,18 +156,30 @@ $stmt->bind_param("iiii", $sender_id, $receiver_id, $receiver_id, $sender_id);
 $stmt->execute();
 $result = $stmt->get_result();
 $request = $result->fetch_assoc();
+$status = $request['status'] ?? null; 
 
-$status = $request['status'] ?? null; // Puede ser 'pending', 'rejected', 'accepted' o null si no hay solicitud
-
+////seguidores
 $is_sender = $request && $request['sender_id'] == $sender_id;
 $current_user_id = $_SESSION['usuario']['id'];
-
-$user_id = $_GET['profile']; 
+$user_id = $_GET['profile'];
 $stmt = $link->prepare("SELECT * FROM followers_users WHERE user_id = ? AND follower_id = ?");
 $stmt->bind_param("ii", $user_id, $current_user_id);
 $stmt->execute();
 $result = $stmt->get_result();
 $is_following = ($result->num_rows > 0);
-
+/////siguiemdo de my perfil
+$stmt1 = $link->prepare("SELECT COUNT(*) as siguiendo FROM followers_users WHERE follower_id = ?");
+$stmt1->bind_param("i", $current_user_id);
+$stmt1->execute();
+$result1 = $stmt1->get_result();
+$row1 = $result1->fetch_assoc();
+$seguidos_count = $row1['siguiendo'];
+//////siegueindpo de ptro usaurios
+$stmt2 = $link->prepare("SELECT COUNT(*) as siguiendo FROM followers_users WHERE follower_id = ?");
+$stmt2->bind_param("i", $user_id);
+$stmt2->execute();
+$result2 = $stmt2->get_result();
+$row2 = $result2->fetch_assoc();
+$seguidos_count2 = $row2['siguiendo'];
 $section = "profile";
 require_once "views/layout.php";

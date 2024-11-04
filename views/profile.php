@@ -26,7 +26,7 @@
         <p class="label">Seguidores</p>
     </div>
     <div class="seguidos">
-        <p class="numero">1,000</p>
+        <p class="numero"><?php echo $seguidos_count; ?></p>
         <p class="label">Seguidos</p>
     </div>
 </section>
@@ -88,7 +88,7 @@
                     <p class="label">Seguidores</p>
                 </div>
                 <div class="seguidos">
-                    <p class="numero">1,000</p>
+                    <p class="numero"><?php echo $seguidos_count2; ?></p>
                     <p class="label">Seguidos</p>
                 </div>
             </section>
