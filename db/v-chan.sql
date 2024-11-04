@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-11-2024 a las 16:55:08
+-- Tiempo de generación: 04-11-2024 a las 04:46:53
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -34,6 +34,43 @@ CREATE TABLE `chat_requests` (
   `status` enum('pending','accepted','rejected','') NOT NULL,
   `timestamp` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `chat_requests`
+--
+
+INSERT INTO `chat_requests` (`id`, `sender_id`, `receiver_id`, `status`, `timestamp`) VALUES
+(18, 9, 8, 'accepted', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `followers_users`
+--
+
+CREATE TABLE `followers_users` (
+  `user_id` int(11) NOT NULL,
+  `follower_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `followers_users`
+--
+
+INSERT INTO `followers_users` (`user_id`, `follower_id`) VALUES
+(8, 9),
+(8, 9),
+(8, 9),
+(8, 9),
+(8, 9),
+(8, 9),
+(8, 9),
+(8, 9),
+(8, 9),
+(8, 9),
+(8, 9),
+(8, 9),
+(8, 9);
 
 -- --------------------------------------------------------
 
@@ -341,6 +378,7 @@ CREATE TABLE `usuarios` (
   `foto_perfil` varchar(255) NOT NULL,
   `nsfw_allow` tinyint(1) NOT NULL,
   `dark_mode` tinyint(1) NOT NULL,
+  `followers` int(255) NOT NULL,
   `fecha_alta` datetime DEFAULT NULL,
   `fecha_baja` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -349,13 +387,13 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `usu_nombre`, `usu_clave`, `usu_email`, `foto_perfil`, `nsfw_allow`, `dark_mode`, `fecha_alta`, `fecha_baja`) VALUES
-(1, 'reichsacht', '5eb3c70fb1c47a19a7b6674092c19fc0', 'hratzeld@gmail.com', 'default3.png', 0, 1, '2023-02-26 15:37:31', NULL),
-(2, 'test', '202cb962ac59075b964b07152d234b70', 'sdmatayoshi@gmail.com', 'default4.png', 0, 0, '2023-02-27 12:40:10', NULL),
-(4, 'anon', '202cb962ac59075b964b07152d234b70', 'mail@gmail.com', 'default5.png', 0, 0, '2023-05-24 20:32:43', NULL),
-(6, 'elmatas', '5eb3c70fb1c47a19a7b6674092c19fc0', 'sdmatayoshi@gmail.com', 'default1.png', 0, 0, '2023-05-24 20:40:54', NULL),
-(8, 'Layfo', '202cb962ac59075b964b07152d234b70', 'sebastian.pardo.scp@gmail.com', 'default6.png', 0, 0, '2024-10-30 11:58:26', NULL),
-(9, 'Sebastian', '202cb962ac59075b964b07152d234b70', 'sebastianpardo583@gmail.com', 'default5.png', 0, 0, '2024-10-30 12:03:53', NULL);
+INSERT INTO `usuarios` (`id`, `usu_nombre`, `usu_clave`, `usu_email`, `foto_perfil`, `nsfw_allow`, `dark_mode`, ` followers`, `fecha_alta`, `fecha_baja`) VALUES
+(1, 'reichsacht', '5eb3c70fb1c47a19a7b6674092c19fc0', 'hratzeld@gmail.com', 'default3.png', 0, 1, 0, '2023-02-26 15:37:31', NULL),
+(2, 'test', '202cb962ac59075b964b07152d234b70', 'sdmatayoshi@gmail.com', 'default4.png', 0, 0, 0, '2023-02-27 12:40:10', NULL),
+(4, 'anon', '202cb962ac59075b964b07152d234b70', 'mail@gmail.com', 'default5.png', 0, 0, 0, '2023-05-24 20:32:43', NULL),
+(6, 'elmatas', '5eb3c70fb1c47a19a7b6674092c19fc0', 'sdmatayoshi@gmail.com', 'default1.png', 0, 0, 0, '2023-05-24 20:40:54', NULL),
+(8, 'Layfo', '202cb962ac59075b964b07152d234b70', 'sebastian.pardo.scp@gmail.com', 'default6.png', 0, 0, 0, '2024-10-30 11:58:26', NULL),
+(9, 'Sebastian', '202cb962ac59075b964b07152d234b70', 'sebastianpardo583@gmail.com', 'default5.png', 0, 0, 0, '2024-10-30 12:03:53', NULL);
 
 -- --------------------------------------------------------
 
@@ -469,7 +507,7 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT de la tabla `chat_requests`
 --
 ALTER TABLE `chat_requests`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `forum`

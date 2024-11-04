@@ -159,6 +159,16 @@ $result = $stmt->get_result();
 $request = $result->fetch_assoc();
 
 $status = $request['status'] ?? null; // Puede ser 'pending', 'rejected', 'accepted' o null si no hay solicitud
+
 $is_sender = $request && $request['sender_id'] == $sender_id;
+$current_user_id = $_SESSION['usuario']['id'];
+
+$user_id = $_GET['profile']; 
+$stmt = $link->prepare("SELECT * FROM followers_users WHERE user_id = ? AND follower_id = ?");
+$stmt->bind_param("ii", $user_id, $current_user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$is_following = ($result->num_rows > 0);
+
 $section = "profile";
 require_once "views/layout.php";

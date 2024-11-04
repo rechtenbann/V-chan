@@ -21,15 +21,15 @@
                 <button class="btn-editar"><a href="#ep" rel="modal:open" style="color:white;text-decoration:solid;">Editar perfil</a></button>
             </div>
             <section class="influencia-horizontal">
-                <div class="seguidores">
-                    <p class="numero">8,000</p>
-                    <p class="label">Seguidores</p>
-                </div>
-                <div class="seguidos">
-                    <p class="numero">1,000</p>
-                    <p class="label">Seguidos</p>
-                </div>
-            </section>
+    <div class="seguidores">
+        <p class="numero"><?php echo $_SESSION['usuario']['followers']; ?></p>
+        <p class="label">Seguidores</p>
+    </div>
+    <div class="seguidos">
+        <p class="numero">1,000</p>
+        <p class="label">Seguidos</p>
+    </div>
+</section>
         </div>
     </section>
     <div id="seccion-contenido">
@@ -50,8 +50,10 @@
             <p class="email"><?php echo htmlspecialchars($user['usu_email']); ?></p>
 
             <div class="botones">
-                <button class="btn-seguir">Seguir</button>
-
+                <button class="follow-button" data-user-id="<?php echo $user['id']; ?>"
+                    data-following="<?php echo ($is_following ? 'true' : 'false'); ?>">
+                    <?php echo ($is_following ? 'Siguiendo' : 'Seguir'); ?>
+                </button>
                 <?php if (!$request): ?>
                     <!-- Caso: Ninguno ha enviado solicitud -->
                     <form method="post" action="send_request.php">
@@ -82,7 +84,7 @@
             </div>
             <section class="influencia-horizontal">
                 <div class="seguidores">
-                    <p class="numero">8,000</p>
+                    <p class="numero"><?php echo $user['followers']; ?></p>
                     <p class="label">Seguidores</p>
                 </div>
                 <div class="seguidos">
@@ -100,3 +102,4 @@ require_once "views/edit_profile.php"; ?>
 <button onclick="location.href='Easter_egg/interactive_Spider/interactive spider.html'" class="buttonn2" title="araña"></button>
 <button onclick="location.href='Easter_egg/chandelier/dist/index.html'" class="buttonn3" title="si"></button>
 <script src="js/profile.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
