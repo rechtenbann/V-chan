@@ -15,8 +15,22 @@
 <?php if (!empty($resultados_users)) { ?>
     <h2>Usuarios Encontrados:</h2>
     <div class="users-container">
-        <?php foreach ($resultados_users as $user) { 
-            $isCurrentUser = ($user['id'] == $_SESSION['usuario']['id']); ?>
+        <?php foreach ($resultados_users as $user) {
+            $isCurrentUser = ($user['id'] == $_SESSION['usuario']['id']);
+            $sender_id = $_SESSION['usuario']['id'];
+            $receiver_id = $user['id'];
+
+            // Consulta para verificar el estado de la solicitud de chat
+            $query = "SELECT status FROM chat_requests 
+                  WHERE (sender_id = ? AND receiver_id = ?) OR (sender_id = ? AND receiver_id = ?)";
+            $stmt = $link->prepare($query);
+            $stmt->bind_param("iiii", $sender_id, $receiver_id, $receiver_id, $sender_id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $request = $result->fetch_assoc();
+
+            $status = $request['status'] ?? null; // Puede ser 'pending', 'rejected', 'accepted' o null si no hay solicitud
+        ?>
             <section class="carta">
                 <img src="img/blanco.jpg" alt="Fondo de la carta" class="fondoCarta">
                 <a href="profile.php?profile=<?php echo $user['id']; ?>">
@@ -26,8 +40,19 @@
                 <?php if (!$isCurrentUser) { ?>
                     <p><?php echo $user['rango']; ?></p>
                     <section class="boton_boton">
-                    <button id="botonSeguir">Enviar Mensaje</button>
-                </section>
+                        <?php if ($status === 'accepted') { ?>
+                            <a href="chat-private.php?chat_with=<?php echo $user['id']; ?>">
+                                <button id="botonSeguir">Ir al Chat</button>
+                            </a>
+                        <?php } elseif ($status === 'pending') { ?>
+                            <button class="botonRayas" disabled>Solicitud Enviada</button>
+                        <?php } else { ?>
+                            <form method="post" action="send_request.php">
+                        <input type="hidden" name="receiver_id" value="<?php echo $receiver_id; ?>">
+                        <input id="botonSeguir" type="submit" value="Enviar Mensaje">
+                    </form>
+                        <?php } ?>
+                    </section>
                 <?php } ?>
                 <section class="influencia">
                     <div class="seguidores">
@@ -41,12 +66,13 @@
                 </section>
                 <?php if (!$isCurrentUser) { ?>
                     <section class="boton_boton">
-                    <button id="botonSeguir">Seguir</button>
-                </section>
+                        <button id="botonSeguir">Seguir</button>
+                    </section>
                 <?php } ?>
             </section>
         <?php } ?>
     </div>
+
 <?php } ?>
 
 
@@ -87,7 +113,7 @@
 <?php if (!empty($global_results['users'])) { ?>
     <h2>Usuarios Encontrados:</h2>
     <div class="users-container">
-        <?php foreach ($global_results['users'] as $user) { 
+        <?php foreach ($global_results['users'] as $user) {
             $isCurrentUser = ($user['id'] == $_SESSION['usuario']['id']); ?>
             <section class="carta">
                 <img src="img/blanco.jpg" alt="Fondo de la carta" class="fondoCarta">
@@ -98,8 +124,8 @@
                 <?php if (!$isCurrentUser) { ?>
                     <p><?php echo $user['rango']; ?></p>
                     <section class="boton_boton">
-                    <button id="botonSeguir">Enviar Mensaje</button>
-                </section>
+                        <button id="botonSeguir">Enviar Mensaje</button>
+                    </section>
                 <?php } ?>
                 <section class="influencia">
                     <div class="seguidores">
@@ -113,8 +139,8 @@
                 </section>
                 <?php if (!$isCurrentUser) { ?>
                     <section class="boton_boton">
-                    <button id="botonSeguir">Seguir</button>
-                </section>
+                        <button id="botonSeguir">Seguir</button>
+                    </section>
                 <?php } ?>
             </section>
         <?php } ?>

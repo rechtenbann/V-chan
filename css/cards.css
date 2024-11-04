@@ -86,10 +86,39 @@
     align-items: center;
 }
 
-#botonSeguir {
+#botonMensaje {
     background-color: transparent;
     border: none;
     font-size: 18px;
     color: white;
     font-weight: bold;
+    cursor: pointer;
 }
+
+/* Estilo del botón para solicitudes pendientes con rayitas */
+.boton-pendiente {
+    background: repeating-linear-gradient(
+        45deg,
+        #ffffff,
+        #ffffff 5px,
+        transparent 5px,
+        transparent 10px
+    );
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Estilo del botón para solicitud aceptada */
+.boton-aceptado {
+    background-color: #4CAF50; /* Verde para indicar aceptación */
+    color: white;
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+}
+

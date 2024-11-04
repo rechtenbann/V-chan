@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "includes/config.php";
 if (isset($_GET['query'])) {
     $query = trim($_GET['query']);
@@ -41,6 +42,8 @@ if (isset($_GET['query'])) {
         $global_results['post_forum'] = mysqli_fetch_all($query_forums, MYSQLI_ASSOC);
     }
 }
+
+
 $section = "result_search";
 $title = "Result Search";
 require_once "views/layout.php";
