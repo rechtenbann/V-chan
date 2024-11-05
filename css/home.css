@@ -1,27 +1,22 @@
 body{
     margin:0px;
-    background: #eaecee;
 }
 
 
 .inputTextHome{
-    background: #eaecee;
+    background: #fff;
     width: 25%;
     border: solid 3px #212121;
     padding: 0.5%;
     outline: none;
     color: #212121;
+    font-family: AnimeAce;
     transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
 
  .inputTextHome:focus{
-    background: #eaecee;
-    width: 25%;
-    padding: 0.5%;
-    outline: none;
-    color: #212121;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -29,20 +24,16 @@ body{
 .inputSubmitHome{
     width: 10%;
     padding: 0.5%;
-    background: #eaecee;
-    border: 1px solid #abb2b9;
+    background: #fff;
+    border: 3px solid #212121;
     cursor: pointer;
     color: #212121;
+    font-family: AnimeAceB;
     transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
 
 .inputSubmitHome:focus{
-    width: 10%;
-    padding: 0.5%;
-    background: #eaecee;
-    border: 1px solid #212121;
-    cursor: pointer;
     color: #212121;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

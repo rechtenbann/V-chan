@@ -302,7 +302,6 @@ a:visited {
 .underline{
   display: inline-block;
   text-decoration: none;
-  background-image: linear-gradient(to right, #eaecee, #eaecee);
   background-position: bottom left;
   background-repeat: no-repeat;
   background-size: 0% 2px;
@@ -315,9 +314,9 @@ a:visited {
   background-size: 100% 2px;
 }
 .underline2{
+  color:#9e9e9e;
   display: inline-block;
   text-decoration: none;
-  background-image: linear-gradient(to right, #eaecee, #eaecee);
   background-position: bottom left;
   background-repeat: no-repeat;
   background-size: 1000% 2px;
