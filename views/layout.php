@@ -28,7 +28,7 @@ require_once "includes/config.php";
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 </head>
-<body style="<?php if ((isset($_COOKIE['dark_mode'])&&$_COOKIE['dark_mode']=='false')) {echo "background-color: rgb(230, 182, 250);";} else { echo "background-color: rgb(60, 40, 60);";}?>">
+<body style="<?php if ((isset($_COOKIE['dark_mode'])&&$_COOKIE['dark_mode']=='false')) {echo "background-color: #eaecee";} else { echo "background-color: rgb(60, 40, 60);";}?>">
     <?php
     $section = (isset($section)) ? $section : 'home';
     ?>

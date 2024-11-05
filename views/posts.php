@@ -1,5 +1,5 @@
 <Section class="actions">
-    <a href="upload.php" style="font-family: verdana, sans-serif, helvetica;">Upload</a><br>
+    <a href="upload.php" style="font-family: verdana, sans-serif, helvetica; color:#212121;" >Upload</a><br>
 </Section>
 <ul class="tags" style="float: left;">
     <?php foreach ($tags as $tag) { 

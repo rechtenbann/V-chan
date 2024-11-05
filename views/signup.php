@@ -24,7 +24,7 @@
                 <input type="submit" value="Iniciar Sesion">
             </div>
         </form>
-        <p class="text--center">Ya tienes una cuenta? <a href="login.php">Inicia sesión</a>
+        <p class="text--center">¡Ya tienes una cuenta? <a href="login.php"  style="color:#212121;">Inicia sesión</a>
             <svg class="icon">
                 <use xlink:href="#icon-arrow-right"></use>
             </svg>

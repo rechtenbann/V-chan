@@ -1,5 +1,6 @@
 body {
   font-family: verdana, sans-serif, helvetica;
+  margin: 0;
 }
 body{
   min-height: 100vh;
@@ -17,6 +18,7 @@ footer{
   background-color: rgb(141, 22, 189);
   align-self: center;
   font-family: verdana, sans-serif, helvetica;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .icon {
@@ -150,11 +152,12 @@ tbody {
 .footer {
   margin-top: auto;
   text-align: center;
-  color: #fff;
-  background-color: rgb(141, 22, 189);
+  color: #eaecee;
+  background-color: #212121;
   font-family: verdana, sans-serif, helvetica;
   margin: 0;
   padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .option-form {
@@ -279,11 +282,11 @@ tbody {
 }
 
 a:link {
-  color: lightcoral;
+  color: #eaecee;
 }
 
 a:visited {
-  color: lightcoral;
+  color: #eaecee;
 }
 
 @media only screen and (max-width: 640px) {
@@ -299,7 +302,7 @@ a:visited {
 .underline{
   display: inline-block;
   text-decoration: none;
-  background-image: linear-gradient(to right, #F16A70, #F16A70);
+  background-image: linear-gradient(to right, #eaecee, #eaecee);
   background-position: bottom left;
   background-repeat: no-repeat;
   background-size: 0% 2px;
@@ -314,7 +317,7 @@ a:visited {
 .underline2{
   display: inline-block;
   text-decoration: none;
-  background-image: linear-gradient(to right, #F16A70, #F16A70);
+  background-image: linear-gradient(to right, #eaecee, #eaecee);
   background-position: bottom left;
   background-repeat: no-repeat;
   background-size: 1000% 2px;

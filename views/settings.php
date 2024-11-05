@@ -5,36 +5,34 @@
         <?php if (!isset($_SESSION['usuario'])) { ?>
             <tr>
                 <td>
-                    <a href="login.php">Login</a>
+                    <a href="login.php" style="color:#212121;">Login</a>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <a href="signup.php">Signup</a>
-
+                    <a href="signup.php"  style="color:#212121;">Signup</a>
                 </td>
             </tr>
             </a>
         <?php } else if (isset($_SESSION['usuario'])) {
-        ?><a href="logout.php">Logout</a>
+        ?><a href="logout.php"  style="color:#212121;">Logout</a>
         <?php } ?>
         <tr>
             <td>
             </td>
         </tr>
-
         <tr>
             <td>
                 <label>
-                    <a href="options.php">Options</a>
+                    <a href="options.php"  style="color:#212121;">Options</a>
                 </label>
             </td>
         </tr>
     </tbody>
 </table>
-<a href="profile_other.php">lol</a>
-<button id="btn1">Boton 1</button>
-<button id="btn2">booton 2</button>
+<a href="profile_other.php"  style="color:#212121;">lol</a>
+<button id="btn1"  style="color:#212121;">Boton 1</button>
+<button id="btn2"  style="color:#212121;">booton 2</button>
 <div id="contenido1" class="contenido1">
     <p>XDDDDDDDDDDDD</p>
 </div>
