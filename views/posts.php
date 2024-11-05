@@ -1,17 +1,17 @@
 <Section class="actions">
     <a href="upload.php" style="font-family: verdana, sans-serif, helvetica;">Upload</a><br>
 </Section>
-<Section class="tags" style="float: left;">
-    <table>
-    <?php foreach ($res['tags'] as $tag) { ?>
-        <tr>
-            <td>
-            <a href="posts.php?pag=1&tag=<?php echo $tag[0]; ?>"><?php echo $tag[1] ?></a>
-            </td>
-        </tr>
+<ul class="tags" style="float: left;">
+    <?php foreach ($tags as $tag) { 
+        $sql="SELECT COUNT(*) AS c FROM posts AS p INNER JOIN tag_post AS tp ON tp.post_id = p.id AND tp.tag_id = '".$tag['id']."'";
+        $query=mysqli_query($link,$sql);
+        $countPosts=mysqli_fetch_assoc($query);
+        ?>
+            <li style="list-style-type: none;"><a href="posts.php?pag=1&tag=<?php echo $tag['id']; ?>"style="display:inline-block"><?php echo $tag['tag'] ?></a><span><?php echo " ".$countPosts['c']?></span></li>
+            
+
     <?php } ?>
-</table>
-</Section>
+</ul>
 <?php 
 $sql = "SELECT MAX(fecha_alta) AS fecha_alta FROM posts";
         

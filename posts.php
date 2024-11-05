@@ -80,7 +80,7 @@ if (!isset($_GET['tag'])||(isset($_GET['tag'])&&$_GET['tag']==1)) {
 
 $sql = "SELECT id,tag FROM tags";
 $query = mysqli_query($link, $sql);
-$res['tags'] = mysqli_fetch_all($query);
+$tags = mysqli_fetch_all($query,MYSQLI_ASSOC);
 $cont = 0;
 $section = "posts";
 $title = "Posts";

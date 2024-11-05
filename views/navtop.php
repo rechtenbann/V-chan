@@ -13,7 +13,7 @@ if (session_status() !== PHP_SESSION_ACTIVE)
       <a href="settings.php" class="section2"><u class="gumi" style="text-decoration:none;font-size: 20px;">D </u><b class="underline<?php if($section=="settings"){echo '2';}?>">Settings</b></a>
     </div>
     <div class="navlink ace">
-      <a href="posts.php?pag=1&tag=1" class="section2"><u class="gumi" style="text-decoration:none;font-size: 20px;">c </u><b class="underline<?php if($section=="posts"){echo '2';}?>">Posts</b></a>
+      <a href="posts.php?pag=1&tag=1" class="section2"><u class="gumi" style="text-decoration:none;font-size: 20px;">c </u><b class="underline<?php if($section=="posts"){echo '2';}?>">Art</b></a>
     </div>
     <div class="navlink ace">
       <a href="Forum.php?pag=1" class="section2"><u class="gumi" style="text-decoration:none;font-size: 20px;">4 </u><b class="underline<?php if($section=="forum"){echo '2';}?>">Forum</b></a>
