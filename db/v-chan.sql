@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-11-2024 a las 04:11:50
+-- Tiempo de generación: 05-11-2024 a las 06:42:02
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -35,6 +35,35 @@ CREATE TABLE `chat_requests` (
   `timestamp` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `chat_requests`
+--
+
+INSERT INTO `chat_requests` (`id`, `sender_id`, `receiver_id`, `status`, `timestamp`) VALUES
+(1, 1, 2, 'accepted', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `dislike_post`
+--
+
+CREATE TABLE `dislike_post` (
+  `id` int(11) NOT NULL,
+  `val` tinyint(1) NOT NULL,
+  `usuario_id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `fecha_alta` int(11) NOT NULL,
+  `fecha_baja` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `dislike_post`
+--
+
+INSERT INTO `dislike_post` (`id`, `val`, `usuario_id`, `post_id`, `fecha_alta`, `fecha_baja`) VALUES
+(1, 1, 1, 4, 2147483647, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -46,6 +75,13 @@ CREATE TABLE `followers_users` (
   `user_id` int(11) NOT NULL,
   `follower_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `followers_users`
+--
+
+INSERT INTO `followers_users` (`id`, `user_id`, `follower_id`) VALUES
+(1, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -88,6 +124,29 @@ CREATE TABLE `forum_img` (
   `qid` int(11) NOT NULL,
   `uid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `like_post`
+--
+
+CREATE TABLE `like_post` (
+  `id` int(11) NOT NULL,
+  `val` tinyint(1) NOT NULL,
+  `usuario_id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `fecha_alta` int(11) NOT NULL,
+  `fecha_baja` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `like_post`
+--
+
+INSERT INTO `like_post` (`id`, `val`, `usuario_id`, `post_id`, `fecha_alta`, `fecha_baja`) VALUES
+(1, 1, 1, 4, 2147483647, NULL),
+(2, 1, 2, 2, 2147483647, NULL);
 
 -- --------------------------------------------------------
 
@@ -139,7 +198,8 @@ CREATE TABLE `posts` (
 INSERT INTO `posts` (`id`, `usuario_id`, `image`, `fecha_alta`, `fecha_baja`) VALUES
 (1, '1', 'WhatsApp Image 2024-10-31 at 20.29.41 (1).jpeg', '2024-11-04 23:40:58', NULL),
 (2, '1', 'game (1).png', '2024-11-04 23:48:09', NULL),
-(3, '1', 'box.png', '2024-11-04 23:57:18', NULL);
+(3, '1', 'box.png', '2024-11-04 23:57:18', NULL),
+(4, '1', 'game.png', '2024-11-05 01:26:15', NULL);
 
 -- --------------------------------------------------------
 
@@ -236,7 +296,12 @@ INSERT INTO `tag_post` (`id`, `tag_id`, `post_id`, `fecha_alta`, `fecha_baja`) V
 (6, 6, 2, NULL, NULL),
 (7, 7, 2, NULL, NULL),
 (8, 5, 3, NULL, NULL),
-(9, 8, 1, NULL, NULL);
+(9, 8, 1, NULL, NULL),
+(10, 1, 3, NULL, NULL),
+(11, 9, 3, NULL, NULL),
+(12, 1, 2, NULL, NULL),
+(13, 1, 4, '2024-11-05 01:26:15', NULL),
+(14, 5, 4, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -263,7 +328,7 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `usu_nombre`, `usu_clave`, `usu_email`, `foto_perfil`, `nsfw_allow`, `dark_mode`, `followers`, `fecha_alta`, `fecha_baja`) VALUES
 (1, 'reichsacht', '5eb3c70fb1c47a19a7b6674092c19fc0', 'rechtenbann@gmail.com', 'default1.png', 0, 0, 0, '2024-11-04 23:31:25', NULL),
-(2, 'test', '202cb962ac59075b964b07152d234b70', 'test0243156@gmail.com', 'default1.png', 0, 0, 0, '2024-11-04 23:31:46', NULL),
+(2, 'test', '202cb962ac59075b964b07152d234b70', 'test0243156@gmail.com', 'default1.png', 0, 0, 1, '2024-11-04 23:31:46', NULL),
 (3, 'ryuu', '4297f44b13955235245b2497399d7a93', 'hratzeld@gmail.com', 'default1.png', 0, 0, 0, '2024-11-04 23:35:20', NULL);
 
 -- --------------------------------------------------------
@@ -291,6 +356,12 @@ ALTER TABLE `chat_requests`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `dislike_post`
+--
+ALTER TABLE `dislike_post`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `followers_users`
 --
 ALTER TABLE `followers_users`
@@ -312,6 +383,12 @@ ALTER TABLE `forum_ans`
 -- Indices de la tabla `forum_img`
 --
 ALTER TABLE `forum_img`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `like_post`
+--
+ALTER TABLE `like_post`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -376,13 +453,19 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT de la tabla `chat_requests`
 --
 ALTER TABLE `chat_requests`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `dislike_post`
+--
+ALTER TABLE `dislike_post`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `followers_users`
 --
 ALTER TABLE `followers_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `forum`
@@ -397,10 +480,16 @@ ALTER TABLE `forum_ans`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `like_post`
+--
+ALTER TABLE `like_post`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `rangos`
@@ -418,13 +507,13 @@ ALTER TABLE `rango_usuario`
 -- AUTO_INCREMENT de la tabla `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `tag_post`
 --
 ALTER TABLE `tag_post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

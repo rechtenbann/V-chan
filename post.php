@@ -1,7 +1,29 @@
 <?php
 require_once "includes/config.php";
-
+session_start();
 // Obtener imagen y usuario
+$sql = "SELECT SUM(val) AS v FROM like_post";
+$query = mysqli_query($link, $sql);
+$ll = mysqli_fetch_assoc($query);
+
+if (isset($_POST['like'])) {
+    $sql = "SELECT * FROM like_post WHERE usuario_id='" . $_SESSION['usuario']['id'] . "' AND post_id = '" . $_GET['id'] . "'";
+    $que = mysqli_query($link, $sql);
+    $rr = mysqli_num_rows($que);
+    if ($rr === 1) {
+        $like = mysqli_fetch_assoc($que);
+        if ($like['val'] == 1) {
+            $sql = "UPDATE like_post SET val=0 WHERE usuario_id='" . $_SESSION['usuario']['id'] . "' AND post_id = '" . $_GET['id'] . "'";
+            $query = mysqli_query($link, $sql);
+        } else if ($like['val'] == 0) {
+            $sql = "UPDATE like_post SET val=1 WHERE usuario_id='" . $_SESSION['usuario']['id'] . "' AND post_id = '" . $_GET['id'] . "'";
+            $query = mysqli_query($link, $sql);
+        }
+    } else {
+        $sql = "INSERT INTO like_post (val,usuario_id,post_id,fecha_alta) VALUES (1,'" . $_SESSION['usuario']['id'] . "','" . $_GET['id'] . "',NOW())";
+        $query = mysqli_query($link, $sql);
+    }
+}
 $sql = "SELECT usuarios.usu_nombre as uid, posts.image FROM usuarios 
 INNER JOIN posts 
 ON posts.id='" . $_GET['id'] . "' AND posts.usuario_id=usuarios.id";
@@ -49,22 +71,21 @@ if (isset($_POST['tags'])) {
 }
 
 
-
-    // foreach ($tags_array as $ta) {
-    //     $sql = "SELECT id FROM tags WHERE tag = '" . $ta . "'";
-    //     $query = mysqli_query($link, $sql);
-    //     $tags_data = mysqli_fetch_all($query, MYSQLI_ASSOC);
-    //     foreach ($tags_data as $td) {
-    //         if (mysqli_num_rows($query) == 1) {
-    //             $sql = "INSERT INTO tag_post(id, tag_id,post_id,fecha_alta,fecha_baja) VALUES (NULL,'" . $td['id'] . "','" . $_GET['id'] . "',NOW(),NULL)";
-    //             $query = mysqli_query($link, $sql);
-    //         }else{
-    //             $sql = "INSERT INTO tags(id,tag) VALUES (NULL,'" . $ta . "'";
-    //             $query = mysqli_query($link, $sql);
-    //         }
-    //         echo $ta;
-    //     }
-    // }
+// foreach ($tags_array as $ta) {
+//     $sql = "SELECT id FROM tags WHERE tag = '" . $ta . "'";
+//     $query = mysqli_query($link, $sql);
+//     $tags_data = mysqli_fetch_all($query, MYSQLI_ASSOC);
+//     foreach ($tags_data as $td) {
+//         if (mysqli_num_rows($query) == 1) {
+//             $sql = "INSERT INTO tag_post(id, tag_id,post_id,fecha_alta,fecha_baja) VALUES (NULL,'" . $td['id'] . "','" . $_GET['id'] . "',NOW(),NULL)";
+//             $query = mysqli_query($link, $sql);
+//         }else{
+//             $sql = "INSERT INTO tags(id,tag) VALUES (NULL,'" . $ta . "'";
+//             $query = mysqli_query($link, $sql);
+//         }
+//         echo $ta;
+//     }
+// }
 
 
 /*
