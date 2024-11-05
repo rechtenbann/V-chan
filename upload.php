@@ -10,6 +10,7 @@ if (isset($_FILES['image'])) {
             $confirm = 0;
         } else {
             $confirm = 1;
+            header("Location:posts.php?pag=1&tag=1");
         }
     }
 }

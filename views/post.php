@@ -8,9 +8,9 @@
     <div class="content-container">
         <strong>Tags:</strong>
         <div >
-            <?php foreach ($tags as $tag) { ?>
+            <?php foreach ($tags as $tag) { if($tag['id']!=1){?>
                 <a href="posts.php?tag=<?php echo $tag['id']; ?>" ><?php echo htmlspecialchars($tag['tag']); ?></a>
-            <?php } ?>
+            <?php } }?>
         </div>
         
         

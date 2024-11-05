@@ -1,17 +1,15 @@
 <?php
 require_once "includes/config.php";
 if (!isset($_GET['tag'])||(isset($_GET['tag'])&&$_GET['tag']==1)) {
-    $query = "SELECT * FROM posts ORDER BY fecha_alta DESC";
-    $posts = mysqli_query($link, $query);
-
-    $sql = "SELECT COUNT(*) AS c FROM posts";
-
+    $sql = "SELECT * FROM posts ORDER BY fecha_alta DESC";
     $query = mysqli_query($link, $sql);
-
+    $postsB=mysqli_fetch_all($query,MYSQLI_ASSOC);
+    
+    $sql = "SELECT COUNT(*) AS c FROM posts";
+    $query = mysqli_query($link, $sql);
     if (!$query) {
         die("Error de consulta: " . mysqli_errno($link));
     }
-
     $cant = mysqli_fetch_assoc($query);
     if (isset($_GET['pag'])) {
         $pag = intval($_GET['pag']);
@@ -39,8 +37,10 @@ if (!isset($_GET['tag'])||(isset($_GET['tag'])&&$_GET['tag']==1)) {
         $posts = mysqli_fetch_all($query, MYSQLI_ASSOC);
     }
 } else if ((isset($_GET['tag'])&&$_GET['tag']!=1)) {
-    $query = "SELECT p.* FROM posts AS p INNER JOIN tag_post AS tp ON tp.post_id = p.id AND tp.tag_id = '".$_GET['tag']."' ORDER BY fecha_alta DESC";
-    $posts = mysqli_query($link, $query);
+    $sql = "SELECT p.* FROM posts AS p INNER JOIN tag_post AS tp ON tp.post_id = p.id AND tp.tag_id = '".$_GET['tag']."' ORDER BY fecha_alta DESC";
+    $query = mysqli_query($link, $sql);
+    $postsB=mysqli_fetch_all($query,MYSQLI_ASSOC);
+    //$posts = mysqli_query($link, $query);
 
     $sql = "SELECT COUNT(*) AS c FROM posts AS p INNER JOIN tag_post AS tp ON tp.post_id = p.id AND tp.tag_id = '".$_GET['tag']."'";
 

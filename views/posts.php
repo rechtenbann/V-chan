@@ -19,10 +19,17 @@ $p = mysqli_query($link, $sql);
         
 $pfa=mysqli_fetch_assoc($p);
         
-echo $pfa['fecha_alta'];
+//echo $pfa['fecha_alta'];
 ?>
-
-<?php if(!isset($_GET['tag'])||(isset($_GET['tag'])&&$_GET['tag']=="1")){ ?>
+ <main>
+        <div class="tbody" style="text-align: center;">
+<?php
+foreach ($postsB as $post) { ?>
+        <a href="post.php?id=<?php echo $post['id'] ?>"><img src="img/posts/<?php echo $post['image']; ?>" height=200 width=150 style="object-fit: contain;"></a>
+<?php } ?>
+</div>
+ </main>
+<!-- <?php if(!isset($_GET['tag'])||(isset($_GET['tag'])&&$_GET['tag']=="1")){ ?>
 <main>
         <div class="tbody" style="text-align: center;">
             <?php foreach ($posts as $post) { ?>
@@ -41,22 +48,23 @@ echo $pfa['fecha_alta'];
 </main>
 
 
-<?php } else if(isset($_GET['tag'])&&$_GET['tag']!="1"){ ?>
+<?php } else if(isset($_GET['tag'])&&$_GET['tag']!="1"){ 
+    $sql = "SELECT * FROM posts
+    INNER JOIN tag_post
+    ON tag_post.post_id = posts.id
+    INNER JOIN tags
+    ON tag_post.tag_id = tags.id
+    WHERE posts.fecha_baja IS NULL AND
+    tag_post.tag_id = '" . $_GET['tag'] . "'";
+    $query=mysqli_query($link,$sql);
+    $posts=mysqli_fetch_all($query, MYSQLI_ASSOC);?>
     <main>
         <div class="tbody" style="text-align: center;">
             <?php
-             foreach ($posts as $post) { ?>
-                <?php
-                $sql = "SELECT * FROM posts
-                INNER JOIN tag_post
-                ON tag_post.post_id = posts.id
-                INNER JOIN tags
-                ON tag_post.tag_id = tags.id
-                WHERE posts.fecha_baja IS NULL AND
-                tag_post.tag_id = '" . $_GET['tag'] . "'";
-                $query=mysqli_query($link,$sql);
+             foreach ($posts as $post) {
+                
                 if (!$query) {
-                    echo "";
+                    echo "404";
                 } else { ?>
                     <a href="post.php?id=<?php echo $post['id'] ?>"><img src="img/posts/<?php echo $posts[$cont]['image']; ?>" height=200 width=150 style="object-fit: contain;"></a>
 
@@ -66,7 +74,7 @@ echo $pfa['fecha_alta'];
             } ?>
         </div>
 </main>
-<?php } ?>
+<?php } ?> -->
 
     <div class="paginador" style="text-align: center;">
         <p>
