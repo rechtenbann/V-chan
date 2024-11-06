@@ -1,74 +1,31 @@
 <Section class="actions">
-    <a href="upload.php" style="font-family: verdana, sans-serif, helvetica; color:#212121;" >Upload</a><br>
+    <a href="upload.php" style="font-family: verdana, sans-serif, helvetica; color:#212121;">Upload</a><br>
 </Section>
 <ul class="tags" style="float: left;">
-    <?php foreach ($tags as $tag) { 
-        $sql="SELECT COUNT(*) AS c FROM posts AS p INNER JOIN tag_post AS tp ON tp.post_id = p.id AND tp.tag_id = '".$tag['id']."'";
-        $query=mysqli_query($link,$sql);
-        $countPosts=mysqli_fetch_assoc($query);
+    <?php foreach ($tags as $tag) {
+        $sql = "SELECT COUNT(*) AS c FROM posts AS p INNER JOIN tag_post AS tp ON tp.post_id = p.id AND tp.tag_id = '" . $tag['id'] . "'";
+        $query = mysqli_query($link, $sql);
+        $countPosts = mysqli_fetch_assoc($query);
         ?>
-            <li style="list-style-type: none;"><a href="posts.php?pag=1&tag=<?php echo $tag['id']; ?>"style="display:inline-block"><?php echo $tag['tag'] ?></a><span><?php echo " ".$countPosts['c']?></span></li>
+        <li style="list-style-type: none;"><a href="posts.php?pag=1&tag=<?php echo $tag['id']; ?>"
+                style="display:inline-block"><?php echo $tag['tag'] ?></a><span><?php echo " " . $countPosts['c'] ?></span>
+        </li>
     <?php } ?>
 </ul>
- <main>
-        <div class="tbody" style="text-align: center;">
-<?php
-foreach ($posts as $post) { ?>
-        <a href="post.php?id=<?php echo $post['id'] ?>"><img src="img/posts/<?php echo $post['image']; ?>" height=200 width=150 style="object-fit: contain;"></a>
-<?php } ?>
-</div>
- </main>
-<!-- <?php if(!isset($_GET['tag'])||(isset($_GET['tag'])&&$_GET['tag']=="1")){ ?>
 <main>
-        <div class="tbody" style="text-align: center;">
-            <?php foreach ($posts as $post) { ?>
-                <?php
-                $sql = "SELECT * FROM posts WHERE fecha_baja IS NULL";
-                $query = mysqli_query($link, $sql);
-                if (!$query) {
-                    echo "";
-                } else { ?>
-                    <a href="post.php?id=<?php echo $post['id'] ?>"><img src="img/posts/<?php echo $posts[$cont]['image']; ?>" height=200 width=150 style="object-fit: contain;"></a>
-                <?php } ?>
-            <?php
-                $cont = $cont + 1;
-            } ?>
-        </div>
+    <div class="tbody" style="text-align: center;">
+        <?php
+        foreach ($posts as $post) { ?>
+            <a href="post.php?id=<?php echo $post['id'] ?>"><img src="img/posts/<?php echo $post['image']; ?>" height=200
+                    width=150 style="object-fit: contain;"></a>
+
+        <?php } ?>
+    </div>
 </main>
-
-
-<?php } else if(isset($_GET['tag'])&&$_GET['tag']!="1"){ 
-    $sql = "SELECT * FROM posts
-    INNER JOIN tag_post
-    ON tag_post.post_id = posts.id
-    INNER JOIN tags
-    ON tag_post.tag_id = tags.id
-    WHERE posts.fecha_baja IS NULL AND
-    tag_post.tag_id = '" . $_GET['tag'] . "'";
-    $query=mysqli_query($link,$sql);
-    $posts=mysqli_fetch_all($query, MYSQLI_ASSOC);?>
-    <main>
-        <div class="tbody" style="text-align: center;">
-            <?php
-             foreach ($posts as $post) {
-                
-                if (!$query) {
-                    echo "404";
-                } else { ?>
-                    <a href="post.php?id=<?php echo $post['id'] ?>"><img src="img/posts/<?php echo $posts[$cont]['image']; ?>" height=200 width=150 style="object-fit: contain;"></a>
-
-                <?php } ?>
-            <?php
-                $cont = $cont + 1;
-            } ?>
-        </div>
-</main>
-<?php } ?> -->
-
-    <div class="paginador" style="text-align: center;">
-        <p>
-            <?php for ($i = 1; $i <= ceil(intval($cant["c"]) / 4); $i++) { ?>
-                <a href="posts.php?pag=<?php echo $i; ?>&tag=<?php echo $_GET['tag'] ?>"><button><?php echo $i; ?></button></a>
-            <?php } ?>
-        </p>
+<div class="paginador" style="text-align: center;">
+    <p>
+        <?php for ($i = 1; $i <= ceil(intval($cant["c"]) / 4); $i++) { ?>
+            <a href="posts.php?pag=<?php echo $i; ?>&tag=<?php echo $_GET['tag'] ?>"><button><?php echo $i; ?></button></a>
+        <?php } ?>
+    </p>
 </div>
