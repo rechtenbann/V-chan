@@ -10,6 +10,10 @@ const connectedUsersList = document.getElementById('connectedUsersList');
 const dropdownToggle = document.getElementById('dropdownToggle');
 const divUser = document.getElementById("userOnline");
 const username = document.getElementById('userOnline').getAttribute('data-username');
+let penaltyTime = 0;
+let penaltyInterval;
+let isPenalized = false;
+
 /// Evento para conectarse al servidor WebSocket
 connectButton.onclick = () => {
     socket = new WebSocket('ws://localhost:8080'); // Ruta del servidor
@@ -26,16 +30,23 @@ connectButton.onclick = () => {
     socket.onmessage = function (event) {
         const data = JSON.parse(event.data);
         console.log('Mensaje recibido:', data);
+        
         if (data.type === 'message') {
             addMessageToChat(data.text, data.sender, data.time);
         } else if (data.type === 'statusMessage') {
             addMessageToChat(data.text, 'status');
+            
+            // Verificar si incluye tiempo de penalización
+            if (data.penaltyTime) {
+                alert(data.text); // Muestra la notificación al usuario
+                startPenaltyCountdown(data.penaltyTime); // Inicia el contador
+
+            }
         } else if (data.type === 'status') {
             updateOnlineUsers(data.users);
             onlineCount.textContent = Object.keys(data.users).length;
         }
     };
-
     /// Manejar el cierre de conexión
     socket.onclose = () => {
         console.log('Desconectado del servidor WebSocket');
@@ -67,7 +78,6 @@ disconnectButton.onclick = () => {
     socket.close();
 };
 
-/// Habilitar la interfaz del chat
 function enableChat() {
     messageInput.disabled = false;
     sendButton.disabled = false;
@@ -80,9 +90,13 @@ function enableChat() {
 function disableChat() {
     messageInput.disabled = true;
     sendButton.disabled = true;
-    connectButton.disabled = false;
     disconnectButton.disabled = true;
     divUser.hidden = true;
+
+    // Si está penalizado, el botón "Conectar" debe permanecer deshabilitado
+    if (!isPenalized) {
+        connectButton.disabled = false;
+    }
 }
 
 /// Añadir un mensaje a la caja de mensajes
@@ -116,4 +130,22 @@ function updateOnlineUsers(users) {
     } else {
         console.error('El formato de usuarios no es válido:', users);
     }
+}
+
+function startPenaltyCountdown(seconds) {
+    isPenalized = true;
+    penaltyTime = seconds;
+    connectButton.disabled = true; // Desactivar el botón de conexión durante la penalización
+
+    penaltyInterval = setInterval(() => {
+        if (penaltyTime <= 0) {
+            clearInterval(penaltyInterval);
+            isPenalized = false; // Fin de la penalización
+            connectButton.disabled = false; // Reactivar el botón de conexión
+            connectButton.textContent = 'Conectar';
+        } else {
+            connectButton.textContent = `Reintentar en ${penaltyTime} segundos`;
+            penaltyTime--;
+        }
+    }, 1000);
 }
