@@ -8,23 +8,12 @@
         $countPosts=mysqli_fetch_assoc($query);
         ?>
             <li style="list-style-type: none;"><a href="posts.php?pag=1&tag=<?php echo $tag['id']; ?>"style="display:inline-block"><?php echo $tag['tag'] ?></a><span><?php echo " ".$countPosts['c']?></span></li>
-            
-
     <?php } ?>
 </ul>
-<?php 
-$sql = "SELECT MAX(fecha_alta) AS fecha_alta FROM posts";
-        
-$p = mysqli_query($link, $sql);
-        
-$pfa=mysqli_fetch_assoc($p);
-        
-//echo $pfa['fecha_alta'];
-?>
  <main>
         <div class="tbody" style="text-align: center;">
 <?php
-foreach ($postsB as $post) { ?>
+foreach ($posts as $post) { ?>
         <a href="post.php?id=<?php echo $post['id'] ?>"><img src="img/posts/<?php echo $post['image']; ?>" height=200 width=150 style="object-fit: contain;"></a>
 <?php } ?>
 </div>

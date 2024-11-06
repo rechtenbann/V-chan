@@ -18,11 +18,5 @@ require_once "includes/config.php";
         <input type="text" placeholder="Browse:..." class="inputTextHome">
         <input type="submit" value="Search" class="inputSubmitHome">
     </form>
-    <div style="margin-top:0.5%; font-family:AnimeAce;">
-        <a href="posts.php?pag=1&tag=1" class="linkHome" style="color:#212121;"><b>All posts</b></a>
-        <a href="crear.php" class="linkHome" style="color:#212121;">Forum</a>
-        <a href="crear.php" class="linkHome" style="color:#212121;">Wiki</a>
-        <a href="settings.php" class="linkHome" style="color:#212121;">Settings</a>
-    </div>  
 </div>
 </div>

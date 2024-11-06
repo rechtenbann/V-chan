@@ -59,7 +59,7 @@
 </div>
 <div id="ei" class="modal" style="width:29rem;">
     <a style="text-decoration: none; color: black; cursor: default;">
-        <h3>Default</h3>
+        <h3 style="color: black">Default</h3>
     </a>
     <div style="border-bottom: 1px solid black;border-top: 1px solid black;">
         <div>
@@ -74,21 +74,21 @@
                 <form method="post" class="option-form">
                     <input type="hidden" name="default1" value="default1.png" class="Height">
                     <input title="Set V-Chan as profile photo" type="image" id="default1" class="option-photo" name="default1" value="default1.png" alt="Login" src="img/users/default1.png">
-                    <label style="display: block; text-align: center;">V-chan</label>
+                    <label style="display: block; text-align: center;">V (F)</label>
                 </form>
             </div>
             <div style="display: inline-block;">
                 <form method="post" class="option-form">
                     <input type="hidden" name="default2" value="default2.png" class="Height">
                     <input title="Set D-Kun as profile photo" type="image" id="default2" class="option-photo" name="default2" value="default2.png" alt="Login" src="img/users/default2.png">
-                    <label style="display: block; text-align: center;">V-kun</label>
+                    <label style="display: block; text-align: center;">V (M)</label>
                 </form>
             </div>
             <div style="display: inline-block;">
                 <form method="post" class="option-form">
                     <input type="hidden" name="default3" value="default3.png" class="Height">
                     <input title="Set D-Chan as profile photo" type="image" id="default3" class="option-photo" name="default3" value="default4.png" alt="Login" src="img/users/default3.png">
-                    <label style="display: block; text-align: center;">D-chan</label>
+                    <label style="display: block; text-align: center;">D</label>
                 </form>
             </div>
         </div>
@@ -104,21 +104,21 @@
                 <form method="post" class="option-form">
                     <input type="hidden" name="default4" value="default4.png" class="Height">
                     <input title="Set P-Chan as profile photo" type="image" id="default4" class="option-photo" name="default4" value="default4.png" alt="Login" src="img/users/default4.png">
-                    <label style="display: block; text-align: center;">P-chan</label>
+                    <label style="display: block; text-align: center;">P</label>
                 </form>
             </div>
             <div style="display: inline-block;" class="cont">
                 <form method="post" class="option-form">
                     <input type="hidden" name="default5" value="default5.png" class="Height">
                     <input title="Set K-Chan as profile photo" type="image" id="default5" class="option-photo" name="default5" value="default5.png" alt="Login" src="img/users/default5.png">
-                    <label style="display: block; text-align: center;">K-chan</label>
+                    <label style="display: block; text-align: center;">K</label>
                 </form>
             </div>
             <div style="display: inline-block;">
                 <form method="post" class="option-form">
                     <input type="hidden" name="default6" value="default6.png" class="Height">
                     <input title="Set S-Chan as profile photo" type="image" id="default6" class="option-photo" name="default6" value="default6.png" alt="Login" src="img/users/default6.png">
-                    <label style="display: block; text-align: center;">S-chan</label>
+                    <label style="display: block; text-align: center;">S</label>
                 </form>
             </div>
         </div>

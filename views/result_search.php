@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="css/search.css">
 
-<?php if (!empty($resultados_tags)) { ?>
+<?php
+ if (!empty($resultados_tags)) { ?>
     <h2>Etiquetas Encontradas:</h2>
     <ul>
         <?php foreach ($resultados_tags as $resultado) { ?>
@@ -16,10 +17,11 @@
     <h2>Usuarios Encontrados:</h2>
     <div class="users-container">
         <?php foreach ($resultados_users as $user) {
+            //if(session_status()===PHP_SESSION_ACTIVE){
             $isCurrentUser = ($user['id'] == $_SESSION['usuario']['id']);
             $sender_id = $_SESSION['usuario']['id'];
             $receiver_id = $user['id'];
-
+            //}
             // Consulta para verificar el estado de la solicitud de chat
             $query = "SELECT status FROM chat_requests 
                   WHERE (sender_id = ? AND receiver_id = ?) OR (sender_id = ? AND receiver_id = ?)";
