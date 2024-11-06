@@ -25,11 +25,12 @@
 <?php } ?> -->
 <?php if (isset($_SESSION['usuario'])) { ?>
 	<div style="width:100%">
-		<div class="tooltip">
-			<a href="#ei" rel="modal:open" id="image" style="color:black; text-decoration: none;"><button class="tooltiptext ace">Ask</button></a>
-			<a href="#ei" rel="modal:open" id="image" style="color:black; text-decoration: none;"><button class="ace" style="font-size: 1rem;height:2rem;width:4rem">+?</button></a>
-		<?php } ?>
-		</div>
+		
+			<!-- <a href="#ei" rel="modal:open" id="image" style="color:black; text-decoration: none;"><button class="tooltiptext ace">Ask</button></a>
+			<a href="#ei" rel="modal:open" id="image" style="color:black; text-decoration: none;"><button class="ace" style="font-size: 1rem;height:2rem;width:4rem">+?</button></a> -->
+			<a href="#ei" rel="modal:open" id="image" style="color:black; text-decoration: none;"><div class="tooltip speech"><b style="font-size: 20px; margin-top: 20px;">+?</b></div></a>
+			<?php } ?>
+		
 	</div>
 	<div id="ei" class="modal">
 		<form action="forum.php" method="post" enctype="multipart/form-data">

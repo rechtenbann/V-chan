@@ -358,3 +358,78 @@ a:visited {
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+.gradient-bt{
+  width:100%;height:50px;background-image:url(../img/shadingbt.png);background-repeat: repeat-x;
+}
+
+
+
+.speech {
+  transform: translatey(0px);
+  width: 25%;
+  border-radius: 11px;
+  animation: float 5s ease-in-out infinite;
+  text-align: center;
+  height: 50px;
+  width: 90px;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  box-shadow: 10px 10px rgb(172, 172, 172);
+  font-family: "Baloo 2", cursive;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.speech:after {
+  transform: translatey(0px);
+  animation: float2 5s ease-in-out infinite;
+  content: ".";
+  border: 1px solid rgb(0, 0, 0);
+  text-shadow: 10px 10px rgb(172, 172, 172);
+  text-align: left;
+  font-size: 55px;
+  width: 55px;
+  height: 11px;
+  border-radius: 11px;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  display: block;
+  bottom: -30px;
+  left: 0;
+  box-shadow: 10px 10px rgb(172, 172, 172);
+  z-index: -2;
+}
+
+@keyframes float {
+  0% {
+      transform: translatey(0px);
+  }
+
+  50% {
+      transform: translatey(-20px);
+  }
+
+  100% {
+      transform: translatey(0px);
+  }
+}
+
+@keyframes float2 {
+  0% {
+      line-height: 30px;
+      transform: translatey(0px);
+  }
+
+  55% {
+      transform: translatey(-20px);
+  }
+
+  60% {
+      line-height: 10px;
+  }
+
+  100% {
+      line-height: 30px;
+      transform: translatey(0px);
+  }
+}

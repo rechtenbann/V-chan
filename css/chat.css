@@ -4,6 +4,7 @@
     font-style: italic;
     text-align: center;
 }
+
 /* Ajuste del contenedor de mensajes para el layout */
 .chat-container {
     display: flex;
@@ -13,6 +14,7 @@
     max-width: 600px;
     margin: 0 auto;
 }
+
 .chat-messages {
     display: flex;
     flex-direction: column;
@@ -24,6 +26,7 @@
     width: 100%;
     box-sizing: border-box;
 }
+
 .chat-input {
     display: flex;
     align-items: center;
@@ -31,6 +34,7 @@
     gap: 5px;
     padding: 10px 0;
 }
+
 #send {
     padding: 8px 12px;
     cursor: pointer;
@@ -39,6 +43,7 @@
     background-color: #007bff;
     color: white;
 }
+
 #message {
     background-color: white;
     width: 100%;
@@ -47,34 +52,51 @@
     box-sizing: border-box;
     border-radius: 4px;
 }
+
 .chat-message {
     padding: 10px;
     margin: 5px;
-    border-radius: 8px;
     max-width: 70%;
     word-wrap: break-word;
 }
 
 /* tipos de mensajes */
 .sistem-message {
-    background-color: #d7d8f8;
-    text-align: center; 
+    /*background-color: #d7d8f8;*/
+    background-color: #696969;
+    text-align: center;
+    color:#ffffff;
     display: flex;
     justify-content: center;
-    align-items: center; 
-    align-self: center
+    align-items: center;
+    align-self: center;
+    border-radius: 8px 8px 8px 8px;
 }
+/*
 .received-message {
-        background-color: #f8d7d7; 
+    background-color: #f8d7d7;
     align-self: flex-start;
     text-align: left;
 }
 .sent-message {
-    background-color: #d1e7dd; 
+    background-color: #d1e7dd;
     text-align: right;
-    margin-left: auto; 
+    margin-left: auto;
+}
+*/
+
+.received-message {
+    border: 3px solid black;
+    background-color: #cccccc;
+    align-self: flex-start;
+    text-align: left;
+    border-radius: 8px 8px 8px 0px;
 }
 
-
-
-
+.sent-message {
+    border: 3px solid black;
+    background-color: #fafafa;
+    text-align: right;
+    margin-left: auto;
+    border-radius: 8px 8px 0px 8px;
+}

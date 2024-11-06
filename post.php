@@ -24,11 +24,11 @@ if (isset($_POST['like'])) {
         $query = mysqli_query($link, $sql);
     }
 }
-$sql = "SELECT usuarios.usu_nombre as uid, posts.image FROM usuarios 
-INNER JOIN posts 
-ON posts.id='" . $_GET['id'] . "' AND posts.usuario_id=usuarios.id";
+$sql = "SELECT u.usu_nombre,u.id,p.image FROM usuarios AS u
+INNER JOIN posts AS p 
+ON p.id='" . $_GET['id'] . "' AND p.usuario_id=u.id";
 $query = mysqli_query($link, $sql);
-$post = mysqli_fetch_row($query);
+$postData = mysqli_fetch_assoc($query);
 
 // Obtener fecha de alta del post
 $sql = "SELECT fecha_alta FROM posts WHERE posts.id='" . $_GET['id'] . "'";

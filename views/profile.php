@@ -10,8 +10,12 @@
                 if ($_SESSION['usuario']['fecha_baja'] != null) {
                     echo " | BANNED";
                 }
-                if ($_SESSION['usuario']['usu_nombre'] == "reichsacht") {
-                    echo "<a class='ico'> f</a>";
+                if ($_SESSION['usuario']['rango'] == "administrador") {
+                    //echo "<a class='ico'> 亗﴾ ﴿‏⚚⚜f✮⚝  「 ✦ 𝐍𝐚𝐦𝐞 ✦ 」ᶠᶸᶜᵏᵧₒᵤ!  ⚡︎</a>";
+                    echo "<a> 🜲</a>";
+                }
+                if ($_SESSION['usuario']['rango'] == "premium") {
+                    echo "<a> ✮</a>";
                 }
                 ?></h2>
             <p class="rango"> <?php echo $_SESSION['usuario']['rango']; ?></p>
@@ -45,6 +49,13 @@
             <h2><?php echo htmlspecialchars($user['usu_nombre']);
                 if ($user['fecha_baja'] != null) {
                     echo " | BANNED";
+                }
+                if ($userrank['rango'] == "administrador") {
+                    //echo "<a class='ico'> f🕸𑁍⚠︎⚯ ͛< ଳ/a>";
+                    echo "<a> 🜲</a>";
+                }
+                if ($userrank['rango'] == "premium") {
+                    echo "<a> ✮</a>";
                 } ?></h2>
             <p class="rango"> <?php echo htmlspecialchars($userrank['rango']); ?></p>
             <p class="email"><?php echo htmlspecialchars($user['usu_email']); ?></p>

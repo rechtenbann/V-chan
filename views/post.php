@@ -19,7 +19,7 @@
 <div class="contain">
     <div class="image-container">
         <picture>
-            <img src="img/posts/<?php echo $post[1]; ?>" class="image" alt="Post Image" width="365px" height="365px">
+            <img src="img/posts/<?php echo $postData['image']; ?>" class="image" alt="Post Image" width="365px" height="365px">
         </picture>
     </div>
 
@@ -43,7 +43,8 @@
             <textarea name="tags" placeholder="e.g., nature, travel, animals"></textarea>
             <button type="submit" class="submit-btn">Submit</button>
         </form>
-        <p class="post-info"><?php echo "Uploaded on " . $date[0] . " by " . htmlspecialchars($post[0]); ?></p>
+        <!-- <p class="post-info"><?php echo "Uploaded on " . $date[0] . " by " . htmlspecialchars($postData['usu_nombre']); ?></p> -->
+        <p class="post-info"><?php echo "Uploaded on " . $date[0] . " by " ?><a href="profile.php?profile=<?php echo $postData['id']?>"><?php echo $postData['usu_nombre']?></a></p>
         <form method="post">
             <button type="submit" name="like" id="like" data-toggle="tooltip" data-placement="top"
                 title="like">LIKE</button>

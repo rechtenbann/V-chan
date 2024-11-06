@@ -30,7 +30,7 @@
                 <?php echo $usuario['id']; ?>
             </th>
             <th style="border: 1px solid black;">
-                <a href="profile.php?usr=<?php echo $usuario['id'];
+                <a href="profile.php?profile=<?php echo $usuario['id'];
                                             if ($usuario['fecha_baja'] != null) {
                                                 echo "&state=banned";
                                             } ?>" style="<?php if ($usuario['fecha_baja'] != null) {

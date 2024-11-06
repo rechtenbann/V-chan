@@ -9,7 +9,7 @@
     <button id="disconnect" disabled>Desconectar</button>
     <!-- Caja de mensajes -->
     <div class="chat-container">
-    <div id="chatMessages" class="chat-messages"></div>
+    <div id="chatMessages" class="chat-messages" style="border: 5px solid black;"></div>
     <div class="chat-input">
         <textarea id="message" placeholder="Escribe un mensaje..." disabled></textarea>
         <button id="send" disabled>Enviar</button>
