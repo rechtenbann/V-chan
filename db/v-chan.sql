@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-11-2024 a las 06:42:02
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.2.0
+-- Tiempo de generación: 06-11-2024 a las 19:54:28
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -242,7 +242,8 @@ CREATE TABLE `rango_usuario` (
 INSERT INTO `rango_usuario` (`id`, `rango_id`, `usu_id`, `fecha_alta`, `fecha_baja`) VALUES
 (1, 1, 1, '2024-11-04 23:31:25', NULL),
 (2, 3, 2, '2024-11-04 23:31:46', NULL),
-(3, 3, 3, '2024-11-04 23:35:20', NULL);
+(3, 3, 3, '2024-11-04 23:35:20', NULL),
+(4, 3, 4, '2024-11-06 15:45:05', NULL);
 
 -- --------------------------------------------------------
 
@@ -329,7 +330,8 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`id`, `usu_nombre`, `usu_clave`, `usu_email`, `foto_perfil`, `nsfw_allow`, `dark_mode`, `followers`, `fecha_alta`, `fecha_baja`) VALUES
 (1, 'reichsacht', '5eb3c70fb1c47a19a7b6674092c19fc0', 'rechtenbann@gmail.com', 'default1.png', 0, 0, 0, '2024-11-04 23:31:25', NULL),
 (2, 'test', '202cb962ac59075b964b07152d234b70', 'test0243156@gmail.com', 'default1.png', 0, 0, 1, '2024-11-04 23:31:46', NULL),
-(3, 'ryuu', '4297f44b13955235245b2497399d7a93', 'hratzeld@gmail.com', 'default1.png', 0, 0, 0, '2024-11-04 23:35:20', NULL);
+(3, 'ryuu', '4297f44b13955235245b2497399d7a93', 'hratzeld@gmail.com', 'default1.png', 0, 0, 0, '2024-11-04 23:35:20', NULL),
+(4, 'laydo', '202cb962ac59075b964b07152d234b70', 'laydo@gmail.com', 'default1.png', 0, 0, 0, '2024-11-06 15:45:05', NULL);
 
 -- --------------------------------------------------------
 
@@ -501,7 +503,7 @@ ALTER TABLE `rangos`
 -- AUTO_INCREMENT de la tabla `rango_usuario`
 --
 ALTER TABLE `rango_usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `tags`
@@ -519,7 +521,7 @@ ALTER TABLE `tag_post`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
