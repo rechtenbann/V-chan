@@ -1,0 +1,55 @@
+body{
+    margin:0px;
+    background: #eaecee;
+}
+
+.containerForm{
+    width: 25%;
+    padding: 2%;
+    background: #f8f9f9;
+    border: 5px solid #212121;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+label{
+    font-size: 18px;
+    font-family: AnimeAce;
+    color: #212121;
+    margin-bottom: 0.5%;
+}
+
+p{
+    color: #212121;
+}
+
+.inputSubmitForm{
+    width: 97%;
+    padding:3%;
+    font-family: AnimeAce;
+    background: #212121;
+    color: #fff;
+    border: 3px solid #212121;
+    cursor: pointer;
+}
+
+.inputTextForm{
+    width: 90%;
+    padding:3%;
+    font-family: AnimeAce;
+    color: #212121;
+    border: 3px solid #212121;
+    outline: none;
+    transition: box-shadow 0.3s ease;;
+}
+
+.inputTextForm:focus{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+h3{
+    color: #212121;
+    font-size: 50px;
+    font-family: AnimeAce;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
