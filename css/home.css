@@ -2,7 +2,6 @@ body{
     margin:0px;
 }
 
-
 .inputTextHome{
     background: #fff;
     width: 25%;
@@ -14,30 +13,25 @@ body{
     transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
-
  .inputTextHome:focus{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    transition: border 0.3s ease, box-shadow 0.3s ease;
 }
-
 
 .inputSubmitHome{
     width: 10%;
     padding: 0.5%;
-    background: #fff;
+    background: #212121;
     border: 3px solid #212121;
     cursor: pointer;
-    color: #212121;
+    color: #fff;
     font-family: AnimeAceB;
     transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
-
 .inputSubmitHome:focus{
-    color: #212121;
+    color: #ecf0f1;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-
 
 .linkHome{
     color: black;
