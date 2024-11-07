@@ -28,7 +28,8 @@
 		
 			<!-- <a href="#ei" rel="modal:open" id="image" style="color:black; text-decoration: none;"><button class="tooltiptext ace">Ask</button></a>
 			<a href="#ei" rel="modal:open" id="image" style="color:black; text-decoration: none;"><button class="ace" style="font-size: 1rem;height:2rem;width:4rem">+?</button></a> -->
-			<a href="#ei" rel="modal:open" id="image" style="color:black; text-decoration: none;"><div class="tooltip speech"><b style="font-size: 20px; margin-top: 20px;">+?</b></div></a>
+			<a href="#ei" rel="modal:open" id="image" style="color:black; text-decoration: none; margin-left:50px"><div class="tooltip speech"><b style="font-size: 20px; margin-top: 100px;">+?</b><img src="img/org_2.png" alt="" style="width: 5rem; margin-top:100px;"></div></a>
+
 			<?php } ?>
 		
 	</div>
