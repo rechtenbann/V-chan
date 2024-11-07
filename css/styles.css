@@ -358,8 +358,28 @@ a:visited {
   animation: fl 3s ease-in-out infinite;
 }
 
+/*.ask{
+  transition: 0.3s filter ease-in-out;
+}*/
+.ask:hover{
+  animation: jump 0.5s ease-in-out;
+}
 
 @keyframes fl {
+  0% {
+
+    transform: translatey(0px);
+  }
+
+  50% {
+    transform: translatey(-5px);
+  }
+
+  100% {
+    transform: translatey(0px);
+  }
+}
+@keyframes jump {
   0% {
 
     transform: translatey(0px);
