@@ -25,13 +25,24 @@
 <?php } ?> -->
 <?php if (isset($_SESSION['usuario'])) { ?>
 	<div style="width:100%">
-		
-			<!-- <a href="#ei" rel="modal:open" id="image" style="color:black; text-decoration: none;"><button class="tooltiptext ace">Ask</button></a>
-			<a href="#ei" rel="modal:open" id="image" style="color:black; text-decoration: none;"><button class="ace" style="font-size: 1rem;height:2rem;width:4rem">+?</button></a> -->
-			<a href="#ei" rel="modal:open" id="image" style="color:black; text-decoration: none; margin-left:50px"><div class="tooltip speech"><b style="font-size: 20px; margin-top: 100px;">+?</b><img src="img/org_2.png" alt="" style="width: 5rem; margin-top:100px;"></div></a>
 
-			<?php } ?>
-		
+		<!-- <a href="#ei" rel="modal:open" id="image" style="color:black; text-decoration: none;"><button class="tooltiptext ace">Ask</button></a>
+			<a href="#ei" rel="modal:open" id="image" style="color:black; text-decoration: none;"><button class="ace" style="font-size: 1rem;height:2rem;width:4rem">+?</button></a> -->
+		<!-- <div>
+			<a href="#ei" rel="modal:open" id="image" style="color:black; text-decoration: none; margin-left:75px; margin-top:5px; position:absolute">
+				<div class="tooltip speech"><b style="font-size: 15px; margin-top: 100px;">Click here to ask</b></div>
+			</a><br>
+			<img src="img/Q-chan2.png" alt="" style="width: 10rem; margin-top:100px; border: 5px solid black">
+		</div> -->
+		<div>
+			<a href="#ei" rel="modal:open" id="image" style="color:black; text-decoration: none;">
+				<div class="tooltip fl"><b style="font-size: 15px;">Click me to ask a question</b></div>
+				<br><img src="img/Q-chan2.png" alt="" style="width: 10rem; border: 5px solid black">
+			</a>
+			
+		</div>
+	<?php } ?>
+
 	</div>
 	<div id="ei" class="modal">
 		<form action="forum.php" method="post" enctype="multipart/form-data">

@@ -24,7 +24,7 @@ if (isset($_GET['query'])) {
         $sql = $forum ? "SELECT * FROM forum WHERE title LIKE '%$forum%'" : "SELECT * FROM forum";
         $query = mysqli_query($link, $sql);
         $resultados_postsForum = mysqli_fetch_all($query, MYSQLI_ASSOC);
-    } elseif (strpos($input, 'RLLV') === 0) { // Búsqueda de foro
+    } elseif (strpos($input, 'RLLVTeam') === 0) { // Búsqueda de foro
         header("location: ee.php");
     } else {
         // Búsqueda global sin acortador
