@@ -298,30 +298,6 @@ a:visited {
   }
 
 }
-
-.underline{
-  display: inline-block;
-  text-decoration: none;
-  background-position: bottom left;
-  background-repeat: no-repeat;
-  background-size: 0% 2px;
-  transition: background-size .2s ease;
-}
-.underline:hover {
-  background-size: 100% 2px;
-}
-.navlink:hover .underline {
-  background-size: 100% 2px;
-}
-.underline2{
-  color:#9e9e9e;
-  display: inline-block;
-  text-decoration: none;
-  background-position: bottom left;
-  background-repeat: no-repeat;
-  background-size: 1000% 2px;
-}
-
 .upload{
   background-color:transparent;
   width:4rem;
@@ -432,4 +408,72 @@ a:visited {
       line-height: 30px;
       transform: translatey(0px);
   }
+}
+
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+}
+
+.hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #eaecee;
+  transition: transform 0.25s ease-out;
+}
+.uu{
+  display: inline-block;
+  position: relative;
+}
+.uu::after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(1);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #eaecee;
+}
+
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+}
+
+.hover-underline-animation.left::after {
+  transform-origin: bottom right;
+}
+
+.hover-underline-animation.left:hover::after {
+  transform-origin: bottom left;
+}
+
+
+.underline{
+  display: inline-block;
+  text-decoration: none;
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size .2s ease;
+}
+.underline:hover {
+  background-size: 100% 2px;
+}
+.navlink:hover .underline {
+  background-size: 100% 2px;
+}
+.underline2{
+  color:#9e9e9e;
+  display: inline-block;
+  text-decoration: none;
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: 1000% 2px;
 }

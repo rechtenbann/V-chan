@@ -10,29 +10,29 @@ if (session_status() !== PHP_SESSION_ACTIVE)
       <a href="index.php"><img class="icon" src="img/org_3.png" width="100" height="90"></a>
     </div>
     <div class="navlink ace">
-      <a href="settings.php" class="section2"><u class="gumi" style="text-decoration:none;font-size: 20px;">D </u><b class="underline<?php if($section=="settings"){echo '2';}?>">Settings</b></a>
+      <a href="settings.php" class="section2 <?php if($section=="settings"){echo 'uu';}else{echo 'hover-underline-animation left';}?>"><u class="gumi" style="text-decoration:none;font-size: 20px;">D </u><b>Settings</b></a>
     </div>
     <div class="navlink ace">
-      <a href="posts.php?pag=1&tag=1" class="section2"><u class="gumi" style="text-decoration:none;font-size: 20px;">c </u><b class="underline<?php if($section=="posts"){echo '2';}?>">Art</b></a>
+      <a href="posts.php?pag=1&tag=1" class="section2 <?php if($section=="posts"){echo 'uu';}else{echo 'hover-underline-animation left';}?>"><u class="gumi" style="text-decoration:none;font-size: 20px;">c </u><b>Art</b></a>
     </div>
     <div class="navlink ace">
-      <a href="Forum.php?pag=1" class="section2"><u class="gumi" style="text-decoration:none;font-size: 20px;">4 </u><b class="underline<?php if($section=="forum"){echo '2';}?>">Forum</b></a>
+      <a href="Forum.php?pag=1" class="section2 <?php if($section=="forum"){echo 'uu';}else{echo 'hover-underline-animation left';}?>"><u class="gumi" style="text-decoration:none;font-size: 20px;">4 </u><b>Forum</b></a>
     </div>
     <div class="navlink ace">
-      <a href="chat.php" class="section2" <?php if (!isset($_SESSION['usuario'])) {
+      <a href="chat.php" class="section2 <?php if($section=="chat"){echo 'uu';}else{echo 'hover-underline-animation left';}?>" <?php if (!isset($_SESSION['usuario'])) {
         echo 'style="pointer-events:none; color:grey"';
-      } ?>><u class="gumi" style="text-decoration:none;font-size: 20px;">5 </u><b class="underline<?php if($section=="chat"){echo '2';}?>">Community</b></a>
+      } ?>><u class="gumi" style="text-decoration:none;font-size: 20px;">5 </u><b>Community</b></a>
     </div>
     <div class="navlink ace">
-      <a href="sites.php" class="section2"><u class="gumi" style="text-decoration:none;font-size: 20px;">i </u><b class="underline<?php if($section=="sites"){echo '2';}?>">Sites</b></a>
+      <a href="sites.php" class="section2 <?php if($section=="sites"){echo 'uu';}else{echo 'hover-underline-animation left';}?>"><u class="gumi" style="text-decoration:none;font-size: 20px;">i </u><b>Sites</b></a>
     </div>
     <div class="navlink ace">
-      <?php if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rango'] == "administrador") { ?><a class="section2"
-          href="test.php"><u class="gumi" style="text-decoration:none;font-size: 20px;">j </u><b class="underline<?php if($section=="test"){echo '2';}?>">Test Zone</b></a><?php } ?>
+      <?php if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rango'] == "administrador") { ?><a class="section2 <?php if($section=="test"){echo 'uu';}else{echo 'hover-underline-animation left';}?>"
+          href="test.php"><u class="gumi" style="text-decoration:none;font-size: 20px;">j </u><b>Test Zone</b></a>
     </div>
     <div class="navlink ace">
-      <?php if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rango'] == "administrador") { ?><a class="section2"
-          href="admin.php"><u class="gumi" style="text-decoration:none;font-size: 20px;">E </u><b class="underline<?php if($section=="admin"){echo '2';}?>">Administrar</b></a><?php } ?>
+      <a class="section2 <?php if($section=="admin"){echo 'uu';}else{echo 'hover-underline-animation left';}?>"
+          href="admin.php"><u class="gumi" style="text-decoration:none;font-size: 20px;">E </u><b>Administrar</b></a><?php } ?>
     </div>
     <div class="navlink ace">
     <?php try{

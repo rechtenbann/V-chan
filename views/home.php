@@ -14,9 +14,13 @@ require_once "includes/config.php";
         1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;";}?>">
         <b class="ace" style="font-size: 5rem; color: #212121;">{</b><b class="HWNAT26" style="font-size: 10rem; "><u style="text-decoration:none; color: #212121;">V-Chan</u></b><b class="ace" style="font-size: 5rem; color: #212121;">}</b>
     </h1>
-    <form action="result_search.php" method="GET">
+    <!-- <form action="result_search.php" method="GET">
         <input type="text" placeholder="Buscar usuarios (@), tags (#) o foro (/)" class="inputTextHome" style="width: 30%;">
         <input type="submit" value="Search" class="inputSubmitHome">
-    </form>
+    </form> -->
+    <div style="width: 75%;">
+        <?php require_once "navsrh.php"?>
+    </div>
+    
 </div>
 </div>
