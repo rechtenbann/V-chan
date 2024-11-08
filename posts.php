@@ -1,5 +1,5 @@
 <?php
-$cpp=21;
+$cpp=18;
 require_once "includes/config.php";
 if (!isset($_GET['tag'])||(isset($_GET['tag'])&&$_GET['tag']==1)) {
     $sql = "SELECT * FROM posts  WHERE fecha_baja IS NULL ORDER BY fecha_alta DESC";

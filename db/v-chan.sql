@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-11-2024 a las 14:53:03
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.2.0
+-- Tiempo de generación: 08-11-2024 a las 21:22:40
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -147,8 +147,8 @@ INSERT INTO `posts` (`id`, `usuario_id`, `image`, `visitas`, `likes`, `dislikes`
 (5, '1', '120585729_p0_master1200.jpg', 1, 0, 0, '2024-11-08 10:05:41', NULL),
 (6, '1', '121290061_p0_master1200.jpg', 1, 0, 0, '2024-11-08 10:05:48', NULL),
 (7, '1', '121574851_p0_master1200.jpg', 1, 0, 0, '2024-11-08 10:05:54', NULL),
-(8, '1', '122375232_p0_master1200.jpg', 1, 0, 0, '2024-11-08 10:06:00', NULL),
-(9, '1', '122864736_p0_master1200.jpg', 1, 0, 0, '2024-11-08 10:06:06', NULL),
+(8, '1', '122375232_p0_master1200.jpg', 2, 0, 0, '2024-11-08 10:06:00', NULL),
+(9, '1', '122864736_p0_master1200.jpg', 2, 0, 0, '2024-11-08 10:06:06', NULL),
 (10, '1', '123826901_p0_master1200.jpg', 1, 0, 0, '2024-11-08 10:06:12', NULL),
 (11, '1', '123874786_p0_master1200.jpg', 1, 0, 0, '2024-11-08 10:06:17', NULL),
 (12, '1', '123894360_p0_master1200.jpg', 1, 0, 0, '2024-11-08 10:06:25', NULL),
@@ -169,8 +169,8 @@ INSERT INTO `posts` (`id`, `usuario_id`, `image`, `visitas`, `likes`, `dislikes`
 (27, '1', '121824227_p0_master1200.jpg', 1, 0, 0, '2024-11-08 10:17:14', NULL),
 (28, '1', '121687430_p0_master1200.jpg', 1, 0, 0, '2024-11-08 10:17:20', NULL),
 (29, '1', '121902918_p0_master1200.jpg', 1, 0, 0, '2024-11-08 10:17:28', NULL),
-(30, '1', '122127674_p0_master1200.jpg', 1, 0, 0, '2024-11-08 10:17:35', NULL),
-(31, '1', '122375232_p0_master1200.jpg', 1, 0, 0, '2024-11-08 10:17:42', NULL),
+(30, '1', '122127674_p0_master1200.jpg', 2, 0, 0, '2024-11-08 10:17:35', NULL),
+(31, '1', '122375232_p0_master1200.jpg', 2, 0, 0, '2024-11-08 10:17:42', NULL),
 (32, '1', '122382609_p0_master1200.jpg', 1, 0, 0, '2024-11-08 10:18:05', NULL),
 (33, '1', '124019691_p0_master1200.jpg', 1, 0, 0, '2024-11-08 10:18:12', NULL),
 (34, '1', '124033090_p0_master1200.jpg', 1, 0, 0, '2024-11-08 10:18:19', NULL),
@@ -183,9 +183,9 @@ INSERT INTO `posts` (`id`, `usuario_id`, `image`, `visitas`, `likes`, `dislikes`
 (41, '1', '124108274_p0_master1200.jpg', 1, 0, 0, '2024-11-08 10:22:16', NULL),
 (42, '1', '124108581_p0_master1200.jpg', 1, 0, 0, '2024-11-08 10:22:21', NULL),
 (43, '1', '124109061_p0_master1200.jpg', 1, 0, 0, '2024-11-08 10:22:27', NULL),
-(44, '1', '124109144_p0_master1200.jpg', 1, 0, 0, '2024-11-08 10:23:03', NULL),
+(44, '1', '124109144_p0_master1200.jpg', 2, 0, 0, '2024-11-08 10:23:03', NULL),
 (45, '1', '124109799_p0_master1200.jpg', 1, 0, 0, '2024-11-08 10:23:09', NULL),
-(46, '1', '124110143_p0_master1200.jpg', 1, 0, 0, '2024-11-08 10:23:15', NULL);
+(46, '1', '124110143_p0_master1200.jpg', 2, 0, 0, '2024-11-08 10:23:15', NULL);
 
 -- --------------------------------------------------------
 
@@ -275,29 +275,29 @@ INSERT INTO `tags` (`id`, `tag`) VALUES
 (11, 'bed'),
 (12, 'sunlight'),
 (13, 'night'),
-(14, 'nighttime'),
+(14, 'night_time'),
 (15, 'stars'),
 (16, 'beautiful'),
 (17, 'ghibli'),
 (18, 'howl'),
-(19, 'howl\'s'),
-(20, 'moving'),
-(21, 'castle'),
+(19, 'howl\'s_moving_castle'),
+(20, 'Hauru_no_Ugoku_Shiro'),
+(21, 'ghibli_fanart'),
 (22, 'illustration'),
 (23, 'sun'),
-(24, 'nit¿ght'),
+(24, 'stars'),
 (25, 'fukami'),
-(26, 'wadanohara'),
-(27, 'and'),
-(28, 'the'),
-(29, 'great'),
-(30, 'blue'),
-(31, 'sea'),
+(26, 'wadanohara_and_the_great_blue_sea'),
+(27, 'funamusea'),
+(28, 'deepsea_prisoner'),
+(29, 'indie_horror_game'),
+(30, 'character'),
+(31, 'chibi'),
 (32, 'fanart'),
-(33, ''),
-(34, 'kimetsu'),
-(35, 'no'),
-(36, 'yaiba'),
+(33, 'studio_ghibli'),
+(34, 'kimetsu_no_yaiba'),
+(35, 'demon_slayer'),
+(36, 'pillar_(kimetsu_no_yaiba)'),
 (37, 'shinobu'),
 (38, 'screencap'),
 (39, 'totoro'),
@@ -305,17 +305,17 @@ INSERT INTO `tags` (`id`, `tag`) VALUES
 (41, 'beach'),
 (42, 'anime'),
 (43, 'girl'),
-(44, 'bocchi'),
-(45, 'rock!'),
+(44, 'bocchi_the_rock!'),
+(45, 'pink_hair'),
 (46, 'music'),
 (47, 'pochita'),
 (48, 'csm'),
-(49, 'chainsaw'),
-(50, 'man'),
+(49, 'chainsaw_man'),
+(50, 'Tatsuki_Fujimoto'),
 (51, 'touhou'),
-(52, 'flandre'),
+(52, 'flandre_scarlet'),
 (53, 'scarlet'),
-(54, 'remilia'),
+(54, 'remilia_scarlet'),
 (55, 'sacrlet'),
 (56, 'fumo'),
 (57, 'shikanokonokokoshitantan'),
@@ -324,18 +324,18 @@ INSERT INTO `tags` (`id`, `tag`) VALUES
 (60, 'plane'),
 (61, 'selfie'),
 (62, 'airplane'),
-(63, 'hand'),
+(63, 'hand_drawing'),
 (64, 'drawing'),
-(65, 'dragon'),
-(66, 'ball'),
+(65, 'dragon_ball'),
+(66, 'sayajin'),
 (67, 'vegeta'),
 (68, 'pokemon'),
 (69, 'pikachu'),
 (70, 'goku'),
 (71, 'hat'),
-(72, 'jujutsu'),
-(73, 'kaisen'),
-(74, 'satoru'),
+(72, 'jujutsu_kaisen'),
+(73, 'jjk'),
+(74, 'satoru_gojo'),
 (75, 'gojo'),
 (76, 'kirby'),
 (77, 'nintendo'),
@@ -344,9 +344,9 @@ INSERT INTO `tags` (`id`, `tag`) VALUES
 (80, 'ninja'),
 (81, 're:zero'),
 (82, 'emilia'),
-(83, 'ultra'),
-(84, 'instinct'),
-(85, 'archive'),
+(83, 'ultra_instinct'),
+(84, 'dragon_ball_super'),
+(85, 'blue_archive'),
 (86, 'fuuka'),
 (87, 'iori'),
 (88, 'koyuki'),
@@ -620,7 +620,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `usu_nombre`, `usu_clave`, `usu_email`, `foto_perfil`, `nsfw_allow`, `dark_mode`, `followers`, `fecha_alta`, `fecha_baja`) VALUES
-(1, 'reichsacht', '5eb3c70fb1c47a19a7b6674092c19fc0', 'rechtenbann@gmail.com', 'default1.png', 0, 0, 0, '2024-11-04 23:31:25', NULL),
+(1, 'reichsacht', '5eb3c70fb1c47a19a7b6674092c19fc0', 'rechtenbann@gmail.com', 'sui.png', 0, 0, 0, '2024-11-04 23:31:25', NULL),
 (2, 'test', '202cb962ac59075b964b07152d234b70', 'test0243156@gmail.com', 'default1.png', 0, 0, 1, '2024-11-04 23:31:46', NULL),
 (3, 'ryuu', '4297f44b13955235245b2497399d7a93', 'hratzeld@gmail.com', 'default1.png', 0, 0, 0, '2024-11-04 23:35:20', NULL),
 (4, 'laydo', '202cb962ac59075b964b07152d234b70', 'laydo@gmail.com', 'default1.png', 0, 0, 0, '2024-11-06 15:45:05', NULL);
