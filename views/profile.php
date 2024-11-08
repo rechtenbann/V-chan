@@ -2,7 +2,7 @@
 <?php if (!isset($_GET['profile']) || $_GET['profile'] == $_SESSION['usuario']['id']) { ?>
     <section class="perfil-horizontal contenido" id="perfil">
         <div class="foto-container">
-            <a href="#ei" rel="modal:open" id="image"><img src="img/users/<?php echo $_SESSION['usuario']['foto_perfil']; ?>" alt="Foto de perfil" class="fotoPerfilHorizontal"></a>
+            <a href="#ei" rel="modal:open" id="image"><img src="img/users/<?php echo $_SESSION['usuario']['foto_perfil']; ?>" alt="Foto de perfil" class="fotoPerfilHorizontal" style="aspect-ratio: 1 / 1; object-fit: cover;"></a>
         </div>
         <div class="linea-separadora"></div>
         <div class="infoPerfil">
