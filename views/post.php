@@ -36,6 +36,7 @@
 
         <!-- Botón para mostrar el formulario -->
         <button onclick="toggleForm()" class="show-form-btn">+Tag</button>
+        <form method="post"><button type="submit" name="del" class="show-form-btn" style="background-color: red;">DELETE</button></form>
 
         <!-- Formulario de edición de tags, inicialmente oculto -->
         <form method="POST" class="form-container" id="tagForm" style="display: none;">
