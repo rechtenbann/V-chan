@@ -105,6 +105,8 @@
             </section>
         </div>
     </section>
+
 <?php }
 require_once "views/edit_profile.php"; ?>
-
+<script src="js/profile.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
