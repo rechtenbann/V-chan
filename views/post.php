@@ -27,8 +27,9 @@
             <textarea name="tags" placeholder="e.g., nature, travel, animals"></textarea>
             <button type="submit" class="submit-btn">Submit</button>
         </form>
+        <?php }?>
         <p class="post-info"> <?php echo "Uploaded on " . $date[0] . " by " ?><a style="color: #212121;" href="profile.php?profile=<?php echo $postData['id'] ?>"><?php echo $postData['usu_nombre'] ?></a>
-        </p>
+        </p><?php if(isset($_SESSION['usuario'])){?>
         <p><strong>Visitas:</strong> <span id="visitCount"><?php echo $initialVisitCount; ?></span></p>
         <?php if (isset($_SESSION['usuario'])): ?>
             <div>
