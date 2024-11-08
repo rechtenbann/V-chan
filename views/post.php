@@ -1,7 +1,8 @@
 <div class="contain">
     <div class="image-container">
         <picture>
-            <img src="img/posts/<?php echo $postData['image']; ?>" class="image" alt="Post Image" width="365px" height="365px">
+            <img src="img/posts/<?php echo $postData['image']; ?>" class="image" alt="Post Image" >
+            <!-- width="365px" height="365px" -->
         </picture>
     </div>
 
@@ -39,7 +40,8 @@
             </div><?php else: ?>
             <p>Log in to like or dislike this post.</p>
         <?php endif; ?>
-        <p><strong>Porcentaje de Gusto:</strong> <span id="like-percentage"><?php echo number_format($porcentageGusto, 2); ?>%</span></p>
+
+        <!-- <p><strong>Porcentaje de Gusto:</strong> <span id="like-percentage"><?php echo number_format($percentage, 2); ?>%</span></p> -->
         </div>
 </div>
 <script>

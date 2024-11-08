@@ -103,6 +103,16 @@ $initialDislikes = $result['dislikes'] ;
 $totalReactions = $initialLikes + $initialDislikes;
 $porcentageGusto = $totalReactions > 0 ? ($initialLikes / $totalReactions) * 100 : 0;
 
+$sql="SELECT COUNT(*) AS likes FROM post_reactions WHERE reaction_type='like'";
+$query=mysqli_query($link,$sql);
+$likes=mysqli_fetch_assoc($query);
+
+$sql="SELECT COUNT(*) AS dislikes FROM post_reactions WHERE reaction_type='dislike'";
+$query=mysqli_query($link,$sql);
+$dislikes=mysqli_fetch_assoc($query);
+
+$totalReactions=$likes['likes']+$dislikes['dislikes'];
+$percentage=ceil(($likes['likes']/$totalReactions)*100);
 
 $section = "post";
 $title = "Post";

@@ -579,8 +579,6 @@ a:visited {
 }
 
 .tags {
-  display: flex;
-  flex-wrap: wrap;
   gap: 10px;
   margin-top: 10px;
   margin-bottom: 15px;
@@ -680,4 +678,33 @@ text-align: center;
   transform: translate(-50%, -50%);
   transition: 0.3s filter ease-in-out;
   transition: all 0.5s
+}
+.tb {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tb .tbt {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgb(255, 255, 255);
+  font-family: AnimeAce;
+  border:3px solid #000;
+  color: #000;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  animation: float 0.5s ease-in-outzx4derf4aZAQ ;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tb:hover .tbt {
+  visibility: visible;
 }
