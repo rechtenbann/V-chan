@@ -15,9 +15,10 @@
             <?php }
             } ?>
         </div>
+        <?php if(isset($_SESSION['usuario'])){?>
         <!-- Botón para mostrar el formulario -->
         <button onclick="toggleForm()" class="show-form-btn">+Tag</button>
-        <?php if($postData['id']==$_SESSION['usuario']['id']||$_SESSION['usuario']['rango']=="administrador"){ ?>
+        <?php if(($postData['id']==$_SESSION['usuario']['id']||$_SESSION['usuario']['rango']=="administrador")){ ?>
         <form method="post"><button type="submit" name="del" class="show-form-btn" style="background-color: red;">DELETE</button></form>
         <?php } ?>
         <!-- Formulario de edición de tags, inicialmente oculto -->
@@ -42,6 +43,7 @@
         <?php endif; ?>
 
         <!-- <p><strong>Porcentaje de Gusto:</strong> <span id="like-percentage"><?php echo number_format($percentage, 2); ?>%</span></p> -->
+        <?php }?>
         </div>
 </div>
 <script>
