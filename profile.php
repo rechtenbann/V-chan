@@ -89,8 +89,27 @@ if (isset($_POST['default1'])) {
         exit();
     }
     $_SESSION['usuario']['foto_perfil'] = $img;
-} else if (isset($_POST['default-secret'])) {
-    $img = $_POST['default-secret'];
+} else if (isset($_POST['v2'])) {
+    $img = $_POST['v2'];
+    $sql = "UPDATE usuarios SET foto_perfil = '" . $img . "' WHERE ID = '" . $_SESSION['usuario']['id'] . "'";
+    $query = mysqli_query($link, $sql);
+    if (!$query) {
+        echo "Fallo consulta: " . mysqli_error($link);
+        exit();
+    }
+    $_SESSION['usuario']['foto_perfil'] = $img;
+}else if (isset($_POST['sui'])) {
+    $img = $_POST['sui'];
+    $sql = "UPDATE usuarios SET foto_perfil = '" . $img . "' WHERE ID = '" . $_SESSION['usuario']['id'] . "'";
+    $query = mysqli_query($link, $sql);
+    if (!$query) {
+        echo "Fallo consulta: " . mysqli_error($link);
+        exit();
+    }
+    $_SESSION['usuario']['foto_perfil'] = $img;
+}
+else if (isset($_POST['vv'])) {
+    $img = $_POST['vv'];
     $sql = "UPDATE usuarios SET foto_perfil = '" . $img . "' WHERE ID = '" . $_SESSION['usuario']['id'] . "'";
     $query = mysqli_query($link, $sql);
     if (!$query) {

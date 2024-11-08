@@ -5,17 +5,17 @@
         <?php if (!isset($_SESSION['usuario'])) { ?>
             <tr>
                 <td>
-                    <a href="login.php" style="color:#212121;">Login</a>
+                    <a href="login.php" style="color:#212121; font-family: AnimeAce;">Login</a>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <a href="signup.php"  style="color:#212121;">Signup</a>
+                    <a href="signup.php"  style="color:#212121; font-family: AnimeAce;">Signup</a>
                 </td>
             </tr>
             </a>
         <?php } else if (isset($_SESSION['usuario'])) {
-        ?><a href="logout.php"  style="color:#212121;">Logout</a>
+        ?><a href="logout.php"  style="color:#212121; font-family: AnimeAce;">Logout</a>
         <?php } ?>
         <tr>
             <td>
@@ -30,7 +30,7 @@
         </tr>
     </tbody>
 </table>
-<a href="profile_other.php"  style="color:#212121;">lol</a>
+<!-- <a href="profile_other.php"  style="color:#212121;">lol</a>
 <button id="btn1"  style="color:#212121;">Boton 1</button>
 <button id="btn2"  style="color:#212121;">booton 2</button>
 <div id="contenido1" class="contenido1">
@@ -38,7 +38,7 @@
 </div>
 <div id="contenido2" class="contenido2">
     <p>LoLLLLLLLLLLL</p>
-</div>
+</div> -->
 <style>
     .contenido1 {display: block;}
     .contenido2 {display: none;}

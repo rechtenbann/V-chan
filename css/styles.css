@@ -556,6 +556,7 @@ a:visited {
   background-repeat: no-repeat;
   background-size: 1000% 2px;
 }
+<<<<<<< HEAD
 /*post */
 .contain {
   display: flex;
@@ -640,4 +641,16 @@ textarea {
   border: 1px solid #ddd;
   border-radius: 4px;
   resize: none;
+=======
+
+.tag{
+  font-family: AnimeAce;
+}
+.tag:hover{
+  animation: jump 0.3s ease-in-out;
+}
+
+.post:hover{
+  animation: jump 0.3s ease-in-out;
+>>>>>>> b249830d4598b7e11d771b6111f42c302a82da85
 }

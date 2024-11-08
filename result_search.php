@@ -26,7 +26,9 @@ if (isset($_GET['query'])) {
         $resultados_postsForum = mysqli_fetch_all($query, MYSQLI_ASSOC);
     } elseif (strpos($input, 'RLLVTeam') === 0) { // Búsqueda de foro
         header("location: ee.php");
-    } else {
+    }elseif (strpos($input, 'secc') === 0) { // Búsqueda de foro
+        header("location: profile.php?profile=".$_SESSION['usuario']['id']."&RLLVTeam=t");
+    }     else {
         // Búsqueda global sin acortador
         // Consulta de tags
         $sql_tags = "SELECT * FROM tags WHERE tag LIKE '%$input%'";

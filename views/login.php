@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="css/form.css">
-
 <div align="center">
     <div class="containerForm">
         <h3>Log in</h3>

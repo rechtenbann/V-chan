@@ -23,9 +23,9 @@ if (session_status() !== PHP_SESSION_ACTIVE)
         echo 'style="pointer-events:none; color:grey"';
       } ?>><u class="gumi" style="text-decoration:none;font-size: 20px;">5 </u><b>Community</b></a>
     </div>
-    <div class="navlink ace">
+    <!-- <div class="navlink ace">
       <a href="sites.php" class="section2 <?php if($section=="sites"){echo 'uu';}else{echo 'hover-underline-animation left';}?>"><u class="gumi" style="text-decoration:none;font-size: 20px;">i </u><b>Sites</b></a>
-    </div>
+    </div> -->
     <div class="navlink ace">
       <?php if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rango'] == "administrador") { ?><a class="section2 <?php if($section=="test"){echo 'uu';}else{echo 'hover-underline-animation left';}?>"
           href="test.php"><u class="gumi" style="text-decoration:none;font-size: 20px;">j </u><b>Test Zone</b></a>
