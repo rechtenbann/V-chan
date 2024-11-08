@@ -63,11 +63,17 @@ if (!empty($resultados_tags)) { ?>
 
                 <section class="influencia">
                     <div class="seguidores">
-                        <p class="numero">8,000</p>
+                    <?php $sql="SELECT COUNT(*) AS followers FROM followers_users WHERE user_id='".$user['id']."'";
+                $query=mysqli_query($link,$sql);
+                $folr=mysqli_fetch_assoc($query)?>
+                <p class="numero"><?php echo $folr['followers']?></p>
                         <p class="label">Seguidores</p>
                     </div>
                     <div class="seguidos">
-                        <p class="numero">1,000</p>
+                    <?php $sql="SELECT COUNT(*) AS followers FROM followers_users WHERE follower_id='".$user['id']."'";
+                $query=mysqli_query($link,$sql);
+                $fold=mysqli_fetch_assoc($query)?>
+                <p class="numero"><?php echo $fold['followers']?></p>
                         <p class="label">Seguidos</p>
                     </div>
                 </section>
@@ -144,11 +150,17 @@ if (!empty($resultados_tags)) { ?>
         
         <section class="influencia">
             <div class="seguidores">
-                <p class="numero">8,000</p>
+                <?php $sql="SELECT COUNT(*) AS followers FROM followers_users WHERE user_id='".$user['id']."'";
+                $query=mysqli_query($link,$sql);
+                $folr=mysqli_fetch_assoc($query)?>
+                <p class="numero"><?php echo $folr['followers']?></p>
                 <p class="label">Seguidores</p>
             </div>
             <div class="seguidos">
-                <p class="numero">1,000</p>
+            <?php $sql="SELECT COUNT(*) AS followed FROM followers_users WHERE follower_id='".$user['id']."'";
+                $query=mysqli_query($link,$sql);
+                $fold=mysqli_fetch_assoc($query)?>
+                <p class="numero"><?php echo $fold['followed']?></p>
                 <p class="label">Seguidos</p>
             </div>
         </section>

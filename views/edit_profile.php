@@ -170,7 +170,7 @@
             </div>
         </div>
     </div>
-    <h3>Colors</h3>
+    <h3 style="color: black; font-size: 2rem;">Background (wip)</h3>
     <div>
         <div class="Height">
             <form method="post" class="option-form" style="user-select:none">
