@@ -2,10 +2,6 @@
 require_once "includes/config.php";
 session_start();
 // Obtener imagen y usuario
-$sql = "SELECT SUM(val) AS v FROM like_post";
-$query = mysqli_query($link, $sql);
-$ll = mysqli_fetch_assoc($query);
-
 if (isset($_POST['like'])) {
     $sql = "SELECT * FROM like_post WHERE usuario_id='" . $_SESSION['usuario']['id'] . "' AND post_id = '" . $_GET['id'] . "'";
     $que = mysqli_query($link, $sql);
@@ -51,18 +47,15 @@ $tags = mysqli_fetch_all($query, MYSQLI_ASSOC);
 if (isset($_POST['tags'])) {
     $tags_array = preg_split("/[\s,]+/", $_POST['tags']);
     foreach ($tags_array as $new_tag) {
-        // Verificar si la tag ya existe
         $sql = "SELECT id FROM tags WHERE tag = '" . mysqli_real_escape_string($link, trim($new_tag)) . "'";
         $query = mysqli_query($link, $sql);
         $existing_tag = mysqli_fetch_row($query);
 
         if ($existing_tag) {
-            // Si la tag existe, vincularla con el post si no está ya asociada
             $tag_id = $existing_tag[0];
             $sql = "INSERT IGNORE INTO tag_post (post_id, tag_id) VALUES (" . $_GET['id'] . ", $tag_id)";
             mysqli_query($link, $sql);
         } else {
-            // Si no existe, insertarla y luego vincularla con el post
             $sql = "INSERT INTO tags (tag) VALUES ('" . mysqli_real_escape_string($link, trim($new_tag)) . "')";
             mysqli_query($link, $sql);
             $tag_id = mysqli_insert_id($link);
@@ -70,53 +63,46 @@ if (isset($_POST['tags'])) {
             mysqli_query($link, $sql);
         }
     }
-    // Redirigir para evitar el reenvío de formularios
     header("Location: post.php?id=" . $_GET['id']);
     exit();
 }
+///visitas
+if (isset($_SESSION['usuario'])) {
+    $post_id = $_GET['id'];
+    if (!isset($_SESSION['visited_posts'][$post_id])) {
+        $sql = "UPDATE posts SET visitas = visitas + 1 WHERE id = ?";
+        $stmt = $link->prepare($sql);
+        $stmt->bind_param("i", $post_id);
+        $stmt->execute();
+        
+        $_SESSION['visited_posts'][$post_id] = true;
+    }
+    
+    $sql = "SELECT visitas FROM posts WHERE id = ?";
+    $stmt = $link->prepare($sql);
+    $stmt->bind_param("i", $post_id);
+    $stmt->execute();
+    $stmt->bind_result($initialVisitCount);
+    $stmt->fetch();
+    $stmt->close();
+}
+// Obtener likes y dislikes iniciales
+// Obtener el conteo inicial de likes y dislikes
+$sql = "SELECT 
+            SUM(reaction_type = 'like') AS likes, 
+            SUM(reaction_type = 'dislike') AS dislikes 
+        FROM post_reactions 
+        WHERE post_id = ?";
+$stmt = $link->prepare($sql);
+$stmt->bind_param("i", $_GET['id']);
+$stmt->execute();
+$result = $stmt->get_result()->fetch_assoc();
 
+$initialLikes = $result['likes'] ;
+$initialDislikes = $result['dislikes'] ;
+$totalReactions = $initialLikes + $initialDislikes;
+$porcentageGusto = $totalReactions > 0 ? ($initialLikes / $totalReactions) * 100 : 0;
 
-// foreach ($tags_array as $ta) {
-//     $sql = "SELECT id FROM tags WHERE tag = '" . $ta . "'";
-//     $query = mysqli_query($link, $sql);
-//     $tags_data = mysqli_fetch_all($query, MYSQLI_ASSOC);
-//     foreach ($tags_data as $td) {
-//         if (mysqli_num_rows($query) == 1) {
-//             $sql = "INSERT INTO tag_post(id, tag_id,post_id,fecha_alta,fecha_baja) VALUES (NULL,'" . $td['id'] . "','" . $_GET['id'] . "',NOW(),NULL)";
-//             $query = mysqli_query($link, $sql);
-//         }else{
-//             $sql = "INSERT INTO tags(id,tag) VALUES (NULL,'" . $ta . "'";
-//             $query = mysqli_query($link, $sql);
-//         }
-//         echo $ta;
-//     }
-// }
-
-
-/*
-if(mysqli_num_rows($query) == 1){
-            $sql = "INSERT INTO tag_post(id, tag_id,post_id,fecha_alta,fecha_baja) VALUES (NULL,'".$ta['id']."','".$_GET['id']."',NOW(),NULL)";
-            $query=mysqli_query($link,$sql);
-        }else{
-            $sql = "INSERT INTO tags(id, tag) VALUES (NULL, '" . $ta . "',)";
-            $query=mysqli_query($link,$sql);
-            $sql = "SELECT id FROM tags WHERE tag = '".$ta."'";
-            $query=mysqli_query($link,$sql);
-            $tags_data=mysqli_fetch_all($query,MYSQLI_ASSOC);
-            $sql = "INSERT INTO tag_post(id, tag_id,post_id,fecha_alta,fecha_baja) VALUES (NULL, '".$ta['id']."','".$_GET['id']."',NOW(),NULL)";
-            $query=mysqli_query($link,$sql);
-        }
-
-        if (mysqli_num_rows($query) == 0) {
-                $sql = "INSERT INTO tags(id, tag) VALUES (NULL, '" . $ta . "',)";
-                $query = mysqli_query($link, $sql);
-                $sql = "SELECT id FROM tags WHERE tag = '" . $ta . "'";
-                $query = mysqli_query($link, $sql);
-                $tags_data = mysqli_fetch_all($query, MYSQLI_ASSOC);
-                $sql = "INSERT INTO tag_post(id, tag_id,post_id,fecha_alta,fecha_baja) VALUES (NULL, '" . $td['id'] . "','" . $_GET['id'] . "',NOW(),NULL)";
-                $query = mysqli_query($link, $sql);
-            }
-*/
 
 $section = "post";
 $title = "Post";

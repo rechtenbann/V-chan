@@ -2,16 +2,16 @@
 <div style="padding: 20px;">
     <!-- Usuarios en línea -->
     <div id="userOnline" data-username="<?php echo $_SESSION['usuario']['usu_nombre']; ?>" style="margin-bottom: 10px;" hidden>
-        <!-- <span><strong>Usuarios en línea:</strong> <span id="onlineCount">0</span></span> -->
+        <span><strong>Usuarios en línea:</strong> <span id="onlineCount">0</span></span>
     </div>
     <!-- Conectar y desconectar del servidor-->
     <button id="connect">Conectar</button>
     <button id="disconnect" disabled>Desconectar</button>
     <!-- Caja de mensajes -->
     <div class="chat-container">
-    <div id="chatMessages" class="chat-messages" style="border: 5px solid black;"></div>
+    <div id="chatMessages" class="chat-messages" style="border: 3px solid #212121; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"></div>
     <div class="chat-input">
-        <textarea id="message" placeholder="Escribe un mensaje..." disabled></textarea>
+        <textarea id="message" placeholder="Escribe un mensaje..." disabled style="width:100%; border: 3px solid #212121; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"></textarea>
         <button id="send" disabled>Enviar</button>
     </div>
 </div>
