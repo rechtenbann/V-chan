@@ -43,12 +43,12 @@
                     </button></a>
             <?php } ?>
 
-            <?php for ($i = 1; $i <= ceil(intval($cant["c"]) / 4); $i++) { ?>
+            <?php for ($i = 1; $i <= ceil(intval($cant["c"]) / 18); $i++) { ?>
                 <a href="posts.php?pag=<?php echo $i; ?>&tag=<?php echo $_GET['tag'] ?>"><button
                         class="ace"><?php echo $i; ?></button></a>
             <?php } ?>
 
-            <?php if ($_GET['pag'] < ceil(intval($cant["c"]) / 4)) {
+            <?php if ($_GET['pag'] < ceil(intval($cant["c"]) / 18)) {
                 $pag = $_GET['pag'] + 1 ?>
                 <a href="posts.php?pag=<?php echo $pag; ?>&tag=<?php echo $_GET['tag'] ?>"><button class="ace">
                         <?php echo ">"; ?>
