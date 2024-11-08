@@ -78,7 +78,7 @@ if (!isset($_GET['tag'])||(isset($_GET['tag'])&&$_GET['tag']==1)) {
     }
 }
 
-$sql = "SELECT id,tag FROM tags";
+$sql = "SELECT id,tag FROM tags WHERE id <> 1";
 $query = mysqli_query($link, $sql);
 $tags = mysqli_fetch_all($query,MYSQLI_ASSOC);
 $cont = 0;
