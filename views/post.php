@@ -36,8 +36,9 @@
 
         <!-- Botón para mostrar el formulario -->
         <button onclick="toggleForm()" class="show-form-btn">+Tag</button>
+        <?php if($postData['id']==$_SESSION['usuario']['id']||$_SESSION['usuario']['rango']=="administrador"){ ?>
         <form method="post"><button type="submit" name="del" class="show-form-btn" style="background-color: red;">DELETE</button></form>
-
+        <?php } ?>
         <!-- Formulario de edición de tags, inicialmente oculto -->
         <form method="POST" class="form-container" id="tagForm" style="display: none;">
             <label for="tags">Add Tags (separate by commas):</label>
