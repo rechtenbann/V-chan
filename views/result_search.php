@@ -5,8 +5,9 @@ if (!empty($resultados_tags)) { ?>
     <h2>Etiquetas Encontradas:</h2>
     <ul>
         <?php foreach ($resultados_tags as $resultado) { ?>
-            <li>
-                <a href="posts.php?tag=<?php echo $resultado['id']; ?>"><?php echo htmlspecialchars($resultado['tag']); ?></a>
+            <li style="list-style-type: none;">
+            ▸ <a class="tag" href="posts.php?pag=1&tag=<?php echo $resultado['id']; ?>"
+                    style="display:inline-block; color: #212121;"><?php echo $resultado['tag'] ?></a>
             </li>
         <?php } ?>
     </ul>
@@ -38,12 +39,12 @@ if (!empty($resultados_tags)) { ?>
             <section class="carta">
                 <img src="img/blanco.jpg" alt="Fondo de la carta" class="fondoCarta">
                 <a href="profile.php?profile=<?php echo $user['id']; ?>">
-                    <img src="img/users/<?php echo $user['foto_perfil']; ?>" alt="Foto de perfil" class="fotoPerfil">
+                    <img src="img/users/<?php echo $user['foto_perfil']; ?>" alt="Foto de perfil" class="fotoPerfil" style="background-color: white;aspect-ratio: 1 / 1;">
                 </a>
-                <p><?php echo $isCurrentUser ? "Tu Perfil" : $user['usu_nombre']; ?></p>
+                <p style="color:white;font-family:AnimeAce"><?php echo $isCurrentUser ? "Tu Perfil" : $user['usu_nombre']; ?></p>
 
                 <?php if ($isLoggedIn && !$isCurrentUser) { ?>
-                    <p><?php echo $user['rango']; ?></p>
+                    <p style="color:white;"><?php echo $user['rango']; ?></p>
                     <section class="boton_boton">
                         <?php if ($status === 'accepted') { ?>
                             <a href="chat-private.php?chat_with=<?php echo $user['id']; ?>">
@@ -110,8 +111,9 @@ if (!empty($resultados_tags)) { ?>
     <h2>Etiquetas Encontradas:</h2>
     <ul>
         <?php foreach ($global_results['tags'] as $tag) { ?>
-            <li>
-                <a href="posts.php?tag=<?php echo $tag['id']; ?>"><?php echo htmlspecialchars($tag['tag']); ?></a>
+            <li style="list-style-type: none;">
+            ▸ <a class="tag" href="posts.php?pag=1&tag=<?php echo $tag['id']; ?>"
+                    style="display:inline-block; color: #212121;"><?php echo $tag['tag'] ?></a>
             </li>
         <?php } ?>
     </ul>
@@ -129,12 +131,12 @@ if (!empty($resultados_tags)) { ?>
     <section class="carta">
         <img src="img/blanco.jpg" alt="Fondo de la carta" class="fondoCarta">
         <a href="profile.php?profile=<?php echo $user['id']; ?>">
-            <img src="img/users/<?php echo $user['foto_perfil']; ?>" alt="Foto de perfil" class="fotoPerfil">
+            <img src="img/users/<?php echo $user['foto_perfil']; ?>" alt="Foto de perfil" class="fotoPerfil" style="background-color: white;aspect-ratio: 1 / 1;">
         </a>
-        <p><?php echo $isCurrentUser ? "Tu Perfil" : $user['usu_nombre']; ?></p>
+        <p style="color:white; font-family: AnimeAce;"><?php echo $isCurrentUser ? "You" : $user['usu_nombre']; ?></p>
         
         <?php if ($isLoggedIn && !$isCurrentUser) { ?>
-            <p><?php echo $user['rango']; ?></p>
+            <p style="color:white"><?php echo $user['rango']; ?></p>
             <section class="boton_boton">
                 <button id="botonSeguir">Enviar Mensaje</button>
             </section>

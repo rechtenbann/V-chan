@@ -12,8 +12,8 @@
             $query = mysqli_query($link, $sql);
             $countPosts = mysqli_fetch_assoc($query);
             ?>
-            <li style="list-style-type: none;"><a class="tag" href="posts.php?pag=1&tag=<?php echo $tag['id']; ?>"
-                    style="text-decoration:none;display:inline-block; color: #212121;font-family:AnimeAce">▸<?php echo $tag['tag'] ?></a><span
+            <li style="list-style-type: none;">▸ <a class="tag" href="posts.php?pag=1&tag=<?php echo $tag['id']; ?>"
+                    style="display:inline-block; color: #212121;"><?php echo $tag['tag'] ?></a><span
                     style=""><?php echo " (" . $countPosts['c'] . ")" ?></span>
             </li>
         <?php $cc++;}
