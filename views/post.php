@@ -1,21 +1,3 @@
-<script>
-    $(function () {
-
-        // optional: don't cache ajax to force the content to be fresh
-        $.ajaxSetup({
-            cache: false
-        });
-
-        // specify the server/url you want to load data from
-        var likes = "<?php echo $ll['v'] ?>";
-
-        // on click, load the data dynamically into the #demo div
-        // while loading, show three dots (…)
-        $("#like").click(function () {
-            $("#likes").load(likes);
-        });
-    });
-</script>
 <div class="contain">
     <div class="image-container">
         <picture>
@@ -28,119 +10,93 @@
         <div>
             <?php foreach ($tags as $tag) {
                 if ($tag['id'] != 1) { ?>
-                    <a href="posts.php?tag=<?php echo $tag['id']; ?>"><?php echo htmlspecialchars($tag['tag']); ?></a>
-                <?php }
+                    <a style="color: #212121;" href="posts.php?tag=<?php echo $tag['id']; ?>"><?php echo htmlspecialchars($tag['tag']); ?></a>
+            <?php }
             } ?>
         </div>
-
-
         <!-- Botón para mostrar el formulario -->
         <button onclick="toggleForm()" class="show-form-btn">+Tag</button>
-
-        <!-- Formulario de edición de tags, inicialmente oculto -->
         <form method="POST" class="form-container" id="tagForm" style="display: none;">
             <label for="tags">Add Tags (separate by commas):</label>
             <textarea name="tags" placeholder="e.g., nature, travel, animals"></textarea>
             <button type="submit" class="submit-btn">Submit</button>
         </form>
-        <!-- <p class="post-info"><?php echo "Uploaded on " . $date[0] . " by " . htmlspecialchars($postData['usu_nombre']); ?></p> -->
-        <p class="post-info"><?php echo "Uploaded on " . $date[0] . " by " ?><a href="profile.php?profile=<?php echo $postData['id']?>"><?php echo $postData['usu_nombre']?></a></p>
-        <form method="post">
-            <button type="submit" name="like" id="like" data-toggle="tooltip" data-placement="top"
-                title="like">LIKE</button>
-            <span id="likes"><?php echo $ll['v'] ?></span>
-    </div>
+        <p class="post-info"> <?php echo "Uploaded on " . $date[0] . " by " ?><a style="color: #212121;" href="profile.php?profile=<?php echo $postData['id'] ?>"><?php echo $postData['usu_nombre'] ?></a>
+        </p>
+        <p><strong>Visitas:</strong> <span id="visitCount"><?php echo $initialVisitCount; ?></span></p>
+        <?php if (isset($_SESSION['usuario'])): ?>
+            <div>
+                <button onclick="reactToPost(<?php echo $postData['id_post']; ?>, 'like')" id="like-button">
+                    👍 Like (<span id="like-count"><?php echo $initialLikes; ?></span>)
+                </button>
+                <button onclick="reactToPost(<?php echo $postData['id_post']; ?>, 'dislike')" id="dislike-button">
+                    👎 Dislike (<span id="dislike-count"><?php echo $initialDislikes; ?></span>)
+                </button>
+            </div><?php else: ?>
+            <p>Log in to like or dislike this post.</p>
+        <?php endif; ?>
+        <p><strong>Porcentaje de Gusto:</strong> <span id="like-percentage"><?php echo number_format($porcentageGusto, 2); ?>%</span></p>
+        </div>
 </div>
 <script>
     function toggleForm() {
         var form = document.getElementById("tagForm");
         form.style.display = (form.style.display === "none") ? "block" : "none";
     }
+    $(document).ready(function() {
+        function updateVisitCount() {
+            $.ajax({
+                url: 'update_visits.php?id=<?php echo $post_id; ?>',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    if (data && data.visitas) {
+                        $('#visitCount').text(data.visitas);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error al actualizar el contador de visitas:", error);
+                }
+            });
+        }
+
+        // Llamar a la función para actualizar el contador al cargar la página
+        updateVisitCount();
+    });
+
+    function reactToPost(postId, reaction) {
+    fetch('like_dislike.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `post_id=${postId}&reaction=${reaction}`
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            alert(data.error);
+        } else {
+            // Actualizar los contadores de likes y dislikes en el frontend
+            document.getElementById('like-count').innerText = data.likes;
+            document.getElementById('dislike-count').innerText = data.dislikes;
+
+            // Calcular y mostrar el nuevo porcentaje de gusto
+            const totalReactions = data.likes + data.dislikes;
+            const likePercentage = totalReactions > 0 ? (data.likes / totalReactions) * 100 : 0;
+            document.getElementById('like-percentage').textContent = likePercentage.toFixed(2) + '%';
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+
+    function updateCounts(newLikes, newDislikes) {
+        const totalReactions = newLikes + newDislikes;
+        const likePercentage = totalReactions > 0 ? (newLikes / totalReactions) * 100 : 0;
+        const dislikePercentage = totalReactions > 0 ? (newDislikes / totalReactions) * 100 : 0;
+
+        document.getElementById("like-count").textContent = newLikes;
+        document.getElementById("dislike-count").textContent = newDislikes;
+        document.getElementById("like-percentage").textContent = likePercentage.toFixed(2) + '%';
+        document.getElementById("dislike-percentage").textContent = dislikePercentage.toFixed(2) + '%';
+    }
 </script>
-
-<style>
-    .contain {
-        display: flex;
-        gap: 20px;
-        padding: 20px;
-        background-color: #f9f9f9;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 10px;
-    }
-
-    .image-container img {
-        max-width: 100%;
-        border-radius: 8px;
-    }
-
-    .content-container {
-        max-width: 400px;
-        font-family: Arial, sans-serif;
-    }
-
-    .tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 10px;
-        margin-bottom: 15px;
-    }
-
-    .tag {
-        background-color: #e1e1e1;
-        color: #555;
-        padding: 5px 12px;
-        border-radius: 12px;
-        text-decoration: none;
-        font-size: 0.9rem;
-        transition: background-color 0.3s;
-    }
-
-    .tag:hover {
-        background-color: #d1d1d1;
-    }
-
-    .post-info {
-        font-size: 0.9rem;
-        color: #777;
-        margin: 10px 0;
-    }
-
-    .show-form-btn {
-        background-color: #008cba;
-        color: white;
-        border: none;
-        padding: 8px 16px;
-        border-radius: 4px;
-        font-size: 0.9rem;
-        cursor: pointer;
-        transition: background-color 0.3s;
-        margin-top: 10px;
-    }
-
-    .show-form-btn:hover {
-        background-color: #007bb5;
-    }
-
-    .form-container {
-        margin-top: 15px;
-        background-color: #fff;
-        padding: 15px;
-        border-radius: 8px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    textarea {
-        width: 100%;
-        height: 60px;
-        margin-top: 8px;
-        padding: 8px;
-        font-size: 0.9rem;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        resize: none;
-    }
-</style>
