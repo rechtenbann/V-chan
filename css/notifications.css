@@ -1,0 +1,34 @@
+.solicitud{
+    width: 30%;
+    padding: 1.5%;
+    border: 3px solid #212121;
+    margin-bottom: 1.5%;
+    font-family: AnimeAce;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.buttonNotification{
+    padding: 2%;
+    font-family: AnimeAce;
+    color: #212121;
+    background: #f8f9f9;
+    border: 3px solid #212121;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+}
+
+.buttonNotification:focus{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+h3{
+    color: #212121;
+    font-size: 25px;
+    margin-left: 3%;
+    font-family: AnimeAce;
+}
+
+p{
+    font-size: 20px;
+    margin: 0px 0px 15px 0px;
+}

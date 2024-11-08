@@ -6,6 +6,7 @@ body{
 .containerForm{
     width: 25%;
     padding: 2%;
+    margin: 25px 0px 25px 0px;
     background: #f8f9f9;
     border: 5px solid #212121;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -20,6 +21,7 @@ label{
 
 p{
     color: #212121;
+    font-family: AnimeAce;
 }
 
 .inputSubmitForm{
@@ -39,7 +41,7 @@ p{
     color: #212121;
     border: 3px solid #212121;
     outline: none;
-    transition: box-shadow 0.3s ease;;
+    transition: box-shadow 0.3s ease;
 }
 
 .inputTextForm:focus{
