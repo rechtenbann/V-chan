@@ -111,8 +111,8 @@ $sql="SELECT COUNT(*) AS dislikes FROM post_reactions WHERE reaction_type='disli
 $query=mysqli_query($link,$sql);
 $dislikes=mysqli_fetch_assoc($query);
 
-$totalReactions=$likes['likes']+$dislikes['dislikes'];
-$percentage=ceil(($likes['likes']/$totalReactions)*100);
+// $totalReactions=$likes['likes']+$dislikes['dislikes'];
+// $percentage=ceil(($likes['likes']/$totalReactions)*100);
 
 $section = "post";
 $title = "Post";
