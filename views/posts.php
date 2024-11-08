@@ -7,7 +7,7 @@
     <ul class="tags" style="float: left;">
         <?php $cc = 0;
         foreach ($tags as $tag) {
-            if ($cc < 50) {
+            if ($cc < 20) {
                 $sql = "SELECT COUNT(*) AS c FROM posts AS p INNER JOIN tag_post AS tp ON tp.post_id = p.id AND tp.tag_id = '" . $tag['id'] . "'";
                 $query = mysqli_query($link, $sql);
                 $countPosts = mysqli_fetch_assoc($query);
@@ -43,12 +43,12 @@
                     </button></a>
             <?php } ?>
 
-            <?php for ($i = 1; $i <= ceil(intval($cant["c"]) / 18); $i++) { ?>
+            <?php for ($i = 1; $i <= ceil(intval($cant["c"]) / $cpp); $i++) { ?>
                 <a href="posts.php?pag=<?php echo $i; ?>&tag=<?php echo $_GET['tag'] ?>"><button
                         class="ace"><?php echo $i; ?></button></a>
             <?php } ?>
 
-            <?php if ($_GET['pag'] < ceil(intval($cant["c"]) / 18)) {
+            <?php if ($_GET['pag'] < ceil(intval($cant["c"]) / $cpp)) {
                 $pag = $_GET['pag'] + 1 ?>
                 <a href="posts.php?pag=<?php echo $pag; ?>&tag=<?php echo $_GET['tag'] ?>"><button class="ace">
                         <?php echo ">"; ?>

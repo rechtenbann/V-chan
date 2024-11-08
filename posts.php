@@ -1,4 +1,5 @@
 <?php
+$cpp=21;
 require_once "includes/config.php";
 if (!isset($_GET['tag'])||(isset($_GET['tag'])&&$_GET['tag']==1)) {
     $sql = "SELECT * FROM posts  WHERE fecha_baja IS NULL ORDER BY fecha_alta DESC";
@@ -13,9 +14,9 @@ if (!isset($_GET['tag'])||(isset($_GET['tag'])&&$_GET['tag']==1)) {
     $cant = mysqli_fetch_assoc($query);
     if (isset($_GET['pag'])) {
         $pag = intval($_GET['pag']);
-        if ($pag <= ceil(intval($cant["c"]) / 18)) {
-            $in = ($pag * 18) - 18;
-            $sql = "SELECT * FROM posts WHERE fecha_baja IS NULL ORDER BY fecha_alta DESC LIMIT $in,18";
+        if ($pag <= ceil(intval($cant["c"]) / $cpp)) {
+            $in = ($pag * $cpp) - $cpp;
+            $sql = "SELECT * FROM posts WHERE fecha_baja IS NULL ORDER BY fecha_alta DESC LIMIT $in,".$cpp;
 
             $query = mysqli_query($link, $sql);
 
@@ -26,7 +27,7 @@ if (!isset($_GET['tag'])||(isset($_GET['tag'])&&$_GET['tag']==1)) {
             $posts = mysqli_fetch_all($query, MYSQLI_ASSOC);
         }
     } else {
-        $sql = "SELECT * FROM posts WHERE fecha_baja IS NULL ORDER BY fecha_alta DESC LIMIT 0,18";
+        $sql = "SELECT * FROM posts WHERE fecha_baja IS NULL ORDER BY fecha_alta DESC LIMIT 0,".$cpp;
 
         $query = mysqli_query($link, $sql);
 
@@ -53,9 +54,9 @@ if (!isset($_GET['tag'])||(isset($_GET['tag'])&&$_GET['tag']==1)) {
     $cant = mysqli_fetch_assoc($query);
     if (isset($_GET['pag'])) {
         $pag = intval($_GET['pag']);
-        if ($pag <= ceil(intval($cant["c"]) / 18)) {
-            $in = ($pag * 18) - 18;
-            $sql = "SELECT p.* FROM posts AS p INNER JOIN tag_post AS tp ON tp.post_id = p.id AND tp.tag_id = '".$_GET['tag']."' AND p.fecha_baja IS NULL ORDER BY p.fecha_alta DESC LIMIT $in,18";
+        if ($pag <= ceil(intval($cant["c"]) / $cpp)) {
+            $in = ($pag * $cpp) - $cpp;
+            $sql = "SELECT p.* FROM posts AS p INNER JOIN tag_post AS tp ON tp.post_id = p.id AND tp.tag_id = '".$_GET['tag']."' AND p.fecha_baja IS NULL ORDER BY p.fecha_alta DESC LIMIT $in,".$cpp;
 
             $query = mysqli_query($link, $sql);
 
@@ -66,7 +67,7 @@ if (!isset($_GET['tag'])||(isset($_GET['tag'])&&$_GET['tag']==1)) {
             $posts = mysqli_fetch_all($query, MYSQLI_ASSOC);
         }
     } else {
-        $sql = "SELECT p.* FROM posts AS p INNER JOIN tag_post AS tp ON tp.post_id = p.id AND tp.tag_id = '".$_GET['tag']."' AND p.fecha_baja IS NULL ORDER BY p.fecha_alta DESC LIMIT 0,18";
+        $sql = "SELECT p.* FROM posts AS p INNER JOIN tag_post AS tp ON tp.post_id = p.id AND tp.tag_id = '".$_GET['tag']."' AND p.fecha_baja IS NULL ORDER BY p.fecha_alta DESC LIMIT 0,".$cpp;
 
         $query = mysqli_query($link, $sql);
 
