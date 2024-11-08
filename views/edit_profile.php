@@ -58,9 +58,29 @@
     <!--Fin edit contra-->
 </div>
 <div id="ei" class="modal" style="width:29rem;">
-    <a style="text-decoration: none; color: black; cursor: default;">
+    <a style="text-decoration: none; color: black; cursor: default;" <?php if(isset($_GET['RLLVTeam'])&&$_GET['RLLVTeam']=='t'){echo "href='#sec' rel='modal:open'";}?> >
         <h3 style="color: black">Default</h3>
     </a>
+
+
+    <div id="sec" class="modal" style="width:15rem">
+        <div style="display: inline-block;">
+                <form method="post" class="option-form">
+                    <input type="hidden" name="v2" value="v2.png" class="Height">
+                    <input title="Set v2 as profile photo" type="image" id="v2" class="option-photo" name="v2" value="v2.png" alt="Login" src="img/users/v2.png">
+                    <label style="display: block; text-align: center;">P</label>
+                </form>
+            </div>
+    </div>
+
+
+
+
+
+
+
+
+
     <div style="border-bottom: 1px solid black;border-top: 1px solid black;">
         <div>
             <div class="Height">

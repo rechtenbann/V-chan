@@ -34,7 +34,7 @@
 			</a><br>
 			<img src="img/Q-chan2.png" alt="" style="width: 10rem; margin-top:100px; border: 5px solid black">
 		</div> -->
-		<div><div class="tooltip fl" style="border-radius:11px 11px 0px 11px"><b style="font-size: 15px;">Click me to ask a question</b></div>
+		<div style="margin-left: 30px;"><div class="tooltip fl" style="border-radius:11px 11px 0px 11px"><b style="font-size: 15px;">Click me to ask a question</b></div>
 			<a href="#ei" rel="modal:open" id="image" style="color:black; text-decoration: none;">
 				
 				<br><img src="img/Q-chan2.png" class="ask" alt="" style="width: 10rem; border: 5px solid black">

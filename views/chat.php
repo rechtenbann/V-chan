@@ -2,7 +2,7 @@
 <div style="padding: 20px;">
     <!-- Usuarios en línea -->
     <div id="userOnline" data-username="<?php echo $_SESSION['usuario']['usu_nombre']; ?>" style="margin-bottom: 10px;" hidden>
-        <span><strong>Usuarios en línea:</strong> <span id="onlineCount">0</span></span>
+        <!-- <span><strong>Usuarios en línea:</strong> <span id="onlineCount">0</span></span> -->
     </div>
     <!-- Conectar y desconectar del servidor-->
     <button id="connect">Conectar</button>

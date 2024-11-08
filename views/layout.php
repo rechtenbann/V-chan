@@ -14,6 +14,7 @@ require_once "includes/config.php";
     <link rel="icon" href="img/org_3.png" height=32px weight=32px>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="img/favicon.ico" rel="icon">
+    <link rel="stylesheet" href="css/form.css">
     <link href="css/styles.css" rel="stylesheet">
     <link href="css/fonts.css" rel="stylesheet">
  <link href="css/cards.css" rel="stylesheet">

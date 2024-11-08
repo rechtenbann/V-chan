@@ -556,3 +556,14 @@ a:visited {
   background-repeat: no-repeat;
   background-size: 1000% 2px;
 }
+
+.tag{
+  font-family: AnimeAce;
+}
+.tag:hover{
+  animation: jump 0.3s ease-in-out;
+}
+
+.post:hover{
+  animation: jump 0.3s ease-in-out;
+}
