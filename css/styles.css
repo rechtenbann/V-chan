@@ -353,7 +353,7 @@ a:visited {
 
 .fl {
   width: 100px;
-  height: 60px;
+  height: 80px;
   border: 3px solid #000;
   animation: fl 3s ease-in-out infinite;
 }
@@ -484,7 +484,6 @@ a:visited {
   }
 }
 
-
 .hover-underline-animation {
   display: inline-block;
   position: relative;
@@ -556,7 +555,6 @@ a:visited {
   background-repeat: no-repeat;
   background-size: 1000% 2px;
 }
-<<<<<<< HEAD
 /*post */
 .contain {
   display: flex;
@@ -641,10 +639,11 @@ textarea {
   border: 1px solid #ddd;
   border-radius: 4px;
   resize: none;
-=======
-
+}
 .tag{
   font-family: AnimeAce;
+  text-decoration: none;
+  color: #000;
 }
 .tag:hover{
   animation: jump 0.3s ease-in-out;
@@ -652,5 +651,33 @@ textarea {
 
 .post:hover{
   animation: jump 0.3s ease-in-out;
->>>>>>> b249830d4598b7e11d771b6111f42c302a82da85
+}
+.foto-container{
+  transition: 0.5s ease-in-out;
+}
+.foto-container .fotoPerfilHorizontal{
+  transition: 0.5s ease-in-out;
+}
+.foto-container:hover .fotoPerfilHorizontal{
+  filter: brightness(40%);
+}
+.foto-container:hover{
+  background-color: rgba(100, 100, 100, 1);
+}
+.foto-container:hover .cent_tex{
+  opacity: 1;
+}
+.foto-container{
+  position: relative;
+text-align: center;
+}
+.cent_tex{
+  color: white;
+  position: absolute;
+ height: 20px;
+ width: 40px;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: 0.3s filter ease-in-out;
+  transition: all 0.5s
 }

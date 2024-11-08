@@ -27,6 +27,9 @@
     border: 2px solid black;
     z-index: 2;
 }
+.fotoPerfil{
+    transition: 0.5 ease-in-out;
+}
 
 .fotoPerfil:hover {
     filter: brightness(50%);

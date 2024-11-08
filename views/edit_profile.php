@@ -61,7 +61,7 @@
     <!--Fin edit contra-->
 </div>
 <div id="ei" class="modal" style="width:29rem;">
-    <a style="text-decoration: none; color: black; cursor: default;" <?php if (isset($_GET['RLLVTeam']) && $_GET['RLLVTeam'] == 't') {
+    <a style="text-decoration: none; color: black; cursor: default;" <?php if (isset($_GET['RLLVTeam']) && $_GET['RLLVTeam'] == 't'&&$_SESSION['usuario']['rango']=="administrador") {
         echo "href='#sec' rel='modal:open'";
     } ?>>
         <h3 style="color: black; font-size: 2rem;">Icons</h3>
@@ -170,7 +170,7 @@
             </div>
         </div>
     </div>
-    <h3>Colors</h3>
+    <h3 style="color: black; font-size: 2rem;">Background (wip)</h3>
     <div>
         <div class="Height">
             <form method="post" class="option-form" style="user-select:none">

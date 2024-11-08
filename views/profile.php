@@ -1,9 +1,11 @@
 <link rel="stylesheet" href="css/profile.css">
 <?php if (!isset($_GET['profile']) || $_GET['profile'] == $_SESSION['usuario']['id']) { ?>
     <section class="perfil-horizontal contenido" id="perfil">
-        <div class="foto-container">
+        <div class="foto-container" style="aspect-ratio: 1 / 1; object-fit: cover;">
             <a href="#ei" rel="modal:open" id="image"><img src="img/users/<?php echo $_SESSION['usuario']['foto_perfil']; ?>" alt="Foto de perfil" class="fotoPerfilHorizontal" style="aspect-ratio: 1 / 1; object-fit: cover;"></a>
+            
         </div>
+        <div class="cent_tex" href="#ei" data-toggle="modal"><a>edit</a></div>
         <div class="linea-separadora"></div>
         <div class="infoPerfil">
             <h2><?php echo ($_SESSION['usuario']['usu_nombre']);
@@ -42,7 +44,7 @@
 <?php } else { ?>
     <section id="perfil" class="contenido perfil-horizontal">
         <div class="foto-container">
-            <img src="img/users/<?php echo htmlspecialchars($user['foto_perfil']); ?>" alt="Foto de perfil" class="fotoPerfilHorizontal">
+            <img src="img/users/<?php echo htmlspecialchars($user['foto_perfil']); ?>" alt="Foto de perfil" class="fotoPerfilHorizontal" style="aspect-ratio: 1 / 1; object-fit: cover;">
         </div>
         <div class="linea-separadora"></div>
         <div class="infoPerfil">
