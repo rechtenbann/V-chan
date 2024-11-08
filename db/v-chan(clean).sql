@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-11-2024 a las 06:10:12
+-- Tiempo de generación: 08-11-2024 a las 06:40:09
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -33,21 +33,6 @@ CREATE TABLE `chat_requests` (
   `receiver_id` int(255) NOT NULL,
   `status` enum('pending','accepted','rejected','') NOT NULL,
   `timestamp` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `dislike_post`
---
-
-CREATE TABLE `dislike_post` (
-  `id` int(11) NOT NULL,
-  `val` tinyint(1) NOT NULL,
-  `usuario_id` int(11) NOT NULL,
-  `post_id` int(11) NOT NULL,
-  `fecha_alta` int(11) NOT NULL,
-  `fecha_baja` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -107,21 +92,6 @@ CREATE TABLE `forum_img` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `like_post`
---
-
-CREATE TABLE `like_post` (
-  `id` int(11) NOT NULL,
-  `val` tinyint(1) NOT NULL,
-  `usuario_id` int(11) NOT NULL,
-  `post_id` int(11) NOT NULL,
-  `fecha_alta` int(11) NOT NULL,
-  `fecha_baja` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `online_chat`
 --
 
@@ -158,9 +128,26 @@ CREATE TABLE `posts` (
   `id` int(255) NOT NULL,
   `usuario_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `image` text NOT NULL,
+  `visitas` int(255) NOT NULL,
+  `likes` int(11) NOT NULL,
+  `dislikes` int(11) NOT NULL,
   `fecha_alta` datetime DEFAULT NULL,
   `fecha_baja` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `post_reactions`
+--
+
+CREATE TABLE `post_reactions` (
+  `id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `reaction_type` enum('like','dislike') NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -195,15 +182,6 @@ CREATE TABLE `rango_usuario` (
   `fecha_alta` datetime DEFAULT NULL,
   `fecha_baja` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `rango_usuario`
---
-
-INSERT INTO `rango_usuario` (`id`, `rango_id`, `usu_id`, `fecha_alta`, `fecha_baja`) VALUES
-(1, 1, 1, '2024-11-04 23:31:25', NULL),
-(2, 2, 2, '2024-11-04 23:31:46', NULL),
-(3, 3, 3, '2024-11-04 23:35:20', NULL);
 
 -- --------------------------------------------------------
 
@@ -261,9 +239,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `usu_nombre`, `usu_clave`, `usu_email`, `foto_perfil`, `nsfw_allow`, `dark_mode`, `followers`, `fecha_alta`, `fecha_baja`) VALUES
-(1, 'reichsacht', '5eb3c70fb1c47a19a7b6674092c19fc0', 'rechtenbann@gmail.com', 'sui.png', 0, 0, 0, '2024-11-04 23:31:25', NULL),
-(2, 'test', '202cb962ac59075b964b07152d234b70', 'test0243156@gmail.com', 'default4.png', 0, 0, 1, '2024-11-04 23:31:46', NULL),
-(3, 'ryuu', '4297f44b13955235245b2497399d7a93', 'hratzeld@gmail.com', 'default3.png', 0, 0, 0, '2024-11-04 23:35:20', NULL);
+(1, 'reichsacht', '5eb3c70fb1c47a19a7b6674092c19fc0', 'rechtenbann@gmail.com', 'default1.png', 0, 0, 0, '2024-11-04 23:31:25', NULL),
+(2, 'test', '202cb962ac59075b964b07152d234b70', 'test0243156@gmail.com', 'default1.png', 0, 0, 1, '2024-11-04 23:31:46', NULL),
+(3, 'ryuu', '4297f44b13955235245b2497399d7a93', 'hratzeld@gmail.com', 'default1.png', 0, 0, 0, '2024-11-04 23:35:20', NULL),
+(4, 'laydo', '202cb962ac59075b964b07152d234b70', 'laydo@gmail.com', 'default1.png', 0, 0, 0, '2024-11-06 15:45:05', NULL);
 
 -- --------------------------------------------------------
 
@@ -279,6 +258,19 @@ CREATE TABLE `videos` (
   `fecha_baja` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `visitas_post`
+--
+
+CREATE TABLE `visitas_post` (
+  `id` int(11) NOT NULL,
+  `usuario_id` int(11) DEFAULT NULL,
+  `post_id` int(11) DEFAULT NULL,
+  `fecha_visita` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Índices para tablas volcadas
 --
@@ -287,12 +279,6 @@ CREATE TABLE `videos` (
 -- Indices de la tabla `chat_requests`
 --
 ALTER TABLE `chat_requests`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `dislike_post`
---
-ALTER TABLE `dislike_post`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -320,12 +306,6 @@ ALTER TABLE `forum_img`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `like_post`
---
-ALTER TABLE `like_post`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indices de la tabla `online_chat`
 --
 ALTER TABLE `online_chat`
@@ -342,6 +322,13 @@ ALTER TABLE `online_chat_ans`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `post_reactions`
+--
+ALTER TABLE `post_reactions`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `unique_reaction` (`post_id`,`user_id`);
 
 --
 -- Indices de la tabla `rangos`
@@ -380,6 +367,12 @@ ALTER TABLE `videos`
   ADD PRIMARY KEY (`vid_id`);
 
 --
+-- Indices de la tabla `visitas_post`
+--
+ALTER TABLE `visitas_post`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -388,12 +381,6 @@ ALTER TABLE `videos`
 --
 ALTER TABLE `chat_requests`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `dislike_post`
---
-ALTER TABLE `dislike_post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `followers_users`
@@ -414,16 +401,16 @@ ALTER TABLE `forum_ans`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `like_post`
---
-ALTER TABLE `like_post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `posts`
 --
 ALTER TABLE `posts`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `post_reactions`
+--
+ALTER TABLE `post_reactions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `rangos`
@@ -435,7 +422,7 @@ ALTER TABLE `rangos`
 -- AUTO_INCREMENT de la tabla `rango_usuario`
 --
 ALTER TABLE `rango_usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `tags`
@@ -453,7 +440,13 @@ ALTER TABLE `tag_post`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `visitas_post`
+--
+ALTER TABLE `visitas_post`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
