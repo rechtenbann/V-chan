@@ -25,7 +25,7 @@ if (isset($_POST['del'])) {
     $query=mysqli_query($link,$sql);
     header("Location:posts.php?pag=1&tag=1");
 }
-$sql = "SELECT u.usu_nombre,u.id,p.image FROM usuarios AS u
+$sql = "SELECT u.usu_nombre,u.id,p.image,p.id as id_post FROM usuarios AS u
 INNER JOIN posts AS p 
 ON p.id='" . $_GET['id'] . "' AND p.usuario_id=u.id";
 $query = mysqli_query($link, $sql);
