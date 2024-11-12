@@ -1,3 +1,4 @@
+<a href="javascript:history.go(-1)" title="Return to previous page" style="color: #212121;">« Go back</a>
 <div class="contain">
     <div class="image-container">
         <picture>
