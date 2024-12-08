@@ -32,7 +32,7 @@
                     $isVid = strtolower($extension) == 'mp4';
                     ?>
                     <a href="post.php?id=<?php echo $post['id'] ?>" style="text-decoration: none;">
-                    <img class="post <?php if($isGif){echo "gif-toggle gif";}else if($isVid){echo "vid";}?>" 
+                    <img class="post <?php if($isGif){echo "gif-toggle gif";}else if($isVid){echo "vid vload";}?>" 
                          src="img/posts/preview/<?php echo $post['image']; ?>" 
                          height=200 width=150 
                          style="object-fit: cover; padding:2px;"

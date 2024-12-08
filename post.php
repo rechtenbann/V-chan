@@ -115,5 +115,5 @@ $dislikes=mysqli_fetch_assoc($query);
 // $percentage=ceil(($likes['likes']/$totalReactions)*100);
 
 $section = "post";
-$title = "Post";
+$title = "Posts / ".$_GET['id'];
 require_once "views/layout.php";

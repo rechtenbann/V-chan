@@ -670,3 +670,25 @@ text-align: center;
       background-position: -7px 0, 7px 100%, 0 7px, 100% -7px;
   }
 }
+
+.vload{
+  display: inline-block;
+  position: relative;
+  color: #f00;
+}
+.vload:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #f00;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.vload:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
