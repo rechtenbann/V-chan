@@ -25,7 +25,7 @@ if (isset($_POST['del'])) {
     $query=mysqli_query($link,$sql);
     header("Location:posts.php?pag=1&tag=1");
 }
-$sql = "SELECT u.usu_nombre,u.id,p.image,p.id as id_post FROM usuarios AS u
+$sql = "SELECT u.usu_nombre,u.id,p.original,p.id as id_post FROM usuarios AS u
 INNER JOIN posts AS p 
 ON p.id='" . $_GET['id'] . "' AND p.usuario_id=u.id";
 $query = mysqli_query($link, $sql);
@@ -39,13 +39,13 @@ $date = mysqli_fetch_row($query);
 // Obtener tags del post
 $sql = "SELECT t.id, t.tag FROM tag_post AS tp
 INNER JOIN tags AS t ON tp.tag_id = t.id
-WHERE tp.post_id = " . $_GET['id'] . " AND tp.fecha_baja IS NULL";
+WHERE tp.post_id = " . $_GET['id'] . " AND tp.fecha_baja IS NULL  ORDER BY t.tag ASC";
 $query = mysqli_query($link, $sql);
 $tags = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
 // Insertar nuevas tags
 if (isset($_POST['tags'])) {
-    $tags_array = preg_split("/[\s,]+/", $_POST['tags']);
+    $tags_array = preg_split("/[\s]+/", $_POST['tags']);
     foreach ($tags_array as $new_tag) {
         $sql = "SELECT id FROM tags WHERE tag = '" . mysqli_real_escape_string($link, trim($new_tag)) . "'";
         $query = mysqli_query($link, $sql);

@@ -1,4 +1,3 @@
-images
 <form action="upload.php" method="POST" enctype="multipart/form-data">
 <label>
 <input type="file" name="image" accept="image/*,video/*">

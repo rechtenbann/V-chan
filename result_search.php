@@ -44,7 +44,7 @@ if (isset($_GET['query'])) {
             $query_forums = mysqli_query($link, $sql_forums);
             $global_results['post_forum'] = mysqli_fetch_all($query_forums, MYSQLI_ASSOC);
            }
-    }elseif (strpos($input, 'secc') === 0) { // Búsqueda de foro
+    }elseif (strpos($input, 'adm.access(profile)') === 0) { // Búsqueda de foro
        if($_SESSION['usuario']['rango']=="administrador"){
         header("location: profile.php?profile=".$_SESSION['usuario']['id']."&RLLVTeam=t");
        }else{

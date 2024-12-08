@@ -1,3 +1,7 @@
+<form method="post">
+<input type="submit" value="test" name="test">
+<input type="submit" value="test2" name="test2">
+</form>
 <h3 class="manga">Manga</h3>
 <a class="manga">ABCDEFGHIJKLMNÑOPQRSTUVWXYZ<br>abcdefghijklmnñopqrstuvwxyz<br>@|1234567890'¿!"#$%&/()=?¡´+{}¨*[],.-;:_\~^`</a><br>
 <h3 class="kioshima">Kioshima</h3>
