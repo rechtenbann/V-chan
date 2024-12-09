@@ -14,10 +14,14 @@ if (isset($_FILES['image'])) {
     // Generar un nombre temporal para la imagen o video (puede ser un timestamp o un nombre aleatorio)
     $tempFileName = uniqid('temp_') . "." . $extension;
 
+    // Obtener el título del formulario (si existe)
+    $title = isset($_POST['title']) && !empty($_POST['title']) ? $_POST['title'] : '';
+
     // Mover el archivo original a la carpeta "original" con un nombre temporal
     if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadDirOriginal . $tempFileName)) {
-        // Insertar en la base de datos, sin usar el ID por ahora
-        $sql = "INSERT INTO posts (usuario_id, fecha_alta, original) VALUES (1, NOW(), '" . $tempFileName . "');";
+        // Insertar en la base de datos, usando el título proporcionado (o el ID si está vacío)
+        $titleToInsert = $title ? $title : "ID-" . uniqid(); // Si no hay título, usamos el ID temporal
+        $sql = "INSERT INTO posts (usuario_id, fecha_alta, original, title) VALUES (1, NOW(), '" . $tempFileName . "', '" . mysqli_real_escape_string($link, $titleToInsert) . "');";
         $query = mysqli_query($link, $sql);
         $lid = mysqli_insert_id($link);  // Obtener el ID insertado
 
@@ -28,7 +32,6 @@ if (isset($_FILES['image'])) {
         // Verificar si es un video o una imagen
         if (in_array($extension, ['mp4', 'avi', 'mov', 'mkv'])) {
             // Para los videos, renombramos el archivo original con el ID
-            // Mover y renombrar el video con el ID
             rename($uploadDirOriginal . $newOriginalFileName, $uploadDirOriginal . $lid . "." . $extension);
             $newOriginalFileName = $lid . "." . $extension;
 
@@ -37,7 +40,8 @@ if (isset($_FILES['image'])) {
             $command = "ffmpeg -i " . $uploadDirOriginal . $newOriginalFileName . " -ss 00:00:02.000 -vframes 1 " . $thumbnailPath;
             exec($command); // Ejecutar el comando para crear la miniatura
             $sql = "UPDATE posts SET original='" . $newOriginalFileName . "' WHERE id = '" . $lid . "'";
-            $query=mysqli_query($link ,$sql);
+            $query = mysqli_query($link ,$sql);
+
             // Si la miniatura fue creada correctamente, actualizamos la base de datos
             if (file_exists($thumbnailPath)) {
                 $previewFileName = $lid . ".png";
@@ -47,6 +51,14 @@ if (isset($_FILES['image'])) {
                 echo "Error al generar la miniatura del video.";
                 exit;
             }
+        } elseif (in_array($extension, ['mp3', 'm4a', 'wav', 'flac'])) {
+            // Para los archivos de audio, asignamos 'audio.png' tanto al original como a la miniatura
+            $newOriginalFileName = $lid.'.'.$extension;  // Nombre para el archivo original de audio
+            $previewFileName = 'audio.png';      // Nombre para la miniatura de audio (la misma imagen para audio)
+
+            // Actualizamos la base de datos con "audio.png"
+            $sql = "UPDATE posts SET original='" . $newOriginalFileName . "', image='" . $previewFileName . "' WHERE id = '" . $lid . "'";
+            $query = mysqli_query($link, $sql);
         } else {
             // Para las imágenes, generamos una versión en miniatura (como en tu código original)
             $imagePath = $uploadDirOriginal . $newOriginalFileName;

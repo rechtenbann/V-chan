@@ -30,12 +30,13 @@
                     // Verificar si el archivo es un gif
                     $isGif = strtolower($extension) == 'gif';
                     $isVid = strtolower($extension) == 'mp4';
+                    $isAud = strtolower($extension) == 'mp3';
                     ?>
                     <a href="post.php?id=<?php echo $post['id'] ?>" style="text-decoration: none;">
-                    <img class="post <?php if($isGif){echo "gif-toggle gif";}else if($isVid){echo "vid vload";}?>" 
+                    <img class="post <?php if($isGif){echo "gif-toggle gif";}else if($isVid){echo "vid vload";}else if($isAud){echo "aud aud-toggle aud-container";}?>" 
                          src="img/posts/preview/<?php echo $post['image']; ?>" 
                          height=200 width=150 
-                         style="object-fit: cover; padding:2px;"
+                         style="<?php if(in_array(strtolower($extension), ['mp3', 'm4a', 'wav', 'flac'])){echo "object-fit: contain;";}else{echo "object-fit: cover;";}?> padding:2px;"
                          <?php if(isset($post['original'])){?>data-gif="img/posts/original/<?php echo $post['original'];}?>">
                     </a>
                 <?php }

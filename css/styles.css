@@ -636,15 +636,20 @@ text-align: center;
 
 .gif {
   background: 
-      linear-gradient(90deg, #333 50%, transparent 0) repeat-x,
-      linear-gradient(90deg, #333 50%, transparent 0) repeat-x,
-      linear-gradient(0deg, #333 50%, transparent 0) repeat-y,
-      linear-gradient(0deg, #333 50%, transparent 0) repeat-y;
+      linear-gradient(90deg, #444 50%, transparent 0) repeat-x,
+      linear-gradient(90deg, #444 50%, transparent 0) repeat-x,
+      linear-gradient(0deg, #444 50%, transparent 0) repeat-y,
+      linear-gradient(0deg, #444 50%, transparent 0) repeat-y;
   background-size: 7px 2px, 7px 2px, 2px 7px, 2px 7px;
   background-position: 0 0, 0 100%, 0 0, 100% 0;
 }
 .gif:hover {
   animation: linearGradientMove .3s infinite linear;
+}
+@keyframes linearGradientMove {
+  100% {
+      background-position: 7px 0, -7px 100%, 0 -7px, 100% 7px;
+  }
 }
 
 .vid {
@@ -660,35 +665,38 @@ text-align: center;
   animation: linearGradientMove2 .3s infinite linear;
 }
 
-@keyframes linearGradientMove {
-  100% {
-      background-position: 7px 0, -7px 100%, 0 -7px, 100% 7px;
-  }
-}
+
 @keyframes linearGradientMove2 {
   100% {
       background-position: -7px 0, 7px 100%, 0 7px, 100% -7px;
   }
 }
 
-.vload{
-  display: inline-block;
-  position: relative;
-  color: #f00;
+.aud {
+  background: 
+      linear-gradient(90deg, #aaa 50%, transparent 0) repeat-x,
+      linear-gradient(90deg, #aaa 50%, transparent 0) repeat-x,
+      linear-gradient(0deg, #aaa 50%, transparent 0) repeat-y,
+      linear-gradient(0deg, #aaa 50%, transparent 0) repeat-y;
+  background-size: 15px 2px, 15px 2px, 2px 15px, 2px 15px;
+  background-position: 0 0, 0 100%, 0 0, 100% 0;
 }
-.vload:after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #f00;
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
+.aud:hover {
+  animation: linearGradientMove2 .3s infinite linear;
 }
-.vload:hover:after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
+.aud-toggle {
+  transition: opacity 0.5s ease;
+}
+.aud-container{
+  transition: background-color 0.5s ease;
+    position: relative;
+    display: inline-block;
+}
+.aud-container img:first-child {
+  opacity: 1; 
+}
+@keyframes linearGradientMove2 {
+  100% {
+      background-position: -15px 0, 15px 100%, 0 15px, 100% -15px;
+  }
 }

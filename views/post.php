@@ -3,10 +3,14 @@
     <div class="image-container">
         <?php $extension = pathinfo($postData['original'], PATHINFO_EXTENSION);
         $isVid = strtolower($extension) == 'mp4';
-        if ($isVid) { ?>
+        if (in_array($extension, ['mp4', 'avi', 'mov', 'mkv'])) { ?>
             <video style="max-width: 400px;" controls loop>
                 <source src="img/posts/original/<?php echo $postData['original']; ?>" type="video/mp4">
             </video>
+        <?php } else if (in_array($extension, ['mp3', 'm4a', 'wav', 'flac'])) { ?>
+            <audio style="max-width: 400px;" controls>
+                <source src="img/posts/original/<?php echo $postData['original']; ?>" type="audio/mp3">
+            </audio>
         <?php } else { ?>
             <picture style="max-width: 50%;"> <!-- id_post es en realidad el campo "animated" -->
                 <img src="img/posts/original/<?php echo $postData['original']; ?>" class="image" alt="Post Image">
