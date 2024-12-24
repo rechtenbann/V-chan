@@ -68,7 +68,12 @@ if (isset($_FILES['image'])) {
             } elseif ($extension == "jpeg" || $extension == "jpg") {
                 $image = imagecreatefromjpeg($imagePath);
             } elseif ($extension == "png") {
+                // Cargar la imagen PNG y asegurar que se preserve la transparencia
                 $image = imagecreatefrompng($imagePath);
+
+                // Habilitar la transparencia para el fondo de la imagen
+                imagealphablending($image, false); // Desactivar la mezcla de colores
+                imagesavealpha($image, true); // Mantener la transparencia en el PNG
             } else {
                 echo "Formato de imagen no soportado.";
                 exit;
@@ -78,8 +83,13 @@ if (isset($_FILES['image'])) {
             $width = 150;
             $height = (imagesy($image) / imagesx($image)) * $width;
 
-            // Crear una nueva imagen redimensionada
-            $resizedImage = imagescale($image, $width, $height);
+            // Crear una nueva imagen redimensionada con transparencia preservada
+            $resizedImage = imagecreatetruecolor($width, $height);
+            imagealphablending($resizedImage, false); // Desactivar la mezcla de colores
+            imagesavealpha($resizedImage, true); // Mantener la transparencia
+
+            // Copiar y redimensionar la imagen original en la nueva imagen
+            imagecopyresampled($resizedImage, $image, 0, 0, 0, 0, $width, $height, imagesx($image), imagesy($image));
 
             // Definir el nombre para la versión redimensionada en PNG
             $previewFileName = $lid . ".png"; // Usamos el ID para el nombre de archivo en la carpeta "preview"
@@ -111,3 +121,4 @@ if (isset($_FILES['image'])) {
 $section = "upload";
 $title = "Upload";
 require_once "views/layout.php";
+?>

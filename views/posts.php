@@ -33,11 +33,11 @@
                     $isAud = strtolower($extension) == 'mp3';
                     ?>
                     <a href="post.php?id=<?php echo $post['id'] ?>" style="text-decoration: none;">
-                    <img class="post <?php if($isGif){echo "gif-toggle gif";}else if($isVid){echo "vid vload";}else if($isAud){echo "aud aud-toggle aud-container";}?>" 
+                    <img class="post <?php if($isGif){echo "gif-toggle gif";}else if($isVid){echo "vid vload";}else if($isAud){echo "aud aud-toggle aud-container";}else{echo "gif-toggle";}?>" 
                          src="img/posts/preview/<?php echo $post['image']; ?>" 
                          height=200 width=150 
                          style="<?php if(in_array(strtolower($extension), ['mp3', 'm4a', 'wav', 'flac'])){echo "object-fit: contain;";}else{echo "object-fit: cover;";}?> padding:2px;"
-                         <?php if(isset($post['original'])){?>data-gif="img/posts/original/<?php echo $post['original'];}?>">
+                         <?php if(isset($post['original'])){?>data-gif="img/posts/original/<?php echo $post['original'];}?>" title="<?php echo $post['title']?>">
                     </a>
                 <?php }
             } else { ?>
